@@ -91,13 +91,24 @@ Reference files the skills read:
 
 - **`.claude/reference/email-samples.md` is a placeholder.** Until it holds real samples,
   `/full-outreach` produces structurally correct but generically voiced copy.
-- **Identity placeholders.** `full-outreach.md` carries `{{TODO}}` for the sending address
-  and calendar link. The calendar link appears in five touches.
+- **No booking link, by decision.** Every CTA is a plain time proposal and the reply is the
+  booking mechanism. That makes the proposed slots load-bearing — they must be specific and
+  named in the prospect's local time zone. `/full-outreach` is forbidden from inserting a
+  calendar URL anywhere.
 - **No SimilarWeb MCP** in the current environment. Traffic data must be supplied per
   company, or research falls back to web-search estimates.
 - **The success case library is LATAM-weighted.** Tier 1 matches for APAC prospects are
   thin. `/full-outreach` searches y.uno before defaulting and is forbidden from implying a
-  LATAM case's numbers came from Asia. Internal APAC references would fix this.
+  LATAM case's numbers came from Asia.
+- **APAC references have no results on file.** NetEase Games and Garena are logged as APAC
+  gaming references, but neither carries verified metrics, and Garena's relationship has no
+  public confirmation. Until Prateek supplies markets, problem solved and three sourced
+  results per case, they are relevance signals only — never quantified E4 proof, and never
+  named in writing unless the relationship is public. Gaming is the largest industry in the
+  target list (139 accounts), so this is the highest-value gap to close.
+- **`y.uno` is blocked by this environment's egress proxy.** WebSearch against the domain
+  works; WebFetch of a y.uno page fails. Research agents should not spend fetch budget
+  retrying it.
 
 ## 6. Data
 

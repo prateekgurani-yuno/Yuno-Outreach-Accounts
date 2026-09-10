@@ -368,7 +368,6 @@ Render exactly this, filling `{placeholders}` with researched values:
 **ICP Score:** {X} / 24 → {tier emoji + label}
 **Industry:** {from research} · **HQ:** {from research} · **Researched:** {YYYY-MM-DD} · **First email sent:** —
 **Motion:** {Greenfield / Displacement / In-house / Competitive}
-**Calendar:** [{calendar link}]({calendar link})
 
 ---
 

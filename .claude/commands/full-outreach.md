@@ -11,14 +11,14 @@ Generate the full 12-touch sequence: 5 auto-written emails + 4 LinkedIn messages
 placeholders across 23 days.
 
 Phases:
-- **Phase 1 — Curiosity (Days 1–5):** observations only, no projected pain, no calendar
-  link. E1 lands observations + soft CTA. E2 walks through the Yuno mechanism mapped to the
+- **Phase 1 — Curiosity (Days 1–5):** observations only, no projected pain, no meeting
+  ask. E1 lands observations + soft CTA. E2 walks through the Yuno mechanism mapped to the
   sharpest E1 observation + opt-out. LK1 echoes the strongest observation.
-- **Phase 2 — Diagnosis (Days 7–9):** assertions about likely pain, calendar-direct CTA.
+- **Phase 2 — Diagnosis (Days 7–9):** assertions about likely pain, direct meeting request.
 - **Phase 3 — Proof (Days 11–17):** matched success case with quantified results (E4), two
-  manual creative touches (E5, E6), hard LK CTA (LK3).
+  manual creative touches (E5, E6), hard LK ask (LK3).
 - **Between phases (Day 19):** E7 manual creative bridge.
-- **Phase 4 — Breakup (Days 21–23):** final hard LK CTA (LK4), soft break-up email (E8).
+- **Phase 4 — Breakup (Days 21–23):** final hard LK ask (LK4), soft break-up email (E8).
 
 Voice is direct, peer-level, humble. First-person ("I work at Yuno"), conversational, never
 sales-y. Yuno is always additive, never replacement.
@@ -30,12 +30,14 @@ sales-y. Yuno is always additive, never replacement.
 - **Name:** Prateek Gurani
 - **Company:** Yuno
 - **Territory:** APAC
-- **Email:** `{{TODO: prateek's sending address}}`
-- **Calendar:** `{{TODO: calendar link}}`
+- **Email:** prateek.gurani@y.uno
+- **Booking link:** none. Prateek does not use one.
 
-> **Both placeholders must be filled before any sequence is sent.** If either still reads
-> `{{TODO...}}`, draft the sequence but flag it prominently in the chat summary — the
-> calendar link appears in five touches and a broken link kills the CTA.
+> **No booking link exists, by decision.** Every CTA in this sequence is a plain time
+> proposal — *"would Tuesday 3pm work?"* — and the reply itself is the booking mechanism.
+> Never insert a calendar URL, a Calendly-style link, or a "grab a slot here" line anywhere
+> in the sequence. This makes the proposed times load-bearing: they must be specific,
+> plausible in the prospect's local zone, and varied across the sequence.
 
 ---
 
@@ -54,8 +56,9 @@ If no company name is provided, stop and ask Prateek.
 
 ## Step 0 — Parse arguments and detect day
 
-Auto-detect today's date. Calculate CTA day suggestions for the five calendar-direct touches
-(E3, LK2, E4, LK3, LK4):
+Auto-detect today's date. Calculate CTA day suggestions for the five meeting-request touches
+(E3, LK2, E4, LK3, LK4). With no booking link, these proposed times are the entire CTA —
+a vague ask has nothing to fall back on:
 
 - Propose meeting times **2–3 business days after the next business day**. Skip weekends.
 - **Time zones matter in this territory.** Prateek sits in IST. A prospect in Japan, Korea or
@@ -132,9 +135,9 @@ commitments, objections raised.
 - **E1 hook:** replace the cold opener with a relationship reference if a real touchpoint
   exists.
 - **Pain vector selection:** prioritize pains they already told us about.
-- **CTA calibration:** warm with no objections → calendar-direct from Phase 1. Cold or
-  stalled → soft through Phase 1, calendar-direct Phase 2+. Timing objection → drop the
-  calendar push entirely, reframe as low-pressure catch-up, and end Phase 4 with an explicit
+- **CTA calibration:** warm with no objections → propose times from Phase 1. Cold or
+  stalled → soft through Phase 1, time proposals Phase 2+. Timing objection → drop the
+  meeting push entirely, reframe as low-pressure catch-up, and end Phase 4 with an explicit
   *"happy to circle back in [their stated timeframe]"*.
 - **E4 success case:** match against any competitor or pain area they named.
 
@@ -279,7 +282,7 @@ markers only.
 
 ### Phase 1 — Curiosity (Days 1–5)
 
-Goal: get a reply, not a meeting. No projected pain. No calendar link.
+Goal: get a reply, not a meeting. No projected pain. No meeting ask.
 
 #### Touch 1 — Email 1 · Day 1
 
@@ -302,7 +305,7 @@ Goal: get a reply, not a meeting. No projected pain. No calendar link.
 **Subject:** ≤6 words, describing the strongest observation, no question marks. Examples:
 *"UPI gap on your IN checkout"*, *"Single acquirer across 9 markets"*, *"No konbini on your JP flow"*.
 
-**Hard:** no calendar link, no opt-out line (that's E2).
+**Hard:** no meeting ask, no opt-out line (that's E2).
 
 #### Touch 2 — Email 2 · Day 3 · REPLY IN THREAD
 
@@ -338,7 +341,7 @@ Goal: get a reply, not a meeting. No projected pain. No calendar link.
 Lead with **one** mechanism. E2 stays surgical.
 
 **Never:** auth-rate numbers or revenue claims in E2 (those belong in E4 with sources);
-claims without mechanism; a calendar link; repeating E1's Yuno identity line verbatim;
+claims without mechanism; a meeting ask; repeating E1's Yuno identity line verbatim;
 filler like *"circling back"*.
 
 #### Touch 3 — LinkedIn message 1 · Day 5
@@ -349,7 +352,7 @@ filler like *"circling back"*.
 > email. Quick one: [single sharpest observation from the E1 set]. Curious if that maps to
 > anything you're working through on the payments side.*
 
-**Hard:** no calendar link.
+**Hard:** no meeting ask.
 
 ---
 
@@ -371,8 +374,9 @@ companies with similar setups"*.
 5. **Yuno re-state (different framing than E1):** *"At Yuno (a16z-backed, top-100 fintech),
    we sit above your existing PSPs so you can [benefit relevant to the hypothesis] — keep
    your stack, add what's missing."*
-6. **Calendar-direct CTA:** *"[Day] is open for me — would [time] or [time] work for a quick
-   15 minutes?"* + calendar link on its own line. Times in the prospect's local zone.
+6. **Meeting-request CTA:** *"[Day] is open for me — would [time] or [time] work for a quick
+   15 minutes?"* Times in the prospect's local zone, named as such (*"3pm your time"*). No
+   link — the reply is the booking.
 7. Sign-off
 
 **Additive framing required from here on:** *"keep your stack, add what's missing."*
@@ -383,9 +387,7 @@ companies with similar setups"*.
 
 > *Hey {{recipient.first_name}} — sent a longer note over email this week. Short version:
 > [pointed pain hypothesis in one sentence]. If that's anywhere on your radar, would [day]
-> or [day] at [time] work for a quick 15?*
->
-> *[calendar link]*
+> or [day] at [time] your time work for a quick 15?*
 
 ---
 
@@ -405,7 +407,7 @@ companies with similar setups"*.
 6. **3 bullets with quantified results**, one carrying a parenthetical aside —
    *"(pretty solid, right?)"* / *"(not too bad, right?)"* / *"(you read that right)"*
 7. **Additive framing:** *"Same orchestration layer above their existing stack — no rip-out."*
-8. **Calendar-direct CTA** (different day/time from E3 and LK2)
+8. **Meeting-request CTA** (different day/time from E3 and LK2, prospect-local, no link)
 9. **Case study link:** *"Full case here if useful: [URL]"*
 10. Sign-off (different from E3)
 
@@ -429,12 +431,10 @@ Placeholder only. Different format from E5.
 
 #### Touch 9 — LinkedIn message 3 · Day 17
 
-~40–60 words. Hard calendar CTA, proof-anchored.
+~40–60 words. Hard meeting ask, proof-anchored.
 
 > *Hey {{recipient.first_name}} — [Customer from E4] [one-line result]. Worth 15 minutes to
-> see if it maps to your setup? [day] at [time] is open.*
->
-> *[calendar link]*
+> see if it maps to your setup? [day] at [time] your time is open.*
 
 ---
 
@@ -453,9 +453,7 @@ a hire, a market entry, a shared event, a mutual contact.
 ~30–50 words. Stripped down — just the ask.
 
 > *Hey {{recipient.first_name}} — last LK ping from me on this. If timing works, [day] at
-> [time] is open for a quick 15.*
->
-> *[calendar link]*
+> [time] your time is open for a quick 15.*
 
 **Differentiation from LK3:** LK3 leads with proof; LK4 doesn't. Don't repeat the case study
 line. If LK4 needs more, surface one fresh unused angle from research.
@@ -467,7 +465,8 @@ line. If LK4 needs more, surface one fresh unused angle from research.
 1. Reply in thread, no new subject
 2. *"Going to stop pinging unless you want to pick this back up."*
 3. **Optional:** one parting offer — *"If timing's just off, happy to circle back in [Q+1]."*
-4. *"Calendar's here if it's ever useful: [calendar link]"*
+4. **Optional** one-line door-open: *"If it ever comes back up, just reply here."*
+   No link, no slot proposal — E8 is the soft exit.
 5. *"All the best, Prateek"*
 
 **Hard:** no guilt-trip language, no *"sorry I missed you"*, no fake urgency.
@@ -501,6 +500,37 @@ describes the pattern, not the prospect.
 | Viva Aerobus | Airlines | 75% failures recovered, $300+/tx | https://y.uno/success-cases |
 | Qatar Airways | Travel, global enterprise | Global rollout, enterprise scale | (credibility reference) |
 
+### APAC references — verified status: INCOMPLETE
+
+| Case | Industry / Pattern | Results | Verification status |
+|---|---|---|---|
+| NetEase Games | Gaming, multi-region, China-HQ | **None on file** | Named as a Yuno gaming customer in third-party coverage. **No public case study with metrics located.** |
+| Garena | Gaming, Southeast Asia | **None on file** | Supplied by Prateek. **No public confirmation of the relationship located.** |
+
+**Rules for these two, until results are on file:**
+
+1. **Never attach a number to either.** There are no verified metrics for them in this repo.
+   Do not borrow a figure from another case, an industry benchmark, or Yuno's published
+   average and attribute it to NetEase or Garena. That is fabrication, and gaming buyers in
+   this territory know both companies well enough to check.
+2. **Naming rule.** Only name a customer in a cold email where the relationship is
+   **publicly** referenceable — a public case study, a press release, or a logo on Yuno's
+   own site. A customer relationship Prateek knows internally but that is not public is
+   usable in conversation on a call; putting it in writing to a third party is a
+   confidentiality question, not a copy question. When in doubt, ask Prateek before sending,
+   not after.
+3. **What they are good for right now:** relevance signalling in Phase 2 or a manual touch —
+   *"we work with gaming companies operating across Southeast Asia"* — rather than as the
+   quantified E4 proof case, which needs numbers.
+4. **To upgrade them to Tier 1 proof**, Prateek needs to supply, per case: markets covered,
+   the specific problem solved, and 3 quantified results with an internal or public source.
+   Ask for this whenever a gaming prospect enters the pipeline — Gaming is the single
+   largest industry in the APAC target list (139 accounts).
+
+> **Environment note:** `y.uno` is blocked by this environment's egress proxy. WebSearch
+> against the domain returns results, but WebFetch of a y.uno page will fail. Do not spend
+> fetch budget retrying it — search, or ask Prateek to paste the page.
+
 **Default credibility refs when no specific case fits:** Uber, McDonald's, Qatar Airways.
 
 **Vertical shortcuts for the current P1 queue:**
@@ -511,6 +541,10 @@ describes the pattern, not the prospect.
 - **Streaming / OTT with a diaspora audience:** no clean case in the library. Search y.uno
   first; otherwise Tier 2 on the multi-country recurring pattern (Open English) and be
   explicit that it's a pattern match.
+- **Gaming:** NetEase Games and Garena are the relevant APAC references, but neither has
+  verified results on file — see the rules above. For a quantified E4, fall back to a Tier 2
+  pattern match (inDrive for multi-country scale, Rappi for provider breadth) and say plainly
+  that it's a pattern match, not a gaming case.
 
 **Before defaulting to this table for any APAC prospect**, WebSearch
 `site:y.uno success case [industry keywords]` and `site:y.uno newsroom [market or vertical]`.
@@ -671,7 +705,8 @@ matched success case.
 - Cite an APAC regulatory rule not verified in the research file
 - Imply a LATAM case study's results came from an Asian market
 - Open a displacement account with "you have no orchestration layer"
-- Use the calendar link in Phase 1 (E1, E2, LK1)
+- Ask for a meeting in Phase 1 (E1, E2, LK1)
+- Insert a booking link anywhere — none exists
 - Stack more than 3 observations in E1
 - Apologize for silence between touches
 - Mention Yuno competitors
@@ -689,7 +724,7 @@ matched success case.
 - Propose meeting times in the prospect's local time zone
 - Fact-check every number, market, PSP and stakeholder claim against research
 - Source-tag every prospect-specific factual claim in Source Notes
-- Vary day/time slots across all five calendar-direct CTAs
+- Vary day/time slots across all five meeting-request CTAs, and name the prospect's time zone
 - Vary sign-offs — *"Best,"* / *"Cheers,"* / *"All the best,"* / *"Looking forward to it,"*
 
 ---
@@ -697,7 +732,7 @@ matched success case.
 ## Self-review checklist (before output)
 
 - [ ] Motion checked; displacement/in-house override applied if applicable
-- [ ] Phase 1: no projected pain, no calendar link
+- [ ] Phase 1: no projected pain, no meeting ask
 - [ ] E2 walks the mechanism factually (no percentages, no revenue claims)
 - [ ] E2 maps to **one** sharpest E1 observation, includes cadence + opt-out, doesn't repeat E1's Yuno line
 - [ ] Bridge variant matches the setup, rationale logged
@@ -707,7 +742,8 @@ matched success case.
 - [ ] E4 case tier flagged; no LATAM case implied as APAC
 - [ ] E5, E6, E7: placeholders only
 - [ ] LK3 proof-anchored; LK4 stripped down; E8 short and pressure-free
-- [ ] Five distinct day/time combos, all in prospect-local time
+- [ ] Five distinct day/time combos, all named in prospect-local time
+- [ ] No booking link anywhere in the sequence
 - [ ] No em dashes as separators, no buzzwords, no competitors named
 - [ ] Source Notes complete
 - [ ] Subscription fork applied if applicable; app-store split checked
@@ -723,4 +759,6 @@ matched success case.
 - **Competitive motion with no concrete gap found:** flag rather than sending a weak sequence.
 - **No clean success case:** WebSearch y.uno first, then Tier 3 defaults, flag the tier.
 - **Hard objection in past interaction:** stop and ask Prateek.
-- **Identity placeholders still unfilled:** draft, but flag prominently.
+- **Prospect in a market Prateek can't reasonably meet live** (e.g. a narrow overlap window
+  with no workable slot): propose an async alternative — a short recorded walkthrough or a
+  written teardown — rather than a slot that cannot happen.
