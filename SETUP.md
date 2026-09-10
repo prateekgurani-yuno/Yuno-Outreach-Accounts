@@ -89,8 +89,11 @@ Reference files the skills read:
 
 ## 5. Known gaps
 
-- **`.claude/reference/email-samples.md` is a placeholder.** Until it holds real samples,
-  `/full-outreach` produces structurally correct but generically voiced copy.
+- **The voice anchor holds one sample.** `.claude/reference/email-samples.md` carries the
+  Viu long-form email plus a rulebook-compliant compression of it, and the standing
+  precedence rule: the samples supply the voice, `full-outreach.md` wins on conflict. Two
+  gaps remain — no short-form first touch (under 150 words) and no LinkedIn sample, so
+  LK1–LK4 are still drafted from the rulebook templates alone.
 - **No booking link, by decision.** Every CTA is a plain time proposal and the reply is the
   booking mechanism. That makes the proposed slots load-bearing — they must be specific and
   named in the prospect's local time zone. `/full-outreach` is forbidden from inserting a

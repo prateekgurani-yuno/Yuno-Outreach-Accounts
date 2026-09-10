@@ -97,13 +97,34 @@ entire angle — see Step 6a.
 
 Read `.claude/reference/email-samples.md`.
 
-**If that file is still the unfilled placeholder, stop and tell Prateek.** The sequence
-structure can be generated without it, but the voice will be generic, and generic is the one
-thing this sequence is designed not to be. Ask whether to proceed anyway.
+**Precedence — Prateek's standing instruction:** *"Use mix of both, Yamin's rulebook overrule
+mine."* The samples supply the voice; **this skill wins on conflict.** The already-resolved
+conflicts are tabled in the samples file — opening pleasantries, em dashes as separators,
+vague CTAs, asserting pain as fact, implied additive framing, and mid-email customer lists
+all lose to the rulebook. Do not re-litigate them per prospect.
 
-The samples anchor *tone*; this skill anchors *structure*. Full-outreach is shorter and more
-direct than long-form samples: short factual bullets in Phase 1, assertion-led prose in
-Phase 2.
+Where this skill is **silent**, the samples govern. Carry these habits into every draft:
+
+- **Ground observations in the prospect's own documents** — their Terms, annual results,
+  help centre — and quote the phrase. Stronger than any third-party source, and the most
+  repeatable move in the sample set.
+- **Name an asymmetry inside the prospect's own stack** where one exists. Contrasting two of
+  their systems against each other beats an external benchmark: they cannot dispute either
+  half. (Sample 1: operator rails retry until the balance tops up, the card book gets one
+  attempt and calls it churn.)
+- **One embedded discovery question**, in E3 or E4 only — something easy to answer that is
+  not yes/no to a meeting. Never in Phase 1, which stays observational.
+- **A diplomatic clause** when an observation stings: *"not because anyone's doing it badly."*
+- **Multi-threading in the sign-off:** *"If [area] sits elsewhere, happy to be pointed there."*
+
+**Length calibration.** The samples are long-form single emails, not sequence touches.
+Sample 1's density belongs in **E3 and E4**, where assertion and proof are allowed. Phase 1
+stays short: 2–3 factual bullets, no imported density. If a sample and a touch's word budget
+disagree, the word budget wins.
+
+**Coverage gaps in the sample set** — flag these to Prateek rather than inventing a voice:
+no short-form first touch under 150 words, and no LinkedIn sample at all, so LK1–LK4 are
+drafted from the rulebook templates alone.
 
 ---
 
