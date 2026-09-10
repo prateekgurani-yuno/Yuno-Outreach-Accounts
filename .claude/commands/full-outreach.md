@@ -1,0 +1,726 @@
+---
+name: full-outreach
+description: Generate the complete 12-touch outreach sequence for an APAC prospect — 5 auto-written emails + 4 LinkedIn messages + 3 manual placeholders across 23 days. Direct voice, observation-led, no pain projection. Escalates curiosity → hypothesis → proof → close. Composes into the existing 2-ready-to-outreach/{name}.md file's Section 2.
+argument-hint: <company-name> [| optional context] [| past interactions]
+allowed-tools: Read, Edit, Glob, Bash, WebSearch, WebFetch
+---
+
+# /full-outreach
+
+Generate the full 12-touch sequence: 5 auto-written emails + 4 LinkedIn messages + 3 manual
+placeholders across 23 days.
+
+Phases:
+- **Phase 1 — Curiosity (Days 1–5):** observations only, no projected pain, no calendar
+  link. E1 lands observations + soft CTA. E2 walks through the Yuno mechanism mapped to the
+  sharpest E1 observation + opt-out. LK1 echoes the strongest observation.
+- **Phase 2 — Diagnosis (Days 7–9):** assertions about likely pain, calendar-direct CTA.
+- **Phase 3 — Proof (Days 11–17):** matched success case with quantified results (E4), two
+  manual creative touches (E5, E6), hard LK CTA (LK3).
+- **Between phases (Day 19):** E7 manual creative bridge.
+- **Phase 4 — Breakup (Days 21–23):** final hard LK CTA (LK4), soft break-up email (E8).
+
+Voice is direct, peer-level, humble. First-person ("I work at Yuno"), conversational, never
+sales-y. Yuno is always additive, never replacement.
+
+---
+
+## Identity
+
+- **Name:** Prateek Gurani
+- **Company:** Yuno
+- **Territory:** APAC
+- **Email:** `{{TODO: prateek's sending address}}`
+- **Calendar:** `{{TODO: calendar link}}`
+
+> **Both placeholders must be filled before any sequence is sent.** If either still reads
+> `{{TODO...}}`, draft the sequence but flag it prominently in the chat summary — the
+> calendar link appears in five touches and a broken link kills the CTA.
+
+---
+
+## Inputs
+
+`$ARGUMENTS` split on `|`:
+- **Segment 1 (required):** Company name.
+- **Segment 2 (optional):** Brief context — *"met at Seamless Asia"*, *"warm intro from X"*.
+- **Segment 3 (optional):** Past interaction history (Salesforce activity, meeting notes,
+  prior threads). Free-form.
+
+If Segment 2 reads as detailed past-interaction data, treat it as Segment 3.
+If no company name is provided, stop and ask Prateek.
+
+---
+
+## Step 0 — Parse arguments and detect day
+
+Auto-detect today's date. Calculate CTA day suggestions for the five calendar-direct touches
+(E3, LK2, E4, LK3, LK4):
+
+- Propose meeting times **2–3 business days after the next business day**. Skip weekends.
+- **Time zones matter in this territory.** Prateek sits in IST. A prospect in Japan, Korea or
+  ANZ has a narrow overlap window — propose slots that work for the prospect's local
+  business hours, not Prateek's convenience. For ANZ, morning IST is afternoon local; for
+  Japan/Korea, late morning IST is mid-afternoon local; for SEA, most of the day overlaps.
+  State times in the prospect's local time zone.
+- Default slots: morning (10 or 11 AM) or afternoon (3 or 4 PM) prospect-local. Vary across
+  the sequence — five distinct day/time combos.
+- **Check the market's working week.** Most of APAC runs Mon–Fri; do not propose a slot that
+  lands on a local public holiday if research surfaced one.
+
+**Contact name:** use the `{{recipient.first_name}}` placeholder throughout. Never guess.
+
+---
+
+## Step 1 — Load research file
+
+This skill READS, MODIFIES, WRITES — it does not create a new file. The sequence composes
+INTO the existing file's Section 2 collapsible.
+
+Normalize the company name using the same rules as `/research`, then read
+`2-ready-to-outreach/{normalized-name}.md`. If the exact filename isn't found, Glob
+`*{normalized-name}*` in that folder. Multiple matches: list them and ask.
+No file: stop and tell Prateek to run `/research [Company]` first.
+
+**Verify structure:** the file must contain a Section 2 `<details>` block with the
+placeholder text. If the placeholder is already replaced, stop and ask before overwriting.
+
+**Read the ICP breakdown and the Motion line in the header.** The motion determines the
+entire angle — see Step 6a.
+
+---
+
+## Step 2 — Load voice anchor
+
+Read `.claude/reference/email-samples.md`.
+
+**If that file is still the unfilled placeholder, stop and tell Prateek.** The sequence
+structure can be generated without it, but the voice will be generic, and generic is the one
+thing this sequence is designed not to be. Ask whether to proceed anyway.
+
+The samples anchor *tone*; this skill anchors *structure*. Full-outreach is shorter and more
+direct than long-form samples: short factual bullets in Phase 1, assertion-led prose in
+Phase 2.
+
+---
+
+## Step 3 — Subscription fork
+
+If the research indicates subscription, recurring revenue, SaaS or membership, read
+`.claude/reference/subscription-payments.md`.
+
+**First, check §4 of that file — the app-store trap.** If the research shows revenue is
+dominated by Apple/Google IAP, stop and flag to Prateek before drafting. Orchestration
+cannot touch that revenue and the sequence will not survive a reply.
+
+Apply subscription data in:
+- **Phase 2 (E3):** involuntary churn, first-renewal drop-off, retry and network token
+  coverage, and — for India-heavy prospects — e-mandate and UPI Autopay handling
+- **Phase 3 (E4):** subscription-vertical success case; benchmarks inside bullets
+
+**Do not** force subscription pain into Phase 1 — that is hypothesis-grade, and Phase 1 is
+observation-only.
+
+---
+
+## Step 4 — Past interaction parsing (if Segment 3 provided)
+
+Extract: people, timeline, topics and pains already surfaced, deal status, sentiment, open
+commitments, objections raised.
+
+**Application:**
+- **E1 hook:** replace the cold opener with a relationship reference if a real touchpoint
+  exists.
+- **Pain vector selection:** prioritize pains they already told us about.
+- **CTA calibration:** warm with no objections → calendar-direct from Phase 1. Cold or
+  stalled → soft through Phase 1, calendar-direct Phase 2+. Timing objection → drop the
+  calendar push entirely, reframe as low-pressure catch-up, and end Phase 4 with an explicit
+  *"happy to circle back in [their stated timeframe]"*.
+- **E4 success case:** match against any competitor or pain area they named.
+
+**Do not** use past interaction data if it's stale enough to feel like padding, references a
+fallen-through deal in a way that creates pressure, or would make the email awkward.
+
+---
+
+## Step 5 — Pain Vector Extraction (MANDATORY · output before drafting)
+
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: [Greenfield / Displacement / In-house / Competitive]  ← from the research header
+
+Observable setup facts (from research, with sources):
+- [Fact 1] — source: [where]
+- [Fact 2] — source: [where]
+- ...
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. [Setup signal] → [observation phrasing for E1]
+2. [Setup signal] → [observation phrasing for E1]
+3. [Setup signal] → [observation phrasing for E1]
+   (Flex 2–3 based on research strength. Never pad to 3.)
+
+Bridge variant: [A — complexity / B — limitations / C — friction / SKIP]
+Rationale: [why this variant fits this specific setup]
+
+Hypothesis for Phase 2 (E3):
+Most likely pain based on observations: [one sentence]
+Backing logic: [why these observations point to this pain at this prospect's volume /
+vertical / stage / market mix]
+
+Success case for Phase 3 (E4):
+Selected case: [Customer name]
+Tier: [1 = exact industry match / 2 = same payment pattern / 3 = credibility default]
+Match rationale: [why this case fits]
+Numbers to lead with: [3 results from the case]
+Optional benchmark: [verified benchmark with source — or SKIP]
+
+Touch-by-touch angles:
+- E2 angle: [sharpest E1 observation] → [specific Yuno mechanism, per the E2 mapping table]
+- LK1 angle: [single sharpest observation from E1 set]
+- LK2 angle: [pointed one-sentence version of the Phase 2 hypothesis]
+- LK3 angle: [one-line proof point from E4]
+- LK4 angle: [final stripped-down hook]
+- E8 angle: [optional final observation, OR clean exit]
+```
+
+**Materiality test:** how much operational or revenue pain does this signal create for *this
+specific* prospect, given their volume, geography, vertical and stage? A missing rail matters
+most when it dominates the prospect's #1 market. A single-PSP dependency matters more at
+scale. Never default to "APMs and cross-border" for everyone.
+
+---
+
+## Step 6 — Signal → observation → hypothesis grid
+
+| Setup signal | Phase 1 observation phrasing | Phase 2 hypothesis angle |
+|---|---|---|
+| Single PSP dependency | *"Your checkout shows [PSP] across all [N] markets — single processor, no fallback visible."* | "If [PSP] degrades during a peak window, the whole flow is exposed. Rate leverage on one processor is structurally weaker too." |
+| Multiple PSPs in parallel | *"You're running [PSP A] in [market] and [PSP B] in [market] — two parallel stacks."* | "Reconciliation across two ledgers eats finance ops time; routing logic spread across teams creates blind spots." |
+| No entity in a top market | *"Your top 3 markets include [country], but there's no entity there."* | "Locally-issued cards acquired cross-border tend to see materially lower approval rates than local acquiring, plus FX on top." |
+| Regulatory acquiring gate | *"You're live in [country], where domestic acquiring effectively needs local presence or a licensed partner."* | "That usually means the local rail is either unavailable or routed through a workaround — both cap what the market can convert." |
+| Missing dominant local rail | *"You're live in [country] but [rail] isn't on the checkout."* | "[Rail] carries a large share of online payments in [country] — card-only checkouts there tend to leak at the cart." |
+| Missing instalments in a high-ticket market | *"Your [India/Japan/Taiwan] checkout is full-ticket only — no EMI or instalment option visible."* | "High-ticket categories in that market convert heavily on instalments; full-ticket-only checkouts tend to lose the mid-funnel." |
+| Recurring on cards in India | *"You're billing recurring on cards for Indian subscribers."* | "Indian recurring sits under the RBI e-mandate rules — mandate registration, AFA, pre-debit notification. Retry logic built for other markets usually doesn't survive it, and UPI Autopay is the local rail." |
+| Diaspora / outbound cross-border | *"Your traffic is [X]% outside [home market] — US, UK, Gulf and Australia — but the stack looks built for [home market]."* | "Billing a diaspora audience from a home-market stack means every renewal is a cross-border auth against a foreign issuer." |
+| New market expansion signal | *"Your careers page lists [N] roles in [city], including [role]."* | "Standing up local acquiring per market is integration overhead; orchestration cuts that to one stack." |
+| Licence application | *"You applied for [licence] in [market] in [timeframe]."* | "Licence work usually creates parallel payment integration projects unless an orchestration layer absorbs them." |
+| Regional orchestrator incumbent | *"You're already running an orchestration layer across [markets]."* | "The question stops being whether to orchestrate and becomes reach — global PSP and rail coverage as [Company] moves outside [home region]." |
+| In-house orchestration layer | *"You've built the routing layer in-house across [N] providers."* | "In-house works until the provider count and market count grow faster than the team. The cost shows up as engineering time, not as a line item." |
+| High-risk vertical | *"You're operating in [vertical] with [acquirer set] across [markets]."* | "MCC-driven auth drag and chargeback exposure usually push high-risk operators toward acquirer diversification." |
+| Review / app-store friction | *"Your Play Store reviews from [country] flag payment failures — [N] of the last 50 mentions."* | "Reviews citing failures are usually the visible edge of an auth-rate problem or a missing local rail." |
+
+### 6a. Motion overrides — read before drafting
+
+The research header carries a **Motion**. It changes what Phase 1 may claim:
+
+- **Greenfield** (no orchestrator): the standard sequence. Observations can note the absence
+  of a routing layer.
+- **Displacement** (regional orchestrator such as Juspay confirmed): **never open with "you
+  have no orchestration."** It is factually wrong and burns the thread. Open on coverage and
+  reach — global PSP and rail breadth outside the home region, multi-region routing,
+  international expansion the incumbent wasn't built for. Still never name the incumbent.
+- **In-house**: the merchant made a deliberate build decision. Respect it. Anchor on
+  opportunity cost and reach, not on the build being wrong.
+- **Competitive** (a global orchestrator is incumbent): hardest. Only proceed if research
+  surfaced a concrete gap. Otherwise flag to Prateek rather than sending a weak sequence.
+
+### 6b. Cross-border framing in APAC
+
+Unlike EMEA, there is **no regional interchange cap regime** — no APAC equivalent of the
+IFR. Cross-border framing is available across the territory, but it must be argued per
+corridor, not per region:
+
+- **Name the corridor**, never "APAC cross-border." *"Cards issued in India processed
+  against your Singapore entity"* is a claim; *"cross-border in APAC"* is noise.
+- **Lead with approval rate, not fee.** Domestic issuers in India, Indonesia, Japan and
+  Korea decline foreign-acquired transactions at higher rates than local-acquired ones.
+  Cite a source or keep it qualitative — never invent a percentage.
+- **FX is the second line** where local-currency pricing exists.
+- **Regulatory gating is the strongest line** where it applies: "the local rail is not
+  reachable at all without local presence" beats any fee argument.
+- **ANZ is the exception** — those stacks look most like EMEA/US, so the routing, failover
+  and cost-of-acceptance framing lands most directly there.
+
+Any specific regulatory claim must be verified live at research time. See
+`.claude/reference/apac-payments.md`.
+
+---
+
+## Step 7 — APAC rail reference
+
+Full detail in `.claude/reference/apac-payments.md` §2. Condensed for drafting:
+
+| Market | Expected rails | Typical gap on a global-only stack |
+|---|---|---|
+| India | UPI, cards/RuPay, netbanking, EMI, UPI Autopay | UPI, EMI, UPI Autopay for recurring |
+| Indonesia | QRIS, virtual account, GoPay/OVO/DANA, OTC cash | QRIS and virtual account almost always |
+| Malaysia | FPX, DuitNow, Touch 'n Go, Boost | FPX |
+| Thailand | PromptPay, TrueMoney, instalments | PromptPay |
+| Vietnam | MoMo, ZaloPay, VNPay/VietQR, NAPAS, COD | Most of them |
+| Philippines | GCash, Maya, InstaPay, OTC cash | GCash |
+| Singapore | PayNow, GrabPay, cards | PayNow |
+| Japan | konbini, PayPay, LINE Pay, Rakuten Pay, Paidy, instalments | konbini and PayPay |
+| South Korea | KakaoPay, Naver Pay, Toss, local card PG | Usually all — entity-gated |
+| China | Alipay, WeChat Pay, UnionPay | Requires licensed local path |
+| Hong Kong | FPS, Octopus, AlipayHK | FPS |
+| Taiwan | JKOPay, LINE Pay, ATM transfer, store cash, instalments | Most |
+| Australia | PayTo, BPAY, Afterpay, Zip | PayTo, BPAY |
+| New Zealand | Cards, POLi (verify availability), Afterpay | Local A2A |
+| Pakistan/Bangladesh | JazzCash, Easypaisa / bKash, Nagad, COD | Almost universally |
+
+---
+
+## Step 8 — Draft the 12 touches
+
+Draft all auto-written touches in sequence. For the three manual touches, output placeholder
+markers only.
+
+### Phase 1 — Curiosity (Days 1–5)
+
+Goal: get a reply, not a meeting. No projected pain. No calendar link.
+
+#### Touch 1 — Email 1 · Day 1
+
+~85–110 words.
+
+1. Greeting: *"Hey {{recipient.first_name}},"*
+2. Opener: *"Spent some time looking at [Company]'s payment setup. A few things stood out:"*
+   (or a relationship hook if past interaction exists)
+3. **2–3 short factual bullets** (flex; never pad to 3)
+4. **Transition line** (variant per Step 9):
+   - A: *"That kind of setup usually comes with some complexity."*
+   - B: *"At your stage, that kind of setup usually comes with some limitations."*
+   - C: *"That kind of setup usually has some friction worth checking on."*
+5. **Yuno line:** *"I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the
+   'everything payments' platform: one integration, every PSP, every method, every market."*
+6. **Soft meta-CTA:** *"Rather than pitch you based on assumptions, is there anything
+   payment-related you're working through that we might be able to help with?"*
+7. Sign-off: *"Best, Prateek"*
+
+**Subject:** ≤6 words, describing the strongest observation, no question marks. Examples:
+*"UPI gap on your IN checkout"*, *"Single acquirer across 9 markets"*, *"No konbini on your JP flow"*.
+
+**Hard:** no calendar link, no opt-out line (that's E2).
+
+#### Touch 2 — Email 2 · Day 3 · REPLY IN THREAD
+
+~110–140 words. No new subject.
+
+1. Greeting
+2. **Framing:** *"Following up — wanted to put a bit more behind what Yuno actually does, and
+   how it would address what I flagged."*
+3. **Yuno mechanism (3–4 short factual lines, not promotional):**
+   - Sits above existing PSPs — additive, no rip-out
+   - Routes per BIN, market and method to whichever rail performs best
+   - Automatic failover when a PSP degrades
+   - One integration to add new PSPs, rails, acquirers or methods
+4. **Map to the sharpest E1 observation (1–2 lines).**
+5. **Cadence + opt-out:** *"I'll keep sharing what I'm seeing every few days. If your stack's
+   where you want it, just say the word and I'll back off — otherwise happy to go deeper."*
+6. Sign-off (vary from E1)
+
+**Mapping reference — pick the one mechanism that fits the sharpest E1 observation:**
+
+| E1 observation type | Yuno mechanism to surface in E2 |
+|---|---|
+| Single PSP across markets | Smart routing across multiple acquirers + automatic failover |
+| Multi-PSP fragmentation | Unified reconciliation + single routing logic layer |
+| Missing local rail | One integration to add any method, no per-rail rebuild |
+| No entity / regulatory gate in a top market | Routing to local acquirers per geography |
+| New market expansion | One integration covers market entry — no per-country PSP build |
+| Recurring / subscription | Retry logic, network tokens, account updater in the routing layer |
+| Recurring in India | Local mandate rails alongside cards, handled in one integration |
+| Regional orchestrator incumbent | Global PSP and rail coverage beyond the home region |
+| Review-visible failures | Routing + retry logic typically lifts approval in flagged markets |
+
+Lead with **one** mechanism. E2 stays surgical.
+
+**Never:** auth-rate numbers or revenue claims in E2 (those belong in E4 with sources);
+claims without mechanism; a calendar link; repeating E1's Yuno identity line verbatim;
+filler like *"circling back"*.
+
+#### Touch 3 — LinkedIn message 1 · Day 5
+
+~40–60 words.
+
+> *Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than
+> email. Quick one: [single sharpest observation from the E1 set]. Curious if that maps to
+> anything you're working through on the payments side.*
+
+**Hard:** no calendar link.
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+Shift from curiosity to assertion. Use *"my read is"*, *"I'd bet"*, *"what I see at
+companies with similar setups"*.
+
+#### Touch 4 — Email 3 · Day 7 · NEW EMAIL
+
+~90–120 words.
+
+1. **Subject:** shifts toward the hypothesis — *"Quick read on your India exposure"*,
+   *"Single-PSP risk at your scale"*
+2. Greeting
+3. **Open with the hypothesis, no apology for silence:** *"Going to take a swing at this —
+   based on what I see, my read is [hypothesis in one sentence]."*
+4. **2–3 lines of backing logic** anchored to E1/E2 observations
+5. **Yuno re-state (different framing than E1):** *"At Yuno (a16z-backed, top-100 fintech),
+   we sit above your existing PSPs so you can [benefit relevant to the hypothesis] — keep
+   your stack, add what's missing."*
+6. **Calendar-direct CTA:** *"[Day] is open for me — would [time] or [time] work for a quick
+   15 minutes?"* + calendar link on its own line. Times in the prospect's local zone.
+7. Sign-off
+
+**Additive framing required from here on:** *"keep your stack, add what's missing."*
+
+#### Touch 5 — LinkedIn message 2 · Day 9
+
+~50–70 words.
+
+> *Hey {{recipient.first_name}} — sent a longer note over email this week. Short version:
+> [pointed pain hypothesis in one sentence]. If that's anywhere on your radar, would [day]
+> or [day] at [time] work for a quick 15?*
+>
+> *[calendar link]*
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · NEW EMAIL
+
+~130–160 words.
+
+1. **New subject** referencing the case: *"How [Customer] solved this"*
+2. Greeting
+3. **Bridge from hypothesis:** *"On the read I shared last week — sharing a quick example of
+   what solved looks like."*
+4. **[Optional] verified industry benchmark**, one line with source. Skip if unsourced.
+5. **Setup of the matched case:** *"[Customer], a [comparable descriptor], partnered with
+   Yuno to [solve a problem matching the Phase 2 hypothesis]. The results came fast:"*
+6. **3 bullets with quantified results**, one carrying a parenthetical aside —
+   *"(pretty solid, right?)"* / *"(not too bad, right?)"* / *"(you read that right)"*
+7. **Additive framing:** *"Same orchestration layer above their existing stack — no rip-out."*
+8. **Calendar-direct CTA** (different day/time from E3 and LK2)
+9. **Case study link:** *"Full case here if useful: [URL]"*
+10. Sign-off (different from E3)
+
+**Success case selection:** Tier 1 = exact industry + comparable footprint · Tier 2 = same
+payment pattern regardless of industry · Tier 3 = credibility defaults. If Tier 1 isn't
+available, flag the tier and rationale in the Extraction block.
+
+**APAC caveat — read this.** The verified case library (Step 10) is LATAM-weighted. For an
+APAC prospect a Tier 1 match will often not exist. Before defaulting, WebSearch
+`site:y.uno success case [industry keywords]` and `site:y.uno newsroom [APAC market or
+vertical]` for anything newer. **Do not APAC-ify a LATAM case** — if inDrive's results came
+from LATAM markets, say inDrive and say what it did; never imply the numbers came from Asia.
+Tier 2 framing ("same payment pattern, different region") is honest and works.
+
+#### Touch 7 — Email 5 · Day 13 · MANUAL
+Placeholder only. Prospect-specific business case, checkout teardown, Loom walkthrough,
+annotated screenshot, market data pull, mutual contact angle.
+
+#### Touch 8 — Email 6 · Day 15 · MANUAL
+Placeholder only. Different format from E5.
+
+#### Touch 9 — LinkedIn message 3 · Day 17
+
+~40–60 words. Hard calendar CTA, proof-anchored.
+
+> *Hey {{recipient.first_name}} — [Customer from E4] [one-line result]. Worth 15 minutes to
+> see if it maps to your setup? [day] at [time] is open.*
+>
+> *[calendar link]*
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · MANUAL
+Placeholder only. Manual creative bridge — anchor to something fresh: recent news, funding,
+a hire, a market entry, a shared event, a mutual contact.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21
+
+~30–50 words. Stripped down — just the ask.
+
+> *Hey {{recipient.first_name}} — last LK ping from me on this. If timing works, [day] at
+> [time] is open for a quick 15.*
+>
+> *[calendar link]*
+
+**Differentiation from LK3:** LK3 leads with proof; LK4 doesn't. Don't repeat the case study
+line. If LK4 needs more, surface one fresh unused angle from research.
+
+#### Touch 12 — Email 8 · Day 23 · REPLY IN THREAD to E3 or E4
+
+~40–70 words. Break-up. Polite, no pressure, door open.
+
+1. Reply in thread, no new subject
+2. *"Going to stop pinging unless you want to pick this back up."*
+3. **Optional:** one parting offer — *"If timing's just off, happy to circle back in [Q+1]."*
+4. *"Calendar's here if it's ever useful: [calendar link]"*
+5. *"All the best, Prateek"*
+
+**Hard:** no guilt-trip language, no *"sorry I missed you"*, no fake urgency.
+
+---
+
+## Step 9 — Bridge variant decision logic
+
+- **Variant A — Complexity:** multi-PSP + multi-market, 2+ visible processors, fragmented stack
+- **Variant B — Limitations:** single visible PSP + multi-market or growth signals
+- **Variant C — Friction:** signals are real but don't cleanly map to A or B
+
+**Skip the bridge** when observations already do the bridging work.
+
+**Hard rule:** always *"tends to"* or *"usually"* — never *"is"* or *"will."* The line
+describes the pattern, not the prospect.
+
+---
+
+## Step 10 — Success case library
+
+| Case | Industry / Pattern | Key result | URL |
+|---|---|---|---|
+| inDrive | Mobility, multi-country (50+) | ~90% approval, 10 new countries in 8 months | https://y.uno/success-cases/indrive |
+| Rappi | Super app, marketplace, multi-country | Zero implementation delays, hundreds of methods, 80% less analyst work | https://y.uno/success-cases/rappi |
+| McDonald's / Arcos Dorados | QSR, 21 countries | Unified processing across 21 countries, higher approvals | (internal — no public link) |
+| Livelo | Loyalty/rewards | 50% failed transactions recovered, +5% approval rate | https://y.uno/success-cases |
+| Reserva | E-commerce, single market | +4% approval rate in 3 months via smart routing | https://y.uno/success-cases |
+| Wingo | Airlines | +14% approval rates, 1,000+ payment methods | https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner |
+| Open English | EdTech, subscriptions, 30+ countries | Higher approval rates, faster market entry | https://y.uno/success-cases |
+| Viva Aerobus | Airlines | 75% failures recovered, $300+/tx | https://y.uno/success-cases |
+| Qatar Airways | Travel, global enterprise | Global rollout, enterprise scale | (credibility reference) |
+
+**Default credibility refs when no specific case fits:** Uber, McDonald's, Qatar Airways.
+
+**Vertical shortcuts for the current P1 queue:**
+- **Airlines / travel:** Wingo (Tier 1 pattern — airline, approval uplift), Viva Aerobus,
+  Qatar Airways as the enterprise credibility ref
+- **EdTech / subscriptions:** Open English (Tier 1 pattern — edtech, subscriptions,
+  multi-country)
+- **Streaming / OTT with a diaspora audience:** no clean case in the library. Search y.uno
+  first; otherwise Tier 2 on the multi-country recurring pattern (Open English) and be
+  explicit that it's a pattern match.
+
+**Before defaulting to this table for any APAC prospect**, WebSearch
+`site:y.uno success case [industry keywords]` and `site:y.uno newsroom [market or vertical]`.
+Ask Prateek for internal APAC references if the search comes up empty — flag it rather than
+stretching a LATAM case.
+
+---
+
+## Step 11 — Industry overrides
+
+- **B2B SaaS / AI / Cybersecurity / Hosting:** rail-gap framing is usually *wrong*. Anchor on
+  cross-border card processing, approval rates by issuer geography, failover.
+- **Streaming / OTT / Dating / Subscription apps:** recurring auth optimization + rail
+  coverage in top subscriber markets. Check the app-store split first (Step 3).
+- **EdTech:** high-ticket fees, instalments and EMI, recurring collection under local mandate
+  rules, international student payments.
+- **Airlines / OTA / Travel:** cross-border on bookings, currency mix, high ticket value,
+  peak-demand routing, instalments in India/Japan/Taiwan.
+- **Gaming / esports:** wallet and carrier-billing rails, high decline sensitivity, frequent
+  market entry.
+- **Crypto / digital assets:** acquirer appetite, MCC-driven declines, diversification.
+  Check local legality per market.
+- **Super apps / marketplaces / q-commerce:** multi-corridor settlement, split payouts, local
+  rail coverage per country.
+- **Investment / trading:** approval rates on deposits, local banking rails, funding speed.
+- **PSPs / payment infrastructure:** not in ICP. Stop and flag.
+
+**Event-aware CTAs:** if research or context surfaces an event both parties will attend
+(Money20/20 Asia, Seamless Asia, Singapore Fintech Festival, Global Fintech Fest, etc.), swap
+the Phase 2 and Phase 3 CTAs to event-based:
+> *"Since we'll both be at [event], would it make sense to grab 15 minutes and a coffee there?"*
+
+---
+
+## Step 12 — Compose into the company file
+
+The sequence is NOT written to chat. It composes INTO
+`2-ready-to-outreach/{normalized-name}.md`, replacing the Section 2 placeholder.
+
+### 12a. Update the status header
+`**Status:** 🟡 Research complete — outreach not yet generated`
+→ `**Status:** 🟢 Ready to outreach — sequence drafted`
+
+Other header fields stay untouched.
+
+### 12b–c. Replace the Section 2 placeholder
+
+Keep the `<details open>` wrapper and `<summary><h2>...</h2></summary>` line unchanged; only
+the inner content changes. Every email body and LinkedIn message MUST be wrapped in a
+triple-backtick `text` code block so GitHub renders a copy button. Subject lines sit outside
+the code block as a `**Subject:** ...` line above it.
+
+Structure of the new inner content:
+
+```
+### Pain Vector Extraction
+{the Step 5 block, rendered as markdown}
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+#### Touch 1 — Email 1 · Day 1
+**Subject:** {≤6 words}
+{code block: Email 1 body}
+#### Touch 2 — Email 2 · Day 3 · REPLY IN THREAD
+{code block: Email 2 body}
+#### Touch 3 — LinkedIn message 1 · Day 5
+{code block: LK1}
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+#### Touch 4 — Email 3 · Day 7 · NEW EMAIL
+**Subject:** {new subject}
+{code block: Email 3 body}
+#### Touch 5 — LinkedIn message 2 · Day 9
+{code block: LK2}
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+#### Touch 6 — Email 4 · Day 11 · NEW EMAIL
+**Subject:** {success case subject}
+{code block: Email 4 body}
+#### Touch 7 — Email 5 · Day 13 · MANUAL
+*Placeholder — manual creative approach. Do not auto-write.*
+#### Touch 8 — Email 6 · Day 15 · MANUAL
+*Placeholder — second manual approach, different format than E5.*
+#### Touch 9 — LinkedIn message 3 · Day 17
+{code block: LK3}
+
+---
+
+### Touch 10 — Email 7 · Day 19 · MANUAL
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+#### Touch 11 — LinkedIn message 4 · Day 21
+{code block: LK4}
+#### Touch 12 — Email 8 · Day 23 · REPLY IN THREAD to Touch 4 or 6
+{code block: Email 8 body}
+
+---
+
+### Source Notes
+- ✅ {verified claim} — source
+- ⚠️ {unverified claim} — what would verify it
+
+### Success Case Alternatives
+- **{Alt 1}** — {match rationale, 1 line}
+```
+
+**Anything tagged ⚠️ unverified must be rewritten or cut before Prateek sends.**
+
+### 12d. Save
+Two Edit replacements: the status header line, and the Section 2 inner content. Do not touch
+Section 1 or Section 3.
+
+### 12e. Commit
+```
+git add 2-ready-to-outreach/{normalized-name}.md
+git commit -m "outreach: {Company Name} — 12-touch sequence drafted"
+```
+Then confirm the path in chat with a 2–3 sentence summary of the Phase 2 hypothesis and the
+matched success case.
+
+---
+
+## Voice rules (all auto-written touches)
+
+- **First-person, conversational:** *"I work at Yuno"* not *"Yuno is..."*
+- **Humble framing:** *"We consider ourselves..."* not *"We are the..."*
+- ***"Tends to"* / *"usually"*** over *"is"* / *"will"*
+- **Match the phase:** curiosity → diagnosis → proof → breakup
+- **Parenthetical aside** allowed once, in Touch 6 bullets
+- **LinkedIn** shorter and more direct than email at the same phase
+- **Yuno additive from Phase 2 on:** *"keep your stack, add what's missing"*
+
+**Never use:**
+- *"Hope this finds you well"* / *"Just wanted to reach out"* / *"Hope you're well"*
+- *"Just bumping this"* / *"Circling back"* / *"Didn't want this to get buried"*
+- *"I imagine"* / *"I'd guess this is creating"* / *"You must be"* / *"This must be costing you"*
+- *"Seamless"* / *"Leverage"* / *"Synergies"* / *"Cutting-edge"* / *"Best-in-class"* / *"Robust"*
+- *"Do the needful"* / *"Revert back"* / *"Kindly"* — regional business-English tics that
+  read as boilerplate to a global buyer
+- Em dashes used as separators
+- Any competitor name: Juspay, Gr4vy, Primer, Spreedly, Payrails, CellPoint, BR-DGE, Pagos
+
+---
+
+## Hard rules
+
+**Never:**
+- Project pain in Phase 1
+- Invent numbers, vendors, PSPs, markets or stakeholders not verified in research
+- Cite an APAC regulatory rule not verified in the research file
+- Imply a LATAM case study's results came from an Asian market
+- Open a displacement account with "you have no orchestration layer"
+- Use the calendar link in Phase 1 (E1, E2, LK1)
+- Stack more than 3 observations in E1
+- Apologize for silence between touches
+- Mention Yuno competitors
+- Repeat observations across touches
+- Position Yuno as a PSP replacement
+- Auto-fill real contact names — always `{{recipient.first_name}}`
+- Write bodies for the manual touches (E5, E6, E7)
+- Repeat the E4 bullet verbatim in LK3
+
+**Always:**
+- Output the Pain Vector Extraction block before drafting
+- Check the Motion line and apply the Step 6a override
+- Use *"tends to"* / *"usually"* in the Phase 1 transition
+- Include the cadence + opt-out line in E2
+- Propose meeting times in the prospect's local time zone
+- Fact-check every number, market, PSP and stakeholder claim against research
+- Source-tag every prospect-specific factual claim in Source Notes
+- Vary day/time slots across all five calendar-direct CTAs
+- Vary sign-offs — *"Best,"* / *"Cheers,"* / *"All the best,"* / *"Looking forward to it,"*
+
+---
+
+## Self-review checklist (before output)
+
+- [ ] Motion checked; displacement/in-house override applied if applicable
+- [ ] Phase 1: no projected pain, no calendar link
+- [ ] E2 walks the mechanism factually (no percentages, no revenue claims)
+- [ ] E2 maps to **one** sharpest E1 observation, includes cadence + opt-out, doesn't repeat E1's Yuno line
+- [ ] Bridge variant matches the setup, rationale logged
+- [ ] LK1 references that the email exists
+- [ ] E3 opens with the hypothesis, no apology
+- [ ] E4 bridges from the hypothesis, 3 quantified bullets, one parenthetical, CTA + case link
+- [ ] E4 case tier flagged; no LATAM case implied as APAC
+- [ ] E5, E6, E7: placeholders only
+- [ ] LK3 proof-anchored; LK4 stripped down; E8 short and pressure-free
+- [ ] Five distinct day/time combos, all in prospect-local time
+- [ ] No em dashes as separators, no buzzwords, no competitors named
+- [ ] Source Notes complete
+- [ ] Subscription fork applied if applicable; app-store split checked
+- [ ] Industry override applied if applicable
+
+---
+
+## Edge cases
+
+- **Sparse research:** drop to 2 observations in E1, skip the bridge, flag low confidence.
+- **Prospect is a PSP / payment infra:** not in ICP — stop and flag.
+- **App-store-dominated revenue:** stop and flag before drafting.
+- **Competitive motion with no concrete gap found:** flag rather than sending a weak sequence.
+- **No clean success case:** WebSearch y.uno first, then Tier 3 defaults, flag the tier.
+- **Hard objection in past interaction:** stop and ask Prateek.
+- **Identity placeholders still unfilled:** draft, but flag prominently.
