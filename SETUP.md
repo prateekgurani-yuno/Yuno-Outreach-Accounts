@@ -109,9 +109,21 @@ Reference files the skills read:
   results per case, they are relevance signals only — never quantified E4 proof, and never
   named in writing unless the relationship is public. Gaming is the largest industry in the
   target list (139 accounts), so this is the highest-value gap to close.
-- **`y.uno` is blocked by this environment's egress proxy.** WebSearch against the domain
-  works; WebFetch of a y.uno page fails. Research agents should not spend fetch budget
-  retrying it.
+- **Web fetching is blocked in the Claude Code on the web environment.** Not just `y.uno` —
+  the egress proxy returns 403 on CONNECT for arbitrary hosts. Confirmed blocked:
+  `mygreatlearning.com`, `zaubacorp.com`, `inc42.com`, `propelld.com`, `r.jina.ai`, `y.uno`.
+  WebSearch still works; WebFetch does not.
+
+  **This caps research quality in web sessions.** Checkout audits, T&Cs, privacy policies,
+  BuiltWith profiles and registry filings are all unreachable, which removes the
+  `[Checkout]`, `[Source Code]` and `[Tech Profiler]` evidence tags and makes Section 8
+  impossible to complete honestly. `/research` now tests for this at the start of a run and
+  degrades explicitly rather than silently producing a thinner report.
+
+  **Run the pipeline locally for full fidelity.** Claude Code on your own machine has no
+  egress proxy in the path. The alternative is a web environment configured with a
+  permissive network policy — see
+  https://code.claude.com/docs/en/claude-code-on-the-web.
 
 ## 6. Data
 

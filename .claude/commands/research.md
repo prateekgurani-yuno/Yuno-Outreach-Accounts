@@ -14,6 +14,45 @@ platform. Generate a deep, fact-based payment intelligence report on: **$ARGUMEN
 
 ---
 
+## Environment check — do this first
+
+**WebFetch may be unavailable.** Claude Code on the web routes all outbound traffic through
+a policy-enforcing egress proxy. If the session's network policy is restrictive, every
+WebFetch to an arbitrary site fails with `EGRESS_BLOCKED` / a 403 on CONNECT. Hosts
+confirmed blocked in at least one session: `mygreatlearning.com`, `zaubacorp.com`,
+`inc42.com`, `propelld.com`, `r.jina.ai`, `y.uno`.
+
+Test once at the start of a run, with a single WebFetch to the target's own domain.
+
+- **If fetches work:** run the full method as written.
+- **If fetches are blocked:** do NOT retry, and do not try to route around it. Re-plan the
+  run before launching agents:
+  - Reallocate each agent's 5 fetches into 5 extra searches.
+  - Tell every agent that WebFetch is unavailable so none of them burns budget discovering
+    it independently.
+  - Accept that these are unreachable and say so in the report rather than guessing:
+    checkout walkthroughs, T&Cs and privacy policies, BuiltWith and Wappalyzer profiles,
+    help-centre payment pages, and corporate registry pages. **Section 8 (Checkout
+    Experience Audit) cannot be completed** — mark it "Not accessible in this environment"
+    rather than inferring one.
+  - Downgrade Overall Research Confidence by one level and state the cause.
+  - Evidence tags `[Checkout]`, `[Source Code]` and `[Tech Profiler]` are unavailable. Only
+    `[Press Release]`, `[Job Listing]`, `[Provider Case Study]` and `[Third-Party Report]`
+    remain reachable, and all via search summaries rather than the page itself.
+
+**WebSearch results are not sources.** The search tool returns a synthesized answer
+alongside its links. That synthesis is not a primary source and has been observed asserting
+company relationships that could not be confirmed on any returned page. A claim is sourced
+when a specific URL supports it, not when a search summary asserts it. Where fetches are
+blocked and only a summary supports a claim, label it
+`[UNVERIFIED — search summary only, page not fetched]`.
+
+**The fix is environmental, not editorial.** A research run needing real fetch access should
+be run from Claude Code locally, where no egress proxy sits in the path, or from a web
+session whose environment has a permissive network policy.
+
+---
+
 ## Before you start — read these
 
 1. `.claude/reference/apac-payments.md` — market rails, regulatory gates, cross-border
