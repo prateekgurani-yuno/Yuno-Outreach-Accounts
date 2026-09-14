@@ -5,11 +5,10 @@
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (47)
+## 📋 To Outreach (45)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
-| [—](1-to-outreach/air-new-zealand.md) | Airlines | New Zealand | P1 | 2026-09-10 |
 | [—](1-to-outreach/ana-all-nippon-airways.md) | Airlines | Japan | P1 | 2026-09-10 |
 | [—](1-to-outreach/asiana-airlines.md) | Airlines | South Korea | P1 | 2026-09-10 |
 | [—](1-to-outreach/bamboo-airways.md) | Airlines | Vietnam | P1 | 2026-09-10 |
@@ -54,12 +53,11 @@
 | [—](1-to-outreach/vietjet-air.md) | Airlines | Vietnam | P1 | 2026-09-10 |
 | [—](1-to-outreach/vietnam-airlines.md) | Airlines | Vietnam | P1 | 2026-09-10 |
 | [—](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
-| [—](1-to-outreach/yupptv.md) | Video & Music Streaming | India | P1 | 2026-09-10 |
 | [—](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
 ## 🟢 Ready to Outreach (2)
 
-*Sequences drafted. Copy from each company file and send via Gong / Chief.*
+*Research complete. Run `/full-outreach <company>` to draft sequences.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
