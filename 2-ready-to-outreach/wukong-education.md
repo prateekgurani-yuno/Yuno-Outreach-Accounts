@@ -1,6 +1,6 @@
 # WuKong Education
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 14 / 24 → ⭐ **High Priority** — earned on arithmetic, no override needed
 **Industry:** E-Learning & EdTech (live 1-on-1 / small-group tutoring) · **HQ:** Contested — Mountain View, CA claimed; operational centre of gravity Auckland, NZ; billing entity Hong Kong · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** In-house — but a *shallow* in-house layer. See Section 3B.
@@ -75,13 +75,278 @@ Buyer in the US → Citcon. Everyone else → Airwallex. No fallback, no retry, 
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Wukong Education` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
 
-**Before drafting, read these three constraints:**
-1. **Never open with "you have no orchestration layer."** They built one. The opening is that the layer they built has no cascade and no failover, and that they are paying for it in hidden cards and manual bank transfers.
-2. **Do not pitch network tokens, dunning, retries on renewals, or mandate handling.** There is no recurring billing — grep for `subscription|recurring|autoRenew|saveCard|storedCard|cardToken|tokeniz|mandate` across all three bundles returns **zero hits**. The lever is **single-shot authorisation on a $349–$2,039 cross-border card transaction**, where a decline is a lost enrolment, not a retryable renewal. That is a stronger story, not a weaker one.
-3. **The buyer is not an APAC consumer.** The payer is a Chinese-diaspora parent in Los Angeles, Toronto, Sydney or Singapore, paying a Hong Kong entity. Cross-border corridor economics, not local-rail coverage in India or Indonesia.
+**Motion: In-house** (from the research header). Step 6a applies: they made a deliberate build decision. Anchor on opportunity cost and reach. **Never open with "you have no orchestration layer"** — they have one, and saying otherwise burns the thread on fact one.
+
+**Subscription fork: NOT APPLIED.** No recurring billing exists — `subscription|recurring|autoRenew|saveCard|storedCard|cardToken|tokeniz|mandate` returns zero hits across all three checkout bundles. **App-store split checked: web/pay-link dominant, no IAP evidence. No stop-and-flag.**
+
+**Industry override: EdTech** — high-ticket fees and instalments, not mandate/e-mandate framing.
+
+**Observable setup facts (research, with sources):**
+- Credit/Debit Card ships `hide:!0` and is force-unhidden only when `"US"===c`; carries `remind:"(May Charge 3%)"` — source: [index bundle](https://pay.wukongsch.com/_next/static/chunks/pages/index-091bbfd821769875.js), re-verified
+- Bank Transfer is the only method tagged `"Recommend"`, in all four currency lists — same source
+- Currency map holds exactly `USD`, `AUD`, `NZD`, `CNY` and `DEFAULT:[]` — same source
+- iDEAL is hard-scoped `country:["NL"], currencys:{NL:["EUR"]}` — same source
+- Traffic: US 43.89%, Canada 5.13%, Australia 4.07%, UK 3.61%, Singapore 3.17%, Netherlands 1.04% — SimilarWeb (supplied 2026-09-14)
+- Five acquirers wired in: Citcon, Airwallex, Latipay, PingPong, Stripe; routing is `"US"===h ? "citcon" : "aw"` with no cascade — [1306 chunk](https://pay.wukongsch.com/_next/static/chunks/1306-d238e146e95b80e3.js)
+- Order-expiry overlay: *"Order expired / Please contact the consultant to re-initiate the order payment"* — same source
+
+**Selected observations for Phase 1 (ranked by materiality):**
+1. Card hidden by default outside the US, labelled "(May Charge 3%)" → *the single most material fact in the account; it is their own admission about non-US card performance, and 56% of traffic is non-US*
+2. Bank Transfer the only method tagged "Recommend" in every currency → *the flip side of the same decision, and the conversion cost on a $349–$2,039 ticket*
+3. Currency map is four entries; Canada, UK and Singapore fall outside it → *11.9% of traffic with no presentment currency*
+
+**Bridge variant: A — complexity.** Rationale: five acquirers across many markets with routing logic held in one hardcoded ternary is a fragmented multi-PSP stack, which is exactly variant A's trigger. Variant B (limitations) would be wrong — they are not single-PSP.
+
+**Hypothesis for Phase 2:**
+Their routing was built when the US was effectively all of the volume, and the rest of the map has grown past it, so the cost now shows up as hidden cards, manual wire transfers and declines that go nowhere, rather than as a line item anyone owns.
+
+*Backing logic:* the US is 43.89% and the only market whose method list is fully built out; the other 56% is spread across 59 countries with 15 more above 1%. Meanwhile the one scoped local rail they shipped serves the Netherlands at 1.04%, while Canada at 5.13% has no presentment currency at all. **That asymmetry is internal to their own stack, so neither half is disputable** — the strongest move in the voice samples.
+
+**Success case for Phase 3: Livelo.**
+- **Tier 2** — same payment pattern, different industry and region. Brazilian loyalty/rewards, not edtech, not APAC. Framed explicitly as a pattern match in the copy.
+- **Match rationale:** Livelo's fix is literally WuKong's gap. Verbatim from Yuno's own case page: *"Yuno's Smart Routing also helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."* WuKong has five acquirers and nothing that routes between them on a decline.
+- **Numbers (all three from the case page, verified live 2026-09-14):** 5% increase in payment approval rates · 50% recovery of failed transactions · millions of R$ saved
+- **Benchmark: SKIPPED.** The "~8% authorisation uplift" is Yuno's own published figure, not third-party evidence, and this sequence does not need it.
+
+**Touch-by-touch angles:**
+- **E2:** card hidden outside the US → *routing to local acquirers per geography* (one mechanism only)
+- **LK1:** the hidden-card / recommended-bank-transfer asymmetry
+- **LK2:** one-sentence version of the Phase 2 hypothesis
+- **LK3:** Livelo's secondary-acquirer recovery, reworded (never verbatim from E4)
+- **LK4:** fresh unused angle — the payment link that expires before the parent pays
+- **E8:** clean exit, no new observation
+
+**⚠️ Time zone assumption, flagged rather than buried.** All slots are **Hong Kong time (UTC+8)**. The research shows a contested HQ: "Silicon Valley" in their PR, Auckland as the operational centre, Hong Kong as the billing entity, and a Chinese-language engineering estate. Payments most likely sits in HK or mainland China, which is IST+2.5 and an easy overlap. **If the contact turns out to be Mountain View based, every slot in this sequence needs swapping before send.**
+
+**⚠️ Two deliberate deviations, so they don't look like mistakes.** E1 and E3 run a little over their word budgets (111 and 127 against bands of 85–110 and 90–120). E1's overage is the fixed Yuno boilerplate; E3 carries the hypothesis, the diplomatic clause, the discovery question and the CTA, and every one of them is load-bearing on an in-house motion. Cut the diplomatic clause first if you want it tighter. Separately, **the multi-threading line** (*"If payments sits elsewhere, happy to be pointed there"*) was dropped from E3 for length. Add it to whichever touch gets a reply, since the contact is unknown.
+
+**⚠️ Calendar collisions — check before scheduling.** Day 7 falls on Sunday 20 Sep (send Mon 21st), Day 13 on Saturday 26 Sep, Day 21 on Sunday 4 Oct (send Mon 5th). Touches 9 through 12 also land in or near the **mainland China National Day holiday window in early October** — verify the exact dates for the contact's market and shift if needed. No proposed slot falls between 1 and 7 October.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 (Mon 14 Sep)
+
+**Subject:** Card hidden outside the US
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at WuKong's payment setup. Three things stood out:
+
+Credit card ships hidden by default and un-hides only for US buyers, labelled
+"(May Charge 3%)".
+
+Everywhere else, bank transfer is the only method tagged "Recommend".
+
+Your currency list is USD, AUD, NZD and CNY. Canada, the UK and Singapore sit outside.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're
+working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 (Wed 16 Sep) · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up, with a bit more behind what Yuno actually does and how it maps to what I
+flagged.
+
+We sit above the providers you already run. Nothing gets replaced. Traffic routes per BIN,
+market and method to whichever acquirer performs best in that geography, and fails over
+automatically when one degrades. Adding a new acquirer or method is a config change, not an
+integration.
+
+On the card point: a card issued in Canada or Singapore and acquired cross-border tends to
+see lower approval than the same card acquired locally. Routing to a local acquirer per
+geography is the lever, which tends to be why a card option gets hidden in the first
+place.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just
+say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 (Fri 18 Sep)
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than
+email. Quick one: your checkout hides the card option by default and un-hides it only for
+US buyers, with bank transfer tagged "Recommend" everywhere else. Curious whether that maps
+to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 (Sun 20 Sep → send Mon 21 Sep) · NEW EMAIL
+
+**Subject:** Quick read on your non-US checkout
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is your routing was built around the US, and the
+map has grown past it.
+
+Two of your own decisions point the same way. You shipped a scoped local rail for the
+Netherlands. Canada is bigger and has no presentment currency at all. Not a criticism,
+in-house routing usually works until the market count outgrows the team.
+
+When a card declines on a package order, does anything retry it, or does it go back to the
+consultant?
+
+Yuno sits above what you run today, so a decline can fail over instead of stopping. Keep
+your stack, add what's missing.
+
+Wednesday the 23rd is open. Would 3pm or 4:30pm Hong Kong time work for 15 minutes?
+
+Thanks,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 (Tue 22 Sep)
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: my
+read is your routing was built around the US, and Canada, the UK and Singapore have grown
+past what the checkout currently supports. If that's anywhere on your radar, would Friday
+the 25th at 11am Hong Kong time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 (Thu 24 Sep) · NEW EMAIL
+
+**Subject:** How Livelo recovered its declines
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved looks like.
+
+Livelo is a Brazilian rewards platform, so different industry and different region to you.
+The payment shape is the same though: high-value one-shot purchases where a decline is a
+lost sale, and new providers that were expensive to add. They partnered with Yuno to send
+transactions that had already declined straight to a secondary acquirer.
+
+The results:
+
+5% increase in payment approval rates
+50% of failed transactions recovered (not too bad, right?)
+Millions of R$ saved
+
+Same orchestration layer sitting above their existing stack. No rip-out.
+
+Your setup already has five acquirers in it. The piece Livelo added was the part that
+decides which one catches the transaction when the first one declines.
+
+Tuesday the 29th is open. Would 10am or 2pm Hong Kong time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 (Sat 26 Sep → send Mon 28 Sep) · MANUAL
+
+*Placeholder. Manual creative approach, do not auto-write.*
+
+**Strongest material available for this touch, in order:**
+1. **A checkout teardown.** Book a free trial, get an advisor to issue a real order link, screen-record what a Canadian or Singaporean payer actually sees versus a US one. That is the entire pitch in ninety seconds and nobody else will have done it.
+2. **The Airwallex plumbing question.** `DANA`, `GCASH`, `KAKAO`, `TRUEMONEY` and `TNG` are wired into their dispatch switch and surfaced in no method list. Ask what happened to that expansion.
+3. **The engagement split.** Their India, Malaysia, Indonesia and Philippines traffic sits under 20 seconds of dwell. Worth showing them the buyer-versus-blog cut of their own country mix.
+
+#### Touch 8 — Email 6 · Day 15 (Mon 28 Sep) · MANUAL
+
+*Placeholder. Second manual approach, different format from E5.*
+
+#### Touch 9 — LinkedIn message 3 · Day 17 (Wed 30 Sep)
+
+```text
+Hey {{recipient.first_name}}, one proof point rather than another pitch. Livelo pulled back
+half the transactions that had already declined, purely by sending them to a second
+acquirer instead of stopping there. You've already got the acquirers. Worth 15 minutes to
+see if it maps? Thursday the 8th at 4pm Hong Kong time is open.
+```
+
+---
+
+### Between Phases
+
+#### Touch 10 — Email 7 · Day 19 (Fri 2 Oct) · MANUAL
+
+*Placeholder. Manual creative bridge, anchored to something fresh.*
+
+**Fresh anchors not yet used anywhere in the sequence:** the Frost & Sullivan No.1-by-cumulative-paying-users ranking (Feb 2026, and it is a *paying-user* metric); the 2026 Australian business-simulation programme; the `jpmorgan-*-uat` hostnames if you want to open a bank-connectivity conversation on a call. **Do not put the subdomain names in writing** — reading someone's certificate logs back to them lands badly even though the data is public.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 (Sun 4 Oct → send Mon 5 Oct)
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. The one thing I'd still
+want to ask: what happens to a package order when the payment link expires before the
+parent gets to it. If timing works, Friday the 9th at 9:30am Hong Kong time is open for 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 (Tue 6 Oct) · REPLY IN THREAD to Touch 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back after your next intake. And if it ever
+comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **"hide by default, un-hides only for US buyers"** — `{title:"Credit/Debit Card",key:"AW_CARD",hide:!0}` plus the `ie()` unhide function guarded by `"US"===c`. [index bundle](https://pay.wukongsch.com/_next/static/chunks/pages/index-091bbfd821769875.js), re-verified directly.
+- ✅ **"(May Charge 3%)"** — `remind:"(May Charge 3%)"`, same source. Quoted verbatim, which is why it is safe to put in an email.
+- ✅ **"bank transfer is the only method tagged Recommend"** — `{title:"Bank Transfer",key:"BankTransfer",tag:"Recommend"}`, present in all four currency lists. Same source.
+- ✅ **"USD, AUD, NZD and CNY"** — the currency map contains exactly those four keys plus `DEFAULT:[]`. Same source.
+- ✅ **"scoped local rail for the Netherlands"** — `{title:"iDEAL",country:["NL"],currencys:{NL:["EUR"]}}`. Same source. Deliberately described as "a scoped local rail" rather than named, so the email does not read as a code audit.
+- ✅ **"Canada, a bigger market for you"** — Canada 5.13% vs Netherlands 1.04%. SimilarWeb (supplied 2026-09-14).
+- ✅ **"five acquirers"** — Citcon, Airwallex, Latipay, PingPong, Stripe, each a literal string in the checkout bundle. Count stated, names withheld from the copy.
+- ✅ **"payment link expires"** — the order-expiry overlay reads *"Order expired / Please contact the consultant to re-initiate the order payment"*. Same source.
+- ✅ **Livelo's three results and the secondary-acquirer mechanism** — fetched live from [y.uno/en/success-stories/livelo](https://y.uno/en/success-stories/livelo) on 2026-09-14, not taken from the local case library.
+- ⚠️ **"a card acquired cross-border tends to see lower approval than the same card acquired locally"** (E2) — deliberately qualitative with no number attached, because no sourced APAC figure was found. If challenged on a call, treat it as a discovery question rather than a claim. **Do not add a percentage to this line.**
+- ⚠️ **Hong Kong time zone on all five CTAs** — inferred from the HK billing entity and the Chinese-language engineering estate, not from a confirmed contact location. Swap every slot if the contact is US based.
+- ⚠️ **Contact identity unknown.** Every touch uses `{{recipient.first_name}}`. No stakeholder was identified in research, so the right recipient still needs finding. Payments most plausibly sits under finance or the platform engineering group, not under the academic side.
+
+### Success Case Alternatives
+
+- **Open English** — the only edtech case Yuno has, and the obvious Tier 1 candidate on paper. **Rejected: it carries no public numbers.** The y.uno page says only "increase approval rates, reduce time-to-market, and unify their payment processing". E4 needs three quantified bullets, so it cannot carry this touch. Usable as a one-line relevance signal on a call.
+- **Viva Aerobus** — 75% of failed payments recovered, high ticket value, travel. **Rejected for E4: those results come from NOVA**, Yuno's AI voice-callback assistant, not from routing or failover. Using it to prove a cascade argument would misattribute the mechanism. It becomes a genuinely strong second act *after* the routing conversation lands, because WuKong already hands failed payments back to a human consultant.
+- **inDrive** — 90% approval, 10 new countries in under eight months. Better fit if the conversation turns out to be about market entry rather than decline recovery.
+- **Vibra** — new on y.uno, lifted new-user approval by more than 30 percentage points. Relevant if WuKong's problem turns out to be first-time-buyer approval specifically, which would fit a business where most purchases are a family's first.
 
 </details>
 

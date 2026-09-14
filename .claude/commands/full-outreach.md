@@ -518,14 +518,15 @@ describes the pattern, not the prospect.
 
 | Case | Industry / Pattern | Key result | URL |
 |---|---|---|---|
-| inDrive | Mobility, multi-country (50+) | ~90% approval, 10 new countries in 8 months | https://y.uno/success-cases/indrive |
+| inDrive | Mobility, multi-country (50+) | ~90% approval, 10 new countries in under 8 months | https://y.uno/en/success-stories/indrive |
 | Rappi | Super app, marketplace, multi-country | Zero implementation delays, hundreds of methods, 80% less analyst work | https://y.uno/success-cases/rappi |
 | McDonald's / Arcos Dorados | QSR, 21 countries | Unified processing across 21 countries, higher approvals | (internal — no public link) |
-| Livelo | Loyalty/rewards | 50% failed transactions recovered, +5% approval rate | https://y.uno/success-cases |
-| Reserva | E-commerce, single market | +4% approval rate in 3 months via smart routing | https://y.uno/success-cases |
+| **Livelo** | **Loyalty/rewards. The decline-cascade case** — verbatim: *"Smart Routing also helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."* Use this whenever the prospect already runs 2+ acquirers with no failover. | **+5% approval rate · 50% of failed transactions recovered · millions of R$ saved** (3 quantified, verified live 2026-09-14) | https://y.uno/en/success-stories/livelo |
+| Reserva | E-commerce, single market | +4% approval rate via smart routing | https://y.uno/en/success-stories/reserva |
+| **Vibra** | Retail/loyalty, Brazil. **First-time-buyer approval** — use when the prospect's buyers are mostly first-time purchasers | New-user approval lifted **more than 30 percentage points, to 80%**; launched Apple Pay, Nu Pay and Google Pay | https://y.uno/en/success-stories/vibra |
 | Wingo | Airlines | +14% approval rates, 1,000+ payment methods | https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner |
-| Open English | EdTech, subscriptions, 30+ countries | Higher approval rates, faster market entry | https://y.uno/success-cases |
-| Viva Aerobus | Airlines | 75% failures recovered, $300+/tx | https://y.uno/success-cases |
+| Open English | EdTech, subscriptions, 30+ countries | ⚠️ **No public numbers.** The page says only "increase approval rates, reduce time-to-market, and unify their payment processing." **Cannot carry an E4**, which needs three quantified bullets. Use as a one-line relevance signal only. | https://y.uno/en/success-stories/open-english |
+| Viva Aerobus | Airlines | ⚠️ **This is a NOVA case, not a routing case.** The 75% comes from NOVA, Yuno's AI voice-callback assistant that phones customers after a failed payment: *"75% of contacted customers successfully completed their purchase after receiving a call."* Launched in Colombia. **Do not use it to prove a routing, cascade or failover argument** — that misattributes the mechanism. It is the right case when the prospect already hands failed payments back to a human. | https://y.uno/en/success-stories/viva-aerobus |
 | Qatar Airways | Travel, global enterprise | **UNVERIFIED — see warning below** | (no source located) |
 
 > ### ⚠️ Qatar Airways — do not use until Prateek confirms it
@@ -570,9 +571,14 @@ describes the pattern, not the prospect.
    Ask for this whenever a gaming prospect enters the pipeline — Gaming is the single
    largest industry in the APAC target list (139 accounts).
 
-> **Environment note:** `y.uno` is blocked by this environment's egress proxy. WebSearch
-> against the domain returns results, but WebFetch of a y.uno page will fail. Do not spend
-> fetch budget retrying it — search, or ask Prateek to paste the page.
+> **Environment note — updated 2026-09-14:** `y.uno` **is now reachable** via Bash `curl`
+> from a session on the Full network policy. `https://y.uno/success-cases` 301s to
+> `https://y.uno/en/success-stories`, and the individual case pages live at
+> `/en/success-stories/{slug}`. Fetch the case page and read the mechanism before citing a
+> number: the Viva Aerobus correction in the table above was only caught by doing that.
+> WebSearch with `site:y.uno` returns nothing useful, so go straight to curl.
+> ⚠️ Fetches are intermittent. `https://y.uno/success-cases/indrive` (the old path shape)
+> returns a TLS error; the `/en/success-stories/` paths work. Retry once, then move on.
 
 **Default credibility refs when no specific case fits:** Uber, McDonald's. *(Qatar Airways withdrawn pending verification — see the warning above.)*
 
@@ -586,8 +592,11 @@ describes the pattern, not the prospect.
   Digital's own airline customer wall; Cebu Pacific's CellPoint case study states it
   "implemented its multi-acquirer strategy more efficiently". Name the airline and what it
   did — never imply any of them is a Yuno customer.
-- **EdTech / subscriptions:** Open English (Tier 1 pattern — edtech, subscriptions,
-  multi-country)
+- **EdTech / subscriptions:** Open English is the only edtech logo, but it carries **no
+  public numbers**, so it cannot carry an E4. For a quantified proof touch use **Livelo**
+  (decline recovery via a secondary acquirer) or **Vibra** (first-time-buyer approval) and
+  state plainly that it is a pattern match, not an edtech case. Precedent: the WuKong
+  Education sequence.
 - **Streaming / OTT with a diaspora audience:** no clean case in the library. Search y.uno
   first; otherwise Tier 2 on the multi-country recurring pattern (Open English) and be
   explicit that it's a pattern match.
