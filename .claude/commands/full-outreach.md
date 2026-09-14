@@ -423,6 +423,13 @@ companies with similar setups"*.
 3. **Bridge from hypothesis:** *"On the read I shared last week — sharing a quick example of
    what solved looks like."*
 4. **[Optional] verified industry benchmark**, one line with source. Skip if unsourced.
+   **Two numbers need attribution, not repetition.** The **"~8% average authorisation uplift"
+   from smart routing traces to Yuno's own blog** — it is our marketing, not independent
+   evidence, so attribute it as Yuno's own figure and never present it as a third-party
+   benchmark. **IATA / Edgar, Dunn & Company's "$20.3bn annual airline cost of payment
+   acceptance, 2.1% of industry revenue"** would be an excellent airline hook, but it has
+   only been seen via a vendor blog citing the study — trace it to the IATA/EDC primary
+   source before quoting it.
 5. **Setup of the matched case:** *"[Customer], a [comparable descriptor], partnered with
    Yuno to [solve a problem matching the Phase 2 hypothesis]. The results came fast:"*
 6. **3 bullets with quantified results**, one carrying a parenthetical aside —
@@ -519,7 +526,22 @@ describes the pattern, not the prospect.
 | Wingo | Airlines | +14% approval rates, 1,000+ payment methods | https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner |
 | Open English | EdTech, subscriptions, 30+ countries | Higher approval rates, faster market entry | https://y.uno/success-cases |
 | Viva Aerobus | Airlines | 75% failures recovered, $300+/tx | https://y.uno/success-cases |
-| Qatar Airways | Travel, global enterprise | Global rollout, enterprise scale | (credibility reference) |
+| Qatar Airways | Travel, global enterprise | **UNVERIFIED — see warning below** | (no source located) |
+
+> ### ⚠️ Qatar Airways — do not use until Prateek confirms it
+>
+> Inherited from the EMEA pack and never verified. A targeted search found **no source
+> connecting Qatar Airways to Yuno**. What exists is Yuno's presence in the *country* of
+> Qatar: a regional HQ announced with Invest Qatar (Feb 2025), an MOU with Snoonu, and a
+> Tap Payments partnership. "Qatar" in a headline is not "Qatar Airways" — the same
+> publisher-versus-subject trap that produced the ZEE5/Juspay false positive.
+>
+> Until Prateek confirms the relationship internally, **Qatar Airways is withdrawn from the
+> Tier 3 credibility defaults.** Use Uber and McDonald's. Naming a customer that is not one,
+> to an airline that would plausibly know, is not a recoverable mistake.
+>
+> A **Yuno–Meili collaboration on airline payment infrastructure** does exist and may be the
+> closest usable aviation reference. Verify before citing it.
 
 ### APAC references — verified status: INCOMPLETE
 
@@ -552,11 +574,18 @@ describes the pattern, not the prospect.
 > against the domain returns results, but WebFetch of a y.uno page will fail. Do not spend
 > fetch budget retrying it — search, or ask Prateek to paste the page.
 
-**Default credibility refs when no specific case fits:** Uber, McDonald's, Qatar Airways.
+**Default credibility refs when no specific case fits:** Uber, McDonald's. *(Qatar Airways withdrawn pending verification — see the warning above.)*
 
 **Vertical shortcuts for the current P1 queue:**
-- **Airlines / travel:** Wingo (Tier 1 pattern — airline, approval uplift), Viva Aerobus,
-  Qatar Airways as the enterprise credibility ref
+- **Airlines / travel:** Wingo (Tier 1 pattern — airline, approval uplift) and Viva Aerobus.
+  **Do not use Qatar Airways** — see the warning in the library above.
+  **Competitive context for airline prospects, first-party sourced and usable:** Cathay
+  Pacific expanded to Adyen direct acquiring across 45+ markets including New Zealand and
+  Australia (Mar 2026); Singapore Airlines consolidated onto Adyen direct acquiring to stop
+  "running payments across multiple third-party platforms"; Emirates appears on CellPoint
+  Digital's own airline customer wall; Cebu Pacific's CellPoint case study states it
+  "implemented its multi-acquirer strategy more efficiently". Name the airline and what it
+  did — never imply any of them is a Yuno customer.
 - **EdTech / subscriptions:** Open English (Tier 1 pattern — edtech, subscriptions,
   multi-country)
 - **Streaming / OTT with a diaspora audience:** no clean case in the library. Search y.uno
