@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-14 16:36*
+*Last updated: 2026-09-14 23:58*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -70,6 +70,10 @@
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
 
-## 🔴 Not ICP (0)
+## 🔴 Not ICP (1)
+
+| Company | Industry | Reason | Marked |
+|---------|----------|--------|--------|
+| [Rytr](not-icp/rytr.md) | AI writing assistant (self-serve SaaS) | Out of territory — owned by Copysmith Inc. (Birmingham, AL) since Oct 2022; no APAC entity or operations. Secondary: volume far too small ($5–$24/mo plans, ~$1.2M ARR est.) | 2026-09-14 |
 
 See [not-icp/](not-icp/) for rejection rationale.
