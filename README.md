@@ -1,11 +1,11 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-14 14:19*
+*Last updated: 2026-09-14 15:44*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (45)
+## 📋 To Outreach (44)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
@@ -22,7 +22,6 @@
 | [Fever](1-to-outreach/fever.md) | Event & Travel Ticketing | — | P1 | 2026-09-10 |
 | [Fly91](1-to-outreach/fly91.md) | Airlines | India | P1 | 2026-09-10 |
 | [Garuda Indonesia](1-to-outreach/garuda-indonesia.md) | Airlines | Indonesia | P1 | 2026-09-10 |
-| [Great Learning](1-to-outreach/great-learning.md) | E-Learning & EdTech | India | P1 | 2026-09-10 |
 | [HK Express](1-to-outreach/hk-express.md) | Airlines | Hong Kong | P1 | 2026-09-10 |
 | [Interpark Ticket](1-to-outreach/interpark-ticket.md) | Event & Travel Ticketing | South Korea | P1 | 2026-09-10 |
 | [iTicket](1-to-outreach/iticket.md) | Event & Travel Ticketing | New Zealand | P1 | 2026-09-10 |
@@ -55,7 +54,7 @@
 | [Virgin Australia](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [ZIPAIR](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
-## 🟢 Ready to Outreach (2)
+## 🟢 Ready to Outreach (3)
 
 *Research complete. Run `/full-outreach <company>` to draft sequences.*
 
@@ -63,6 +62,7 @@
 |---------|----------|-----|--------|------------|
 | [Air New Zealand](2-ready-to-outreach/air-new-zealand.md) | Airlines | 16/24 | Greenfield — no orchestrator detected | 2026-09-14 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement — Juspay confirmed in production code | 2026-09-14 |
+| [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield — no orchestrator detected | 2026-09-14 |
 
 ## 🔵 Outreached (0)
 
