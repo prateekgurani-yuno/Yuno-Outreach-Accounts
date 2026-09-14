@@ -1,6 +1,6 @@
 # Air New Zealand
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 16 / 24 → ⭐ High Priority
 **Industry:** Airlines · **HQ:** Auckland, New Zealand · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** Greenfield — no orchestrator detected
@@ -56,8 +56,252 @@ Positive architectural evidence pointing the same way: Air NZ runs **two booking
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Air New Zealand` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+**Motion:** Greenfield — no orchestrator detected. Phase 1 may note the absence of a routing layer.
+
+**Observable setup facts** (from research, with sources):
+- **19 storefronts across 11 currencies, payment rails localised in exactly 3** — POLi (NZ), SOFORT (EU), Alipay (CN). Probing `/information-about-payment`, `/poli-information` and `/sofort-faqs` across six country properties returned 200 only on `.cn`, `.co.nz` and `.eu` respectively — source: §4
+- **Australia, the second-largest market at 11.15%, has no bank rail.** The NZ paragraph on `/fare-rules` names POLi as fee-free; the AU paragraph on the same page names only debit card, Travelcard and Airpoints — source: airnewzealand.co.nz/fare-rules vs airnewzealand.com.au/fare-rules
+- **Auckland–Denpasar runs ~7x weekly with no Indonesian storefront, no IDR pricing and no local rail** — source: homepage storefront config, §8
+- **China's own published list is Alipay plus Visa/Mastercard/Amex — no UnionPay, no WeChat Pay** — source: airnewzealand.cn/information-about-payment
+- **Japan: zero mentions of konbini, PayPay, Rakuten Pay or instalments** in the JP FAQ — source: airnewzealand.jp/faq
+- **No orchestrator, no named PSP.** Air NZ absent from CellPoint Digital's published airline roster; two booking engines running concurrently — source: §3B
+- **15.9m passengers, NZ$6.76bn revenue FY25**; FY26 swung to a NZ$336m pre-tax loss — source: FY25 Annual Report, newsroom
+
+**Selected observations for Phase 1** (ranked by materiality):
+1. Australia has no A2A rail → *"Your NZ fare rules name POLi as a fee-free way to pay. The Australian paragraph on the same page names no bank rail."* — **most material: 11.15% of traffic, second-largest market, and the comparison sits on one page**
+2. Denpasar flown daily with no storefront → *"Auckland to Denpasar runs close to daily, with no Indonesian storefront behind it."* — **most vivid: a flown route with no commercial payment presence**
+3. China list omits the domestic rail → *"Your China page lists Alipay and three card schemes. No UnionPay."* — **a sourced absence from an enumerated list, the strongest evidence class available**
+
+**Bridge variant:** A — complexity
+**Rationale:** 19 storefronts in 11 currencies, two booking engines running concurrently, and rails localised in three markets is a genuinely fragmented estate. Not variant B: there is no single visible PSP to outscale, because no PSP is visible at all.
+
+**Hypothesis for Phase 2 (E3):**
+Most likely pain: payment rails are decided one market at a time, so the sixteen storefronts that never got a local rail run on cards alone — including markets Air NZ flies to daily.
+Backing logic: three localised rails out of nineteen storefronts is not a strategy, it is a backlog. The `.cn` and `.eu` pages prove the capability exists and has been exercised three times. At airline ticket values the cost of a missing rail surfaces as cart abandonment rather than declines, which is exactly why it survives unnoticed.
+
+**Success case for Phase 3 (E4):**
+Selected case: **Wingo** · Tier: **1 (airline, same per-market rail problem)** · Match rationale: an airline that added breadth of methods above an existing stack, which is precisely the shape of Air NZ's gap.
+Numbers to lead with: +14% approval rates · 1,000+ payment methods through one integration · Viva Aerobus (second airline) recovered 75% of failed transactions.
+⚠️ **Only two quantified results exist for Wingo in the case library**, so the third bullet draws on Viva Aerobus and is attributed to it explicitly. Both are LATAM carriers and E4 says so outright rather than implying an Asia-Pacific result.
+Optional benchmark: **SKIP.** The IATA/Edgar Dunn "$20.3bn, 2.1% of industry revenue" airline cost-of-acceptance figure would be ideal here but has only been seen via a vendor blog citing it. Trace it to the primary source before it goes in an email.
+
+**Touch-by-touch angles:**
+- E2 angle: Australia's missing bank rail → *one integration to add any method, no per-rail rebuild*
+- LK1 angle: the POLi NZ-versus-AU comparison on a single page
+- LK2 angle: three of nineteen storefronts localised, and the gaps include markets flown daily
+- LK3 angle: Wingo's +14% approval rate, paraphrased rather than repeated from E4
+- LK4 angle: **fresh, unused until this point** — Cathay Pacific moved to direct acquiring across NZ and Australia in March 2026, for authorisation rates
+- E8 angle: Christchurch–Singapore and Christchurch–Narita going live within two months, door left open
+
+**Cadence calendar** (Day 1 = Tue 15 Sep 2026). A Tuesday start is the only weekday start that keeps all nine auto-written touches on business days, bar one:
+
+| Touch | Day | Date | Note |
+|---|---|---|---|
+| E1 | 1 | Tue 15 Sep | |
+| E2 | 3 | Thu 17 Sep | reply in thread |
+| LK1 | 5 | **Sat 19 Sep** | ⚠️ **weekend — send Fri 18 or Mon 21 instead** |
+| E3 | 7 | Mon 21 Sep | new subject |
+| LK2 | 9 | Wed 23 Sep | |
+| E4 | 11 | Fri 25 Sep | new subject |
+| E5 | 13 | Sun 27 Sep | manual, move to Mon 28 |
+| E6 | 15 | Tue 29 Sep | manual |
+| LK3 | 17 | Thu 1 Oct | |
+| E7 | 19 | Sat 3 Oct | manual, move to Mon 5 |
+| LK4 | 21 | Mon 5 Oct | |
+| E8 | 23 | Wed 7 Oct | reply in thread |
+
+**Meeting slots — five distinct combos, all Auckland afternoon.** Auckland moves to NZDT (UTC+13) on 27 September, putting it 7h30 ahead of IST, so a New Zealand afternoon is a 7:30–9:30am start for Prateek. Anything earlier in their day is unworkable from India.
+
+| Touch | Proposed | IST equivalent |
+|---|---|---|
+| E3 | Thursday 24 September, 3pm or 4pm | 08:30 / 09:30 |
+| LK2 | Monday 28 September, 4:30pm | 09:00 |
+| E4 | Wednesday 30 September, 3:30pm or 4:30pm | 08:00 / 09:00 |
+| LK3 | Tuesday 6 October, 3pm | 07:30 |
+| LK4 | Thursday 8 October, 4pm | 08:30 |
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** No bank rail on your AU checkout
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on your payment setup. A few things stood out:
+
+- Your NZ fare rules name POLi as a fee-free way to pay. The Australian paragraph on the same page names no bank rail.
+- Auckland to Denpasar runs close to daily, with no Indonesian storefront behind it.
+- Your China page lists Alipay and three card schemes. No UnionPay.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, a top-100 fintech, a16z-backed. We consider ourselves the "everything payments" platform: one integration, every PSP, every market.
+
+Rather than pitch you on assumptions, is there anything payment-related you're working through?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it maps to what I flagged.
+
+We sit above the PSPs you already run, so nothing gets ripped out. Transactions route per market, method and BIN to whichever rail performs best. If a provider degrades, traffic moves across automatically. Adding a new method or acquirer is one integration rather than a per-rail build.
+
+On the Australian gap specifically: putting a local bank rail back on that checkout becomes a configuration change on the layer, not a separate project against a separate provider.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off, otherwise happy to go deeper on any of this.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · ⚠️ lands Sat 19 Sep, send Fri 18 or Mon 21
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than email. Quick one: your New Zealand fare rules offer POLi as the fee-free way to pay, and the Australian paragraph on that same page doesn't name a bank rail at all. Curious whether that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Three of nineteen storefronts
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that you've localised payment rails on three of your nineteen storefronts, and the rest run on cards alone.
+
+POLi in New Zealand, SOFORT in Europe, Alipay in China. Japan takes a JPY long-haul fare with no konbini and no instalment option. At your ticket values that tends to surface as cart drop rather than declines.
+
+What decides which markets get one?
+
+At Yuno we sit above your existing PSPs, so a rail per market stops being a project per market. Keep your stack, add what's missing.
+
+Thursday 24 September is open. Would 3pm or 4pm your time work for 15 minutes?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: you've localised payment rails on three of nineteen storefronts, and the sixteen running on cards alone include markets you fly to daily. If that's anywhere on your radar, would Monday 28 September at 4:30pm your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved tends to look like.
+
+Wingo had the same shape of problem: rails decided one market at a time, with the markets that never got one running on cards alone. They put Yuno above the stack they already had:
+
+- Approval rates up 14%
+- Over 1,000 payment methods reachable through one integration (you read that right)
+- Viva Aerobus, another airline on the same layer, recovered 75% of its failed transactions
+
+Same orchestration layer above the existing providers, no rip-out. Both are LATAM carriers, so take those numbers as what the pattern does rather than as an Asia-Pacific result.
+
+Wednesday 30 September is open. Would 3:30pm or 4:30pm your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Cheers,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · MANUAL
+
+*Placeholder — do not auto-write.* Strongest option for this account: a **checkout teardown of one market they fly to and don't serve**. Price AKL–DPS from an Indonesian IP, screenshot the currency and method set an Indonesian customer actually gets, and send it annotated. It converts Insight #1 from an assertion into something they can see. Alternatives: a written business case against the 15.9m passenger base, or a Loom walking the NZ-versus-AU fare-rules pages side by side.
+
+#### Touch 8 — Email 6 · Day 15 · MANUAL
+
+*Placeholder — do not auto-write.* Different format from E5. If E5 was visual, go written here: the IATA/Edgar Dunn airline cost-of-acceptance study, **traced to the primary source first**, sized against Air NZ's own passenger numbers.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
+
+```text
+Hey {{recipient.first_name}}, Wingo lifted approval rates by 14% after putting this layer above the stack it already ran. Worth 15 minutes to work out whether the same thing maps to yours? Tuesday 6 October at 3pm your time is open on my side.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · MANUAL
+
+*Placeholder — do not auto-write.* Manual creative bridge. Freshest available anchors: the **Christchurch international launches** (Singapore 28 Oct, Tokyo Narita 28 Nov), **Economy Skynest** going on sale as a separately-sold ancillary SKU, or the **FY26 result** if the conversation has earned that level of directness.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 5 Oct
+
+```text
+Hey {{recipient.first_name}}, last ping from me on this. One thing I hadn't mentioned: Cathay moved to direct acquiring across New Zealand and Australia in March, specifically for authorisation rates. Thursday 8 October at 4pm your time is open if that's useful.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 7 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+Christchurch to Singapore and Christchurch to Narita both go live in the next two months. If the payment side of those routes ever turns into a question, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+Every prospect-specific factual claim in the sequence, tagged:
+
+- ✅ **POLi named fee-free in the NZ paragraph, absent from the AU paragraph** — airnewzealand.co.nz/fare-rules and airnewzealand.com.au/fare-rules. Both fetched.
+- ✅ **Auckland–Denpasar operates ~7x weekly** — flightsfrom.com schedule data; Air NZ's own destination page still calls it seasonal
+- ✅ **No Indonesian storefront** — extracted from Air NZ's own homepage storefront configuration, 19 properties enumerated
+- ✅ **China page lists Alipay plus Visa/Mastercard/Amex, no UnionPay** — airnewzealand.cn/information-about-payment, published as static copy
+- ✅ **Japan FAQ has no konbini, PayPay or instalment mentions** — airnewzealand.jp/faq, keyword counts all zero
+- ✅ **Three localised rail pages across the estate** — 404 probe results across six properties
+- ✅ **Wingo +14% approval rates, 1,000+ payment methods** — Yuno case library, public URL included in E4
+- ✅ **Viva Aerobus recovered 75% of failed transactions** — Yuno case library
+- ✅ **Cathay Pacific moved to Adyen direct acquiring covering NZ and Australia, March 2026** — Adyen press release, first-party. E4 and LK4 name the airline and what it did, never implying a Yuno relationship
+- ✅ **Christchurch–Singapore and Christchurch–Narita launching Oct/Nov 2026** — Air NZ newsroom
+- ⚠️ **Card surcharge percentages are NOT used anywhere in this sequence.** They rest on trade press because Air NZ's own fee page was proxy-blocked. Do not add them without re-verifying.
+- ⚠️ **The Indonesia page-depth anomaly (14.88 pages/visit) is NOT used.** The storefront gap is verified; the causal link to that figure is not, and asserting it would be unsupported.
+- ⚠️ **No PSP is named anywhere in this sequence**, because none was identified. E1 and E3 describe the estate, not a vendor. If the manual checkout walkthrough identifies the acquirer, E5 becomes considerably stronger.
+
+### Success Case Alternatives
+
+- **Viva Aerobus** — airline, 75% of failed transactions recovered. Swap in if the conversation turns toward failed bookings or the credit-redemption defect rather than rail coverage
+- **inDrive** — Tier 2: multi-country acquiring at scale, ~90% approval, 10 countries in 8 months. Use if the conversation moves to market expansion ahead of the Christchurch launches. LATAM results, label them
+- **Rappi** — Tier 2: breadth of providers added without implementation delay. Use if they push back that adding rails is an engineering cost
+- ⚠️ **Qatar Airways is withdrawn** — no source connecting it to Yuno could be located. Do not use it with an airline that would plausibly know
+
 
 </details>
 
