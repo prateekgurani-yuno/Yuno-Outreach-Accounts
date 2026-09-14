@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-14 16:24*
+*Last updated: 2026-09-14 16:36*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -62,7 +62,7 @@
 |---------|----------|-----|--------|------------|
 | [Air New Zealand](2-ready-to-outreach/air-new-zealand.md) | Airlines | 16/24 | Greenfield — no orchestrator detected | 2026-09-14 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement — Juspay confirmed in production code | 2026-09-14 |
-| [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech | 12/24 → ⭐ override | In-house — self-built routing, no cascade | 2026-09-14 |
+| [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech | 14/24 ⭐ | In-house — self-built routing, no cascade | 2026-09-14 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield — no orchestrator detected | 2026-09-14 |
 
 ## 🔵 Outreached (0)

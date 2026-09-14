@@ -1,7 +1,7 @@
 # WuKong Education
 
 **Status:** 🟡 Research complete — outreach not yet generated
-**ICP Score:** 12 / 24 → 🟢 Medium — **analyst override to ⭐ High Priority, see breakdown**
+**ICP Score:** 14 / 24 → ⭐ **High Priority** — earned on arithmetic, no override needed
 **Industry:** E-Learning & EdTech (live 1-on-1 / small-group tutoring) · **HQ:** Contested — Mountain View, CA claimed; operational centre of gravity Auckland, NZ; billing entity Hong Kong · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** In-house — but a *shallow* in-house layer. See Section 3B.
 
@@ -12,20 +12,26 @@
 
 **Summary:** WuKong Education (悟空教育 / WuKong Chinese) sells live online Chinese, maths and English classes to overseas-Chinese families in the US, Canada, Australia, New Zealand, Singapore and a long tail of other markets. The model is sales-led: a free trial is booked on the site, an academic advisor calls, and the advisor closes a **prepaid class-credit package of roughly $349–$2,039 USD** — not a subscription. Payment is taken on a **self-built, self-hosted checkout at `pay.wukongsch.com`** whose client bundle contains their entire acquirer routing table in plaintext.
 
-**SimilarWeb total visits (last full month):** **No data.** Prateek supplied no traffic file for this account and no `accounts/traffic/wukong-education.md` exists. A single search summary attributes ~317.6K monthly visits to `wukongsch.com` for **July 2024** — 14 months stale, never loaded from SimilarWeb, `[ESTIMATE, not confirmed]`. **No country split exists and none has been invented.** Three ICP signals are unscoreable as a direct result.
+**SimilarWeb (supplied 2026-09-14):** `wukongsch.com`, Jun–Aug 2026, all traffic, **"Include all country domains" ON**, 60 countries. Full table in [`accounts/traffic/wukong-education.md`](../accounts/traffic/wukong-education.md).
+
+**Largest market is the US at 43.89% — no market reaches 60%, and 16 countries carry >1% share.** ⚠️ **No total-visits figure was captured**, so country shares are solid but absolute monthly visits per market cannot be stated and are not stated anywhere in this report.
+
+⚠️ **Engagement splits the country list into two different populations, and that split matters more than the ranking.** Ten markets behave like prospective buyers (2:00+ dwell, 2.7+ pages/visit): US, New Zealand, China, Australia, Canada, Germany, France, Brazil, Singapore, Netherlands. Nine behave like SEO-blog traffic (<1:00 dwell, <2 pages/visit): India (00:11), Sweden (00:08), Malaysia (00:18), Indonesia (00:19), Turkey (00:22), Philippines (00:32), Nigeria (00:44), Vietnam (00:49), Thailand (00:50). **India's 2.99% is not 2.99% of buyers.**
 
 ### Top 5 markets
-Ranking below is **the company's own ordering** in its Google Play listing ("Our students come from US, Canada, Australia, New Zealand, Singapore and more than 65 countries and regions"), corroborated by the buyer-country enum and currency map shipped in the checkout bundle. **It is not a traffic ranking** — treat the order as indicative.
+Real SimilarWeb ranking (Jun–Aug 2026). The company's own ordering in its Play listing — "US, Canada, Australia, New Zealand, Singapore" — turns out to be **almost right but misses the UK**, which outranks New Zealand.
 
 | Rank | Country | Traffic | Accepted methods | Missing methods | Local entity |
 |------|---------|---------|------------------|-----------------|--------------|
-| 1 | 🇺🇸 United States | No data | The **only** market with a full method set: cards + PayPal force-unhidden, UnionPay, Venmo, Cash App Pay, Klarna, Atome, Alipay, WeChat Pay, AlipayHK, bank transfer, Easy Payment Plan | ACH / bank debit as a named rail | ⚠️ Smart Learner International Corporation (CA #5287146) — `[UNVERIFIED — search summary only]` |
-| 2 | 🇨🇦 Canada | No data | `CA` is in the buyer-country enum but **CAD is absent from the currency map** → falls through to `DEFAULT: []` | **Interac** (absent from catalogue); CAD presentment entirely | ❌ None found |
-| 3 | 🇦🇺 Australia | No data | AUD supported: WeChat Pay, Alipay, AlipayHK, **Bank Transfer (tagged "Recommend")**, Credit/Debit Card (`hide:!0`), Klarna, Atome | **PayTo, BPAY, Afterpay, Zip** — all absent from an enumerated catalogue | ❌ None found |
-| 4 | 🇳🇿 New Zealand | No data | NZD supported: WeChat Pay, Alipay, AlipayHK, Bank Transfer ("Recommend"), **UnionPay**, Card (`hide:!0`), Klarna, Atome | POLi; local card acquiring | ✅ **LAN GLOBAL LIMITED** — Google Play developer of record |
-| 5 | 🇸🇬 Singapore | No data | `SG` is in the buyer-country enum. A `PAY_NOW` entry exists but carries **no country/currency scoping** (unlike iDEAL, which is hard-scoped to NL/EUR). **SGD is absent from the currency map.** | **PayNow presentment in SGD**, GrabPay, NETS | ❌ SG entity appears **struck off** `[UNVERIFIED]` |
+| 1 | 🇺🇸 United States | **43.89%** ↑26.69% | The **only** market with a full method set: cards + PayPal force-unhidden, UnionPay, Venmo, Cash App Pay, Klarna, Atome, Alipay, WeChat Pay, AlipayHK, bank transfer, Easy Payment Plan | ACH / bank debit as a named rail | ⚠️ Smart Learner International Corporation (CA #5287146) — `[UNVERIFIED — search summary only]` |
+| 2 | 🇨🇦 Canada | **5.13%** ↓13.90% | `CA` is in the buyer-country enum but **CAD is absent from the currency map** → falls through to `DEFAULT: []` | **Interac**; CAD presentment entirely. Their 2nd-largest market has **no method list at all** | ❌ None found |
+| 3 | 🇦🇺 Australia | **4.07%** ↓4.31% | AUD supported: WeChat Pay, Alipay, AlipayHK, **Bank Transfer (tagged "Recommend")**, Credit/Debit Card (`hide:!0`), Klarna, Atome | **PayTo, BPAY, Afterpay, Zip** — all absent from an enumerated catalogue | ❌ None found |
+| 4 | 🇬🇧 United Kingdom | **3.61%** ↑25.76% · **72.14% bounce, worst on the list** | **GBP is absent from the currency map** → `DEFAULT: []`. The only European rail in the entire catalogue is iDEAL, hard-scoped to NL/EUR. | GBP presentment; any UK rail whatsoever | ❌ None found; no Companies House record surfaced |
+| 5 | 🇸🇬 Singapore | **3.17%** ↑14.05% | `SG` is in the buyer-country enum. A `PAY_NOW` entry exists but carries **no country/currency scoping** (unlike iDEAL). **SGD is absent from the currency map.** | **PayNow presentment in SGD**, GrabPay, NETS | ❌ SG entity appears **struck off** `[UNVERIFIED]` |
 
-**Also confirmed transacting:** 🇭🇰 Hong Kong (AlipayHK, "For Hong Kong residents only"; HK billing entity) and 🇨🇳 mainland China (**CNY is a first-class checkout currency**).
+**Then:** 🇮🇳 India 2.99% *(00:11 dwell — SEO traffic, not buyers)* · 🇨🇳 China 2.60% **↓93.53%** *(highest-engagement market after the US and NZ; CNY is a first-class checkout currency)* · 🇳🇿 New Zealand 2.30% ↓31.57% *(only confirmed local entity)* · 🇮🇩 Indonesia 1.66% · 🇩🇪 Germany 1.59% · 🇵🇭 Philippines 1.56% · 🇸🇪 Sweden 1.53% · 🇲🇾 Malaysia 1.37% · 🇫🇷 France 1.24% · 🇧🇷 Brazil 1.09% · 🇳🇱 Netherlands 1.04% · 🇹🇷 Turkey 1.01% ↑194.06%
+
+> **The single most damning line in the whole account:** iDEAL is hard-scoped and shipped for the **Netherlands, their 16th market at 1.04%** — while **Canada (#2, 5.13%), the UK (#4, 3.61%) and Singapore (#5, 3.17%) have no presentment currency at all.** Somebody built a rail for 1% of traffic and left 12% on an empty method list.
 
 ### Legal entities
 - **WUKONG International (Hong Kong) Limited** (Hong Kong) — named in the Klarna **US** store-directory slug for a live merchant page that links out to `wukongsch.com`. *Entity name is from Klarna's merchant slug, not from an HK Companies Registry record.* **This is the billing entity facing US families.**
@@ -82,34 +88,32 @@ or call this from `/prepare_batch`.*
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 12 / 24
+### ICP Score breakdown — 14 / 24
 | Signal | Points | Status |
 |--------|--------|--------|
-| Orchestration status | **+1** | ✅ **In-house layer confirmed** by direct source-code evidence. Scored +1 per the matrix. See the override note — the matrix's +1 assumes a mature in-house platform; this is a hardcoded ternary. |
-| 3+ countries | **+3** | ✅ **Awarded on a deviation, stated openly.** The matrix operationalises this as ">1% traffic share in 3+ countries OR 3+ confirmed legal entities". There is no traffic data, and only two entities are solidly sourced (NZ via Google Play developer-of-record, HK via the Klarna merchant slug). But the shipped checkout code **enumerates five buyer countries** (`US, AU, CA, SG, NZ`) and **four billing currencies** (USD, AUD, NZD, CNY), which is more direct evidence of multi-country transacting than a traffic share would be. |
+| Orchestration status | **+1** | ✅ **In-house layer confirmed** by direct source-code evidence. Scored +1 per the matrix. Worth noting the matrix's +1 assumes a mature in-house platform; this is a hardcoded ternary with no cascade, which makes the sale closer to greenfield than the score implies. |
+| 3+ countries | **+3** | ✅ **Cleanly met.** **16 countries carry >1% traffic share** (SimilarWeb, supplied). Independently corroborated by the checkout code, which enumerates five buyer countries (`US, AU, CA, SG, NZ`) and four billing currencies. |
 | Multiple PSPs | **+3** | ✅ **Five acquirers plus a manual rail**, every one a literal string in the checkout bundle: Citcon, Airwallex, Latipay, PingPong, Stripe. Independently re-verified — token counts in `1306-d238e146e95b80e3.js`: CITCON ×8, LATIPAY ×3, STRIPE ×2, AIRWALLEX ×1, PINGPONG ×1, KLARNA ×2. |
-| Local rail or licensing gap in a top-3 market | **+3** | ✅ **Australia.** AUD is a supported billing currency, yet **PayTo, BPAY, Afterpay and Zip are all absent** from a complete enumerated method catalogue — a sourced absence, not an assumption. *Caveat: "top-3" is the company's own market ordering in its Play listing, not a traffic ranking.* Canada is arguably worse (CAD has no currency-map entry at all) but sits outside APAC. |
+| Local rail or licensing gap in a top-3 market | **+3** | ✅ **Australia — now a genuine top-3 traffic market at 4.07%**, no caveat needed. AUD is a supported billing currency, yet **PayTo, BPAY, Afterpay and Zip are all absent** from a complete enumerated method catalogue — a sourced absence. Singapore (#5, 3.17%) compounds it: PayNow unscoped, SGD absent, entity struck off, and SG acquiring is regulatorily gated on local presence. Canada (#2, 5.13%) is worse still but sits outside APAC. |
 | Recent expansion | **0** ⬜ | No new market launch found in the last 12 months. The 2026 Australian business-simulation programme is market *programming*, not market entry. GSV 150 and Frost & Sullivan are recognition. |
 | Payment issues reported | **+2** | ✅ **Moderate.** Verbatim 1★ App Store reviews fetched directly (credit-transfer promise refused; package lock-in with no cancellation; classes withdrawn after full payment). Trustpilot's 3% refund fee and the USD/CAD double-charge are `[UNVERIFIED — search summary only]` but the 3% figure **matches the `remind:"(May Charge 3%)"` string in their own code**, which is strong mutual corroboration. Agent verdict: 6 of 109 iOS reviews payment-related (~5.5%) — recurring, not dominant. |
 | Funding >$10M | **0** ❌ | Series B ~$10M reported, but dated **2022 or 2023** depending on aggregator — outside the 12-month window either way. The reported cap table (Marcy Venture Partners, Bobby Wagner, Daniel Wu) looks contaminated by a different "Wukong" and **should not be used in outreach**. |
-| High traffic outside home | **0** ⬜ | Unscoreable — no traffic data. Almost certainly true in reality (a HK/NZ-registered company selling to US and Canadian families), but the signal requires a sourced split and none exists. |
+| High traffic outside home | **+2** | ✅ **Met.** Largest market (US) is **43.89%** — comfortably under the 60% threshold, and the remaining 56% is spread across 59 countries with 15 more above 1%. SimilarWeb, supplied 2026-09-14. |
 | Competitor using orchestration | **0** ❌ | Searched across LingoAce, AmazingTalker, LingoBus, PandaTree, Outschool, Preply, italki, 51Talk. **Zero** appear on Primer, Gr4vy, Spreedly, Corefy or Yuno. 51Talk's PayerMax is a cross-border PSP, not an orchestrator. |
 | Payment job postings | **0** ❌ | No payments, treasury or billing-ops roles surfaced on `wukongsch.zhiye.com`, Liepin, BOSS直聘 or general search. Teaching roles only. |
 
-**Tier:** computed **12 / 24 → 🟢 Medium (8–13)**.
-**No public payment RFP found** — no RFP override.
+**Tier:** **14 / 24 → ⭐ High Priority (14+)**. Earned on the arithmetic — **no analyst override applied**.
+**No public payment RFP found** — no RFP override needed either.
 
-> #### ⭐ Analyst override — escalate to High Priority
+> #### Note on the tier — the override was withdrawn
 >
-> **Override applied. Reasoning, in full:**
+> This report first scored **12 / 24 → 🟢 Medium** with an upward analyst override, because three signals were unscoreable for want of a traffic split rather than for want of evidence, and the predicted ceiling on a proper pull was "14–15 / 24".
 >
-> **1. Three of ten signals scored zero for a missing data file, not for absent evidence.** "High traffic outside home", "3+ countries" (partially) and the top-3 framing of the local-rail gap all depend on a SimilarWeb split that was never supplied. A traffic re-pull against `wukongsch.com` with "Include all country domains" ON would very likely convert "high traffic outside home" (+2) and firm up the rail gap. The realistic ceiling here is **14–15 / 24**, which is ⭐ on the arithmetic alone.
+> Prateek supplied the SimilarWeb pull on 2026-09-14 (`wukongsch.com`, Jun–Aug 2026, all country domains ON). It landed at the bottom of that predicted range: **"high traffic outside home" converts to +2** (US 43.89%, under the 60% threshold), **"3+ countries" is now cleanly met** (16 countries >1%), and **the Australia rail gap is a genuine top-3 traffic market**, not the company's self-ordering. Total **14 / 24 → ⭐ High Priority on the arithmetic**. The override is withdrawn as no longer necessary.
 >
-> **2. The +1 for "in-house" is mis-calibrated for this specific merchant.** That grade exists to mark merchants who built a real routing platform and will argue "we already have this." WuKong built a two-branch ternary on `countryCode` inside a React component, with no cascade, no fallback and no retry. Functionally this is much closer to greenfield than to an in-house orchestrator, and the sale is correspondingly easier — there is no platform team to defend a platform.
+> **The one caveat survives, and it is the important one: volume is still unconfirmed.** The `~$100M est.` on the TAL is supported by **no public source whatsoever** — neither confirmed nor refuted — and the supplied SimilarWeb view carried **no total-visits figure**, so we have shares without a denominator. At a $349–$2,039 ticket the business case is entirely a function of transaction count. **Establishing annual card volume is the first job of the first call.**
 >
-> **3. The evidence quality is the best in the pipeline.** We hold their complete acquirer routing table, method catalogue, currency map and country gating as verbatim source, independently re-fetched and re-grepped. No other account in `2-ready-to-outreach/` has this. Outreach can quote their own configuration back to them.
->
-> **Counterweight, stated honestly: volume is unconfirmed.** The ~$100M revenue line on the TAL is supported by **no public source whatsoever** — neither confirmed nor refuted. At a $349–$2,039 ticket, $100M implies roughly 40k–100k package purchases a year. That is arithmetically consistent with "400,000 cumulative families" but it is *our* arithmetic, not a sourced figure. **Establishing annual card volume is the first job of the first call.** If volume comes back small, this drops straight back to 🟢.
+> **Second caveat, new from the traffic data: do not size this off raw traffic share.** Nine of the top twenty markets — India, Sweden, Malaysia, Indonesia, Turkey, Philippines, Nigeria, Vietnam, Thailand — sit under one minute of dwell and under two pages per visit. That is SEO-blog traffic, not enrolment intent. The commercially real footprint is roughly **US, Canada, Australia, UK, Singapore, China, New Zealand, Germany, France, Netherlands, Brazil**.
 
 ### Source Notes
 - ✅ **Re-verified by me directly, not taken from an agent:** the `citcon`/`aw` routing ternary; the `hide:!0` flags on `AW_CARD` and `PAYPAL`; the `tag:"Recommend"` on Bank Transfer; the `remind:"(May Charge 3%)"` card label; the `"AW_CARD"!==a.key&&"PAYPAL"!==a.key||(a.hide=!1)` unhide function and its `"US"===c` call-site guard; the currency map containing **only** USD / AUD / NZD / CNY plus `DEFAULT:[]`; zero hits for Adyen, Juspay, Primer, Gr4vy, Spreedly and Yuno.
@@ -132,23 +136,57 @@ or call this from `/prepare_batch`.*
 
 ## Executive Summary
 
-WuKong Education sells live online Chinese, maths and English tuition to overseas-Chinese families, billing **$349–$2,039 prepaid class-credit packages** through consultant-issued payment links rather than a self-serve cart. The decisive finding is that WuKong **built its own checkout and its own acquirer routing** at `pay.wukongsch.com`, fanning five acquirers — Citcon, Airwallex, Latipay, PingPong and Stripe — out of a normalised internal `paymentMethod` enum, with the routing decision itself being a hardcoded ternary on buyer country and **no fallback, retry or cascade anywhere in the bundle**. The sharpest single observation is that **credit and debit cards ship `hide:!0` and are force-unhidden only for US traffic**, carrying a `"(May Charge 3%)"` surcharge label, while **manual bank transfer is the only method tagged `"Recommend"` in all four supported currencies** — a merchant steering payers off cards and onto wire transfer on a two-thousand-dollar ticket. The motion is **in-house**, but a shallow one: there is no platform to defend, and the opportunity is single-shot authorisation rate and acquirer failover on high-value cross-border card transactions where a decline costs an entire enrolment.
+WuKong Education sells live online Chinese, maths and English tuition to overseas-Chinese families — **43.89% of traffic from the US and 56% spread across 59 other countries, 16 of them above 1% share** (SimilarWeb, supplied 2026-09-14) — billing **$349–$2,039 prepaid class-credit packages** through consultant-issued payment links rather than a self-serve cart. The decisive finding is that WuKong **built its own checkout and its own acquirer routing** at `pay.wukongsch.com`, fanning five acquirers — Citcon, Airwallex, Latipay, PingPong and Stripe — out of a normalised internal `paymentMethod` enum, with the routing decision itself being a hardcoded ternary on buyer country and **no fallback, retry or cascade anywhere in the bundle**. The sharpest single observation is that **credit and debit cards ship `hide:!0` and are force-unhidden only for US traffic**, carrying a `"(May Charge 3%)"` surcharge label, while **manual bank transfer is the only method tagged `"Recommend"` in all four supported currencies** — a merchant steering payers off cards and onto wire transfer on a two-thousand-dollar ticket. Their currency map holds exactly four entries — USD, AUD, NZD, CNY — so **Canada (#2), the UK (#4) and Singapore (#5), together 11.9% of traffic, fall through to an empty method list**, while the one scoped local rail they did build, iDEAL, serves the Netherlands at #16. The motion is **in-house**, but a shallow one: there is no platform to defend, and the opportunity is single-shot authorisation rate and acquirer failover on high-value cross-border card transactions where a decline costs an entire enrolment.
 
 ---
 
 ### Section 1: Website Traffic Analysis by Country
 
-**Data source: none of the three resolution paths succeeded.**
+**Data source: resolution path 1 — pasted SimilarWeb data supplied by Prateek.** `wukongsch.com`, **Jun 2026 – Aug 2026**, all traffic, **"Include all country domains" ON**, 60 countries listed. Cited throughout as "SimilarWeb (supplied 2026-09-14)". Full table saved at [`accounts/traffic/wukong-education.md`](../accounts/traffic/wukong-education.md).
 
-1. *Pasted SimilarWeb data* — Prateek supplied none for this account; `accounts/traffic/wukong-education.md` does not exist.
-2. *SimilarWeb MCP tools* — not configured in this environment.
-3. *WebSearch fallback* — returned a single figure, **~317.6K monthly visits for `wukongsch.com`, July 2024**, attributed to `https://www.similarweb.com/company/wukongsch.com/` via a search summary. The SimilarWeb page was never loaded. **14 months stale. `[ESTIMATE, not confirmed]`.**
+✅ **Correct domain, single pull.** `wukongedu.net` was deliberately **not** pulled separately — its `robots.txt` declares `Host: https://www.wukongsch.com/`, so it is the same property and a second pull would double-count.
+
+⚠️ **No total-visits figure was captured in the supplied view.** Shares are reliable; **absolute monthly visits per country cannot be computed and are not stated anywhere in this report.** The only absolute figure that exists in any source is a 14-month-old search summary (~317.6K/mo, Jul 2024, `[ESTIMATE, not confirmed]`) and it must **not** be multiplied against these shares.
 
 | Rank | Country | Traffic Share (%) | Est. Monthly Visits | Trend | Source |
 |------|---------|-------------------|---------------------|-------|--------|
-| — | **No country split available** | — | — | — | — |
+| 1 | 🇺🇸 United States | **43.89%** | Not available | ↑ 26.69% — growing | SimilarWeb (supplied 2026-09-14) |
+| 2 | 🇨🇦 Canada | **5.13%** | Not available | ↓ 13.90% — declining | same |
+| 3 | 🇦🇺 Australia | **4.07%** | Not available | ↓ 4.31% — stable/soft | same |
+| 4 | 🇬🇧 United Kingdom | **3.61%** | Not available | ↑ 25.76% — growing | same |
+| 5 | 🇸🇬 Singapore | **3.17%** | Not available | ↑ 14.05% — growing | same |
+| 6 | 🇮🇳 India | 2.99% | Not available | ↑ 0.69% — flat | same |
+| 7 | 🇨🇳 China | 2.60% | Not available | **↓ 93.53% — collapsed** | same |
+| 8 | 🇳🇿 New Zealand | 2.30% | Not available | ↓ 31.57% — declining | same |
+| 9 | 🇮🇩 Indonesia | 1.66% | Not available | ↑ 3.15% — flat | same |
+| 10 | 🇩🇪 Germany | 1.59% | Not available | ↑ 0.78% — flat | same |
+| 11 | 🇵🇭 Philippines | 1.56% | Not available | ↑ 43.10% — growing | same |
+| 12 | 🇸🇪 Sweden | 1.53% | Not available | ↓ 22.13% — declining | same |
+| 13 | 🇲🇾 Malaysia | 1.37% | Not available | ↓ 32.53% — declining | same |
+| 14 | 🇫🇷 France | 1.24% | Not available | ↓ 33.09% — declining | same |
+| 15 | 🇧🇷 Brazil | 1.09% | Not available | ↑ 45.27% — growing | same |
+| 16 | 🇳🇱 Netherlands | 1.04% | Not available | ↓ 17.38% — declining | same |
+| 17 | 🇹🇷 Turkey | 1.01% | Not available | **↑ 194.06% — fastest growth** | same |
+| 18 | 🇻🇳 Vietnam | 0.96% | Not available | ↓ 2.64% — flat | same |
+| 19 | 🇹🇭 Thailand | 0.95% | Not available | ↓ 10.51% — declining | same |
+| 20 | 🇳🇬 Nigeria | 0.95% | Not available | ↓ 11.64% — declining | same |
 
-> **No country-level traffic data exists for this account, and none has been invented.** The country profile in this report is assembled from (a) the company's own market ordering in its Google Play listing, (b) the buyer-country enum and currency map shipped in the checkout bundle, (c) App Store and Trustpilot storefront locales, and (d) entity/office locations. That is a *presence* profile, not a *volume* profile. The APM gap analysis in Section 4 and the ICP signals "high traffic outside home" and the top-3 framing of the local-rail gap are all affected.
+Ranks 21–60 not captured; the top 20 account for **~80.7%** of traffic.
+
+**High-priority markets (>5% share):** United States (43.89%), Canada (5.13%).
+
+**Markets with no confirmed local entity, cross-referenced against Section 2 — this is nearly all of them:** 🇨🇦 Canada (#2), 🇦🇺 Australia (#3), 🇬🇧 United Kingdom (#4), 🇸🇬 Singapore (#5 — entity struck off), 🇮🇳 India (#6), 🇨🇳 China (#7), 🇮🇩 Indonesia (#9), 🇩🇪 Germany (#10), 🇵🇭 Philippines (#11). **The only confirmed local entity in the entire top 20 is New Zealand at #8 (2.30%)**, and the entity that actually bills (Hong Kong) does not appear in the top 20 at all.
+
+> ⚠️ **Read the engagement columns before using any of these shares as buyer volume.** The list contains two different populations:
+>
+> - **Buyer-like (2:00+ dwell, 2.7+ pages/visit):** US (02:46 / 4.68), New Zealand (02:50 / 4.85), China (02:36 / 4.72), Australia (02:12 / 4.20), Canada (01:51 / 4.06), Germany (02:03 / 3.61), France (02:09 / 3.54), Brazil (03:18 / 2.95), Singapore (01:59 / 2.76), Netherlands (02:07 / 2.73).
+> - **SEO-blog-like (<1:00 dwell, <2 pages/visit):** India (00:11 / 1.82), Sweden (00:08 / 1.35), Malaysia (00:18 / 1.81), Indonesia (00:19 / 1.37), Turkey (00:22 / 1.57), Philippines (00:32 / 1.61), Nigeria (00:44 / 1.76), Vietnam (00:49 / 1.88), Thailand (00:50 / 1.87).
+>
+> WuKong runs a large content/blog operation (`/blog/sitemap_index.xml`, `/cms/sitemap_index.xml` in robots.txt), which is the obvious explanation. **India's 2.99% is not 2.99% of buyers**, and nor is most of the SEA share. `[INFERENCE, not confirmed]` as to cause — the dwell and pages-per-visit figures themselves are measured data.
+
+**Two movements worth a question on a call, neither of which should be asserted as fact:**
+- **China −93.53%**, the largest swing in the table by an order of magnitude, and the only market with no country rank shown — yet still the third-highest engagement on the list (02:36 / 4.72) and a first-class CNY checkout currency. A drop that steep is either a real access event or a measurement artefact. **Do not assert a cause.**
+- **UK 72.14% bounce**, by far the worst in the top 20, on a market growing 25.76% — and GBP is absent from the checkout currency map entirely. Correlation, not proven causation, but a very pointed one.
 
 **Domains resolved:**
 
@@ -198,17 +236,21 @@ WuKong Education sells live online Chinese, maths and English tuition to oversea
 
 **Cross-Border Gap Analysis:**
 
-| Country | In Top 5 (company ordering)? | Has Local Entity? | Domestic acquiring gated? | Cross-Border Risk? |
-|---------|---------------------------|-------------------|---------------------------|---------------------|
-| 🇺🇸 USA | Yes (#1) | ⚠️ Unverified | No | **High** — a Hong Kong entity is billing US families. Every US card transaction is cross-border. |
-| 🇨🇦 Canada | Yes (#2) | ❌ No | No | **High** — plus no CAD in the currency map at all. |
-| 🇦🇺 Australia | Yes (#3) | ❌ No | No | **High** |
-| 🇳🇿 New Zealand | Yes (#4) | ✅ LAN GLOBAL LIMITED | No | **Medium** — entity exists; whether it is the *billing* entity is unknown. |
-| 🇸🇬 Singapore | Yes (#5) | ❌ Struck off | **Yes** — SG acquiring generally requires local presence | **High** |
-| 🇨🇳 China | Live CNY currency | ❌ No | **Yes** — mainland domestic acquiring is gated behind local licensing | **High** |
-| 🇭🇰 Hong Kong | AlipayHK live | ✅ (billing entity) | No | **Low** |
+| Country | Traffic rank / share | Has Local Entity? | Domestic acquiring gated? | Cross-Border Risk? |
+|---------|---------------------|-------------------|---------------------------|---------------------|
+| 🇺🇸 USA | **#1 · 43.89%** | ⚠️ Unverified | No | **High** — a Hong Kong entity is billing US families. Every US card transaction is cross-border, on the market that is 44% of all traffic. |
+| 🇨🇦 Canada | **#2 · 5.13%** | ❌ No | No | **High** — and no CAD in the currency map at all, so their second-largest market has no presentment currency. |
+| 🇦🇺 Australia | **#3 · 4.07%** | ❌ No | No | **High** — AUD supported, but no Australian rail and no entity. |
+| 🇬🇧 UK | **#4 · 3.61%** | ❌ No | No | **High** — GBP absent from the currency map; worst bounce rate in the top 20 (72.14%). |
+| 🇸🇬 Singapore | **#5 · 3.17%** | ❌ Struck off | **Yes** — SG acquiring generally requires local presence | **High** — the one market in the top 5 where the gap is regulatory, not merely a cost question. |
+| 🇮🇳 India | #6 · 2.99% | ❌ No | **Yes** — domestic acquiring requires local presence | **High** — but note the 00:11 dwell; treat as SEO traffic, not buyers. |
+| 🇨🇳 China | #7 · 2.60% *(↓93.53%)* | ❌ No | **Yes** — mainland domestic acquiring is gated behind local licensing | **High** — despite CNY being a first-class checkout currency. |
+| 🇳🇿 New Zealand | #8 · 2.30% | ✅ LAN GLOBAL LIMITED | No | **Medium** — the only confirmed entity in the top 20; whether it is the *billing* entity is unknown. |
+| 🇮🇩 Indonesia | #9 · 1.66% | ❌ No | **Yes** — local presence required for domestic acquiring | **High** — but 00:19 dwell; SEO cohort. |
+| 🇩🇪 Germany | #10 · 1.59% | ❌ No | No | **High** — buyer-like engagement (02:03 / 3.61) with **no EUR in the currency map**. |
+| 🇭🇰 Hong Kong | Not in top 20 | ✅ (billing entity) | No | **Low** — the entity that bills is in the one market that barely appears in the traffic. |
 
-> *Warning: Potential cross-border operation in the United States, Canada, Australia and Singapore. No confirmed local billing entity in any of them. Transactions are likely processed cross-border, with higher scheme costs, lower approval rates and FX exposure.*
+> *Warning: Potential cross-border operation in the United States, Canada, Australia, the United Kingdom and Singapore — ranks #1 through #5, together roughly **60% of all traffic**. No confirmed local billing entity in any of them. Transactions are likely processed cross-border, with higher scheme costs, lower approval rates and FX exposure.*
 
 This is not speculative here — **the merchant says so themselves on their own payment page**: *"Currency conversions may affect the actual amount. Please refer to third-party payment platforms for the actual payment amount."* A merchant that controlled presentment currency would not need that disclaimer.
 
@@ -346,13 +388,25 @@ v = "US"===c ? ie(v, I?.money?.currency) : v
 | 🇲🇾 Malaysia | FPX, Touch 'n Go, GrabPay | Bank / wallet | ❌ **Not found** | index chunk |
 | All | **Apple Pay, Google Pay** | Digital wallet | ❌ Not found as named methods (could exist inside a hosted card field) | index chunk |
 | All | Affirm, Afterpay | BNPL | ❌ Not found | index chunk |
-| 🇯🇵🇰🇷🇮🇳🇮🇩🇵🇭🇹🇭🇻🇳 | konbini, PayPay, UPI, QRIS, GCash, PromptPay, ZaloPay etc. | Local | ❌ **Not found** — despite 118 claimed countries. *Note: Airwallex routing keys for DANA, GCASH, KAKAO, TRUEMONEY and TNG exist in the dispatch switch but those methods are **not in the rendered catalogue** — plumbing without a front end.* | 1306 + index chunks |
+| 🇮🇳 India (#6, 2.99%) | UPI, netbanking, RuPay, EMI | Local | ❌ **Not found** | index chunk |
+| 🇮🇩 Indonesia (#9, 1.66%) | QRIS, GoPay, OVO, DANA | Local | ❌ **Not in the rendered catalogue** — **but `case"DANA"` routes to Airwallex in the dispatch switch.** Plumbing without a front end. | 1306 + index chunks |
+| 🇵🇭 Philippines (#11, 1.56%) | GCash, Maya | Local | ❌ **Not in the rendered catalogue** — **but `case"GCASH"` routes to Airwallex.** | 1306 + index chunks |
+| 🇲🇾 Malaysia (#13, 1.37%) | FPX, Touch 'n Go, GrabPay | Local | ❌ **Not in the rendered catalogue** — **but `case"TNG"` routes to Airwallex.** | 1306 + index chunks |
+| 🇹🇭 Thailand (#19, 0.95%) | PromptPay, TrueMoney | Local | ❌ **Not in the rendered catalogue** — **but `case"TRUEMONEY"` routes to Airwallex.** | 1306 + index chunks |
+| 🇻🇳 Vietnam (#18, 0.96%) | MoMo, ZaloPay, VNPay | Local | ❌ Not found | index chunk |
+| 🇰🇷 Korea / 🇯🇵 Japan | KakaoPay, Toss, PayPay, konbini | Local | ❌ **Not in the rendered catalogue** — **but `case"KAKAO"` routes to Airwallex.** Neither market appears in the top 20 traffic. | 1306 + index chunks |
+| 🇩🇪🇫🇷 Germany / France | SEPA, Sofort, Cartes Bancaires | Local | ❌ Not found — **and EUR is absent from the currency map.** `case"SOFORT"` and `case"GIROPAY"` route to Airwallex but are not in the catalogue. | 1306 + index chunks |
+| 🇬🇧 UK | GBP presentment, any UK rail | — | ❌ **Not found. GBP is absent from the currency map entirely.** | index chunk |
 
-> *Warning: In Australia, PayTo and BPAY are established domestic rails and Afterpay/Zip are the dominant local BNPL brands, yet none appears in WuKong's enumerated method catalogue — BNPL for AUD is Klarna and Atome only.*
+> *Warning: In **Canada (#2, 5.13%)**, Interac is the dominant domestic rail and CAD is not even a supported presentment currency — a CAD-denominated order falls through to `DEFAULT: []`, an empty method list. There is a public Trustpilot complaint of a Canadian customer double-paying over exactly this USD/CAD mismatch.*
 >
-> *Warning: In Canada, Interac is the dominant domestic rail and CAD is not even a supported presentment currency. There is a public Trustpilot complaint of a Canadian customer double-paying over exactly this USD/CAD mismatch.*
+> *Warning: In **Australia (#3, 4.07%)**, PayTo and BPAY are established domestic rails and Afterpay/Zip are the dominant local BNPL brands, yet none appears in WuKong's enumerated method catalogue — BNPL for AUD is Klarna and Atome only.*
 >
-> *Warning: In Singapore, PayNow is the dominant domestic A2A rail. A `PAY_NOW` entry exists but SGD is absent from the currency map, so a Singapore parent is billed in a foreign currency on a rail that may not be scoped to them.*
+> *Warning: In the **UK (#4, 3.61%, growing 25.76%)**, GBP is absent from the currency map entirely. A UK parent gets an empty recommended list. The UK also carries the worst bounce rate in the top 20 at **72.14%** — correlation, not proven causation, but pointed.*
+>
+> *Warning: In **Singapore (#5, 3.17%)**, PayNow is the dominant domestic A2A rail. A `PAY_NOW` entry exists but SGD is absent from the currency map, so a Singapore parent is billed in a foreign currency on a rail that may not even be scoped to them. Singapore is also the one top-5 market where local acquiring is **regulatorily gated** on local presence — and their SG entity appears struck off.*
+>
+> *Warning: **Germany (#10, 1.59%), France (#14, 1.24%) and the Netherlands (#16, 1.04%)** are all in the buyer-like engagement cohort. EUR is absent from the currency map. The single European rail in the entire catalogue is **iDEAL, hard-scoped to NL/EUR** — built for the 16th-largest market while the 2nd, 4th and 5th have no presentment currency at all.*
 
 **Alipay / WeChat Pay — confirmed, and prioritised above cards.** All three Chinese rails (Alipay mainland, WeChat Pay, AlipayHK) sit **first in every single currency's recommended list — above cards, above PayPal, above bank transfer**. A family in Los Angeles or Sydney is being offered a mainland Chinese wallet as the default. This confirms the diaspora hypothesis, and it is also why **Citcon** (a US-based Alipay/WeChat/UnionPay cross-border specialist) is the US acquirer.
 
@@ -466,7 +520,7 @@ What exists instead is directly observable infrastructure, already documented in
 
 > **Insight #1: They hide their own card option outside the US and tell parents to wire money instead.**
 > **Evidence:** Section 3A/4 — `{title:"Credit/Debit Card",key:"AW_CARD",hide:!0,remind:"(May Charge 3%)"}`, force-unhidden only inside `ie()` which is called only when `"US"===c`; meanwhile `{title:"Bank Transfer",key:"BankTransfer",tag:"Recommend"}` in **all four** currency lists. ([index chunk](https://pay.wukongsch.com/_next/static/chunks/pages/index-091bbfd821769875.js)) + Section 5 — a Canadian parent who wired in USD, was told to pay in CAD, paid twice, and was still awaiting a refund ([Trustpilot CA](https://ca.trustpilot.com/review/wukongsch.com?page=2)).
-> **Pain Point:** On a $349–$2,039 enrolment, pushing a parent from a two-tap card payment to a manual bank transfer is a conversion event, not a cost optimisation. Wires arrive days later, in the wrong currency, unreconciled, and land on a human to chase. A merchant only does this when cross-border card economics — decline rates, interchange, FX — have stopped working.
+> **Pain Point:** **56% of their traffic is outside the US** (SimilarWeb supplied 2026-09-14; US is 43.89%), and every one of those visitors sees a checkout with the card option hidden. On a $349–$2,039 enrolment, pushing a parent from a two-tap card payment to a manual bank transfer is a conversion event, not a cost optimisation. Wires arrive days later, in the wrong currency, unreconciled, and land on a human to chase. A merchant only does this when cross-border card economics — decline rates, interchange, FX — have stopped working.
 > **Yuno Value Proposition:** Local acquiring in the US, Canada, Australia and Singapore turns those cross-border card attempts into domestic ones, which is where the approval-rate and interchange gap actually lives. The goal is to make the card option good enough to un-hide.
 > **Best Success Case:** NetEase Games — Greater-China-origin merchant collecting from a globally distributed consumer base, approval rate as the primary lever. ⚠️ *Do not quote figures until Prateek supplies verified results.*
 > **Outreach Angle:** "Your checkout ships credit card with `hide: true` everywhere except the US, and bank transfer as the only method tagged 'Recommend'. That's a decision someone made because the card numbers outside the US weren't working."
@@ -480,13 +534,13 @@ What exists instead is directly observable infrastructure, already documented in
 > **Outreach Angle:** "You've integrated Citcon, Airwallex, Latipay, PingPong and Stripe. The routing between them is a one-line ternary on buyer country, and there's no cascade — so when Citcon declines a US card, nothing catches it."
 > **Suggested Subject Line:** Five acquirers, one ternary
 
-> **Insight #3: The currency map has four entries. Canada and Singapore aren't in it.**
-> **Evidence:** Section 4 — the recommended-methods map contains **only** `USD`, `AUD`, `NZD`, `CNY` and `DEFAULT:[]`; `CA` and `SG` are both in the buyer-country enum but **CAD and SGD have no entry**. Section 2 — no Canadian entity, and the Singapore entity appears **struck off**. Section 5 — a Canadian parent double-paid over exactly this USD/CAD mismatch.
-> **Pain Point:** Canada and Singapore are markets the company names in its own app-store copy as core, being billed in a foreign currency with no curated method list and no local rail (no Interac, no scoped PayNow). Every one of those transactions is a foreign-currency cross-border card attempt against a consumer who expects to pay in their own money.
-> **Yuno Value Proposition:** Local presentment currency and local rails in both markets — Interac in Canada, PayNow in SGD in Singapore — plus the entity and acquiring structure to support them without WuKong standing up a company in each.
+> **Insight #3: They built a payment rail for their 16th market and left their 2nd, 4th and 5th on an empty method list.**
+> **Evidence:** Section 1 — SimilarWeb (supplied 2026-09-14): Canada **#2 at 5.13%**, UK **#4 at 3.61%**, Singapore **#5 at 3.17%** — together **11.9% of all traffic**. Section 4 — the recommended-methods map contains **only** `USD`, `AUD`, `NZD`, `CNY` and `DEFAULT:[]`, so **CAD, GBP and SGD all fall through to an empty list**; meanwhile the single European rail in the entire catalogue is **iDEAL, hard-scoped `country:["NL"], currencys:{NL:["EUR"]}`** — the Netherlands, **#16 at 1.04%**. Section 5 — a Canadian parent double-paid over exactly this USD/CAD mismatch.
+> **Pain Point:** Someone had the appetite and the engineering time to ship a scoped local rail for one percent of traffic, and their second-largest market still can't be billed in its own currency. That is not a strategy, it's what happens when every market is a separate hand-built project competing for the same queue. Every Canadian, British and Singaporean parent is paying a foreign-currency cross-border card charge — with the UK carrying the worst bounce rate in the top 20 at 72.14%.
+> **Yuno Value Proposition:** Local presentment currency and local rails across all three at once — Interac in Canada, GBP acquiring in the UK, PayNow in SGD in Singapore — configured rather than built, and without WuKong incorporating in each market.
 > **Best Success Case:** Cross-border corridor framing; no same-vertical case exists in the library (see Success Case Alternatives).
-> **Outreach Angle:** "Canada and Singapore are both in your checkout's country list, but CAD and SGD aren't in your currency map — those parents fall through to an empty method list."
-> **Suggested Subject Line:** CAD and SGD aren't in your currency map
+> **Outreach Angle:** "You shipped iDEAL for the Netherlands, which is about 1% of your traffic. Canada is 5%, the UK is 3.6% and Singapore is 3.2% — and CAD, GBP and SGD aren't in your currency map at all."
+> **Suggested Subject Line:** iDEAL for the Netherlands, nothing for Canada
 
 > **Insight #4: A Hong Kong entity is billing American families, and the checkout says so.**
 > **Evidence:** Section 2 — the Klarna US merchant of record is **WUKONG International (Hong Kong) Limited**; no confirmed billing entity in the US, Canada or Australia. Section 8 — the payment page carries the verbatim disclaimer *"Currency conversions may affect the actual amount. Please refer to third-party payment platforms for the actual payment amount."*
@@ -496,12 +550,12 @@ What exists instead is directly observable infrastructure, already documented in
 > **Outreach Angle:** "Your own payment page tells parents you can't tell them what they'll actually be charged. That's what cross-border presentment looks like from the cardholder's side."
 > **Suggested Subject Line:** "Currency conversions may affect the actual amount"
 
-> **Insight #5: Airwallex plumbing for GCash, DANA, KakaoPay and TrueMoney exists — with no front end.**
-> **Evidence:** Section 3B — the dispatch switch handles `case"DANA": case"GCASH": case"KAKAO": case"TRUEMONEY": case"TNG":` by routing to `/aw/aw-add-params` with `method:"AIRWALLEX"`. Section 4 — **none of those five methods appears in the rendered method catalogue.**
-> **Pain Point:** Someone built SEA and Korea rails and they are not exposed to any buyer. Either an abandoned expansion, or an expansion that stalled. Either way there is an internal owner who tried this.
-> **Yuno Value Proposition:** The reason single-PSP APM expansion stalls is that each market needs its own method set, its own currency, its own compliance posture, and the merchant has to build and maintain the front end for all of it. Orchestration makes the market the configuration, not the project.
+> **Insight #5: The SEA rails are already wired to Airwallex and surfaced to nobody — and SEA is real traffic.**
+> **Evidence:** Section 3B — the dispatch switch handles `case"DANA": case"GCASH": case"KAKAO": case"TRUEMONEY": case"TNG":` by routing to `/aw/aw-add-params` with `method:"AIRWALLEX"`. Section 4 — **none of those five methods appears in the rendered method catalogue.** Section 1 — Indonesia **#9 (1.66%)**, Philippines **#11 (1.56%)**, Malaysia **#13 (1.37%)**, Thailand **#19 (0.95%)**: **~5.5% of traffic sitting on markets whose local rails they have already integrated and never exposed.**
+> **Pain Point:** Someone built this and it stalled. ⚠️ **Be careful how hard you push it** — all four of those markets sit in the thin-engagement cohort (00:18–00:50 dwell, 1.37–1.87 pages/visit), so this is very likely blog traffic rather than enrolment demand today. The honest read is that the rails were built for an expansion that didn't convert, not that there is 5.5% of revenue going uncollected. That makes it a **discovery question about why it stalled**, which is more useful than a claim.
+> **Yuno Value Proposition:** The reason single-PSP APM expansion stalls is that each market needs its own method set, currency, compliance posture and front end, and the merchant maintains all of it. Orchestration makes the market a configuration change rather than a project — which is exactly the difference between a rail that ships and a rail that sits in a switch statement.
 > **Best Success Case:** Garena, for SEA rail coverage specifically — though note the payer base here is diaspora, not SEA-resident.
-> **Outreach Angle:** *Use this as a discovery question on a call, not as an email claim* — "you have GCash, DANA, KakaoPay and TrueMoney wired through Airwallex but not surfaced in the method list; what happened to that expansion?"
+> **Outreach Angle:** *Use on a call, not in an email* — "you've got GCash, DANA, KakaoPay and TrueMoney wired through Airwallex but not surfaced in the method list. What happened to that expansion?"
 > **Suggested Subject Line:** *(call question, not an email)*
 
 ---
@@ -511,7 +565,7 @@ What exists instead is directly observable infrastructure, already documented in
 **Email hooks (one sentence each):**
 1. "Your checkout ships `Credit/Debit Card` with `hide: true` and `(May Charge 3%)`, force-unhidden only for US buyers, while Bank Transfer is the only method tagged 'Recommend' in all four of your currencies — that's a decision someone made because the card economics outside the US stopped working."
 2. "You've integrated Citcon, Airwallex, Latipay, PingPong and Stripe, and the routing between them is a single ternary on buyer country with no cascade — so a declined $1,349 enrolment has nowhere to go."
-3. "Canada and Singapore are in your checkout's country list, but CAD and SGD aren't in your currency map, so those parents fall through to an empty method list and a wire transfer."
+3. "You shipped iDEAL for the Netherlands, which is about 1% of your traffic — meanwhile Canada is 5%, the UK 3.6% and Singapore 3.2%, and CAD, GBP and SGD aren't in your currency map at all."
 
 **Cold call openers (conversational, one sentence each):**
 1. "I read your payment gateway's front-end code — specifically the bit where card is hidden by default everywhere except the US. Can I ask what drove that?"
@@ -573,10 +627,10 @@ Not run — Agent 5's budget went to establishing the cohort's payment stacks, w
 | Annual Revenue (USD) | **Not found.** The `~$100M est.` on the TAL is supported by **no public source** — neither confirmed nor refuted | TAL row is a lead, not a fact |
 | GMV / Gross Transaction Volume | Not found | — |
 | Average Transaction Value (USD) | **$349–$2,039 per package**, ~$20–30/lesson; $349 = 12 sessions, $1,349 = 60 sessions; one independent parent review cites "$2,800+ for a year" | [company blog](https://www.wukongsch.com/blog/complete-guide-to-wukong-chinese-post-28985/) · [myengineeringbuddy](https://www.myengineeringbuddy.com/blog/wukong-tutoring-reviews-alternatives-pricing-offerings/) · [joshuawwy](https://joshuawwy.com/c/2026/a/wukong-review) — **all `[UNVERIFIED — search summary only]`** |
-| Est. Annual Transactions | `[ESTIMATE, not confirmed]` **~40,000–100,000 package purchases/yr** *if* the $100M line is real | Our arithmetic: $100M ÷ $1,000–$2,500 average package. **This is a derivation from an unverified input — treat as a discovery question, not a number** |
+| Est. Annual Transactions | `[ESTIMATE, not confirmed]` **~40,000–100,000 package purchases/yr** *if* the $100M line is real | Our arithmetic: $100M ÷ $1,000–$2,500 average package. **A derivation from an unverified input — a discovery question, not a number.** The supplied SimilarWeb view carried no total-visits figure, so there is no denominator to cross-check it against either. |
 | Active Customers / Users | Self-reported and mutually inconsistent: "300,000 families" / "400,000 families" / "nearly one million families" (cumulative, not active). 50K+ Android installs. 4,500 teachers. | [9th-anniversary PR](https://www.prnewswire.com/news-releases/from-one-online-classroom-to-400-000-families-wukong-education-marks-its-9th-anniversary-with-a-growing-global-vision-302593777.html) · [Frost & Sullivan PR](https://www.prnewswire.com/news-releases/wukong-chinese-ranked-no1-globally-based-on-cumulative-paying-users-according-to-frost--sullivan-302687368.html) · Google Play (fetched) |
 | Primary Currency | **USD.** Also live: AUD, NZD, CNY. **Not live: CAD, SGD, GBP, HKD, EUR, MYR, JPY** | Checkout currency map, verified directly |
-| Top 3 Markets by Revenue | **Not found.** Company's own ordering is US, Canada, Australia, New Zealand, Singapore — presence, not revenue | Google Play listing (fetched) |
+| Top 3 Markets by Revenue | **Not found.** Best available proxy is traffic: **US 43.89%, Canada 5.13%, Australia 4.07%**, then UK 3.61% and Singapore 3.17%. ⚠️ Traffic is not revenue, and nine of the top 20 markets are thin-engagement SEO traffic — see the engagement split in Section 1 before using any share as volume. | SimilarWeb (supplied 2026-09-14) |
 | **Billing channel split (web vs app store)** | **Web/pay-link dominant. `[INFERENCE, not confirmed]` — but well supported.** The sale is advisor-led and closed on a consultant-issued `pay.wukongsch.com` link; the apps are a learning portal (`com.wukongacademy.studentportal`), and **no IAP product tiers or store-billing evidence surfaced**. Contrast YuppTV, where Apple IAP was found live with fetched price tiers. | [Google Play](https://play.google.com/store/apps/details?id=com.wukongacademy.studentportal) · [pay.wukongsch.com](https://pay.wukongsch.com/) |
 
 > **This account does not fail the app-store test.** The revenue that matters runs through a web pay link WuKong controls end to end, which is exactly the volume orchestration can touch. **No downward override on app-store grounds.**
@@ -585,25 +639,25 @@ Not run — Agent 5's budget went to establishing the cohort's payment stacks, w
 
 ### Overall Research Confidence
 
-**Medium-High — unusually split.**
+**High on infrastructure, Medium on the commercials.**
 
 **Very strong (higher confidence than any account in the pipeline so far):** the PSP stack, the orchestration classification, the method catalogue, the currency map and the country gating. All of it comes from **primary source code** on a live, fetchable host, independently re-fetched and re-grepped by me rather than taken on an agent's word. The `hide:!0` flags, the `"Recommend"` tag on bank transfer, the `(May Charge 3%)` label, the `citcon`/`aw` ternary and the four-entry currency map were each verified a second time. There is no ambiguity in Sections 3, 4 and 8.
 
-**Weak:** entities, financials, and traffic.
-- **Traffic data was neither supplied nor API-sourced.** The only figure found is a 14-month-old search-summary estimate with no country split. **The country profile in this report is a presence profile assembled from company statements, store locales and checkout code — not a volume profile.** This directly zeroes the "high traffic outside home" signal, forces a deviation on "3+ countries", and means the "top-3 market" framing of the rail gap rests on the company's own market ordering rather than measured traffic.
+**Now strong: the country profile.** Traffic was **supplied by Prateek as a SimilarWeb pull** (`wukongsch.com`, Jun–Aug 2026, all country domains ON, 60 countries) — resolution path 1, the primary source under the method. Shares, trends and engagement metrics are all first-party from that pull. This converted three previously unscoreable ICP signals and raised the tier from 🟢 12/24-with-override to a clean ⭐ 14/24.
+
+**Still weak: entities, financials, and absolute volume.**
+- **The supplied view carried no total-visits figure**, so we have country shares without a denominator. Absolute per-market visits are not stated anywhere in this report and must not be back-computed from the stale ~317.6K/mo search-summary estimate.
 - **The billing entity per market is not established.** `/terms/` and `/policy/` sit behind a Vercel checkpoint and `/terms/` has no Wayback snapshot. Only the Klarna slug tells us a Hong Kong entity bills US families, and that is single-source.
 - **Revenue is entirely unconfirmed.** The `~$100M est.` on the TAL should be treated as a hypothesis.
 - **Trustpilot's ~943–1,000 reviews were never read** (403 / AWS WAF). The complaint picture rests on 109 directly-read iOS reviews plus search snippets.
 
-**Downgraded one level from High** because the target's own primary domain was unfetchable for the entire run and no traffic data existed — not because of an egress policy problem. Network access was Full and `curl` worked throughout; the blocks were the target's own Vercel checkpoint and AWS WAF.
+**Not downgraded for environment.** Network access was Full and `curl` worked throughout; the blocks were the target's own Vercel checkpoint and AWS WAF, not an egress policy. The residual Medium rating is driven entirely by unsourced revenue and the unread terms/privacy pages — both closable by hand, see below.
 
 ---
 
 ### Manual Research Recommendations
 
-> **Area:** Traffic split — Section 1 is empty.
-> **Why it matters:** Three ICP signals are unscoreable, and the ICP ceiling is ~14–15/24 rather than the computed 12. It also decides whether the US, Canada or Australia is the market to lead with.
-> **Suggested manual action:** Pull SimilarWeb for **`wukongsch.com`** with **"Include all country domains" ON**. Do not pull `wukongedu.net` separately — its `robots.txt` declares `Host: https://www.wukongsch.com/`, so it is the same property and would double-count. Save to `accounts/traffic/wukong-education.md`.
+> ✅ **CLOSED — Traffic split.** Supplied by Prateek 2026-09-14 and saved to [`accounts/traffic/wukong-education.md`](../accounts/traffic/wukong-education.md). Correct domain, all country domains ON, no double-count. It landed at the bottom of the predicted 14–15/24 range and took the account to ⭐ on arithmetic. **One thing it did not carry: a total-visits figure** — worth re-capturing from the same SimilarWeb view if a business case needs absolute numbers.
 
 > **Area:** The privacy policy and terms of service.
 > **Why it matters:** APAC merchants name their processor in the privacy policy far more often than anywhere else, and the terms would settle which entity bills which market — the single biggest gap in this report.
@@ -614,7 +668,7 @@ Not run — Agent 5's budget went to establishing the cohort's payment stacks, w
 > **Suggested manual action:** Book a free trial, let an advisor issue a real order link, then open it with DevTools — ideally twice, once on a US IP and once on an AU or SG IP. Capture the rendered method list and the network calls. This would also confirm 3DS.
 
 > **Area:** Annual card volume.
-> **Why it matters:** The ⭐ override is explicitly conditional on it. At a $349–$2,039 ticket the business case is entirely a function of transaction count, and we have no sourced number.
+> **Why it matters:** We now have country *shares* but no *denominator* — the supplied SimilarWeb view carried no total-visits figure, and revenue is unsourced. At a $349–$2,039 ticket the business case is entirely a function of transaction count.
 > **Suggested manual action:** Ask directly on the first call. Frame it as sizing the approval-rate uplift, not as qualification.
 
 > **Area:** The `jpmorgan-*-uat` subdomains.
@@ -628,6 +682,9 @@ Not run — Agent 5's budget went to establishing the cohort's payment stacks, w
 ---
 
 ### Appendix: All Source URLs
+
+**Supplied by Prateek**
+- SimilarWeb, `wukongsch.com`, Jun–Aug 2026, all traffic, "Include all country domains" ON, 60 countries (screenshot, 2026-09-14) → saved at `accounts/traffic/wukong-education.md`
 
 **Primary — fetched directly and verified by me**
 - https://pay.wukongsch.com/
