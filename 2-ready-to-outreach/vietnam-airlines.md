@@ -1,6 +1,6 @@
 # Vietnam Airlines
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 18 / 24 → ⭐ High Priority on the arithmetic → **🟢 Medium, analyst override applied — see the override note**
 **Industry:** Airlines (state-owned flag carrier) · **HQ:** Hanoi, Vietnam · **Researched:** 2026-09-15 · **First email sent:** —
 **Motion:** **Competitive** — a direct orchestration competitor was signed on 29 May 2026 and is mid-rollout
@@ -63,11 +63,355 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Vietnam Airlines` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
 
-**⚠️ Read the override note in Section 3 before drafting.** My recommendation is **not** to
-run a sequence on this account right now. See "Recommendation on timing."
+```
+Motion: Competitive — a global orchestrator (signed 29 May 2026) is mid-rollout.
+
+GATE CHECK (Step 6a requires a concrete gap before proceeding on a Competitive account):
+PASSED. Four concrete, first-party-sourced gaps, all outside the incumbent's eight-market
+scope: India card-only, Taiwan card-only, Japan without PayPay, wallets suppressed on
+mobile web. Sequence proceeds — but see the timing note at the foot of this section.
+
+Observable setup facts (from research, with sources):
+- India is a live point of sale and the #5 traffic market at 5.27%, growing +12.64% MoM
+  — source: hreflang parse + SimilarWeb Aug 2026
+- Their own payment page excludes India from PayPal, Alipay AND WeChat Pay, by name
+  — source: vietnamairlines.com "Payment methods applicable across all points of sales"
+- India has no entry on the Asia local-methods page, which enumerates only eight markets
+  — source: .../how-to-make-payment/payment-methods-for-Asia
+- Vietnam's own checkout carries MoMo, ShopeePay, VNPAY QR, Internet Banking and NAPAS
+  ATM cards, plus ATM/bank-counter/convenience-store cash — source: same site
+- Japan (#2 market, 8.06%) has a bespoke payment page listing Konbini across five chains
+  but no PayPay — source: /jp/en/... payment page
+- E-wallets are not displayed to passengers booking on mobile web — stated three times on
+  their own pages — source: same site
+- Their own help page tells passengers whose payment fails to "select a different payment
+  method" — source: vietnamairlines.com help desk
+- 39 country points of sale; local-method documentation exists for 11 of them
+  — source: 96 hreflang entries, parsed first-hand
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. India excluded from all three global wallets by name AND absent from the local-methods
+   page → the India checkout runs on cards, UnionPay and pay-later
+2. Vietnam's own checkout carries five-plus local rails → same website, different market
+   (this is the asymmetry: two of their own markets contrasted, neither half disputable)
+3. Japan lists Konbini across five chains but no PayPay
+
+Bridge variant: A — complexity
+Rationale: 39 points of sale, each with its own published allow/deny list per method, and
+local-method documentation for only 11 of them. The per-market exclusion lists on their own
+site are a hand-maintained configuration matrix published in the open. That is complexity,
+not a single-PSP limitation, so B is wrong here.
+
+Hypothesis for Phase 2 (E3):
+Method coverage is maintained market by market, and India is where it has fallen furthest
+behind the traffic.
+Backing logic: India is one of their two fastest-growing markets on the website (+12.64%
+MoM) and the only market excluded from all three global wallets while never picking up a
+local set. UPI is the default consumer rail there and high-ticket travel converts on
+instalments. Their own failure-path documentation asks the passenger to retry manually,
+which is what per-market configuration without a routing layer looks like from the outside.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 — airline, and the only airline case in the library carrying numbers
+Match rationale: low-cost carrier, multi-country, losing bookings at the payment step. Both
+halves of the case map to this prospect: "1,000+ payment methods" answers the coverage
+hypothesis, and "automatic retries of failed payments through multiple providers" answers
+the manual-failover observation from their own FAQ. Verified live at source 2026-09-15.
+Numbers to lead with: +14% approval rate (initial implementation phase) · 1,000+ payment
+methods via one integration · fraud tooling + integrated 3D Secure
+Region stated explicitly as Latin America. No APAC implication.
+Optional benchmark: SKIP. The "~8% average authorisation uplift" traces to Yuno's own blog,
+not an independent source. The IATA/EDC airline cost-of-acceptance figure has only been seen
+via a vendor blog citing it, so it is not quotable until traced to the primary source.
+
+Touch-by-touch angles:
+- E2 angle: India card-only → one integration to add any method, no per-rail rebuild
+- LK1 angle: India excluded from all three global wallets on their own pages
+- LK2 angle: coverage is maintained per market and India has fallen behind the traffic
+- LK3 angle: Wingo put a second provider behind a decline instead of asking the passenger
+- LK4 angle: wallets suppressed on mobile web (held back, unused until here)
+- E8 angle: clean exit, no new observation
+```
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** Your India checkout is cards-only
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at Vietnam Airlines' payment setup. Three things stood out.
+
+Your payment pages exclude India from PayPal, Alipay and WeChat Pay by name, and India
+isn't on the Asia local-methods page. That leaves cards, UnionPay and pay-later.
+
+Vietnam's own checkout carries MoMo, ShopeePay, VNPAY QR, internet banking and NAPAS
+cards. Same website, different market.
+
+Japan lists Konbini across five chains, no PayPay.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch on assumptions, is there anything payment-related you're working through
+that we might help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it maps to
+what I flagged.
+
+We sit above the PSPs you already run. Nothing gets replaced.
+
+One integration covers the methods, so adding a rail in a market becomes configuration
+rather than a fresh build with a provider contract behind it.
+
+Routing then decides per BIN, market and method which rail a transaction takes, and moves
+traffic automatically when one degrades.
+
+On India, a cards-only checkout there usually isn't a decision anyone made. Every new rail
+carries its own integration, and the fastest-growing markets tend to wait longest.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, say
+the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Sat 19 Sep
+
+> ⚠️ **Lands on a Saturday.** Shift to Mon 21 Sep, or pull forward to Fri 18 Sep.
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than
+email. Quick one: your own payment pages exclude India from PayPal, Alipay and WeChat Pay,
+and India isn't on the Asia local-methods page, so that checkout runs on cards. Curious
+whether that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Read on your India exposure
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that method coverage gets maintained market by
+market, and India is where it's fallen furthest behind the traffic.
+
+It's one of your faster-growing markets, and the only one excluded from all three global
+wallets on your own pages while never picking up a local set. UPI is the default rail there.
+
+Your help page also tells passengers whose payment fails to pick a different method. Not
+because anyone's doing it badly, but that's failover running by hand.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing PSPs, so adding a rail
+doesn't mean a new integration each time. Keep your stack, add what's missing.
+
+Thursday the 24th is open. Would 10am or 3pm your time work for 15 minutes? If payments
+sits elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: your
+method coverage looks like it's maintained market by market, and India has grown faster
+than its checkout has kept up with. If that's anywhere on your radar, would Monday the 28th
+or Tuesday the 29th at 4pm your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved looks like.
+
+Wingo, a low-cost carrier flying 37 routes across ten-plus countries in Latin America,
+partnered with Yuno to stop losing bookings at the payment step. From the initial phase:
+
+- Approval rate up 14% (not too bad, right?)
+- Access to over 1,000 payment methods through one integration
+- Fraud tooling and 3D Secure built into the same layer
+
+Smart Routing retries a failed payment through a different provider, so a decline gets a
+second path instead of the passenger being asked to choose another method.
+
+Qatar Airways, Copa Airlines and Avianca run on the same layer, sitting above the stack
+they already had. No rip-out.
+
+How long does it take today to get a new method live in one market, and does that sit with
+commercial or IT?
+
+Wednesday the 30th, would 11am your time work for 15 minutes?
+
+Full case here if useful:
+https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Best,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Sun 27 Sep · MANUAL
+
+> ⚠️ **Lands on a Sunday.** Shift to Mon 28 Sep.
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+Suggested angle for this account: a side-by-side teardown of the Vietnam and India
+checkouts, screenshotted from their own site. The asymmetry does the arguing.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 29 Sep · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+Suggested angle: a short Loom walking their Japan payment page against a Japanese
+passenger's actual wallet options.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
+
+```text
+Hey {{recipient.first_name}}, Wingo put a second provider behind every declined booking
+instead of asking the passenger to try another card. Worth 15 minutes to see whether that
+maps to your setup? Tuesday the 6th at 3pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Sat 3 Oct · MANUAL
+
+> ⚠️ **Lands on a Saturday.** Shift to Mon 5 Oct, which collides with LK4 — consider Fri 2 Oct.
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+Suggested anchors for this account: the record fourteen new international routes in 2025,
+the London Heathrow and Amsterdam additions, or the direct-sales channel opening in
+Australia, Taiwan, Laos and the US during 2025. Each is a new payment geography.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 5 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. One thing I never raised:
+your own pages note that e-wallets aren't shown to passengers booking on mobile web. If
+that's worth 15 minutes, Thursday the 8th at 10am your time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 7 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back next quarter once the current roadmap has
+settled.
+
+If it ever comes back up, just reply here.
+
+Cheers,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **India excluded from PayPal, Alipay and WeChat Pay by name** — verbatim from their own
+  global payment page: PayPal "in all markets except those in Vietnam, India, South Korea,
+  and China"; Alipay "except… Vietnam, India, South Korea, Malaysia, Taiwan, Russia,
+  Denmark, and Norway"; WeChat Pay "except… Vietnam, India, Macau, South Korea…". Fetched
+  and read first-hand.
+- ✅ **India absent from the Asia local-methods page**, which enumerates exactly eight
+  markets (Korea, Indonesia, Malaysia, Japan, Philippines, Singapore, Thailand, Vietnam).
+- ✅ **India is the #5 traffic market at 5.27%, +12.64% MoM** — SimilarWeb, Aug 2026.
+  E1 and E3 deliberately say "one of your faster-growing markets" rather than quoting the
+  percentage, since the figure is a third-party estimate.
+- ✅ **Vietnam checkout rails** (MoMo, ShopeePay, VNPAY QR, Internet Banking, NAPAS) — their
+  own Asia page and Vietnamese help desk.
+- ✅ **Japan: Konbini across 7-Eleven, Lawson, Ministop, FamilyMart and Seicomart; no
+  PayPay** — their bespoke Japan payment page, read first-hand.
+- ✅ **"Select a different payment method"** — their own help-desk failure page.
+- ✅ **E-wallets not displayed on mobile web** — stated three times on their own pages.
+- ✅ **Wingo: +14% approval, 1,000+ methods, fraud tooling and 3DS** — re-verified at source
+  on 2026-09-15. Stated as "initial implementation phase", as the release does. Region named
+  as Latin America in the copy, so no APAC implication.
+- ✅ **Qatar Airways, Copa Airlines, Avianca** — named on Yuno's site-wide customer list.
+  Named with **no metric attached**, per the library rules.
+- ⚠️ **"High-ticket travel tends to convert on instalments" (E3)** is a qualitative pattern
+  claim, deliberately hedged, with no number attached. If Prateek wants it sharper, it needs
+  a sourced India travel-EMI statistic.
+- ⚠️ **E3 runs ~145 words against a ~90–120 budget.** Everything left in it is
+  rulebook-mandated (hypothesis, backing, Yuno re-state, CTA). The one optional element,
+  the embedded discovery question, was moved into E4 rather than cut, since the samples
+  rate it highly. Trim the help-page line if Prateek wants E3 inside budget.
+- ⚠️ **Three touches land on weekends** (LK1 Sat 19 Sep, E5 Sun 27 Sep, E7 Sat 3 Oct).
+  Flagged inline. Shift before loading into Gong.
+- ⚠️ **No named contact yet.** `{{recipient.first_name}}` throughout. Research surfaced four
+  publicly-sourced stakeholders: **Nguyen Quang Trung** (EVP, quoted on the payments deal,
+  best entry point), **Dang Anh Tuan** (EVP, digital/website), **Bui Tran Cuong** (Deputy
+  Director, Finance & Accounting), **Le Hong Ha** (General Director).
+
+### ⚠️ Timing note — read before sending
+
+This sequence runs against the recommendation in Section 3. Vietnam Airlines contracted a
+competing orchestration platform on 29 May 2026, at CEO level, and the rollout is live now
+across eight markets. The research recommended holding until roughly Q2 2027.
+
+The sequence is built so that it still works if sent today: **every observation in it sits
+outside the eight markets that rollout covers**, and not one touch claims they lack an
+orchestration layer. India, Taiwan and mobile web are genuinely uncovered, and stay
+uncovered after the rollout completes.
+
+The risk is not that the sequence is wrong. It is that the payments team is mid-migration
+and has no attention for a second conversation, against a 2026 profit target of roughly
+VND 22bn. If Prateek wants the lowest-cost version of this, **send E1 alone and stop** —
+the India observation is strong enough to earn a reply on its own, and a reply re-opens the
+account whenever the timing is right.
+
+### Success Case Alternatives
+
+- **Qatar Airways / Copa / Avianca** — airline credibility if Wingo's LATAM footprint draws
+  an objection. Nameable only, no numbers exist.
+- **Viva Aerobus** — only if the conversation turns to what happens *after* a failed
+  payment. Its 75% is a NOVA voice-callback result, not routing. Do not use it for the
+  coverage argument.
+- **inDrive** — Tier 2 fallback on multi-country scale (10 new countries in under 8 months)
+  if the conversation becomes about market expansion rather than method coverage.
 
 </details>
 
