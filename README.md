@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-15 10:36*
+*Last updated: 2026-09-15 12:32*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -52,14 +52,16 @@
 | [Virgin Australia](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [ZIPAIR](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
-## 🟢 Ready to Outreach (5)
+## 🟢 Ready to Outreach (7)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
+| [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 | Greenfield | 2026-09-15 |
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 | Competitive | 2026-09-15 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement | 2026-09-14 |
+| [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 | Greenfield | 2026-09-15 |
 | [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech (live 1-on-1 / small-group tutoring) | 14/24 | In-house | 2026-09-14 |
 | [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 | In-house | 2026-09-15 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield | 2026-09-14 |
@@ -70,6 +72,6 @@
 |---------|----------|-----|------------|
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 | 2026-09-15 |
 
-## 🔴 Not ICP (2)
+## 🔴 Not ICP (3)
 
 See [not-icp/](not-icp/) for rejection rationale.
