@@ -524,34 +524,48 @@ describes the pattern, not the prospect.
 | **Livelo** | **Loyalty/rewards. The decline-cascade case** — verbatim: *"Smart Routing also helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."* Use this whenever the prospect already runs 2+ acquirers with no failover. | **+5% approval rate · 50% of failed transactions recovered · millions of R$ saved** (3 quantified, verified live 2026-09-14) | https://y.uno/en/success-stories/livelo |
 | Reserva | E-commerce, single market | +4% approval rate via smart routing | https://y.uno/en/success-stories/reserva |
 | **Vibra** | Retail/loyalty, Brazil. **First-time-buyer approval** — use when the prospect's buyers are mostly first-time purchasers | New-user approval lifted **more than 30 percentage points, to 80%**; launched Apple Pay, Nu Pay and Google Pay | https://y.uno/en/success-stories/vibra |
-| Wingo | Airlines | +14% approval rates, 1,000+ payment methods | https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner |
+| **Wingo** | **Airlines — the Tier 1 airline case, and the only one with numbers.** Mechanism, verbatim: *"Smart Routing technology helps Wingo maximize its transaction approval rates by enabling **automatic retries of failed payments through multiple providers**."* LATAM low-cost carrier, Bogotá. | **+14% approval rate** (stated as initial implementation phase) · **1,000+ payment methods** · 3DS + fraud tooling (verified live 2026-09-15) | https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner |
+| **Qatar Airways** | Airlines, global enterprise | ✅ **Confirmed customer, no published metrics.** Named on Yuno's site-wide "TRUSTED BY GLOBAL TEAMS" list. **Nameable; never attach a number.** | y.uno (site-wide customer list) |
+| **Copa Airlines** | Airlines, LATAM | ✅ **Confirmed customer, no published metrics.** On the site-wide list *and* the travel/mobility vertical list. Nameable only. | y.uno (site-wide + travel vertical lists) |
+| **Avianca** | Airlines, LATAM | ✅ **Confirmed customer, no published metrics.** On the travel/mobility vertical list: *"Trusted by leading travel and mobility brands: Uber, inDrive, Avianca, Copa Airlines, Viva."* Nameable only. | y.uno (travel vertical list) |
 | Open English | EdTech, subscriptions, 30+ countries | ⚠️ **No public numbers.** The page says only "increase approval rates, reduce time-to-market, and unify their payment processing." **Cannot carry an E4**, which needs three quantified bullets. Use as a one-line relevance signal only. | https://y.uno/en/success-stories/open-english |
 | Viva Aerobus | Airlines | ⚠️ **This is a NOVA case, not a routing case.** The 75% comes from NOVA, Yuno's AI voice-callback assistant that phones customers after a failed payment: *"75% of contacted customers successfully completed their purchase after receiving a call."* Launched in Colombia. **Do not use it to prove a routing, cascade or failover argument** — that misattributes the mechanism. It is the right case when the prospect already hands failed payments back to a human. | https://y.uno/en/success-stories/viva-aerobus |
-| Qatar Airways | Travel, global enterprise | **UNVERIFIED — see warning below** | (no source located) |
 
-> ### ⚠️ Qatar Airways — do not use until Prateek confirms it
+
+> ### ✅ Qatar Airways — RESOLVED 2026-09-15. Reinstated, with one limit.
 >
-> Inherited from the EMEA pack and never verified. A targeted search found **no source
-> connecting Qatar Airways to Yuno**. What exists is Yuno's presence in the *country* of
-> Qatar: a regional HQ announced with Invest Qatar (Feb 2025), an MOU with Snoonu, and a
-> Tap Payments partnership. "Qatar" in a headline is not "Qatar Airways" — the same
-> publisher-versus-subject trap that produced the ZEE5/Juspay false positive.
+> **The earlier withdrawal was wrong and is retracted.** It rested on a web search that
+> returned nothing connecting Qatar Airways to Yuno. The search was not the problem: `y.uno`
+> was unreachable from the session at the time, so the one source that settles it was never
+> consulted. The site is now fetchable, and Qatar Airways is named on Yuno's **site-wide
+> "TRUSTED BY GLOBAL TEAMS" customer list**, which appears on every page:
 >
-> Until Prateek confirms the relationship internally, **Qatar Airways is withdrawn from the
-> Tier 3 credibility defaults.** Use Uber and McDonald's. Naming a customer that is not one,
-> to an airline that would plausibly know, is not a recoverable mistake.
+> *"McDonald's, Samsung, Uber, Carrefour, Ant Group, NetEase, Crypto.com, **Qatar Airways**,
+> Rappi, inDrive, **Copa Airlines**, Despegar, Garena, GoFundMe, Hotmart, Viva Aerobus,
+> Kavak, Moon Active, Whop, Reserva, Tada, Livelo, Wingo, and many more."*
 >
-> A **Yuno–Meili collaboration on airline payment infrastructure** does exist and may be the
-> closest usable aviation reference. Verify before citing it.
+> That clears the skill's own naming bar: publicly referenceable on Yuno's own site.
+> **Qatar Airways, Copa Airlines and Avianca may all be named to an airline prospect.**
+>
+> **The limit that remains: none of the three has a single published metric.** They carry the
+> relationship, not a result. Name them as customers; never attach a number, and never let a
+> figure from Wingo or any other case drift onto them. For quantified airline proof there is
+> exactly one option, **Wingo**.
+>
+> **The lesson worth keeping:** the original caution was right in method and wrong in
+> conclusion. "No source found" meant "the source was unreachable", not "no relationship
+> exists". When a fetch is blocked, record the account as *unverified pending a reachable
+> source* rather than as *withdrawn* — and re-check once the environment changes.
 
 ### APAC references — verified status: INCOMPLETE
 
 | Case | Industry / Pattern | Results | Verification status |
 |---|---|---|---|
-| NetEase Games | Gaming, multi-region, China-HQ | **None on file** | Named as a Yuno gaming customer in third-party coverage. **No public case study with metrics located.** |
-| Garena | Gaming, Southeast Asia | **None on file** | Supplied by Prateek. **No public confirmation of the relationship located.** |
+| **NetEase Games** | Gaming, multi-region, China-HQ | **No metrics on file** | ✅ **Upgraded 2026-09-15 — now publicly referenceable.** Named on Yuno's site-wide customer list, and carries a "Customer spotlight" on y.uno: *"NetEase Games serves players across dozens of markets with very different payment preferences, from wallets and cash-based top-ups to gift cards and BNPL, including many players who are unbanked."* **Safe to name. Still no published numbers.** |
+| **Garena** | Gaming, Southeast Asia | **No metrics on file** | ✅ **Upgraded 2026-09-15 — now publicly referenceable.** Named on Yuno's site-wide customer list, so Prateek's original steer is confirmed on a public source. **Safe to name. Still no published numbers.** |
 
-**Rules for these two, until results are on file:**
+**The naming question is now settled for both — they are on Yuno's own public customer list.
+The numbers question is not.** Rules that still apply:
 
 1. **Never attach a number to either.** There are no verified metrics for them in this repo.
    Do not borrow a figure from another case, an industry benchmark, or Yuno's published
@@ -559,10 +573,10 @@ describes the pattern, not the prospect.
    this territory know both companies well enough to check.
 2. **Naming rule.** Only name a customer in a cold email where the relationship is
    **publicly** referenceable — a public case study, a press release, or a logo on Yuno's
-   own site. A customer relationship Prateek knows internally but that is not public is
-   usable in conversation on a call; putting it in writing to a third party is a
-   confidentiality question, not a copy question. When in doubt, ask Prateek before sending,
-   not after.
+   own site. **The site-wide "TRUSTED BY GLOBAL TEAMS" list on y.uno meets this bar**, and is
+   the fastest way to settle whether a given logo is safe to put in writing. A relationship
+   Prateek knows internally but that is not public is usable on a call; putting it in writing
+   to a third party is a confidentiality question, not a copy question.
 3. **What they are good for right now:** relevance signalling in Phase 2 or a manual touch —
    *"we work with gaming companies operating across Southeast Asia"* — rather than as the
    quantified E4 proof case, which needs numbers.
@@ -583,8 +597,13 @@ describes the pattern, not the prospect.
 **Default credibility refs when no specific case fits:** Uber, McDonald's. *(Qatar Airways withdrawn pending verification — see the warning above.)*
 
 **Vertical shortcuts for the current P1 queue:**
-- **Airlines / travel:** Wingo (Tier 1 pattern — airline, approval uplift) and Viva Aerobus.
-  **Do not use Qatar Airways** — see the warning in the library above.
+- **Airlines / travel:** **Wingo carries the numbers** (+14% approval via automatic retries
+  across multiple providers, 1,000+ methods, 3DS) and is the only quantified airline case.
+  **Qatar Airways, Copa Airlines and Avianca carry the credibility** and may be named, with
+  no metric attached. Viva Aerobus is an airline too, but its 75% is a **NOVA** result
+  (AI voice callback after a failed payment), so it proves post-failure recovery, **not**
+  routing. A strong airline E4 is Wingo's numbers plus a one-line "Qatar Airways, Copa and
+  Avianca run on the same layer". Precedent: the Air New Zealand sequence.
   **Competitive context for airline prospects, first-party sourced and usable:** Cathay
   Pacific expanded to Adyen direct acquiring across 45+ markets including New Zealand and
   Australia (Mar 2026); Singapore Airlines consolidated onto Adyen direct acquiring to stop

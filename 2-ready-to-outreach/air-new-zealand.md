@@ -82,9 +82,10 @@ Most likely pain: payment rails are decided one market at a time, so the sixteen
 Backing logic: three localised rails out of nineteen storefronts is not a strategy, it is a backlog. The `.cn` and `.eu` pages prove the capability exists and has been exercised three times. At airline ticket values the cost of a missing rail surfaces as cart abandonment rather than declines, which is exactly why it survives unnoticed.
 
 **Success case for Phase 3 (E4):**
-Selected case: **Wingo** · Tier: **1 (airline, same per-market rail problem)** · Match rationale: an airline that added breadth of methods above an existing stack, which is precisely the shape of Air NZ's gap.
-Numbers to lead with: +14% approval rates · 1,000+ payment methods through one integration · Viva Aerobus (second airline) recovered 75% of failed transactions.
-⚠️ **Only two quantified results exist for Wingo in the case library**, so the third bullet draws on Viva Aerobus and is attributed to it explicitly. Both are LATAM carriers and E4 says so outright rather than implying an Asia-Pacific result.
+Selected case: **Wingo** · Tier: **1 (airline, same per-market rail problem)** · Match rationale: an airline that added breadth of methods above an existing stack, which is precisely the shape of Air NZ's gap. Re-verified live on 2026-09-15 against the Yuno press release, which names the mechanism: *"Smart Routing technology helps Wingo maximize its transaction approval rates by enabling automatic retries of failed payments through multiple providers."*
+Numbers to lead with: **+14% approval rate** (stated as the initial implementation phase) · **1,000+ payment methods** through one integration · **3D Secure and fraud tooling** on the same layer.
+**Airline credibility line, no metrics attached:** Qatar Airways, Copa Airlines and Avianca are all named as Yuno customers on Yuno's own site. They carry the *relationship*, not a number, and E4 uses them exactly that way.
+✅ **Corrected on 2026-09-15.** The previous draft's third bullet claimed *"Viva Aerobus, another airline on the same layer, recovered 75% of its failed transactions"* and presented it as a routing result. **That misattributes the mechanism.** Viva Aerobus's 75% comes from NOVA, Yuno's AI voice-callback assistant that phones customers after a failed payment, not from Smart Routing. The bullet has been replaced with Wingo's own 3DS/fraud line and Viva Aerobus moved to the alternatives list, where the mechanism is stated correctly.
 Optional benchmark: **SKIP.** The IATA/Edgar Dunn "$20.3bn, 2.1% of industry revenue" airline cost-of-acceptance figure would be ideal here but has only been seen via a vendor blog citing it. Trace it to the primary source before it goes in an email.
 
 **Touch-by-touch angles:**
@@ -218,15 +219,17 @@ On the read I shared last week, here's what solved tends to look like.
 
 Wingo had the same shape of problem: rails decided one market at a time, with the markets that never got one running on cards alone. They put Yuno above the stack they already had:
 
-- Approval rates up 14%
+- Approval rates up 14%, from automatic retries of failed payments across multiple providers
 - Over 1,000 payment methods reachable through one integration (you read that right)
-- Viva Aerobus, another airline on the same layer, recovered 75% of its failed transactions
+- 3D Secure and fraud tooling on the same layer, nothing rebuilt per market
 
-Same orchestration layer above the existing providers, no rip-out. Both are LATAM carriers, so take those numbers as what the pattern does rather than as an Asia-Pacific result.
+Same layer above the existing providers, no rip-out. Wingo is a LATAM carrier, so take the 14% as what the pattern does rather than an Asia-Pacific result.
+
+On the airline question more broadly, Qatar Airways, Copa Airlines and Avianca all run on this layer too.
 
 Wednesday 30 September is open. Would 3:30pm or 4:30pm your time work for 15 minutes?
 
-Full case here if useful: https://y.uno/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+Full case here if useful: https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
 
 Cheers,
 Prateek
@@ -243,7 +246,7 @@ Prateek
 #### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
 
 ```text
-Hey {{recipient.first_name}}, Wingo lifted approval rates by 14% after putting this layer above the stack it already ran. Worth 15 minutes to work out whether the same thing maps to yours? Tuesday 6 October at 3pm your time is open on my side.
+Hey {{recipient.first_name}}, Wingo lifted approval rates by 14% after putting this layer above the stack it already ran, by retrying failed payments across a second provider. Qatar Airways, Copa and Avianca sit on the same layer. Worth 15 minutes to work out whether it maps to yours? Tuesday 6 October at 3pm your time is open on my side.
 ```
 
 ---
@@ -287,7 +290,8 @@ Every prospect-specific factual claim in the sequence, tagged:
 - ✅ **China page lists Alipay plus Visa/Mastercard/Amex, no UnionPay** — airnewzealand.cn/information-about-payment, published as static copy
 - ✅ **Japan FAQ has no konbini, PayPay or instalment mentions** — airnewzealand.jp/faq, keyword counts all zero
 - ✅ **Three localised rail pages across the estate** — 404 probe results across six properties
-- ✅ **Wingo +14% approval rates, 1,000+ payment methods** — Yuno case library, public URL included in E4
+- ✅ **Wingo +14% approval rate, 1,000+ payment methods, 3DS and fraud tooling** — re-verified live 2026-09-15 by fetching [the Yuno press release](https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner) (10 Jun 2025) rather than trusting the local case library. The release names the mechanism as Smart Routing with *"automatic retries of failed payments through multiple providers"*, and frames the 14% as the initial implementation phase. URL corrected to the `/en/` path, which is the one that resolves
+- ✅ **Qatar Airways, Copa Airlines and Avianca are Yuno customers** — Qatar Airways appears in the site-wide "TRUSTED BY GLOBAL TEAMS" list published on every y.uno page (*"McDonald's, Samsung, Uber, Carrefour, Ant Group, NetEase, Crypto.com, Qatar Airways, Rappi, inDrive, Copa Airlines, Despegar, Garena…"*); Copa Airlines and Avianca additionally appear on the travel and mobility vertical list (*"Trusted by leading travel and mobility brands: Uber, inDrive, Avianca, Copa Airlines, Viva"*). Verified 2026-09-15 on [y.uno/en/success-stories](https://y.uno/en/success-stories). **⚠️ These are customer names only. No published metric exists for any of the three**, so they may be named and nothing more
 - ✅ **Viva Aerobus recovered 75% of failed transactions** — Yuno case library
 - ✅ **Cathay Pacific moved to Adyen direct acquiring covering NZ and Australia, March 2026** — Adyen press release, first-party. E4 and LK4 name the airline and what it did, never implying a Yuno relationship
 - ✅ **Christchurch–Singapore and Christchurch–Narita launching Oct/Nov 2026** — Air NZ newsroom
@@ -297,10 +301,11 @@ Every prospect-specific factual claim in the sequence, tagged:
 
 ### Success Case Alternatives
 
-- **Viva Aerobus** — airline, 75% of failed transactions recovered. Swap in if the conversation turns toward failed bookings or the credit-redemption defect rather than rail coverage
+- **Viva Aerobus** — airline, 75% of *contacted* customers completed their purchase after a callback. ⚠️ **This is a NOVA result, not a routing result**: NOVA is Yuno's AI voice-callback assistant that phones customers after a failed payment. Do not use it to prove a routing or failover argument. It becomes the right case *after* the routing conversation lands, and it is a genuinely strong second act here given the credit-redemption defect on their own help page
 - **inDrive** — Tier 2: multi-country acquiring at scale, ~90% approval, 10 countries in 8 months. Use if the conversation moves to market expansion ahead of the Christchurch launches. LATAM results, label them
 - **Rappi** — Tier 2: breadth of providers added without implementation delay. Use if they push back that adding rails is an engineering cost
-- ⚠️ **Qatar Airways is withdrawn** — no source connecting it to Yuno could be located. Do not use it with an airline that would plausibly know
+- ✅ **Qatar Airways reinstated 2026-09-15** — the earlier withdrawal was wrong. It was based on a web search returning nothing; y.uno itself was unreachable at the time. The site is now fetchable and Qatar Airways is named on Yuno's own site-wide customer list. **Safe to name, with no number attached.**
+- **Copa Airlines / Avianca** — same status: named Yuno travel customers, no published metrics. Useful as additional airline credibility if the thread turns to whether Yuno has carrier experience
 
 
 </details>
