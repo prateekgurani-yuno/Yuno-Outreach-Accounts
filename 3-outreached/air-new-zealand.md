@@ -1,8 +1,8 @@
 # Air New Zealand
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 16 / 24 → ⭐ High Priority
-**Industry:** Airlines · **HQ:** Auckland, New Zealand · **Researched:** 2026-09-14 · **First email sent:** —
+**Industry:** Airlines · **HQ:** Auckland, New Zealand · **Researched:** 2026-09-14 · **First email sent:** 2026-09-15
 **Motion:** Greenfield — no orchestrator detected
 
 ---
