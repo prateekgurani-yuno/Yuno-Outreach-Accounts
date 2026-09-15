@@ -1,6 +1,6 @@
 # YuppTV
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 15 / 24 → ⭐ High Priority *(conditional — see analyst note)*
 **Industry:** OTT / Video streaming (South Asian diaspora) · **HQ:** Alpharetta, Georgia, USA (engineering centre Hyderabad, India) · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** Displacement — Juspay confirmed in production code
@@ -53,8 +53,340 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach YuppTV` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+**Motion:** Displacement — a regional orchestrator is confirmed in production code, so Phase 1
+never argues the case for orchestration. It opens on **reach and fallback**: what happens to a
+transaction after the first rail says no, and what happens to the 45% of subscribers billed
+from outside India.
+
+**Observable setup facts:**
+
+| Fact | Source |
+|---|---|
+| Checkout reads `v.response[0].supportedGateway` into `suppGateWays`, then branches on `suppGateWays[0].code` only. No branch reads `[1]`, and there is no `else` fallback | Chunks `7382-789dcfc894700f5d.js` and `7399-d0a27caa262a5e75.js`, fetched 2026-09-15 |
+| **Three** gateway codes live in the front end, not two: the regional orchestrator, Razorpay, and **Stripe** (`else if("stripe"==e.suppGateWays[0].code)` → `/buy/order-summary/{id}?gateway=stripe`) | Same two chunks |
+| Gateway is bound to the session next to region and currency at login: `LS("reg",P.reg), LS("currency",P.cur), LS("gateway",P.gateway)` | `pages/_app-f6890a60c3d1edda.js` |
+| The card and UPI logos are a **badge strip**, not a method selector. They sit in `paymentModal:{...}` beside `google_play.png` and `shield_logo.svg`. Zero matches bundle-wide for `selectedMethod`, `methodList`, `payment_methods`, `paymentOptions`, `netbanking` | Chunks `4429`, `325` |
+| PayPal: **0 matches** across all 32 chunks and the homepage | Negative grep, 2026-09-15 |
+| Two contracting entities only (Georgia, Hyderabad); 10 of the top 12 markets, 30.1% of traffic, have neither | `/help/terms-and-conditions`, research Section 1 |
+| India 55.26% of traffic, so ~45% is billed from outside it | SimilarWeb (supplied 2026-09-10) |
+
+**Selected observations for Phase 1** (ranked by materiality):
+
+1. **The list-versus-`[0]` asymmetry** → *"Your checkout asks your API which gateways support a
+   package, then reads only the first one."* Both halves are their own code, so neither is
+   disputable. This is the sample set's "name an asymmetry inside their own stack" move.
+2. **Two entities against twelve markets** → *"Your Terms name two contracting entities. Ten of
+   your top twelve markets have neither."* Quotes their own document.
+3. **Card-only outside India** → *"Outside India, card entry only. No PayPal in the US."*
+
+**Bridge variant: A — Complexity.** Rationale: the literal trigger is met, 2+ visible processors
+across a 100-country billing footprint, and the complexity is real because a merchant-side
+dispatch switch sits above three gateway integrations. Logged honestly: the three observations
+lean toward *limitation* rather than complexity, so the transition line is doing light work here.
+
+**Hypothesis for Phase 2 (E3):** the renewals that fail hardest are the cross-border ones, and
+the checkout has no second attempt to give them.
+
+*Backing logic:* subscription renewals fail for soft reasons (expired credentials, insufficient
+funds, issuer velocity) at every merchant, so that half is generic. The YuppTV-specific half is
+that ~45% of subscribers are billed by a Georgia or Hyderabad entity against issuers in
+Pakistan, the UAE, Bangladesh and the US, which is a foreign-acquired recurring MIT. Then the
+merchant's own code gives that decline nowhere to go: the API describes several supported
+gateways, the front end consumes one.
+
+**Success case for Phase 3 (E4):** **Livelo** · **Tier 2** — same payment pattern, different
+industry and region. There is no OTT or streaming case on y.uno; the eight published cases were
+enumerated 2026-09-15 and none is media. Livelo is the documented decline-cascade case and the
+skill's own instruction is to use it "whenever the prospect already runs 2+ acquirers with no
+failover," which is exactly what the `suppGateWays[0]` branch shows. Numbers: **5% approval-rate
+increase · 50% of failed transactions recovered · millions of R$ saved.** Benchmark: **SKIP** —
+the ~8% routing uplift is Yuno's own marketing figure, not third-party evidence.
+
+**Touch-by-touch angles:**
+- **E2:** the list-versus-`[0]` observation → smart routing across multiple acquirers plus automatic failover
+- **LK1:** the list-versus-`[0]` observation, stated plainly
+- **LK2:** cross-border renewals meet one gateway and are then written off
+- **LK3:** Livelo's mechanism (declines landing on a second acquirer), never the E4 bullets
+- **LK4:** fresh, unused angle — Prateek and YuppTV's engineering centre are both in Hyderabad
+- **E8:** clean exit with a new-year door left open
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** Your checkout reads one gateway
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on YuppTV's payment setup. Three things stood out:
+
+- Your checkout asks your API which gateways support a package, then reads only the first one.
+- Your Terms name two contracting entities. Ten of your top twelve markets have neither.
+- Outside India, card entry only. No PayPal in the US.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+*110 words.*
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+We sit above the gateways you already run. Nothing gets replaced.
+Routing picks the rail per BIN, market and method, rather than per session.
+When one declines or degrades, the transaction moves to the next automatically.
+New gateways, acquirers and methods are config, not another integration.
+
+Which matters most for the first thing I flagged: your API already returns a list. Routing is what makes the rest of that list reachable after a failed attempt.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+*125 words.*
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Sat 19 Sep
+
+> ⚠️ Lands on a Saturday. Shift to Mon 21 Sep if Prateek prefers weekday sends.
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than email. Quick one: your checkout asks your API which gateways support a package, then reads only the first one it gets back. Curious whether that maps to anything you're working through on the payments side.
+```
+
+*50 words.*
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Where your renewals fail outside India
+
+```text
+Hey {{recipient.first_name}},
+
+Taking a swing at this. My read is your hardest renewal failures are cross-border, and the checkout has no second attempt to give them.
+
+About 45% of your traffic sits outside India, under one of the two entities your Terms name. Those renewals are foreign-acquired against domestic issuers, which usually decline more often than local acquiring does. Each one meets exactly one gateway.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing gateways so a failed renewal can retry elsewhere. Keep your stack, add what's missing.
+
+What share of renewals fail on first attempt outside India?
+
+Thursday the 24th is open. Would 11am or 3pm IST work for a quick 15?
+
+All the best,
+Prateek
+```
+
+*116 words.*
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: the renewals that fail hardest at YuppTV are probably the cross-border ones, and right now a declined renewal only ever meets one gateway before it gets written off. If that's anywhere on your radar, would Monday the 28th at 4pm IST work for a quick 15?
+```
+
+*58 words.*
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Livelo recovered half its declines
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, sharing a quick example of what solved looks like.
+
+Livelo runs a large loyalty and rewards business in Brazil. Different industry and region, same shape: several acquirers wired up, and declined transactions with nowhere to go. They put Yuno's routing layer above the acquirers they already had. In Yuno's words, smart routing "helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."
+
+- 5% increase in payment approval rates
+- 50% of failed transactions recovered (you read that right)
+- Millions of R$ saved
+
+Same orchestration layer above their existing stack. No rip-out.
+
+Pattern match rather than an OTT case, and the numbers are Brazilian.
+
+Wednesday the 30th, would 10am IST work for 15 minutes? If renewals sit with someone else, happy to be pointed there.
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Looking forward to it,
+Prateek
+```
+
+*157 words.*
+
+#### Touch 7 — Email 5 · Day 13 · Sun 27 Sep · MANUAL
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+> Suggested angle, unused by the auto touches: a short annotated walkthrough of the
+> `supportedGateway` array against the single `[0]` read, screenshotted from their own
+> production bundle. It is the most concrete asset available on this account and it needs a
+> human to decide how direct to be about having read their JavaScript.
+> ⚠️ Lands on a Sunday.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 29 Sep · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+> Suggested angle: the Yupp Video Services line. They sell subscription billing
+> infrastructure to other OTT platforms (Chaupal, Heartland+), so payment reach is a product
+> question for them, not just an internal cost one.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 01 Oct
+
+```text
+Hey {{recipient.first_name}}, Livelo put a routing layer above the acquirers they already had, and declines that used to end there started landing on a second acquirer instead. Worth 15 minutes to see if it maps to your setup? Tuesday the 6th at 3pm IST is open.
+```
+
+*47 words.*
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Sat 03 Oct · MANUAL
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+> Fresh anchors available: IPL 2026 rights opened Continental Europe, Malaysia, Hong Kong and
+> Japan as billing territories; Asia Cup 2025 covered 60+ countries. Both are new billing
+> geographies for a stack assembled around two India-domiciled gateways.
+> ⚠️ Lands on a Saturday.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 05 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. I'm in Hyderabad too, so an in-person 15 minutes is just as easy if that's simpler. Thursday the 8th at 11:30am IST is open either way.
+```
+
+*37 words.*
+
+#### Touch 12 — Email 8 · Day 23 · Wed 07 Oct · REPLY IN THREAD to Touch 4
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back in the new year.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+*41 words.*
+
+---
+
+### Source Notes
+
+**Verified first-hand 2026-09-15**, build ID `x9RG7ENCJOWrqzhasQoOf` (unchanged since the
+2026-09-14 research run, so the stack has not moved):
+
+- ✅ **The `[0]` read.** `e.suppGateWays = v.response[0].supportedGateway; if("razorpay"==e.suppGateWays[0].code) proceedToPayRazor(e); else if("stripe"==e.suppGateWays[0].code){...}` — chunks `7382`/`7399`. `supportedGateway` is plural and indexed `[0]` in both branches; nothing anywhere reads `[1]`, and there is no `else`. Every Phase 1 and Phase 2 claim about "one gateway per transaction" rests on this line
+- ✅ **Gateway bound to the session with region and currency.** `LS("reg",P.reg), LS("currency",P.cur), LS("lan",P.lan), LS("planId",P.planId), LS("gateway",P.gateway)` in `pages/_app`. Written once at login
+- ✅ **No PayPal.** 0 matches across all 32 chunks and the homepage
+- ✅ **Livelo figures re-verified live 2026-09-15** at the case URL: "5% increase in payment approval rates", "50% recovery of failed transactions", "Millions of R$ in savings", and the secondary-acquirer sentence quoted verbatim in E4
+- ✅ **No OTT/streaming case exists on y.uno.** All eight published slugs enumerated 2026-09-15: indrive, livelo, mcdonalds, open-english, rappi, reserva, vibra, viva-aerobus. E4's Tier 2 label is therefore forced, not lazy
+- ✅ Two contracting entities, Georgia governing law, 10 of top 12 markets without one — research Section 1, from their own Terms
+- ✅ India 55.26% of traffic — SimilarWeb, supplied by Prateek 2026-09-10
+
+**Killed before it reached a draft:**
+
+- ❌ **"No Klarna."** The single `Klarna` string in the bundle is a **`ua-parser-js` in-app-browser
+  detection regex**, `/(Klarna)\/([\w\.]+)/i`, sitting beside `kakaotalk`, `naver`, `line`,
+  `alipay` and `instagram`. It is a browser sniffer, not a payment method. Nothing in the bundle
+  ever indicated Klarna was expected, and BNPL on a low-ticket recurring subscription is a weak
+  hook regardless. **Do not use it.**
+
+**Corrections this run makes to the research file — Section 3 not edited, see the chat note:**
+
+- ⚠️ **Section 3A's negative grep is wrong about Stripe.** It reports "0 matches" for
+  `stripe|paypal|adyen|...` across "all payment route chunks". Stripe is present in chunks `7382`
+  and `7399` in a first-class dispatch branch. PayPal, Adyen and the rest of that list do check
+  out at 0; only the Stripe result was wrong. There are **three** gateway codes, not two
+- ⚠️ **Section 3B's claim that region/currency keys are absent is wrong.** It says a grep for
+  `countryCode|currency|geo|region` "returned zero matches, so the decision lives server-side".
+  The keys are in `pages/_app`, and they show gateway, region and currency being assigned
+  together at session start. The conclusion (server-side decision) survives; the evidence for it
+  was understated
+- ⚠️ **Section 1's method table overstates the India finding.** "Visa, Mastercard, Amex, **RuPay,
+  UPI, GPay, PhonePe, Paytm** — from the checkout's own method assets" is listed under *Accepted
+  methods*. The underlying object is `paymentModal:{mastercard_thumb, visa_thumb, amex_thumb,
+  rupay_thumb, gpay_thumb, phonepe_thumb, paytm_thumb, upi_thumb, google_play, shield_logo,
+  close_icon}` — a **logo strip**, with `google_play.png` and a shield icon in the same map.
+  Section 8 got this right ("From checkout asset module, not a rendered page"); Section 1 did
+  not. **Nobody may write "YuppTV accepts UPI" or "YuppTV does not accept UPI" on this evidence**
+
+**Unverified, and deliberately kept out of the sequence:**
+
+- ⚠️ **India is not claimed to be card-only anywhere in these touches.** Prateek's note says only
+  cards render worldwide, and the bundle is consistent with that, but the India path redirects to
+  a hosted orchestrator page that renders after the redirect and could not be reached. India is
+  55% of traffic and a UPI claim is disprovable in one click, so E1's card-only bullet is scoped
+  to "outside India" and E3's hypothesis is scoped to cross-border. **This is the single most
+  important line in these notes**
+- ⚠️ **The web-vs-IAP-vs-telco split is still unquantified.** Apple, Google, Roku and six telco
+  billing relationships are confirmed live and orchestration cannot touch any of them. The
+  research analyst note gates the account on establishing this split on the first call, and that
+  gate is unchanged. The sequence is safe to send because direct web billing is demonstrably
+  real (two production checkout routes, chargeback-routing complaints), but the *size* of the
+  addressable book is unknown
+- ⚠️ **No named contact.** Every touch uses `{{recipient.first_name}}`. All five CTA slots are
+  **IST**, on the reasoning that the payments stack is India-built and the engineering centre is
+  in Hyderabad. **If the contact turns out to be Alpharetta-based, every slot needs redoing** —
+  ET is IST minus 9:30, so 9–11am ET is 6:30–8:30pm IST
+- ⚠️ **Indian public holidays not verified** for 24 Sep – 8 Oct. Gandhi Jayanti (2 Oct) is a fixed
+  national holiday and no slot lands on it. Dussehra 2026 is believed to fall later in October,
+  outside the window, but this was not checked against a source
+- ⚠️ **Stripe is named nowhere in the sequence.** It is one occurrence per chunk in a live-looking
+  branch, but it could be dead code, and the incumbent orchestrator cannot be named at all under
+  the no-competitors rule. Describing the mechanism instead of naming vendors is both safer and
+  sharper here
+- ⚠️ Three touches land on weekends: LK1 (Sat 19 Sep) and the two manual placeholders E5
+  (Sun 27 Sep) and E7 (Sat 03 Oct)
+
+### Success Case Alternatives
+
+- **Vibra** — if discovery shows the problem is first-time-buyer conversion rather than renewal
+  recovery. New-user approval lifted more than 30 percentage points, to 80%
+- **inDrive** — Tier 2 on multi-country scale, ~90% approval and 10 new countries in under 8
+  months. Fits better if the IPL/Asia Cup territory expansion becomes the live thread
+- **Open English** — the only subscription-and-multi-country logo, but it carries **no published
+  numbers**, so it cannot carry an E4. One-line relevance signal only
+- **NetEase Games / Garena** — safe to name (both on Yuno's public customer list), **no metrics
+  exist for either**. Relevance signalling only, never quantified proof
 
 </details>
 
