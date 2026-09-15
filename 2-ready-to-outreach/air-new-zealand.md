@@ -71,14 +71,15 @@ Positive architectural evidence pointing the same way: Air NZ runs **two booking
 
 **Selected observations for Phase 1** (ranked by materiality):
 1. Australia has no A2A rail → *"Your NZ fare rules name POLi as a fee-free way to pay. The Australian paragraph on the same page names no bank rail."* — **most material: 11.15% of traffic, second-largest market, and the comparison sits on one page**
-2. Denpasar flown daily with no storefront → *"Auckland to Denpasar runs close to daily, with no Indonesian storefront behind it."* — **most vivid: a flown route with no commercial payment presence**
+2. No native instalment product anywhere → *"No instalment option on any of your own properties. Resellers sell Air NZ seats with Afterpay and Zip on their own merchant record."* — **swapped in 2026-09-15 from Prateek's research doc.** Confirmed and sharpened by §4: no BNPL on any Air NZ property, while Afterpay, Zip, Laybuy, humm, Klarna and Affirm all appear via third-party resellers (Alternative Airlines, Fly Fairly) **off Air NZ's merchant record**. Airpoints Flexipay is points-plus-cash, not credit, and is geo-fenced to NZ and AU. Third parties are earning the instalment demand on Air NZ's own inventory. *(Displaces the Denpasar observation, which stays available for the E5 teardown)*
 3. China list omits the domestic rail → *"Your China page lists Alipay and three card schemes. No UnionPay."* — **a sourced absence from an enumerated list, the strongest evidence class available**
 
 **Bridge variant:** A — complexity
 **Rationale:** 19 storefronts in 11 currencies, two booking engines running concurrently, and rails localised in three markets is a genuinely fragmented estate. Not variant B: there is no single visible PSP to outscale, because no PSP is visible at all.
 
 **Hypothesis for Phase 2 (E3):**
-Most likely pain: payment rails are decided one market at a time, so the sixteen storefronts that never got a local rail run on cards alone — including markets Air NZ flies to daily.
+Most likely pain: payment rails are decided one market at a time, so the sixteen storefronts that never got a local rail run on cards alone, and every provider that does get added arrives with its own reconciliation format.
+**Added 2026-09-15 from Prateek's doc:** the reconciliation burden now sits in E3's Yuno line, and E3's backing swaps the Japan detail for the **Qantas contrast** — Qantas publishes PayPal, Zip, BPAY and Alipay on its own payment-options page (§11A, first-party). Two trans-Tasman competitors, both their own public pages, neither half disputable. Stronger than any external benchmark.
 Backing logic: three localised rails out of nineteen storefronts is not a strategy, it is a backlog. The `.cn` and `.eu` pages prove the capability exists and has been exercised three times. At airline ticket values the cost of a missing rail surfaces as cart abandonment rather than declines, which is exactly why it survives unnoticed.
 
 **Success case for Phase 3 (E4):**
@@ -95,6 +96,8 @@ Optional benchmark: **SKIP.** The IATA/Edgar Dunn "$20.3bn, 2.1% of industry rev
 - LK3 angle: Wingo's +14% approval rate, paraphrased rather than repeated from E4
 - LK4 angle: **fresh, unused until this point** — Cathay Pacific moved to direct acquiring across NZ and Australia in March 2026, for authorisation rates
 - E8 angle: Christchurch–Singapore and Christchurch–Narita going live within two months, door left open
+
+**Source document:** `Air NZ Research` (Google Doc, owner prateek.gurani@y.uno, modified 2026-09-15), read via the Drive connector on 2026-09-15. ⚠️ **The file is 490KB but carries only ~1KB of text — the rest is images, which the connector cannot read.** All five of its text bullets are reflected in this sequence: wallets/BNPL gap → E1 bullet 2; reconciliation → E3; NOVA and the Viva Aerobus 75% → E6; the airline customer list → E4 and LK3. **If the traffic screenshots in that doc say something different from the SimilarWeb split already in §1, that difference has not been seen and is not reflected here.**
 
 **Cadence calendar** (Day 1 = Tue 15 Sep 2026). A Tuesday start is the only weekday start that keeps all nine auto-written touches on business days, bar one:
 
@@ -134,10 +137,10 @@ Optional benchmark: **SKIP.** The IATA/Edgar Dunn "$20.3bn, 2.1% of industry rev
 ```text
 Hey {{recipient.first_name}},
 
-Spent some time on your payment setup. A few things stood out:
+Spent some time on your payment setup. Three things stood out:
 
-- Your NZ fare rules name POLi as a fee-free way to pay. The Australian paragraph on the same page names no bank rail.
-- Auckland to Denpasar runs close to daily, with no Indonesian storefront behind it.
+- Your NZ fare rules name POLi as fee-free. The Australian paragraph on the same page names no bank rail.
+- No instalment option on any of your own properties, but resellers sell your seats with Afterpay and Zip.
 - Your China page lists Alipay and three card schemes. No UnionPay.
 
 That kind of setup usually comes with some complexity.
@@ -184,13 +187,13 @@ Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more u
 ```text
 Hey {{recipient.first_name}},
 
-Going to take a swing at this. My read is that you've localised payment rails on three of your nineteen storefronts, and the rest run on cards alone.
+Going to take a swing at this. My read is you've localised payment rails on three of nineteen storefronts, and the rest run on cards alone.
 
-POLi in New Zealand, SOFORT in Europe, Alipay in China. Japan takes a JPY long-haul fare with no konbini and no instalment option. At your ticket values that tends to surface as cart drop rather than declines.
+POLi in New Zealand, SOFORT in Europe, Alipay in China. Qantas publishes PayPal, Zip, BPAY and Alipay on its own payment-options page. At your ticket values that tends to surface as cart drop rather than declines.
 
-What decides which markets get one?
+What decides which markets get a rail?
 
-At Yuno we sit above your existing PSPs, so a rail per market stops being a project per market. Keep your stack, add what's missing.
+At Yuno we sit above your existing PSPs, so a rail per market stops being a project per market, and every provider lands in one reconciliation format. Keep your stack, add what's missing.
 
 Thursday 24 September is open. Would 3pm or 4pm your time work for 15 minutes?
 
@@ -241,7 +244,11 @@ Prateek
 
 #### Touch 8 — Email 6 · Day 15 · MANUAL
 
-*Placeholder — do not auto-write.* Different format from E5. If E5 was visual, go written here: the IATA/Edgar Dunn airline cost-of-acceptance study, **traced to the primary source first**, sized against Air NZ's own passenger numbers.
+*Placeholder — do not auto-write.* Different format from E5. **Strongest option, and it comes straight from your doc: NOVA.**
+
+Air NZ's own help page documents an unresolved credit-processing defect, so they already carry a population of customers whose payment did not complete. NOVA detects a failed payment and calls the customer automatically; Viva Aerobus recovered **75% of contacted customers** that way. Because that is post-failure recovery rather than routing, it is a clean second act after E4's routing argument instead of a repeat of it, and it is the one place the Viva Aerobus number can be used correctly.
+
+Alternative: the IATA/Edgar Dunn airline cost-of-acceptance study, **traced to the primary source first**, sized against the 15.9m passenger base.
 
 #### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
 
@@ -290,7 +297,10 @@ Every prospect-specific factual claim in the sequence, tagged:
 - ✅ **China page lists Alipay plus Visa/Mastercard/Amex, no UnionPay** — airnewzealand.cn/information-about-payment, published as static copy
 - ✅ **Japan FAQ has no konbini, PayPay or instalment mentions** — airnewzealand.jp/faq, keyword counts all zero
 - ✅ **Three localised rail pages across the estate** — 404 probe results across six properties
+- ✅ **No native BNPL on any Air NZ property; resellers carry it instead** — §4 of this file: Afterpay, Zip, Laybuy, humm, Klarna and Affirm appear only via Alternative Airlines and Fly Fairly, **off Air NZ's merchant record**; Airpoints Flexipay is points-plus-cash and geo-fenced to NZ/AU. Corroborates the first bullet of Prateek's doc and is the sourced version of it
+- ✅ **Qantas publishes PayPal, Zip, BPAY, Alipay and UATP** on its own payment-options page — §11A, `qantas.com/en-au/book/flights/payment-options`. Used in E3 as a competitor contrast, never as an implied Yuno relationship
 - ✅ **Wingo +14% approval rate, 1,000+ payment methods, 3DS and fraud tooling** — re-verified live 2026-09-15 by fetching [the Yuno press release](https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner) (10 Jun 2025) rather than trusting the local case library. The release names the mechanism as Smart Routing with *"automatic retries of failed payments through multiple providers"*, and frames the 14% as the initial implementation phase. URL corrected to the `/en/` path, which is the one that resolves
+- ⚠️ **Allegiant Air and Viva Air — named as Yuno customers in Prateek's doc, but NOT used in the written copy.** Neither appears anywhere on y.uno: I grepped every page I pulled (success stories, newsroom, travel vertical, Wingo release) and both returned **zero hits**, while Qatar Airways, Copa, Avianca, Viva Aerobus and Wingo all returned matches. Per the skill's own naming rule, an internally-known relationship that is not publicly referenceable is fine to say **on a call** but is a confidentiality question in writing to a third party. **They are safe for you to mention live; tell me if either is publicly referenceable and I'll add them to E4.** *(Note also that "Viva Air" and "Viva Aerobus" are two different carriers — the y.uno travel list shows only "Viva", which is ambiguous.)*
 - ✅ **Qatar Airways, Copa Airlines and Avianca are Yuno customers** — Qatar Airways appears in the site-wide "TRUSTED BY GLOBAL TEAMS" list published on every y.uno page (*"McDonald's, Samsung, Uber, Carrefour, Ant Group, NetEase, Crypto.com, Qatar Airways, Rappi, inDrive, Copa Airlines, Despegar, Garena…"*); Copa Airlines and Avianca additionally appear on the travel and mobility vertical list (*"Trusted by leading travel and mobility brands: Uber, inDrive, Avianca, Copa Airlines, Viva"*). Verified 2026-09-15 on [y.uno/en/success-stories](https://y.uno/en/success-stories). **⚠️ These are customer names only. No published metric exists for any of the three**, so they may be named and nothing more
 - ✅ **Viva Aerobus recovered 75% of failed transactions** — Yuno case library
 - ✅ **Cathay Pacific moved to Adyen direct acquiring covering NZ and Australia, March 2026** — Adyen press release, first-party. E4 and LK4 name the airline and what it did, never implying a Yuno relationship
