@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-15 07:10*
+*Last updated: 2026-09-15 09:59*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -52,17 +52,18 @@
 | [Virgin Australia](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [ZIPAIR](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
-## 🟢 Ready to Outreach (5)
+## 🟢 Ready to Outreach (6)
 
-*Research complete. Run `/full-outreach <company>` to draft sequences.*
+*Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
-| [Air New Zealand](2-ready-to-outreach/air-new-zealand.md) | Airlines | 16/24 | Greenfield — no orchestrator detected | 2026-09-14 |
-| [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (LCC) | 13/24 → ⭐ override | In-house — Galaxy Pay, but the routing is vendor-supplied | 2026-09-15 |
-| [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement — Juspay confirmed in production code | 2026-09-14 |
-| [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech | 14/24 ⭐ | In-house — self-built routing, no cascade | 2026-09-14 |
-| [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield — no orchestrator detected | 2026-09-14 |
+| [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 | Competitive | 2026-09-15 |
+| [Air New Zealand](2-ready-to-outreach/air-new-zealand.md) | Airlines | 16/24 | Greenfield | 2026-09-14 |
+| [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement | 2026-09-14 |
+| [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech (live 1-on-1 / small-group tutoring) | 14/24 | In-house | 2026-09-14 |
+| [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 | In-house | 2026-09-15 |
+| [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield | 2026-09-14 |
 
 ## 🔵 Outreached (0)
 
@@ -70,10 +71,5 @@
 |---------|----------|-----|------------|
 
 ## 🔴 Not ICP (2)
-
-| Company | Industry | Reason | Marked |
-|---------|----------|--------|--------|
-| [Rytr](not-icp/rytr.md) | AI writing assistant (self-serve SaaS) | Out of territory — owned by Copysmith Inc. (Birmingham, AL) since Oct 2022; no APAC entity or operations. Secondary: volume far too small ($5–$24/mo plans, ~$1.2M ARR est.) | 2026-09-14 |
-| [Bamboo Airways](not-icp/bamboo-airways.md) | Airlines | Volume collapsed — down to **1 aircraft** (end Aug 2026, from 44 in 2022), scheduled ticket sales suspended, zero international routes, negative equity | 2026-09-15 |
 
 See [not-icp/](not-icp/) for rejection rationale.
