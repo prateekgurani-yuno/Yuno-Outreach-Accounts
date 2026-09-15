@@ -1,11 +1,11 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-15 03:11*
+*Last updated: 2026-09-15 07:10*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (43)
+## 📋 To Outreach (42)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
@@ -48,18 +48,18 @@
 | [Ticketmaster Asia (Live Nation)](1-to-outreach/ticketmaster-asia-live-nation.md) | Event & Travel Ticketing | — | P1 | 2026-09-10 |
 | [TicketNet Thailand](1-to-outreach/ticketnet-thailand.md) | Event & Travel Ticketing | Thailand | P1 | 2026-09-10 |
 | [TIXCRAFT](1-to-outreach/tixcraft.md) | Event & Travel Ticketing | Taiwan | P1 | 2026-09-10 |
-| [VietJet Air](1-to-outreach/vietjet-air.md) | Airlines | Vietnam | P1 | 2026-09-10 |
 | [Vietnam Airlines](1-to-outreach/vietnam-airlines.md) | Airlines | Vietnam | P1 | 2026-09-10 |
 | [Virgin Australia](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [ZIPAIR](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
-## 🟢 Ready to Outreach (4)
+## 🟢 Ready to Outreach (5)
 
 *Research complete. Run `/full-outreach <company>` to draft sequences.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
 | [Air New Zealand](2-ready-to-outreach/air-new-zealand.md) | Airlines | 16/24 | Greenfield — no orchestrator detected | 2026-09-14 |
+| [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (LCC) | 13/24 → ⭐ override | In-house — Galaxy Pay, but the routing is vendor-supplied | 2026-09-15 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement — Juspay confirmed in production code | 2026-09-14 |
 | [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech | 14/24 ⭐ | In-house — self-built routing, no cascade | 2026-09-14 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield — no orchestrator detected | 2026-09-14 |
