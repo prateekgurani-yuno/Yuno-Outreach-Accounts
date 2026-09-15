@@ -150,3 +150,67 @@ Two further claims were surfaced but **not verified**, and both would be signifi
 FLC Group (founder Trịnh Văn Quyết, arrested March 2022) → Him Lam Group and associated investors from June 2023 → **back to FLC Group**, EGM September 2025, re-acquisition completed December 2025. CEO turnover has been extreme, five or more since 2022, and current sources conflict. **Do not name a CEO.**
 
 </details>
+
+<details>
+<summary><h2>🔍 Appendix — Vietnamese & SEA airline payment stacks (the most valuable output of this run)</h2></summary>
+
+*Added 2026-09-15. Competitor research finished after the rejection. **This matters far more than the Bamboo account did:** four of the carriers below are P1 accounts already sitting in the TAL, and this research changes the motion for every one of them.* Evidence is raw-HTML and i18n-bundle grep on first-party pages, or a vendor press release, unless labelled otherwise.
+
+### 🇻🇳 Vietnam Airlines — P1 in the TAL — **already on Adyen global acquiring**
+
+From [Adyen's own newsroom](https://www.adyen.com/press-and-media/vietnam-airlines-expands-partnership-with-adyen), 29 April 2025, verbatim:
+
+> *"The airline partnered with Adyen in 2017 for its gateway solution and in 2024, expanded the partnership to leverage Adyen's global acquiring capabilities, enabling seamless payment experiences in markets like Japan, Australia, the U.S., and Europe… **Since the expansion of partnership, Vietnam Airlines has seen up to a 5% uplift in authorization rates.**"*
+
+**Read this before anyone pitches them.** They are consolidated on a single global acquirer and are publicly quoting an auth-rate uplift from it. An orchestration pitch has to beat that story, not introduce the concept. Their local-method coverage is also deep and per-market, quoted from their own site: **KCP + KakaoPay** (Korea) · **Konbini** at 7-Eleven, Lawson, Ministop, FamilyMart and Seicomart, under JPY 300,000 (Japan) · **Rabbit LINE Pay via Alipay+** (Thailand) · **GrabPay** (Singapore) · **GCash via Alipay+** (Philippines) · **Touch 'n Go via Alipay+** (Malaysia) · **DOKU** (Indonesia) · **Sofort + iDEAL** (Europe) · **Afterpay + Zip** (Australia) · **MoMo + ShopeePay + VNPAY QR** (Vietnam) · card instalments above VND 3,000,000.
+
+Note the structure: they reach Touch'n Go, GCash and Rabbit LINE Pay through **one Alipay+ connection** rather than three integrations. They have already solved multi-market wallet coverage with an aggregator.
+
+### 🇻🇳 VietJet Air — P1 in the TAL — **owns a licensed payment company**
+
+**Do not pitch orchestration to VietJet as a concept.** They run **MPGS (Mastercard Payment Gateway Services)** for cards and **GalaxyPay — wholly owned by VietJet**, established 2020 with VND 50bn charter capital, **licensed by the State Bank of Vietnam** for payment gateway, collection/disbursement and e-wallet. Rebranded to **SkyPay** from 1 January 2026; added Google Pay April 2026. Plus **2C2P** for Thai banks and Intelisys for the international card group.
+
+Per-market rails from their i18n bundle, grepped verbatim:
+```
+"VJPALI":"ALIPAY"   "VJPAZID":"AzuPay"    "VJPDOKU":"DOKU"     "VJPMOMO":"MOMO"
+"VJPNAPA":"NAPAS"   "VJPSKY":"SKYPAY"     "VJPSMAR":"SmartroPAY"
+"VJPVEQR":"VIETQR"  "VJPZALO":"ZAlO"      "VJVNPAY":"VNPAY"    "VJVNQR":"VNPAY QR"
+```
+**`VJPAZID` = AzuPay**, the Australian **PayID / NPP real-time** provider — a competitor running bank-rail payments on its Australian storefront, surcharge-free. **`VJPSMAR` = SmartroPAY**, a Korean card PG under KT Group. Also **Movi** BNPL and **HDSaison** instalments, *"up to 6 months and no need to prove income."*
+
+**VietJet charges a payment surcharge:** *"55,000 VND/passenger who books domestic flights. 50,000 VND/passenger who books international flights,"* with the AzuPay/AUD option explicitly flagged as the surcharge-free exception. That is a cost-of-acceptance story a competitor is passing to passengers.
+
+### Orchestration in SEA aviation — rosters checked at source, not from SEO pages
+
+| Vendor | Airline roster, extracted from their own site | SEA/APAC relevance |
+|---|---|---|
+| **CellPoint Digital** | Cebu Pacific, Emirates, Riyadh Air, Oman Air, Avianca, Gol, Arajet, Air Europa, Icelandair, Southwest, Virgin Atlantic, La Compagnie, KM Malta, Beond, Sunrise | **Cebu Pacific is the one SEA carrier**, and it has a named case study, not just a logo. **P1 in the TAL** |
+| **Juspay** | Air India, IndiGo, **Singapore Airlines**, SpiceJet, Agoda, Etraveli, KKday, Wego, Accor Plus, Minor | **Singapore Airlines is on Juspay's own airline page. P1 in the TAL.** IndiGo corroborated by its own [press release](https://www.goindigo.in/press-releases/juspay-to-power-payments-for-indias-leading-airline-indigo.html) |
+
+**No Vietnamese carrier uses an orchestrator.** Nothing for Primer, Gr4vy, Spreedly, APEXX or Corefy in the region beyond vendor marketing.
+
+### ⚠️ Motion corrections for four P1 accounts already in the queue
+
+These change the opening for each account and should be applied before any `/research` or `/full-outreach` run on them:
+
+| Account | Likely motion | Why |
+|---|---|---|
+| **Singapore Airlines** | **Displacement**, not greenfield | On Juspay's own airline page. Also appears in Adyen's merchant list, so probably multi-provider. Never open with "you have no orchestration layer" |
+| **Cebu Pacific** | **Competitive** | CellPoint Digital incumbent with a published case study. Per the skill's own rule, only proceed if research surfaces a concrete gap |
+| **VietJet Air** | **In-house**, and an unusually strong version of it | They own an SBV-licensed payment institution. Anchor on reach and opportunity cost, never on the build being wrong |
+| **Vietnam Airlines** | Consolidated single-acquirer, **not** greenfield | Adyen global acquiring since 2024 with a public 5% auth-uplift claim |
+
+### TAL hygiene notes
+
+- **Jetstar Asia (Singapore) ceased operations 31 July 2025** — [Qantas newsroom](https://www.qantasnewsroom.com.au/media-releases/qantas-group-to-close-its-intra-asia-airline-jetstar-asia). ✅ The TAL row is **Jetstar Airways (jetstar.com, part of Qantas)**, the Australian carrier, which is unaffected. Recorded only so the two are not conflated later.
+- **Sun PhuQuoc Airways** — Vietnamese new entrant, commercial launch October 2025, already **16 aircraft** and the third-largest fleet in Vietnam. **Not on the TAL.** Growing fast in a market where no carrier uses orchestration; worth considering as a prospect.
+
+### What this run could NOT confirm
+
+- **PromptPay on any Thai airline storefront.** Vietnam Airlines uses Rabbit LINE Pay for Thailand; VietJet routes Thai banks through 2C2P. The Thai gap is real but it is a wallet gap, not a QR-rail gap. **Do not claim a PromptPay gap without checking the specific carrier.**
+- **Taiwan (TWD) local methods** — no JKOPay, LINE Pay TW or ATM transfer on either carrier. Possibly a genuine region-wide gap worth a dedicated look.
+- **Japan PayPay** — Vietnam Airlines has Konbini but no PayPay; VietJet has neither.
+- Pacific Airlines, VASCO, Vietravel Airlines, Scoot and AirAsia payment stacks — not researched.
+- Fleet counts and market shares quoted above are `[UNVERIFIED — search summary only]`.
+
+</details>

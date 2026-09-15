@@ -611,6 +611,28 @@ The numbers question is not.** Rules that still apply:
   Digital's own airline customer wall; Cebu Pacific's CellPoint case study states it
   "implemented its multi-acquirer strategy more efficiently". Name the airline and what it
   did — never imply any of them is a Yuno customer.
+
+  **⚠️ Motions already established for four P1 airline accounts (added 2026-09-15, from the
+  Bamboo Airways run — full evidence in `not-icp/bamboo-airways.md`). Check these BEFORE
+  running `/research` or drafting, because each one changes the opening:**
+
+  | Account | Motion | Why |
+  |---|---|---|
+  | **Singapore Airlines** | **Displacement** | Listed on Juspay's own airline page. **Never open with "you have no orchestration layer."** |
+  | **Cebu Pacific** | **Competitive** | CellPoint Digital incumbent with a published case study. Only proceed if research surfaces a concrete gap |
+  | **VietJet Air** | **In-house**, strong form | VietJet **owns GalaxyPay/SkyPay**, an SBV-licensed payment institution, and runs MPGS for cards. Never argue they need orchestration |
+  | **Vietnam Airlines** | Consolidated single-acquirer, **not greenfield** | On **Adyen global acquiring since 2024**, publicly quoting *"up to a 5% uplift in authorization rates"* ([Adyen newsroom](https://www.adyen.com/press-and-media/vietnam-airlines-expands-partnership-with-adyen)). Any pitch must beat that, not introduce the idea |
+
+  **Orchestration rosters, checked at source rather than from vendor SEO pages:** CellPoint
+  Digital's airline wall carries exactly one SEA carrier, **Cebu Pacific**; Juspay's airline
+  page carries **Singapore Airlines**, Air India, IndiGo and SpiceJet. **No Vietnamese
+  carrier uses an orchestrator.**
+
+  **Two gap hypotheses that did NOT survive checking** — do not assert either without
+  verifying for the specific carrier: **PromptPay** is absent from both Vietnamese carriers'
+  Thai storefronts, but they use Rabbit LINE Pay and 2C2P instead, so the Thai gap is a
+  wallet gap rather than a QR-rail gap; and **Japan PayPay** is absent even from Vietnam
+  Airlines, which does carry Konbini.
 - **EdTech / subscriptions:** Open English is the only edtech logo, but it carries **no
   public numbers**, so it cannot carry an E4. For a quantified proof touch use **Livelo**
   (decline recovery via a secondary acquirer) or **Vibra** (first-time-buyer approval) and
