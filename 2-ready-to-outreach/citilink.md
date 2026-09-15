@@ -289,7 +289,7 @@ They have the capital and the aircraft. The payment layer is the part that has n
 
 | Airline | PSP / Acquirer | Orchestrator | Evidence |
 |---|---|---|---|
-| **Garuda Indonesia** (parent) | DOKU historically (c. 2007–2010) | None found | Deutsche Bank *flow* case study — an origin story, **not** current-stack evidence |
+| **Garuda Indonesia** (parent) | **Cybersource, DOKU, Midtrans, Finpay, MPGS, Ogone — six, live** | **In-house layer** | ⚠️ **CORRECTED 2026-09-15** — see `garuda-indonesia.md`. The "DOKU is historical only" line below was wrong |
 | **Cebu Pacific** | Multi-acquirer | **CellPoint Digital** | Vendor case study, Feb 2024 (no published numbers) |
 | **Malaysia Airlines** | 2C2P | **Outpayce XPP** | Quotes "authorization rates increase by 3-4 per cent" |
 | **Thai Airways** | 2C2P | None named | Trade press |
@@ -297,7 +297,18 @@ They have the capital and the aircraft. The payment layer is the part that has n
 | **Sun PhuQuoc Airways** | 2C2P + M-Pay | **2C2P PACO** | Trade press, Mar 2026 |
 | **Lion Air** | Espay | Unknown | Espay's own client page lists LionAir alongside Citilink |
 
-**Recommended file correction:** our notes recorded Garuda's stack as "DOKU and/or Midtrans — LOW CONFIDENCE". That should become: *"Garuda: DOKU historically (c. 2007–2010, Deutsche Bank flow); current stack unverified. Midtrans: no evidence, killed. **Citilink (separate entity): Espay, confirmed May 2026.**"*
+**⚠️ CORRECTION APPLIED 2026-09-15 — two conclusions in this file were wrong.**
+
+This file originally recorded *"Garuda: DOKU historically (c. 2007–2010); Midtrans: no evidence, killed."* A subsequent run on Garuda Indonesia read Garuda's live payment application at `pay.garuda-indonesia.com/payment/` and found **both vendors in production today**, along with four more:
+
+- **DOKU is live**, not historical — `pay.doku.com/Suite/Receive` is in the payment page, with five `Doku*` payment types and a current Garuda executive quoted in DOKU's own case study.
+- **Midtrans is live**, not absent — production client key and nine `Vtd*` payment types.
+- **Finpay is confirmed**, not unverified — 78 occurrences and five dedicated endpoints.
+- Plus **Cybersource** (primary card gateway), **MPGS** (3DS2) and **Ogone** (dormant).
+
+**Why this file got it wrong, and the lesson worth keeping:** the "doku → dokumen" kill was *correct for the bundle it was applied to*. The mistake was generalising a per-file result across a whole estate. DOKU lives in a different application on a different host. **Killing a string in one bundle is not the same as killing a vendor.**
+
+**Citilink's own finding is unaffected: Espay, confirmed May 2026.** In fact it is strengthened — `Espay` returns **zero** occurrences across Garuda's stack, so the two airlines genuinely run disjoint payment estates. See `garuda-indonesia.md`.
 
 ### Section 12: Business Case Data
 
