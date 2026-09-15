@@ -12,20 +12,23 @@
 
 **Summary:** Bangkok Airways PCL (SET: **BA**, IATA: **PG**), "Asia's Boutique Airline" — a Thai regional full-service carrier that also owns and operates Samui, Sukhothai and Trat airports. FY2025 revenue **THB 26,067.2m (~US$800m)**, net profit THB 3,580.3m, **4.23m scheduled passengers**, fleet down to **22 aircraft**. Skytrax World's Best Regional Airline for the ninth consecutive year. The defining fact for us: **roughly half to three-quarters of its web traffic originates outside Thailand, it has no legal entity anywhere outside Thailand, and its local payment rails are switched off for any itinerary not departing Thailand.**
 
-**SimilarWeb total visits (last full month):** **612.3K** (SimilarWeb, Aug 2026) / **623.1K** (Semrush, Jul 2026) — `[ESTIMATE, not confirmed]`. The two panels agree on volume and disagree sharply on country mix; see the warning below.
+**Traffic: SimilarWeb, supplied by Prateek 2026-09-15** — `bangkokair.com`, subdomains included, worldwide, Jun–Aug 2026. Full 69-country breakdown in [`accounts/traffic/bangkok-airways.md`](../accounts/traffic/bangkok-airways.md). **Thailand 45.40%, so 54.60% of traffic originates outside the home market, across 19 countries above 1%.**
+⚠️ **Absolute visit volume is still unverified.** The supplied export gives shares, not totals. The earlier ~612K / ~623K figures remain estimates and must not be multiplied by these shares.
 
 ### Top 5 markets
-⚠️ **The two panels disagree materially.** SimilarWeb (Aug 2026) and Semrush (Jul 2026) differ on Thailand's share by 19 points and on Israel's rank by three places. Both are `[ESTIMATE, not confirmed]`, ranks 6–10 are paywalled on both, and **the ICP scoring below flags which signals depend on this.** Shown as SimilarWeb / Semrush.
+Verified shares from the supplied SimilarWeb export. Methods and absences are from Bangkok Airways' own enumerated payment page.
 
 | Rank | Country | Traffic | Accepted methods | Missing methods | Local entity |
 |------|---------|---------|------------------|-----------------|--------------|
-| 1 | 🇹🇭 Thailand | 27.25% / 46.13% | Cards (Visa, Master, JCB, Diners, Discover), Union Pay, Ali Pay, WeChat Pay, Line Pay, ShopeePay, TrueMoney, card instalments (min THB 3,000), direct debit, ATM/iBanking/bank counter, counter cash (Lotus, Big C, PayPost, TrueMoney) | **Amex.** **7-Eleven / Counter Service** — Thailand's largest counter network. **PromptPay is contested** (absent from the published page, present in the live config — see Section 4) | ✅ HQ, plus 11 Thai offices |
-| 2 | 🇮🇱 Israel | 13.39% / 6.35% | Cards, Union Pay, wallets only | **Everything local.** Instalments, direct debit, ATM and counter are all restricted to flights departing Thailand | ❌ GSA only |
-| 3 | 🇺🇸 USA | 8.34% / 9.53% | Cards, Union Pay, wallets only | **No Apple Pay, no Google Pay, no PayPal.** No local rails | ❌ GSA only |
-| 4 | 🇩🇪 Germany | 5.42% / — | Cards, Union Pay, wallets only | No SEPA, no Sofort/iDEAL-class rail, no local methods | ❌ GSA only |
-| 5 | 🇦🇺 Australia | 3.81% / 7.22% | Cards, Union Pay, wallets only | **No PayTo, no BPAY, no Afterpay or Zip** | ❌ GSA only |
+| 1 | 🇹🇭 Thailand | **45.40%** (+10.9%) | Cards (Visa, Master, JCB, Diners, Discover), Union Pay, Ali Pay, WeChat Pay, Line Pay, ShopeePay, TrueMoney, card instalments (min THB 3,000, six banks), direct debit, ATM/iBanking/bank counter, counter cash (Lotus, Big C, PayPost, TrueMoney) | **Amex.** **7-Eleven / Counter Service** — Thailand's largest counter network. **PromptPay is contested** (absent from the published page, `PG_PROMPTPAY` in the live config — see Section 4) | ✅ HQ + 11 Thai offices |
+| 2 | 🇸🇬 Singapore | **5.15%** (+122.1%) | Cards, Union Pay, wallets only | **No PayNow.** Singapore's dominant A2A rail, sourced-absent from the enumerated page. Also no GrabPay | ⚠️ Own office listed, but a third-party GSA is named there too — unresolved |
+| 3 | 🇺🇸 USA | **5.04%** (−12.8%) | Cards, Union Pay, wallets only | **No Apple Pay, no Google Pay, no PayPal** | ❌ GSA only |
+| 4 | 🇮🇱 Israel | **4.08%** (+141.2%) | Cards, Union Pay, wallets only | **Everything local.** Instalments, direct debit, ATM and counter are all restricted to flights departing Thailand | ❌ GSA only |
+| 5 | 🇬🇧 UK | **3.64%** (+36.1%) | Cards, Union Pay, wallets only | No local rails | ❌ GSA only |
 
-*(Semrush's #5 is the UK at 5.86%; SimilarWeb does not expose it. Both panels exclude the other's #4.)*
+*Then Australia 3.40%, Germany 3.25%, India 2.42%, Kazakhstan 2.42%, UAE 1.76%. Nineteen countries sit at or above 1%.*
+
+**Israel is the standout on engagement**: 11m14s average visit, 7.26 pages/visit, 33.4% bounce, +141% growth. The most engaged large market in the table by a distance.
 
 ### Legal entities
 - **Bangkok Airways Public Company Limited** — Registration No. **0107556000183**, registered capital THB 2,100,000,000. HQ: 99 Mu 14, Vibhavadirangsit Rd., Chom Phon, Chatuchak, Bangkok 10900.
@@ -80,19 +83,19 @@ or call this from `/prepare_batch`.*
 | Signal | Points | Status |
 |--------|--------|--------|
 | Orchestration status | **+4** | ✅ **None detected.** Zero orchestrator strings across the production bundle, plus a hardcoded `paymentMethodsToDisplay` list. Greenfield |
-| 3+ countries | **+3** | ✅ Thailand, Israel, USA, Germany, Australia and the UK all exceed 1% on at least one panel. 36 GSA markets, 15 country sites in the front-end config |
+| 3+ countries | **+3** | ✅ **Nineteen countries at or above 1%** in the supplied SimilarWeb export. 36 GSA markets, 15 country sites in the front-end config |
 | Multiple PSPs | **0** | ⬜ **Only one ever named (2C2P, 2018), and no acquirer identified.** A second provider almost certainly exists — their 56-1 references an unnamed "acquiring bank" separately from the 2C2P wallet set — but that is inference. **Scored 0 rather than stretched** |
-| Local rail or licensing gap in a top-3 market | **+3** | ✅ Instalments, direct debit, ATM and counter payment are all restricted, verbatim, to *"all domestic and international flights departing from Thailand only"*. Every non-Thailand-departing itinerary gets cards and wallets only. ⚠️ **Panel-dependent:** Australia (no PayTo/BPAY) is top-3 on Semrush but #5 on SimilarWeb |
+| Local rail or licensing gap in a top-3 market | **+3** | ✅ **Singapore is the #2 market at 5.15% and PayNow is sourced-absent** from their enumerated payment page. Reinforced by the restriction that instalments, direct debit, ATM and counter payment apply, verbatim, to *"all domestic and international flights departing from Thailand only"* — so every non-Thailand-departing itinerary gets cards and wallets only. ⚠️ **Basis changed:** this previously rested on Australia having no PayTo/BPAY, which the supplied data invalidates (Australia is #6, not top-3) |
 | Recent expansion | **0** | ❌ The opposite. Fleet 25→22, two routes closed, three cut back, 1H2026 international passengers −38.4% |
 | Payment issues reported | **0** | ⬜ **Honestly scored.** Forum complaints are scattered and mostly historical, and TripAdvisor threads could not be opened (403). Their own FAQ is more damning than the forums, but that is a documentation finding, not a complaint-frequency one. A proper app-review pull would likely move this |
 | Funding >$10M | **0** | ❌ No round. The THB 2,000m into U-Tapao is an outbound investment, not capital received |
-| High traffic outside home | **+2** | ✅ Thailand is 27.25% (SimilarWeb) or 46.13% (Semrush). Both are comfortably under 60%, so this holds on either panel |
+| High traffic outside home | **+2** | ✅ **Thailand is 45.40%** in the supplied export. Comfortably under 60%, now on verified data rather than two conflicting scrapes |
 | Competitor using orchestration | **+2** | ✅ Cebu Pacific (CellPoint Digital), Thai Airways (2C2P), Malaysia Airlines (Outpayce XPP), Sun PhuQuoc Airways (2C2P PACO) |
 | Payment job postings | **0** | ❌ Not found; careers portal unreadable |
 
 **Tier:** High Priority (14+) ⭐ / Medium (8–13) 🟢 / Low (<8) 🔴 → **⭐ High Priority (14)**
 
-No analyst override. The score lands on the tier boundary and the reasoning is clean: it scores on genuine structural signals (greenfield, international traffic, a real rail gap) and correctly scores zero on the three signals where the evidence is absent or points the other way. **One caveat worth carrying into any conversation: this is a contracting airline.** Fleet down, routes closed, international traffic down 38.4% in 1H2026. That makes cost-of-acceptance and approval-rate recovery the right frame, and market-expansion framing the wrong one.
+No analyst override. The score lands on the tier boundary and the reasoning is clean: it scores on genuine structural signals (greenfield, international traffic, a real rail gap) and correctly scores zero on the three signals where the evidence is absent or points the other way. **The total is unchanged at 14 after the traffic rework, but two of the signals are now on verified data rather than conflicting scrapes, and one had its basis replaced.** **One caveat worth carrying into any conversation: this is a contracting airline.** Fleet down, routes closed, international traffic down 38.4% in 1H2026. That makes cost-of-acceptance and approval-rate recovery the right frame, and market-expansion framing the wrong one.
 
 ### Source Notes
 - ✅ **The hardcoded `paymentMethodsToDisplay` string** — I extracted the production JS chunks and grepped them myself. The exact value is quoted above. This is the single most important finding in the file.
@@ -104,7 +107,8 @@ No analyst override. The score lands on the tier boundary and the reasoning is c
 - ✅ **FY2025 financials, revenue split and the direct-channel share** — all from their own filed documents: the [FY2025 MD&A](https://hub.optiwise.io/storage/168/mdna/2025/ba-mdna-fy2025-en.pdf), [Q2-2026 MD&A](https://hub.optiwise.io/storage/168/mdna/2026/ba-mdna-2q2026-en.pdf) and the 316-page [56-1 One Report 2025](https://hub.optiwise.io/storage/168/annual-report/2025/ba-ar2025-en.pdf).
 - ⚠️ **2C2P is an eight-year-old datapoint.** It establishes who supplied the wallet set in 2018. It does **not** establish who acquires their card volume today, and no source does. Do not state 2C2P as their current processor.
 - ⚠️ **PromptPay is genuinely contested and I am not resolving it.** Absent from the published `/payment-channel` page in every locale, but `PG_PROMPTPAY` is in the live `paymentMethodsToDisplay` string shipped to every booking session. The most likely reading is that it *is* live and the published page has not kept up. **A supporting argument that the page is "five years stale" because it says Tesco Lotus does not hold** — the visible text says "Lotus"; only the image asset is still named `01_tescolotus_new.png`, and I cannot read the logo itself. Treat PromptPay as "probably live, undocumented", and verify at checkout before it appears in an email.
-- ⚠️ **Traffic panels disagree badly.** Thailand 27.25% vs 46.13%; Israel #2 vs #4. Different months and different panels. Ranks 6–10 paywalled on both. Any claim about a specific country's rank needs hedging.
+- ✅ **Traffic is now supplied data, not a scrape.** SimilarWeb, provided by Prateek 2026-09-15, `bangkokair.com` with subdomains, worldwide, Jun–Aug 2026, all 69 countries. Thailand 45.40%, Singapore 5.15%, USA 5.04%, Israel 4.08%, UK 3.64%. **This replaced two conflicting scrapes that were both wrong** — see Section 1 and `accounts/traffic/bangkok-airways.md`.
+- ⚠️ **Absolute visit volume is still unverified.** The supplied export is a geography report: shares, engagement and country ranks, no totals. The ~612K / ~623K figures are estimates. Do not multiply them by the verified shares.
 - ⚠️ **The direct-channel share is by PASSENGER COUNT, not value.** 49.3% (FY2025) and 47.0% (1H2026) of passengers came via website and direct connect. Direct-channel passengers likely skew to lower-fare domestic sectors, so the direct share of *revenue* may be lower.
 - ❌ **Section 8 is partial.** `digital.bangkokair.com` and `flightbook.bangkokair.com` sit behind **Imperva** bot protection and were unreachable, so the actual card-entry page was never observed. Single-acquirer is a strong inference from the hardcoded method list, not something directly seen.
 - ❌ **No PCI DSS disclosure anywhere** — not on the site, not in the 56-1, not in the MD&As.
@@ -137,24 +141,35 @@ Bangkok Airways is a Thai regional full-service carrier with **no orchestration 
 
 ### Section 1: Website Traffic Analysis by Country
 
-**Data source:** WebSearch fallback against SimilarWeb and Semrush free tiers. Everything here is `[ESTIMATE, not confirmed]`. **Ranks 6–10 are paywalled on both panels and are not guessed.**
+**Data source: SimilarWeb, supplied by Prateek on 2026-09-15** — the primary source under the skill's resolution order. Parameters from the file's own Report Details sheet: domain `bangkokair.com`, **subdomains included**, Worldwide, **Jun–Aug 2026**, device Total. Full 69-country table in [`accounts/traffic/bangkok-airways.md`](../accounts/traffic/bangkok-airways.md).
 
-| Rank | Country | SimilarWeb (Aug 2026) | Semrush (Jul 2026) |
-|---|---|---|---|
-| — | Total monthly visits | 612.3K (+13.9% MoM) | 623.1K (−20.6% MoM) |
-| — | Global rank | #68,118 | #73,807 |
-| 1 | Thailand | **27.25%** | **46.13%** (287.4K) |
-| 2 | Israel | **13.39%** | 6.35% (39.6K) |
-| 3 | United States | 8.34% | 9.53% (59.4K) |
-| 4 | Germany | 5.42% | not exposed |
-| 5 | Australia | 3.81% | 7.22% (45.0K) |
-| 5= | United Kingdom | not exposed | 5.86% (36.5K) |
+| # | Country | Share | Change | Avg visit | Pages/visit | Bounce |
+|---|---------|-------|--------|-----------|-------------|--------|
+| 1 | **Thailand** | **45.40%** | +10.9% | 02:14 | 5.18 | 28.8% |
+| 2 | **Singapore** | **5.15%** | **+122.1%** | 01:50 | 3.18 | 57.2% |
+| 3 | **United States** | **5.04%** | −12.8% | 04:15 | 4.89 | 45.7% |
+| 4 | **Israel** | **4.08%** | **+141.2%** | **11:14** | **7.26** | 33.4% |
+| 5 | United Kingdom | 3.64% | +36.1% | 04:06 | 4.00 | 29.8% |
+| 6 | Australia | 3.40% | +43.0% | 02:42 | 5.53 | 38.0% |
+| 7 | Germany | 3.25% | +5.8% | 06:24 | 7.30 | 34.9% |
+| 8 | India | 2.42% | +60.1% | 01:30 | 3.65 | 24.4% |
+| 9 | Kazakhstan | 2.42% | **−95.8%** | 07:16 | 1.97 | 60.9% |
+| 10 | UAE | 1.76% | −42.1% | 06:23 | 8.26 | 18.9% |
 
-Engagement: bounce 32.45% / 28.63%, pages/visit 4.68 / 5.41, duration 2m37s / 7m44s.
+Then France 1.69%, Japan 1.62%, Canada 1.60%, Russia 1.39%, Kuwait 1.22%, Italy 1.17%, Switzerland 1.06%, Netherlands 1.05%, Spain 1.05%. **Nineteen countries at or above 1%; 69 in total.**
 
-**The disagreement is material and I am not papering over it.** Different months and different panels. What both agree on: **the site is not Thailand-dominant**, Israel is a top-five market, and the USA and Australia are significant. For a carrier whose network is 88.7% domestic Thai passengers, that is the central tension of the account — the flights are Thai, the buyers are not.
+**Thailand is 45.40%, so 54.60% of traffic originates outside the home market.** For a carrier whose network is 88.7% domestic Thai passengers, that remains the central tension of the account, and it is now measured rather than inferred.
 
-**Subdomain split** (HypeStat, volume unreliable but the split is useful): `bangkokair.com` 91.21% reach, `flightbooking.` 27.55%, `bookflight.` 22.86%.
+**Movements worth raising:**
+- **Kuwait +3,834%** to 1.22%, with a 10m19s average visit and a 14.5% bounce rate — the lowest in the table. Either a real new demand pocket or a campaign.
+- **Kazakhstan −95.8%** and **Russia −80.9%**, both with poor engagement (1.97 and 4.26 pages/visit, 60.9% and 75.1% bounce). Traffic that was probably never converting.
+- **Singapore +122.1%** and **Israel +141.2%** are the two fastest-growing markets of real size.
+
+⚠️ **This export gives shares, not totals.** Absolute visit volume remains unverified — the earlier ~612K and ~623K figures are estimates and should not be multiplied by these shares to manufacture a number that looks solid.
+
+⚠️ **What the supplied data overturned.** The report previously ran on two conflicting scrapes. Both were wrong: the SimilarWeb scrape put Thailand at 27.25% (actual 45.40%) and Israel at #2 on 13.39% (actual #4 on 4.08%). Semrush's Thailand figure of 46.13% was close. **The practical consequence is in the ICP table: the rail-gap signal previously rested on Australia being top-3, which is false — Australia is #6. It now rests on Singapore at #2 with no PayNow, which is a cleaner basis and still scores.**
+
+**Subdomain split** (HypeStat, volume unreliable but the split is useful): `bangkokair.com` 91.21% reach, `flightbooking.` 27.55%, `bookflight.` 22.86%. The supplied export includes subdomains, so these are inside the figures above.
 
 ### Section 2: Legal Entities & Local Presence
 
@@ -217,9 +232,14 @@ Source of record: **https://www.bangkokair.com/payment-channel**, fetched and ve
 | **PromptPay** | Bank / A2A | ⚠️ **CONTESTED** — absent from the page, `PG_PROMPTPAY` present in live config |
 | **7-Eleven / Counter Service** | Cash/voucher | ❌ **SOURCED-ABSENT** — Thailand's largest counter network is not on the list |
 | **Apple Pay, Google Pay, PayPal** | Wallet | ❌ **SOURCED-ABSENT** |
+| **PayNow** (Singapore) | Bank / A2A | ❌ **SOURCED-ABSENT** — zero occurrences on the enumerated page. **Singapore is the #2 market at 5.15% and growing +122%.** This is the ICP rail-gap signal |
+| **GrabPay** (Singapore) | Wallet | ❌ **SOURCED-ABSENT** |
+| PayTo, BPAY, Afterpay, Zip (Australia) | A2A / BNPL | ❌ **SOURCED-ABSENT** — Australia is #6 at 3.40%, so this is real but not the top-3 basis |
 | Japan konbini, Korea local cards, India UPI | Various | ❌ **SOURCED-ABSENT** — no market-specific method for any inbound market |
 
-**The geographic restriction is the finding.** Instalments and the entire direct-debit / ATM / counter block carry this restriction verbatim:
+**Singapore is the sharpest single gap.** It is the #2 market at 5.15%, growing +122% quarter on quarter, and PayNow — the rail most Singaporean consumers default to — is absent from the enumerated page, as is GrabPay. A Singaporean buyer gets a card form.
+
+**The geographic restriction is the second finding.** Instalments and the entire direct-debit / ATM / counter block carry this restriction verbatim:
 
 > *"This payment type will be available for all domestic and international flights departing from Thailand only"*
 
@@ -287,7 +307,7 @@ They did win an **ASOCIO Award 2025 for Cybersecurity Excellence** — which mak
 ### Section 10: Strategic Insights & Outreach Angles
 
 **Insight 1 — Foreign buyers, Thai-only rails, by their own documentation.**
-> **Evidence:** Section 1 (Thailand is 27–46% of traffic; Israel, USA, Germany, Australia and the UK make up most of the rest) + Section 4 (instalments, direct debit, ATM and counter are restricted verbatim to *"flights departing from Thailand only"*) + Section 2 (no legal entity outside Thailand).
+> **Evidence:** Section 1 (**Thailand 45.40%, so 54.60% of traffic is non-Thai across 19 countries above 1%** — supplied SimilarWeb data) + Section 4 (instalments, direct debit, ATM and counter are restricted verbatim to *"flights departing from Thailand only"*) + Section 2 (no legal entity outside Thailand).
 The majority of their buyers cannot use the majority of their payment methods. This is the account's defining asymmetry and every half of it comes from their own published material.
 
 **Insight 2 — The method list is a code release, not a configuration.**
@@ -338,13 +358,13 @@ This is the single best fit for the Wingo case, where retries across multiple pr
 
 ### Overall Research Confidence
 
-**Medium-High.** Financials, entity structure and the direct-channel split are **High** — all read from their own filed 56-1 and MD&A PDFs. The payment-stack architecture is **High** — the hardcoded method list, the Amadeus endpoints and the orchestrator absence were verified directly in the production JS bundle. Traffic is **Low** — two panels disagreeing by 19 points on the home market, with ranks 6–10 paywalled. Checkout is **Low** — Imperva blocked the card-entry page entirely. Complaints are **Low** and honestly scored as such.
+**Medium-High.** Financials, entity structure and the direct-channel split are **High** — all read from their own filed 56-1 and MD&A PDFs. The payment-stack architecture is **High** — the hardcoded method list, the Amadeus endpoints and the orchestrator absence were verified directly in the production JS bundle. Traffic is now **High** for country mix — supplied SimilarWeb data covering all 69 countries with subdomains included, which resolved a disagreement the earlier scrapes could not — but **Low for absolute volume**, which the export does not contain. Checkout is **Low** — Imperva blocked the card-entry page entirely. Complaints are **Low** and honestly scored as such.
 
 ### Manual Research Recommendations
 
-> **Area:** Traffic country mix.
-> **Why it matters:** Two ICP signals and the entire cross-border argument rest on it, and the panels disagree by 19 points on Thailand alone.
-> **Action:** A paid SimilarWeb pull on `bangkokair.com` with ranks 6–10 exposed.
+> **Area:** ~~Traffic country mix~~ — **CLOSED 2026-09-15.** Prateek supplied the SimilarWeb geography export. Thailand 45.40%, 19 countries above 1%, all 69 listed.
+> **Still open:** absolute visit volume. The geography export does not carry totals, so the business case has no verified denominator.
+> **Action:** pull the SimilarWeb Website Performance export for total visits if a sized business case is needed.
 
 > **Area:** The live checkout.
 > **Why it matters:** Single-acquirer is inferred from a hardcoded method list, not observed. Whether an Amadeus payment layer sits in the path is unresolved, and it changes the motion.
