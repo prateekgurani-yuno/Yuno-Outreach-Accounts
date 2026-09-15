@@ -1,6 +1,6 @@
 # Great Learning
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 9 / 24 → 🟢 Medium *(see analyst note — the matrix understates this account)*
 **Industry:** E-Learning & EdTech · **HQ:** Bengaluru, India · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** Greenfield — no orchestrator detected
@@ -49,8 +49,369 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Great Learning` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+```
+Motion: Greenfield — no orchestrator signature in 2.0 MB of fetched HTML, and no search
+result connects them to one. Caveat carried from research: no checkout is publicly
+reachable, so this is "no public evidence" rather than proven absence. The sequence never
+asserts they have no routing layer; it argues from the coverage gap instead, which holds
+either way.
+
+Observable setup facts (from research, with sources):
+- dLocal partnership, 21 Sep 2023: local payment methods and up to 12 instalments across
+  Mexico, Brazil and Colombia — source: BusinessWire press release, first-party
+- "You can pay via bank transfer or credit/debit cards" — source: international programme
+  FAQ, fetched. An ENUMERATED list, so a genuine sourced absence: no PayPal, no wallets,
+  no Apple or Google Pay on that flow
+- UT Austin programme priced USD 3,950, with an admission fee of USD 800-1,000 followed by
+  three instalments — source: programme page, fetched
+- Terms reference "payment gateways", plural, and name none — source: /terms, fetched
+- Privacy policy: refunds may be paid to a "bank account, payment gateway or e-wallet"
+  — source: /privacy-policy, fetched. Refunds may not return to the original instrument
+- Affirm, Climb Credit and Splitit appear in logo markup under images/template-pp/intl/
+  — source: page source. The intl/ path proves a separate regional configuration exists
+- No card acquirer or gateway identified for India or the US — zero PSP signatures found
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. dLocal 2023 bought local methods and up to 12 instalments, for three countries
+   → "You added local methods and up to 12 instalments for Mexico, Brazil and Colombia."
+2. The international flow enumerates two method types on a USD 3,950 ticket
+   → "The international programme FAQ says bank transfer or credit/debit card."
+3. Their Terms name no gateway despite using the plural
+   → "Your Terms mention payment gateways, plural, without naming one."
+
+THE ASYMMETRY (the samples' strongest move, and it is entirely first-party here):
+A learner in Mexico gets local methods and up to twelve instalments. A learner buying the
+same category of programme in USD gets an admission fee and three bank transfers. Both
+halves are Great Learning's own published material, so neither is disputable.
+
+Bridge variant: B — limitations
+Rationale: exactly one PSP is publicly identifiable (dLocal), covering three of a claimed
+170+ countries. That is a single-provider footprint against a multi-market business, which
+is B. It is not A, because there is no evidence of two parallel stacks to be complex about.
+
+Hypothesis for Phase 2 (E3):
+The LatAm decision was right and it stopped at three countries. The same high-ticket
+conversion problem exists in every other market they sell into, and the USD flow is the
+clearest case.
+Backing logic: buying instalments for LatAm is itself proof they believe high-ticket
+education converts on them. The international flow then enumerates two method types on a
+USD 3,950 ticket. Nothing in the file suggests the belief changed; it just was not extended.
+
+Success case for Phase 3 (E4):
+Selected case: Vibra
+Tier: 2 — same payment pattern, different industry and region. Stated as such in the copy.
+Match rationale: Vibra's problem was first-time buyers being declined, solved by bringing
+more providers in, routing per transaction, and launching new methods. Great Learning's
+buyers are almost entirely first-time purchasers, since an upskilling programme is a
+one-off high-ticket purchase, not a repeat one. That pattern match is tighter than the
+edtech label would be.
+Numbers to lead with: new-user approval up more than 30 percentage points, reaching 80% ·
+Apple Pay, Nu Pay and Google Pay launched in record time · more providers into the
+operation with each transaction routed on data
+⚠️ HONEST DEVIATION: Vibra publishes TWO hard numbers, not three. The third bullet is a
+mechanism, not a metric, and is written as one. Livelo carries three quantified results
+(+5% approval, 50% of failed transactions recovered, millions of R$ saved) and is the
+swap if Prateek wants three numbers, but its mechanism is decline recovery, and nothing in
+the research evidences a decline problem at Great Learning. Matching the mechanism was
+judged more important than hitting the bullet count. Verified live at source 2026-09-15.
+Open English carries the edtech relevance as a one-line name only, no numbers, per the
+library rule.
+Optional benchmark: SKIP. The "~8% average authorisation uplift" traces to Yuno's own blog,
+so it is marketing rather than independent evidence.
+
+Touch-by-touch angles:
+- E2 angle: method coverage stops at three countries → one integration to add any method,
+  no per-rail rebuild
+- LK1 angle: 12 instalments in LatAm, bank transfer or card on the international flow
+- LK2 angle: the LatAm decision was right and stopped at three countries
+- LK3 angle: Vibra's first-time buyers stopped hitting a decline on their first purchase
+- LK4 angle: refunds may be paid to a bank account, gateway or e-wallet (held back, fresh)
+- E8 angle: clean exit, no new observation
+```
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** 12 instalments in LatAm only
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at Great Learning's payment setup. Three things stood out.
+
+In September 2023 you added local methods and up to 12 instalments across Mexico, Brazil
+and Colombia, through dLocal.
+
+Your international programme FAQ offers bank transfer or credit/debit card. That's on a
+USD 3,950 ticket.
+
+Your Terms mention payment gateways, plural, without naming one.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch on assumptions, is there anything payment-related you're working through
+that we might help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it maps to
+what I flagged.
+
+We sit above the providers you already run. dLocal stays exactly where it is.
+
+One integration covers the methods, so extending local rails and instalments into a fourth
+market, or a fortieth, becomes configuration rather than a new provider evaluation.
+
+Routing then decides per BIN, market and method which provider a transaction takes, and
+moves traffic automatically when one degrades.
+
+The 2023 decision is the part worth building on. You already concluded local methods and
+instalments move high-ticket enrolments. What's left is extending that, not re-testing it.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, say
+the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Sat 19 Sep
+
+> ⚠️ **Lands on a Saturday.** Shift to Mon 21 Sep, or pull forward to Fri 18 Sep.
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than
+email. Quick one: a learner in Mexico gets local methods and up to 12 instalments, while
+your international FAQ offers bank transfer or card on a USD 3,950 programme. Curious
+whether that gap is deliberate or just hasn't come up yet.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Read on the three-country ceiling
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that the 2023 LatAm decision was right and
+stopped at three countries.
+
+Buying instalments for those markets says you concluded high-ticket education converts on
+them. That conclusion just wasn't extended.
+
+The international FAQ then offers two ways to pay on a USD 3,950 programme. Not because
+anyone's doing it badly, but a list that short tends to reflect how many providers are
+wired in.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing providers, so a market
+gets local methods without a new integration behind it. Keep your stack, add what's missing.
+
+Thursday the 24th is open. Would 11am or 4pm your time work for 15 minutes? If payments
+sits elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: the
+LatAm instalments decision looks right, and it looks like it stopped at three countries
+rather than being extended. If that's anywhere on your radar, would Monday the 28th or
+Tuesday the 29th at 3pm your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Vibra solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved looks like.
+
+Vibra is Brazil's fifth-largest company. Inside Premmia, its loyalty and payments app, too
+many first-time users hit a decline on their first purchase. They brought Yuno in:
+
+- New-user approval up more than 30 percentage points, reaching 80% (not too bad, right?)
+- Apple Pay, Nu Pay and Google Pay live in record time
+- More providers into the operation, with each transaction routed on data rather than a
+  fixed path
+
+Different industry, but a professional programme is a one-off purchase, so almost every
+buyer of yours is a first-timer too. Open English, an online English school across 30-plus
+countries, runs on the same layer if you want the education version.
+
+Same orchestration layer above their existing stack. No rip-out.
+
+When a learner outside the dLocal markets wants to pay in instalments, what happens today?
+
+Wednesday the 30th, would 10am your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/vibra
+
+Best,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Sun 27 Sep · MANUAL
+
+> ⚠️ **Lands on a Sunday.** Shift to Mon 28 Sep.
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+Suggested angle for this account: a side-by-side of the LatAm enrolment flow against the
+international one, screenshotted. The asymmetry does the arguing without a word of pitch.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 29 Sep · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+Suggested angle: a short Loom attempting a UT Austin enrolment as a learner in a market
+dLocal does not cover, stopping at the point where the options run out.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
+
+```text
+Hey {{recipient.first_name}}, Vibra's problem was that first-time buyers kept hitting a
+decline on their very first purchase, which is most of your buyers too. Worth 15 minutes to
+see whether it maps? Tuesday the 6th at 4pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Sat 3 Oct · MANUAL
+
+> ⚠️ **Lands on a Saturday.** Shift to Fri 2 Oct, except that is Gandhi Jayanti. Use Mon 5 Oct
+> and move LK4 out, or send Thu 1 Oct alongside LK3.
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+Suggested anchors: the IIT Bombay and Johns Hopkins programme partnerships, or the FY25
+results. ⚠️ **Do not anchor to the ownership change** (the BYJU'S sale and the founder
+reacquisition) until it is verified at source. It is `[UNVERIFIED — Tracxn]` in the research
+and getting an ownership fact wrong in writing would end the thread.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 5 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. One thing I never raised:
+your privacy policy says refunds may go to a bank account, gateway or e-wallet, so money
+doesn't always return the way it arrived. If that's worth 15 minutes, Friday the 9th at
+11am your time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 7 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back next quarter, once the current programme
+cycle has run.
+
+If it ever comes back up, just reply here.
+
+Cheers,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **dLocal partnership, local methods and up to 12 instalments in Mexico, Brazil and
+  Colombia, 21 Sep 2023** — [BusinessWire](https://www.businesswire.com/news/home/20230921634934/en/Great-Learning-Partners-With-dLocal-Enabling-Local-Payment-Methods-and-Installments-in-Mexico-Brazil-and-Colombia),
+  first-party. Named in E1, E2, E3, LK1 and E4.
+- ✅ **"You can pay via bank transfer or credit/debit cards"** — international programme FAQ,
+  fetched during research. This is an enumerated list, which is what makes it a sourced
+  absence rather than a guess.
+- ✅ **USD 3,950 programme, admission fee then three instalments** — UT Austin programme
+  page, fetched.
+- ✅ **Terms reference "payment gateways", plural, naming none** — /terms, fetched.
+- ✅ **Refunds may be paid to "bank account, payment gateway or e-wallet"** — /privacy-policy,
+  fetched. Used in LK4 only.
+- ✅ **Vibra: +30 percentage points to 80% new-user approval; Apple Pay, Nu Pay and Google
+  Pay in record time** — re-verified at source 2026-09-15. Region stated as Brazil in the
+  copy, so nothing implies an APAC or India result.
+- ✅ **Open English, 30-plus countries** — named with no metric attached, per the library rule
+  that it carries no public numbers.
+- ⚠️ **India is never mentioned in any touch, deliberately.** Research could not render the
+  India flow, so UPI and netbanking are recorded as *not found*, not as *sourced absent*.
+  Claiming a UPI gap would be asserting an unchecked absence. If Prateek gets the India-geo
+  page from an Indian IP, that becomes the strongest touch in the sequence and E1 should be
+  rewritten around it.
+- ⚠️ **E1 and E3 run over their word budgets** (112 against ~85–110, and ~135 against
+  ~90–120). Everything left in E3 is rulebook-mandated: hypothesis, two lines of backing,
+  Yuno re-state, CTA. Cut the "not because anyone's doing it badly" clause if Prateek wants
+  it inside budget, at the cost of the observation reading harder.
+- ⚠️ **E4 carries two quantified bullets, not three.** Vibra publishes two. See the deviation
+  note in the extraction block; Livelo is the three-number swap if wanted.
+- ⚠️ **No named contact.** `{{recipient.first_name}}` throughout. Research surfaced no
+  payments decision-maker, and the ownership position is unverified, so the recipient needs
+  picking manually before send.
+- ⚠️ **Three touches land on weekends** (LK1 Sat 19 Sep, E5 Sun 27 Sep, E7 Sat 3 Oct), and
+  **Fri 2 Oct is Gandhi Jayanti**, a national holiday in India. No CTA proposes the 2nd.
+  Flagged inline.
+- ⚠️ **Trustpilot findings stay out of the sequence entirely** — the chargeback, the 4%
+  processing fee on a refund and the EMIs continuing after cancellation are all
+  search-summary only, since Trustpilot returned 403 on every fetch. Do not add them.
+- ⚠️ **The refund-dispute pattern stays out of the auto-written touches** even though it is
+  sourced (8 of 11 complaints on consumercomplaints.in). Leading a cold email with a
+  customer-complaint pattern reads as combative. It belongs in a manual touch or a call,
+  once there is a relationship to carry it.
+
+### Notes on what this sequence deliberately does not claim
+
+The research file scores this 9/24 and carries an analyst note explaining that three signals
+score zero because **data is missing, not because the signal is absent**. The sequence is
+built only on what is actually evidenced, which is why it argues coverage rather than
+approval rates: there is no traffic data, no PSP identified for India or the US, no PCI
+posture and no reachable checkout.
+
+**The highest-value action on this account is still not an email.** It is re-pulling
+SimilarWeb against `www.mygreatlearning.com` rather than `greatlearning.in`, and rendering
+the India programme page from an Indian IP. Either could reshape the opening, and the India
+one could make it substantially stronger.
+
+### Success Case Alternatives
+
+- **Livelo** — swap for E4 if three quantified bullets matter more than mechanism fit:
+  +5% approval, 50% of failed transactions recovered, millions of R$ saved. Its story is
+  decline recovery via a secondary acquirer, which the research does not evidence here.
+- **Open English** — the only edtech logo in the library, used here as a one-line relevance
+  signal. It cannot carry an E4 because it publishes no numbers.
+- **inDrive** — Tier 2 fallback if the conversation turns to market expansion rather than
+  method coverage: roughly 90% approval, 10 new countries in under 8 months, LATAM.
 
 </details>
 
