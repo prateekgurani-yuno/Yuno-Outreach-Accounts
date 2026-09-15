@@ -1,6 +1,6 @@
 # Bangkok Airways
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 14 / 24 → ⭐ High Priority
 **Industry:** Airlines (regional full-service, plus airport ownership) · **HQ:** Bangkok, Thailand · **Researched:** 2026-09-15 · **First email sent:** —
 **Motion:** **Greenfield** — no orchestration layer detected, and the method list is hardcoded into the front end
@@ -71,8 +71,367 @@ A fixed six-value string, shipped to every browser, passed into the Amadeus book
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Bangkok Airways` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+```
+Motion: GREENFIELD. No orchestration layer detected — zero vendor strings across the
+production JS bundle, and the accepted-method list is a hardcoded six-value string compiled
+into the front end. Phase 1 may therefore note the absence of a routing layer, though the
+sequence leads with the concrete facts rather than the abstraction.
+
+Observable setup facts (verified first-hand unless marked):
+- The accepted-method list is a fixed string shipped to every browser, verbatim from
+  static/chunks/: paymentMethodsToDisplay = "PG_CC, PG_EXT, PG_EWALLET, PG_PROMPTPAY,
+  PG_IP, PG_MOBILEBANK". Changing what a customer can pay with means shipping a release.
+- BIN already flows through the checkout, sourced from u.cc_bin inside a CAMPAIGN parameter
+  block (campaign_name, promo_rbd, promo_code_id). It decides promotional eligibility,
+  not routing.
+- 15 country sites share one method set — from the disableFxBox config in the same bundle
+- Thailand 45.40%; 54.60% of traffic originates outside Thailand; 19 countries at or
+  above 1% — source: SimilarWeb geography export supplied by Prateek 2026-09-15
+- Singapore is the #2 market at 5.15%, growing +122.1%. PayNow and GrabPay are both
+  sourced-absent from their enumerated payment page
+- Instalments, direct debit, ATM and counter payment all carry the restriction, verbatim:
+  "This payment type will be available for all domestic and international flights departing
+  from Thailand only"
+- Their FAQ's documented remedy for a declined card is a phone call to 1771, toll-free
+  from Thailand only, or +662 270 6699, open 8am to 8pm Bangkok time
+- Third-party cards are banned: "The card holder must be one of the traveling party"
+- Refunds take 30 business days, to the original card only
+- One PSP ever named publicly: 2C2P, from a 2018 press release. No acquirer identified
+- Amadeus Altea PSS with their own front end (BIRTS, their registered copyright)
+- Contracting: fleet 25 -> 22, two routes closed, 1H2026 international passengers -38.4%
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. One method set across 15 country sites -> "Your checkout ships one method list across
+   all 15 country sites."
+2. Singapore #2 and PayNow absent -> "Singapore is your second-biggest market, up 122%
+   last quarter, and PayNow isn't on the list."
+3. The hardcoded string -> "The list itself is a fixed six-value string compiled into the
+   front end."
+Escalating: footprint, then the specific gap, then why it persists. Bullet 3 sets up E2
+and E3 without asserting any pain.
+
+Bridge variant: B — limitations
+Rationale: exactly ONE PSP has ever been named publicly (2C2P, 2018) and no acquirer is
+identified, against 15 country sites and 19 countries above 1% of traffic. That is a single
+visible processor spanning many markets, which is B. A is wrong — there is no evidence of
+two parallel stacks to be complex about.
+
+Hypothesis for Phase 2 (E3):
+The method list was set for Thailand and has not moved as the traffic went international.
+Backing logic: 54.60% of traffic is now non-Thai across 19 countries, Singapore is second
+and growing fastest, and the local half of the method set is restricted by their own
+documentation to itineraries departing Thailand — and is Thai-rail-specific anyway, so it
+is unusable to a Singaporean or Israeli buyer regardless. Meanwhile the list is a compiled
+string, so adding a rail is a release rather than a configuration change.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 — airline, and the only airline case in the library carrying numbers
+Match rationale: both halves map. "1,000+ payment methods through one integration" answers
+the coverage hypothesis directly, and "automatic retries of failed payments through multiple
+providers" answers the FAQ observation that a declined card becomes a phone call.
+Numbers to lead with: +14% approval rate (initial implementation phase) · 1,000+ payment
+methods via one integration · fraud tooling and integrated 3D Secure
+Region stated explicitly as Latin America. No APAC implication.
+Optional benchmark: SKIP. The "~8% average authorisation uplift" traces to Yuno's own blog.
+The IATA/EDC airline cost-of-acceptance figure has only been seen via a vendor blog citing
+it, so it is not quotable until traced to the primary source.
+
+Touch-by-touch angles:
+- E2 angle: missing local rail -> one integration to add any method, no per-rail rebuild
+- LK1 angle: Singapore at #2 with no PayNow
+- LK2 angle: the list was set for Thailand and the traffic went international
+- LK3 angle: Wingo gave a declined card a second path instead of a dead end
+- LK4 angle: the FAQ phone number (held back, unused until here)
+- E8 angle: clean exit, no new observation
+```
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** One method list, 15 markets
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at Bangkok Airways' payment setup. Three things stood out.
+
+Your checkout ships one method list across all 15 country sites.
+
+Singapore is your second-biggest market, up 122% last quarter, and PayNow isn't on that
+list.
+
+The list itself is a fixed six-value string compiled into the front end.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch on assumptions, is there anything payment-related you're working through
+that we might help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno does, and how it maps to what I
+flagged.
+
+We sit above the providers you already run. Nothing gets replaced.
+
+One integration covers the methods, so adding PayNow in Singapore, or anything else in any
+market, becomes configuration rather than a front-end release with a provider contract
+behind it.
+
+Routing then decides per BIN, market and method which rail a transaction takes, and moves
+traffic automatically when one degrades.
+
+Worth noting you already pass BIN through the checkout. It's used to decide promotional
+eligibility rather than which rail a payment takes, so the plumbing is largely there.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, say the
+word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Sat 19 Sep
+
+> ⚠️ **Lands on a Saturday.** Shift to Mon 21 Sep, or pull forward to Fri 18 Sep.
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than
+email. Quick one: Singapore is your second-largest market and grew 122% last quarter, and
+PayNow isn't on your payment page. Curious whether that's deliberate or just hasn't come up.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Read on your non-Thai markets
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that the method list was set for Thailand and
+hasn't moved as the traffic went international.
+
+54.6% of your traffic now comes from outside Thailand, across 19 countries above 1%, and
+Singapore is second.
+
+Your payment page limits instalments, direct debit, ATM and counter payment to flights
+departing Thailand, and they're Thai bank rails regardless. Not because anyone's doing it
+badly, but a Singaporean buyer was never going to use them.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing providers, so a market
+gets its own rails without a new integration. Keep your stack, add what's missing.
+
+Thursday the 24th is open. Would 10am or 3pm your time work for 15 minutes? If payments sits
+elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: the
+method list looks like it was set for Thailand, and 54.6% of your traffic is now outside it.
+If that's anywhere on your radar, would Monday the 28th or Tuesday the 29th at 4pm your time
+work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved looks like.
+
+Wingo is a low-cost carrier flying 37 routes across Latin America. Same shape of problem:
+international traffic, a method set that hadn't kept up. From the initial phase with Yuno:
+
+- Approval rate up 14% (not too bad, right?)
+- Over 1,000 payment methods through one integration
+- Fraud tooling and 3D Secure in the same layer
+
+Smart Routing also retries a failed payment through a different provider automatically, so a
+decline gets a second path rather than ending the booking.
+
+Qatar Airways, Copa and Avianca run on the same layer, above the stacks they already had.
+No rip-out.
+
+How long does it take today to get a new method into the checkout?
+
+Wednesday the 30th, would 11am your time work for 15 minutes?
+
+Full case here if useful:
+https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Best,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Sun 27 Sep · MANUAL
+
+> ⚠️ **Lands on a Sunday.** Shift to Mon 28 Sep.
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+Suggested angle for this account: a screenshot of the payment page next to the SimilarWeb
+country table. One method set, nineteen countries above 1%. The two images argue it without
+a word of commentary.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 29 Sep · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+Suggested angle: a short Loom booking a Bangkok–Samui flight as a Singaporean buyer,
+stopping at the payment step to show what's actually offered.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
+
+```text
+Hey {{recipient.first_name}}, Wingo's change was that a declined card started falling through
+to a second provider automatically instead of ending the booking. Worth 15 minutes to see
+whether it maps to your setup? Tuesday the 6th at 2pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Sat 3 Oct · MANUAL
+
+> ⚠️ **Lands on a Saturday.** Shift to Fri 2 Oct or Mon 5 Oct, though Mon 5 collides with LK4.
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+Suggested anchors: the **Israel market** — 4.08% of traffic, up 141%, with an 11m14s average
+visit and 7.26 pages per visit, the most engaged large market in their table by a distance.
+Nobody has touched it in the sequence and it is a genuinely interesting thing to have noticed.
+Alternatively the **Kuwait spike** (+3,834% to 1.22%, 10m19s average visit).
+
+⚠️ **Do not anchor to growth or expansion.** They are contracting: fleet 25 to 22, two routes
+closed, 1H2026 international passengers down 38.4%. An expansion framing would read as
+not having done the reading.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 5 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. One thing I never raised:
+your FAQ says a failed card payment is fixed by calling 1771, toll-free inside Thailand
+only, 8am to 8pm. Most of your buyers aren't in Thailand. Thursday the 8th at 9:30am your
+time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 7 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back next quarter once the current schedule
+changes have settled.
+
+If it ever comes back up, just reply here.
+
+Cheers,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **The hardcoded method list** — extracted from the production JS chunks and verified by
+  me: `paymentMethodsToDisplay` = `"PG_CC, PG_EXT, PG_EWALLET, PG_PROMPTPAY, PG_IP,
+  PG_MOBILEBANK"`. E1 calls it "a fixed six-value string compiled into the front end", which
+  is exactly what it is.
+- ✅ **BIN already flows through the checkout** — `u.cc_bin` inside a campaign-parameter block
+  (`campaign_name`, `promo_rbd`, `promo_code_id`). Verified by me. E2 says it decides
+  promotional eligibility rather than routing, which is precisely the finding.
+- ✅ **15 country sites** — from the `disableFxBox` config in the same bundle.
+- ✅ **Traffic figures** — SimilarWeb geography export **supplied by Prateek 2026-09-15**,
+  `bangkokair.com` with subdomains, worldwide, Jun–Aug 2026. Thailand 45.40%, so 54.60%
+  non-Thai; Singapore #2 at 5.15%, +122.1%; 19 countries at or above 1%. Full table in
+  `accounts/traffic/bangkok-airways.md`.
+- ✅ **PayNow and GrabPay sourced-absent** — zero occurrences on their enumerated
+  `/payment-channel` page, which I fetched and grepped myself.
+- ✅ **The "departing from Thailand only" restriction** — verbatim from that same page.
+- ✅ **The FAQ phone number** — 1771 toll-free within Thailand only, or +662 270 6699,
+  8am–8pm Bangkok time, given as the documented remedy for a failed card payment.
+- ✅ **Wingo: +14% approval, 1,000+ methods, fraud tooling and 3DS** — re-verified at source
+  2026-09-15. Region named as Latin America in the copy, so nothing implies an APAC result.
+- ✅ **Qatar Airways, Copa, Avianca** — on Yuno's site-wide customer list, named with **no
+  metric attached**, per the library rule.
+- ⚠️ **PromptPay is deliberately absent from every touch.** It is the one contested method on
+  this account: absent from the published payment page but present as `PG_PROMPTPAY` in the
+  live config. Raising it risks being wrong in either direction, and Singapore/PayNow makes
+  the same argument on unambiguous evidence. **Do not add it without checking the live
+  checkout first.**
+- ⚠️ **2C2P is never named in the sequence.** It is an eight-year-old datapoint and does not
+  establish who acquires their card volume today.
+- ⚠️ **No named contact.** `{{recipient.first_name}}` throughout. Research surfaced no
+  payments owner, and their careers portal was unreadable, so the recipient needs picking
+  manually. Note the Prasarttong-osoth family controls ~58% of the company, so this is a
+  closely-held business where the commercial owner may be a family principal.
+- ⚠️ **E3 runs ~139 words against a ~90–120 budget.** Everything left in it is
+  rulebook-mandated: hypothesis, two lines of backing, Yuno re-state, CTA. The cuttable line
+  is "not because anyone's doing it badly", at the cost of the observation reading harder.
+  Every other touch is inside budget.
+- ⚠️ **Three touches land on weekends** (LK1 Sat 19 Sep, E5 Sun 27 Sep, E7 Sat 3 Oct).
+  Flagged inline.
+- ⚠️ **Thai public holidays were not verified for the CTA window** (24 Sep – 8 Oct). Research
+  did not surface any and I did not check a calendar. Worth thirty seconds before loading
+  into Gong.
+
+### Notes on what this sequence deliberately avoids
+
+**Any growth or expansion framing.** Bangkok Airways is contracting: fleet down from 25 to
+22, Bangkok–Lampang and Lampang–Mae Hong Son discontinued, Bangkok–Phuket, Samui–Singapore
+and Bangkok–Maldives cut back, and **1H2026 international passengers down 38.4%**. The whole
+sequence is framed as recovering revenue on traffic they already have, which is the only
+frame that survives contact with their own numbers.
+
+**Any claim about their acquirer.** One PSP has ever been named publicly and it was in 2018.
+The sequence argues method coverage, which is observable, rather than acquiring economics,
+which is not.
+
+### Success Case Alternatives
+
+- **Livelo** — swap if the conversation narrows to declines rather than coverage: +5%
+  approval, 50% of failed transactions recovered by instant routing to a secondary acquirer.
+  Not an airline, but the tightest mechanism fit to the FAQ observation.
+- **Qatar Airways / Copa / Avianca** — airline credibility if Wingo's LATAM footprint draws
+  an objection. Nameable only, no published metrics.
+- **inDrive** — Tier 2 if the conversation turns to multi-country coverage as a whole:
+  roughly 90% approval, 10 new countries in under 8 months, LATAM.
 
 </details>
 
