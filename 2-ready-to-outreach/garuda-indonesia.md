@@ -1,6 +1,6 @@
 # Garuda Indonesia
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 16 / 24 → ⭐ High Priority
 **Industry:** Airlines (state-owned flag carrier) · **HQ:** Jakarta, Indonesia · **Researched:** 2026-09-15 · **First email sent:** —
 **Motion:** **In-house** — they built their own orchestration layer in 2013 and have maintained it for thirteen years
@@ -76,10 +76,369 @@ What they built, all verified in their own production code:
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Garuda Indonesia` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
 
-**⚠️ Motion is In-house.** Respect the build decision. Anchor on reach and opportunity cost, never on the build being wrong, and never on "you need orchestration."
+```
+Motion: IN-HOUSE. They built the layer themselves in 2013 and still run it.
+Step 6a governs: respect the build decision, anchor on opportunity cost and reach, never on
+the build being wrong, and never on "you need orchestration." Every touch below is written
+to that rule. Nothing in this sequence tells Garuda they lack a payment layer — they have
+one, and saying otherwise would be factually wrong and would end the thread.
+
+Observable setup facts (all verified first-hand in Garuda's own production code):
+- Six providers running in parallel behind one checkout: Cybersource, DOKU, Midtrans,
+  Finpay, MPGS, and a dormant Ogone entry — source: pay.garuda-indonesia.com/payment/
+  and its bundle all-7f2458b2.js
+- Card routing is a single boolean, verbatim:
+  secureCCSubmit:function(e){(Booking.dokuCCEnabled?DokuCC:CybsCC).start(e)}
+- 57 implemented payment types, of which 44 are Indonesian — source: paymentTypes array
+- 17 distinct /payment/* endpoints and 5 per-provider async status pollers
+- Their own card vault (mycard_list, enable_save, /payment/token/delete) and their own
+  BIN logic across 11 instalment issuers
+- Payment app footer: "© 2026. ATI Business Group." Admin console: "© 2013 - 2026"
+- Cybersource adopted March 2013; Amadeus Altea cutover June 2013 — one birthday
+- Australia is the #2 market at 14.8% of organic search and the fastest-growing (+8.9K MoM),
+  and gets cards and PayPal. No PayTo, no BPAY, no Afterpay, no Zip — sourced-absent
+- Espay returns ZERO across Garuda's stack. Citilink, 98.65% owned, runs a wholly separate
+  gateway with no QRIS and a 3% card surcharge
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Six providers in parallel behind one checkout -> "Your checkout runs six providers."
+2. The boolean -> "Card traffic goes to DOKU or Cybersource depending on one config flag."
+3. The group contrast -> "Citilink runs a separate stack entirely."
+All three are stated as facts about their build, not as deficiencies. That is the In-house
+motion working correctly.
+
+Bridge variant: A — complexity
+Rationale: six visible processors, 57 methods, 17 endpoints and five reconciliation pollers.
+This is the textbook multi-PSP fragmented case. B is wrong (nothing single-PSP about it) and
+C would understate what is plainly there.
+
+Hypothesis for Phase 2 (E3):
+The 2013 build has kept pace with Indonesia and not with the rest of the network.
+Backing logic: 44 of 57 implemented methods are Indonesian, and Indonesia is genuinely well
+served — QRIS through two providers, every major VA, instalments across 11 issuers. Outside
+it, Australia is the second-largest market and growing fastest on a checkout of cards and
+PayPal. That is not a capability gap, it is a maintenance-throughput gap: every method is a
+bespoke widget, endpoint and poller, written by an outsourced partner.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 — airline, and the only airline case in the library carrying numbers
+Match rationale: Wingo's mechanism is "automatic retries of failed payments through multiple
+providers." Garuda already HAS multiple providers — two card gateways live and paid for —
+and switches between them by hand. The case is not "get more providers", it is "make the
+ones you already have catch each other." That is the precise shape of the boolean finding,
+and it respects the build rather than attacking it.
+Numbers to lead with: +14% approval rate (initial implementation phase) · 1,000+ payment
+methods through one integration · fraud tooling and integrated 3D Secure
+Region stated explicitly as Latin America. No APAC implication.
+Optional benchmark: SKIP. The "~8% average authorisation uplift" traces to Yuno's own blog,
+so it is marketing, not independent evidence. The IATA/EDC airline cost-of-acceptance figure
+has only been seen via a vendor blog citing it — not quotable until traced to the primary.
+
+Touch-by-touch angles:
+- E2 angle: multi-PSP fragmentation -> unified reconciliation + a single routing layer above
+  the six they already run (per the E2 mapping table)
+- LK1 angle: the boolean, stated plainly
+- LK2 angle: the build kept pace with Indonesia and not with the network
+- LK3 angle: Wingo made existing providers catch each other's declines
+- LK4 angle: the 2013 date (held back, unused until here)
+- E8 angle: clean exit, no new observation
+```
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Tue 15 Sep
+
+**Subject:** Six providers, one config flag
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at Garuda's payment setup. Three things stood out.
+
+Your checkout runs six providers in parallel: Cybersource, DOKU, Midtrans, Finpay and MPGS,
+with an Ogone entry still in the list.
+
+Card traffic goes to either DOKU or Cybersource depending on a single config flag.
+
+Citilink runs a separate stack entirely. Different gateway, different method list.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch on assumptions, is there anything payment-related you're working through
+that we might help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Thu 17 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno does, and how it maps to what I
+flagged.
+
+We sit above the providers you already run. Cybersource, DOKU, Midtrans and Finpay all stay
+exactly where they are.
+
+What changes is the layer above them. One routing logic layer instead of per-provider
+dispatch, and reconciliation that matches each settlement file against what you actually
+billed rather than polling each provider separately.
+
+You've clearly built a real payment layer already. The argument isn't that you need one.
+It's that maintaining six integrations, and writing a new widget and poller each time a
+method gets added, stops being your work.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, say the
+word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Sat 19 Sep
+
+> ⚠️ **Lands on a Saturday.** Shift to Mon 21 Sep, or pull forward to Fri 18 Sep.
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's more useful than
+email. Quick one: your card traffic picks between DOKU and Cybersource on a single config
+flag, so the two gateways never see each other's declines. Curious whether that's deliberate
+or just how it's always been.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 21 Sep · NEW EMAIL
+
+**Subject:** Read on your non-Indonesian markets
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that the build has kept pace with Indonesia and
+not with the rest of the network.
+
+Of the 57 methods in your checkout, 44 are Indonesian. QRIS, every major virtual account,
+instalments across eleven issuers.
+
+Australia is your second-largest market on search, and it gets cards and PayPal. Not because
+anyone's doing it badly, but because each method is its own widget and poller, so throughput
+is the constraint.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing providers, so adding a
+rail stops being a build. Keep your stack, add what's missing.
+
+Thursday the 24th is open. Would 10am or 3pm your time work for 15 minutes? If payments
+sits elsewhere now, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Wed 23 Sep
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short version: 44 of
+the 57 methods in your checkout are Indonesian, and Australia is your second-biggest market
+running on cards and PayPal. If that's anywhere on your radar, would Monday the 28th or
+Tuesday the 29th at 4pm your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Fri 25 Sep · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's what solved looks like.
+
+Wingo is a low-cost carrier flying 37 routes across Latin America. They had providers
+already. What they didn't have was those providers catching each other.
+From the initial phase with Yuno:
+
+- Approval rate up 14% (not too bad, right?)
+- Over 1,000 payment methods through one integration
+- Fraud tooling and 3D Secure in the same layer
+
+The mechanism is what maps to you: Smart Routing retries a failed payment through a
+different provider automatically. You already have two card gateways live. Today the choice
+between them is a flag someone sets, not something a decline triggers.
+
+Qatar Airways, Copa and Avianca run on the same layer, above the stacks they already had.
+No rip-out.
+
+When a new method goes live, how long does it take from decision to being in the checkout?
+
+Wednesday the 30th, would 11am your time work for 15 minutes?
+
+Full case here if useful:
+https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Best,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Sun 27 Sep · MANUAL
+
+> ⚠️ **Lands on a Sunday.** Shift to Mon 28 Sep.
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+Suggested angle for this account: a side-by-side of the Garuda and Citilink checkouts. Same
+group, one owning 98.65% of the other, two entirely disjoint payment estates. The contrast
+argues itself and needs no commentary.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 29 Sep · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+Suggested angle: a short Loom walking an Australian passenger through the Garuda checkout
+and stopping where the options run out, against what an Australian buyer expects to see.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Thu 1 Oct
+
+```text
+Hey {{recipient.first_name}}, Wingo already had multiple providers. What changed was that a
+decline on one started falling through to another automatically instead of ending the
+booking. Worth 15 minutes to see whether that maps? Tuesday the 6th at 2pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Sat 3 Oct · MANUAL
+
+> ⚠️ **Lands on a Saturday.** Shift to Fri 2 Oct or Mon 5 Oct — but Mon 5 Oct collides with LK4.
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+Suggested anchors: the expanded **Saudia partnership** covering sales, marketing and
+distribution (ch-aviation, solidly sourced), or the **Hajj and Umrah** flow specifically —
+102,000 regular pilgrims carried in 2026 and a stated Rp 520bn Umrah transaction target
+through January 2027. That is a discrete, high-ticket, seasonal payment flow and nobody
+else in the sequence has touched it.
+
+⚠️ **Do not anchor to the route expansion claims** (Doha, Bali–Melbourne). Those rest on SEO
+aggregators and are not verified.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 5 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this. One thing I never raised:
+your payment app's copyright starts in 2013, same year as the Cybersource rollout and the
+Altéa cutover. Thirteen years is a long run for any stack. If that's worth 15 minutes,
+Thursday the 8th at 10am your time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 7 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back next quarter once the group structure has
+settled.
+
+If it ever comes back up, just reply here.
+
+Cheers,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **Six providers** — verified by me in Garuda's own production payment app:
+  `CYBS_URL = 'https://secureacceptance.cybersource.com/silent/pay'`,
+  `DOKU_REDIRECT_URL = 'https://pay.doku.com/Suite/Receive'`, the `api.midtrans.com` script
+  tag, 78 Finpay references, and `redirectMpgs()` handling 3DS2. Ogone is the first entry in
+  the payment-type enum with no active endpoint, so E1 says "still in the list" rather than
+  implying it is live.
+- ✅ **The config flag** — verified verbatim by me:
+  `secureCCSubmit:function(e){(Booking.dokuCCEnabled?DokuCC:CybsCC).start(e)}`
+- ✅ **57 methods, 44 Indonesian** — count verified by me against the `paymentTypes` array.
+- ✅ **Australia has no PayTo, BPAY, Afterpay or Zip** — sourced-absent, zero occurrences
+  across the enumerated array. Australia at 14.8% is **Ahrefs organic search**, not total
+  visits, so E3 and LK2 say "on search" and "second-largest market on search" rather than
+  overstating it.
+- ✅ **Citilink runs a separate stack** — `Espay` returns zero occurrences across Garuda's
+  stack. E1 states the separation only, not Citilink's surcharge or missing QRIS, since
+  leading with a subsidiary's shortcomings reads as point-scoring.
+- ✅ **2013** — payment app admin footer "© 2013 - 2026", Cybersource adopted March 2013,
+  Altéa cutover June 2013.
+- ✅ **Wingo: +14% approval, 1,000+ methods, fraud tooling and 3DS** — re-verified at source
+  2026-09-15. Region named as Latin America in the copy, so nothing implies an APAC result.
+- ✅ **Qatar Airways, Copa Airlines, Avianca** — on Yuno's site-wide customer list. Named
+  with **no metric attached**, per the library rule.
+- ⚠️ **No named recipient, and this one matters more than usual.** The Commercial Director
+  was suspended on 14 August 2026 with no named replacement. `{{recipient.first_name}}`
+  throughout, and **the recipient needs choosing deliberately** — E3's sign-off carries
+  "if payments sits elsewhere now" partly for that reason. Direktur Transformasi **Neil
+  Raymond Mills** is the most plausible interim owner, but that is inference and is not
+  sourced. Finance Director **Balagopal Kunduvara** is the sourced alternative.
+- ⚠️ **E3 and E4 run slightly over budget** (~134 against ~90–120, and ~166 against
+  ~130–160). Everything left in both is rulebook-mandated. On E3 the cuttable line is the
+  "not because anyone's doing it badly" clause, at the cost of the observation reading
+  harder on an In-house account where tone is doing real work.
+- ⚠️ **Three touches land on weekends** (LK1 Sat 19 Sep, E5 Sun 27 Sep, E7 Sat 3 Oct).
+  Flagged inline with shifts.
+- ⚠️ **Indonesian public holidays were not verified for the CTA window** (24 Sep – 8 Oct).
+  Research did not surface any and I did not check a holiday calendar. Worth thirty seconds
+  before loading into Gong.
+- ⚠️ **Nothing in this sequence uses payment complaints**, because that signal was never
+  evaluated on this account. Not an oversight in the drafting, an acknowledged gap in the
+  research.
+
+### Notes on what this sequence deliberately avoids
+
+**It never says Garuda lacks a payment layer, and never implies the 2013 build was a
+mistake.** They built method-to-provider dispatch, their own card vault, their own BIN logic
+across eleven issuers and their own admin console. Saying otherwise would be wrong on the
+facts and would end the thread on the first read.
+
+The argument is throughput and reach: six integrations to maintain, a new widget and status
+poller per method, an outsourced partner doing the work, and an international network that
+has not kept up with the domestic one. E2 states this explicitly — *"the argument isn't that
+you need one"* — because on an In-house account that sentence is what earns the rest a
+hearing.
+
+**Also deliberately avoided:** the Rp 8.7tn Danantara injection. It went to working capital
+and returning grounded aircraft to service, and raising it invites the obvious reply that
+aircraft maintenance outranks payments right now.
+
+### Success Case Alternatives
+
+- **Rappi** — the better swap if the conversation turns to maintenance burden rather than
+  declines: hundreds of methods, zero implementation delays, **80% less analyst work**. That
+  speaks directly to the opportunity-cost half of the In-house argument. Weaker on hard
+  numbers than Wingo, which is why Wingo leads.
+- **Livelo** — if the conversation narrows to decline recovery specifically: +5% approval,
+  50% of failed transactions recovered by instantly routing to a secondary acquirer. Very
+  close mechanism fit to the config-flag finding, but not an airline.
+- **Qatar Airways / Copa / Avianca** — airline credibility if Wingo's LATAM footprint draws
+  an objection. Nameable only, no numbers exist.
 
 </details>
 
