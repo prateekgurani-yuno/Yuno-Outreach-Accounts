@@ -144,3 +144,56 @@ What *is* verified first-party is the structural cause: the annual plan **"comes
 - **Unresolved, and the only thing that could reopen this:** whether Rytr still runs its own Stripe account or now bills through a Copysmith group merchant account. If Copysmith has consolidated billing across Frase, Describely and Rytr, there is a real multi-brand payments conversation — **but it is a US conversation.** Worth passing to whoever owns AMER rather than working from here.
 
 </details>
+
+<details>
+<summary><h2>🔍 Appendix — AI-writing-SaaS payment stacks (reusable, outlives this account)</h2></summary>
+
+*Added 2026-09-15. Competitor research completed after the rejection. Kept because the vertical-wide pattern is reusable and two genuine APAC prospects fell out of it. Evidence is raw-HTML and JS-bundle grep on first-party pages unless noted.*
+
+### The whole category has the same payment posture
+
+| Company | HQ | PSP / stack | Local methods | Currency |
+|---|---|---|---|---|
+| **Jasper** | Austin, TX | **Stripe only, cards only** | None. Explicitly no PayPal | USD only |
+| **Copy.ai** | US | **Stripe** (CSP `frame-src js.stripe.com`; no processor named in prose) | None found | Not found |
+| **Writesonic** | SF, US *(team distributed US + India)* | **Stripe + Chargebee + PayPal** (+ Churnkey) | PayPal only | USD (see open question) |
+| **Anyword** | New York + Tel Aviv | **Stripe** | None found | Not found |
+| **Simplified** | SF, US | **Stripe + Braintree + PayPal + RevenueCat + Apple IAP + Google Play + Shopify** | PayPal, app-store rails | USD |
+| **neuroflash** | Hamburg, DE | **Stripe + SEPA direct debit + invoice** | SEPA (EU) | **EUR** |
+
+**Jasper's pricing page is word-for-word Rytr's model**, which is the most striking finding in the set. Verbatim: *"All currencies! Prices are in USD, and an exchange rate will be applied at time of purchase as determined by Stripe"* and *"Jasper does not accept PayPal, prepaid cards, or other cash apps at this time."* — [jasper.ai/pricing](https://www.jasper.ai/pricing)
+
+### Two premises I gave the agent were wrong. Both corrected.
+
+1. **"A competitor accepts UPI and Rytr doesn't" does not exist.** **Zero of six** accept UPI, netbanking, or any Indian or Southeast Asian local method. The agent pushed back on this and was right to. Any future outreach in this vertical must not use a competitive-disadvantage framing on local rails — it cannot be substantiated.
+2. **"MoR is the standard answer in this vertical" is unsupported.** No Paddle, FastSpring, Lemon Squeezy or Polar at any of the six, in any pricing page, privacy policy, DPA, CSP header or JS bundle. Everyone is **direct Stripe**, some with a billing layer on top. Chargebee at Writesonic is subscription management, not merchant of record, and their own DPA lists it that way.
+
+**The honest reframe for this category:** nobody has solved APAC local methods. That makes it a first-mover conversion argument at a price-sensitive price point, not a catch-up argument. Defensible and verifiable, unlike the version I went looking for.
+
+### The best proof point in the vertical is a peer's own build
+
+**Simplified** ships a six-source payment abstraction in its production bundle:
+
+```js
+HC = {UNKNOWN:"unknown", STRIPE:"stripe", BRAINTREE:"braintree", SHOPIFY:"shopify",
+      APPLE:"apple", GOOGLE:"android", REVENUECAT:"revenuecat"}
+```
+
+A direct peer with Indian founders concluded single-PSP wasn't enough and paid engineering cost to hand-build a router across six sources. For a self-serve SaaS audience that is arguably stronger than a case study, because it is a competitor's own revealed decision rather than a vendor's claim. *(Live publishable keys and a PayPal client ID are present in that bundle. Deliberately not recorded here — same standard applied to Rytr's own key.)*
+
+### ⚠️ Indian-founded is not India-HQ'd — these fail the same gate as Rytr
+
+**Writesonic** (Samanyou Garg) and **Simplified** (KD Deshpande, Ajay Yadav) are Indian-*founded* but **Delaware/SF-domiciled US entities**, and every subprocessor region in Writesonic's DPA reads "United States". Writesonic does have real India engineering presence — their own careers copy says *"Fully distributed across the US and India"* — but the billing entity and buying centre are US. **Do not add either to the TAL as an APAC prospect.** Same trap that produced this rejection.
+
+### 🎯 Two genuine APAC prospect leads — neither is on `accounts/apac-tal.csv`
+
+| Company | Why it qualifies | Next step |
+|---|---|---|
+| **Canva** | **Sydney-HQ'd, squarely in territory**, and enormous — a completely different volume class from anything in this vertical. Surfaced as an adjacent peer. A claim that its ₹499 plan supports UPI is `[UNVERIFIED — search summary only]`; canva.com returned HTTP 403 and was not retried. | Worth a full `/research` run on its own merits. The strongest find of this run. |
+| **Pepper Content / Peppertype** | **Genuinely India-HQ'd**, unlike every other name here. The most likely place in the category to actually find Razorpay and UPI in the stack. | One research pass would settle whether the vertical's "nobody has local rails" pattern holds for an India-domiciled player. |
+
+### One open question you can settle faster than I can
+
+**Does Writesonic present INR to Indian IPs?** Their pricing HTML carries zero INR or ₹ tokens from a US egress, but a third-party blog claims Chatsonic Pro at ₹1,148.5/mo `[UNVERIFIED — search summary only]`. If that's IP-geo currency switching, it's invisible from here and it changes the local-pricing picture for the whole category. **You can check this from Hyderabad in about thirty seconds.** Nothing about local-currency pricing should go into an email in this vertical until you have.
+
+</details>
