@@ -1,17 +1,16 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-14 23:58*
+*Last updated: 2026-09-15 03:11*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (44)
+## 📋 To Outreach (43)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
 | [ANA (All Nippon Airways)](1-to-outreach/ana-all-nippon-airways.md) | Airlines | Japan | P1 | 2026-09-10 |
 | [Asiana Airlines](1-to-outreach/asiana-airlines.md) | Airlines | South Korea | P1 | 2026-09-10 |
-| [Bamboo Airways](1-to-outreach/bamboo-airways.md) | Airlines | Vietnam | P1 | 2026-09-10 |
 | [Bangkok Airways](1-to-outreach/bangkok-airways.md) | Airlines | Thailand | P1 | 2026-09-10 |
 | [Cathay Pacific](1-to-outreach/cathay-pacific.md) | Airlines | Hong Kong | P1 | 2026-09-10 |
 | [Cebu Pacific](1-to-outreach/cebu-pacific.md) | Airlines | Philippines | P1 | 2026-09-10 |
@@ -70,10 +69,11 @@
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
 
-## 🔴 Not ICP (1)
+## 🔴 Not ICP (2)
 
 | Company | Industry | Reason | Marked |
 |---------|----------|--------|--------|
 | [Rytr](not-icp/rytr.md) | AI writing assistant (self-serve SaaS) | Out of territory — owned by Copysmith Inc. (Birmingham, AL) since Oct 2022; no APAC entity or operations. Secondary: volume far too small ($5–$24/mo plans, ~$1.2M ARR est.) | 2026-09-14 |
+| [Bamboo Airways](not-icp/bamboo-airways.md) | Airlines | Volume collapsed — down to **1 aircraft** (end Aug 2026, from 44 in 2022), scheduled ticket sales suspended, zero international routes, negative equity | 2026-09-15 |
 
 See [not-icp/](not-icp/) for rejection rationale.
