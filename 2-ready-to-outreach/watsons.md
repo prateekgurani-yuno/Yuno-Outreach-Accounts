@@ -3,7 +3,7 @@
 **Status:** 🟡 Research complete — outreach not yet generated
 **ICP Score:** 7 / 24 → 🔴 Low *(arithmetic)* → **upward analyst override to 🟢 Medium — see the analyst note**
 **Industry:** Health & beauty retail (omnichannel) · **HQ:** Watson House, Fo Tan, Hong Kong · **Researched:** 2026-09-16 · **First email sent:** —
-**Motion:** **Undetermined.** In-house is the leading hypothesis but is unproven. Do NOT open as greenfield.
+**Motion:** **Undetermined** — in-house is the leading hypothesis but unproven. Do NOT open as greenfield.
 
 ---
 
