@@ -54,6 +54,7 @@
 - 💼 **Tim Wang appointed General Manager, U.S. on 28 Aug 2026** — three days before reporting a US revenue decline. Plus Gary Chow as VP Operations
 - 🚀 **First US physical store**, Great Mall, Milpitas CA (May 2026) — adds card-present to a pure-play online stack
 - 🚀 **Latin America grew +224% in FY2025 and +178% in H1 2026**; Mexico alone is US$17.8m and already **exceeded its full-year FY2025 figure within H1 2026**
+- 🇧🇷 **Brazil is billed in USD, so every Brazilian shopper pays 3.5% IOF on top** (Decreto 12.499/2025, verified at Planalto). **Pix is sourced-absent from their checkout *and* from Reach's entire 38-method set.** Full sizing in **Section 13**
 - 📉 **US revenue fell 17.6% YoY in H1 2026** against a record group half (+23.2%) — the **US de minimis exemption ended 29 Aug 2025** and the CEO has spoken publicly on tariff impact
 - 📋 **No public payment RFP found.** **No payments job posting found** — though a "Finance Transformation" role leading global accounting operations is open
 
@@ -528,6 +529,139 @@ Competitor scoring cannot be completed — **no competitor's PSP or orchestrator
 
 ---
 
+### Section 13: Latin America — opportunity sizing *(deep-research pass #2, 107 agents)*
+
+> **Why this section exists.** LatAm is 9.4% of FY2025 revenue and grew **+224.4% in FY2025 and +178.4% in H1 2026** — the fastest-growing region in the business — while US revenue *fell* 17.6% YoY in H1 2026. The checkout prices in 36 currencies and carries **no BRL and no South American currency at all**, while maintaining **ten MENA currencies** for a region at 8.0% of revenue growing far more slowly. This pass asked what that actually costs and what it would take to close.
+
+#### 13A. The IOF wedge — the one hard number
+
+A Brazilian cardholder buying from YesStyle in USD pays **3.5% IOF** on top of the price. A BRL-denominated, locally-acquired or Pix transaction does not trigger it at all.
+
+**Verified by me at primary source** — [Decreto nº 12.499, de 11 de junho de 2025](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/D12499.htm), Planalto, inciso VII, fetched and text-extracted directly:
+
+> *"nas operações de câmbio destinadas ao cumprimento de obrigações das instituições que participem de arranjos de pagamento de abrangência transfronteiriça na qualidade de emissores destes, decorrentes de **aquisição de bens e serviços do exterior efetuada por seus usuários**… **3,5% (três inteiros e cinco décimos por cento)**"*
+
+That clause describes YesStyle's transaction exactly: a Brazilian issuer settling FX for its user's purchase of goods from abroad. The tax is levied on the FX operation and reaches the shopper on the card statement.
+
+> ⚠️ **Time-sensitive — re-verify before any dated collateral.** The 3.5% rate rests on an **interlocutory STF injunction (Moraes, 16 July 2025)** with the merits still pending before the Plenário. Cite it as *"as of September 2026"*. Sources: [STF](https://noticias.stf.jus.br/postsnoticias/stf-restabelece-parcialmente-decreto-que-eleva-aliquotas-do-iof/) · [Câmara](https://www.camara.leg.br/radio/programas/1182454-aumento-do-iof-para-cartao-internacional-volta-a-valer/)
+
+This sits **on top of** YesStyle's own FX handling — they run internal rates at *"a premium over the market rates"* in lieu of hedging, and still booked **US$4,886k of exchange losses in FY2025**.
+
+#### 13B. What Reach already covers — a correction to the working premise
+
+**The premise "YesStyle cannot serve Brazil, Yuno unlocks it" is WRONG and must never be used.** Reach is already live in their card flow (the `CKO Withreach.com` descriptor), and Reach already does most of Brazil.
+
+**Verified by me directly against `docs.withreach.com`** (apex `withreach.com` resets the connection; `www` and `docs` respond. Docs are current — the Boleto page carries `updatedAt 2026-09-14`):
+
+| Capability | Status | Evidence |
+|---|---|---|
+| **BRL** | ✅ supported | [Supported countries and currencies](https://docs.withreach.com/docs/supported-countries-and-currencies): `BRL \| R$ \| Brazilian Real \| Brazil \| BR` |
+| **BRL ring-fenced** | ⚠️ | *"BRL may only be processed in BR and no other currencies are accepted in BR."* |
+| **Enablement** | ⚠️ gated | *"Currencies are made available to suppliers based on supplier risk profiles, Reach's approval results, and locally available payment methods."* — per-merchant approval, not a config toggle |
+| **Boleto Bancário** | ✅ full guide | Offline · no chargebacks · no recurring · no partial payment · 3-day voucher expiry · 180-day refund window |
+| **Brazilian banking partners** | ✅ | Boleto guide, verbatim: *"our **Brazilian banking partners** will have to get in touch with the customer and send them a bank transfer"* |
+| **Elo, Hipercard, Aura** | ✅ | Domestic-only Brazilian card schemes — their presence implies **genuine local acquiring**, not cross-border USD rails |
+| **Instalments** | ✅ documented | [Instalments guide](https://docs.withreach.com/docs/instalments) — see 13D |
+| **Pix** | ❌ **SOURCED ABSENT** | see 13C |
+
+**Reach's Brazil row**, extracted from the country×method matrix at [supported-payment-methods](https://docs.withreach.com/docs/supported-payment-methods):
+`BANKTRANSFER · AURA · BOLETO · ELO · HIPERCARD`
+
+> 🔍 **Method note.** That table renders every method as an `<img>` — tag-stripping returns *empty cells*. The method names live only in the image filenames (`PaymentMethods/PM_BOLETO.png`). Another case where the answer was in the raw HTML and invisible in the text.
+
+#### 13C. Pix — sourced absent from Reach, at two independent levels
+
+1. **The 50-country method matrix** carries **38 distinct method icons**. Pix is not among them — not for Brazil, not for any country.
+2. **The enumerated payment-method guide set** under *"Additional payment guides"* has exactly **11 members**: Apple Pay, Bank Transfer, Boleto, Cash App Pay, Credit cards, Instalments, Klarna, OXXO, PagoEfectivo, PayPal, iDEAL/Wero. No Pix.
+
+Zero `pix` occurrences in the docs index, the supported-currencies page, the Boleto guide, or the `/getPaymentMethods` API reference.
+
+**Two enumerated first-party lists → this is SOURCED ABSENT, not NOT FOUND.** Pix is the single real gap in the Brazil story, and it is the one that matters most.
+
+**A Hong Kong entity cannot contract Pix directly.** Pix is central-bank infrastructure reachable only through BCB-authorised participant institutions — [Resolution BCB No. 1/2020](https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Pix_Regulation/Resolution_BCB_1.pdf) · [participant list](https://www.bcb.gov.br/en/financialstability/pixparticipants). A merchant of record or locally licensed partner is structurally required.
+
+#### 13D. Instalments — I overturned the run's finding here
+
+The run concluded parcelado was absent from Reach. **That is wrong, and I'm recording the correction rather than the claim.**
+
+Reach publishes a dedicated [Instalments guide](https://docs.withreach.com/docs/instalments) which names Brazil explicitly:
+
+> *"Instalments are popular in areas with low credit penetration and high credit card interest rates (for example, **Mexico and Brazil**)."*
+
+It carries a worked **BRL** example — an R$816.55 order at 6 instalments and a 7.3% rate → R$59.61 financing fee — and a live API field:
+```json
+"Financing": { "Instalments": 6, "ConsumerPrice": 59.61 }
+```
+Fee incidence is configurable: supplier pays, consumer pays, or split.
+
+**Why the run got it wrong:** instalments carry **no icon in the country matrix for *any* country**, including Mexico. Instalments are a **financing modifier on card transactions**, not a "payment method" that matrix models. Absence from a table that models no instalments anywhere is not evidence of absence. The agent read the matrix and missed the guide.
+
+#### 13E. SHEIN — the category benchmark, verified verbatim by me
+
+SHEIN is the direct Brazilian benchmark for this exact category. **I fetched `m.shein.com/br/How-to-Pay-a-278.html` myself** rather than trust the summary, because this account has already produced one fabricated "YesStyle Brazil accepts Pix" claim scraped from an unrelated retailer.
+
+Their own enumerated list (the page says "5 opções" and then lists six):
+
+> *"A SHEIN aceita um total de 5 opções de pagamento: 1.Pagamento com **Pix**; 2.**Cartão de crédito brasileiro**; 3.**Boleto bancário**; 4.Cartão de crédito e débito virtual; 5.Cartão de crédito e débito internacional; 6.Pagamento com **Pagaleve**"*
+
+- **Parcelado:** *"Ao usar um cartão de crédito brasileiro, seu pagamento poderá ser dividido em **até 6 parcelas**."* · *"O valor mínimo de cada compra é de R$ 5,00"* · *"**Somente para cartões de crédito emitidos por bancos brasileiros.**"*
+- **They warn on international cards, in their own words:** *"Devido a questões de segurança de pagamentos internacionais, sua solicitação de pagamento **poderá ser rejeitada**. Caso isso aconteça, sugerimos entrar em contato com seu banco ou selecionar um método de pagamento diferente."*
+- **And they steer away from it:** *"sugerimos usar um cartão de crédito brasileiro (em parcelas) ou PayPal"*
+- **PagaLeve** is Pix-based BNPL: *"Os pagamentos são feitos via Pix, sem necessidade de cartão de crédito."*
+- Boleto is gated on *"clientes que moram no Brasil e têm um CPF"*, 3 days to pay, and *"não permite reembolsos através do mesmo método de pagamento."*
+
+> ⚠️ **SHEIN evidences shopper expectation, not mechanism.** SHEIN has a Brazilian entity. YesStyle does not. Do not present SHEIN as a template for *how* — only for *what Brazilian shoppers now expect*.
+
+#### 13F. Pix operational fit for a cross-border retailer
+
+- **Refunds work.** Merchants hold a native, discretionary refund right for **90 days**, in full or in multiple partial amounts — [Guia MED, Banco Central](https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Guia_MED.pdf).
+- **No card-style chargeback liability.** BCB states explicitly that MED is *not* a chargeback mechanism and that good-faith sellers cannot be debited. A genuine risk advantage over cards — though not a guarantee funds are never held.
+
+At a **0.3% return rate**, YesStyle is close to the ideal Pix merchant profile.
+
+#### 13G. Instalment market context — with the scope limits attached
+
+- **Brazil:** 64.5% of interest-free instalment *value* sits in **2–6 parcels**, and 98.1% in 12 or fewer — so even a 3×–6× *sem juros* offer captures the bulk of instalment demand. Source: [ABECS sector balances](https://abecs.org.br/storage/sector_balances/23/01KABN6058KGHQGZQAZ6RHBFGR.pdf).
+- **Mexico:** Banco de México frames instalments as a principal instrument for stimulating card sales; 54.6% of comparable-portfolio cards and 51.0% of card balance sit in instalment promotions. Source: [Banxico RIB tarjetas de crédito](https://www.banxico.org.mx/publicaciones-y-prensa/rib-tarjetas-de-credito/%7BB30B21EE-FC4A-34AC-FC8E-60307C8C5E63%7D.pdf).
+
+> ⚠️ **Do not restate these as e-commerce or conversion figures.** ABECS is **economy-wide card spend**, not beauty/fashion e-commerce at an R$350–400 ticket, and its 98.1% denominator is **interest-free instalments only**. Banxico's 51.0% is a share of **credit-card balance across all channels**, includes preferential-rate as well as interest-free promotions (MSI alone is 27.6%), and excludes store cards. Neither is a conversion-lift number.
+
+#### 13H. NOT ESTABLISHED — state plainly, never fill
+
+1. **No quantified cross-border vs. locally-acquired approval-rate penalty** for Brazil or Mexico could be sourced. The one candidate (a Visa LatAm page) was **refuted 0–3** — it says only *"certain Latin American countries"*, quantifies nothing, and breaks out no country. **Do not put an approval-rate percentage for Brazil in an email.** The qualitative version is defensible and is corroborated by SHEIN's own warning; the number is not.
+2. **No numeric Pix MDR vs. card MDR comparison.** The BIS bulletin supports the *direction* only. No basis-point figure is sourceable.
+3. **Does Reach settle BRL out to a Hong Kong entity, and is its Brazil acquiring genuinely local?** Reach's public docs do not answer it. Elo/Hipercard/Aura support is strong circumstantial evidence for local acquiring, but it is **circumstantial**. This is the pivot of the entire business case and it is a **discovery question, not a claim**.
+4. **The provider comparison the brief asked for was not completed** — dLocal, EBANX, Nuvei, Adyen, PagBrasil, Mercado Pago and PayRetailers were not verified. Only Reach was.
+
+#### 13I. Claims killed in this pass
+
+**Ten claims were refuted** during 3-vote adversarial verification, including the most attractive statistics in the whole run. Recorded here so nobody reintroduces them:
+
+- ❌ *"68.4% of Brazilian apparel/footwear/accessories card volume was instalment volume"* — refuted 1–2. The single most quotable line produced by the run. **Do not use it.**
+- ❌ *"Interest-free instalments were 42.7% of Brazilian credit card value, 49.3% of card-not-present"* — refuted 0–3.
+- ❌ *"43.2% of transacted card value in Q1 2026"* — refuted 0–3, ambiguous denominator.
+- ❌ *"62.4% of instalment purchases are 6× or fewer"* — refuted 1–2.
+- ❌ **SHEIN's embedded page config names EBANX, dLocal and Adyen as its LatAm acquirers** — refuted 0–3. Tempting and unproven.
+- ❌ *"Ordinary e-commerce disputes are explicitly outside MED scope"* — refuted 0–3.
+- ❌ A BIS quote circulated as verbatim (*"Success depended on two critical factors…"*) is a **paraphrase that does not appear in the document**. The real sentence is *"the two key ingredients…"*.
+
+> 🔍 **One false negative I caught in the other direction.** The run refuted SHEIN's *"up to 6 parcelas / R$5,00 minimum / Brazilian-issued cards only"* claim 0–3. **All three facts are correct** — I confirmed them verbatim on SHEIN's own page (13E). What deserved refuting was the *inference* bolted onto them: that this is why a cross-border checkout "cannot offer parcelado". The restriction is on the card's **issuer**, not the acquirer. The verifiers killed the facts along with the bad inference. Keep the facts, drop the inference.
+>
+> 🔍 **And one substring false positive**, for the running list: the first `pix` hit on SHEIN's page was `unit: 'pixel'` in a JS performance config.
+
+#### 13J. What this does to the pitch
+
+The Brazil angle is **real but narrower than it first looked**, and it has to be argued precisely:
+
+1. **Pix is the gap.** Sourced-absent from YesStyle's checkout *and* from their existing provider's entire method set. This is the line that survives scrutiny.
+2. **The IOF 3.5% is the number.** Government-levied, lands on the shopper, and disappears entirely on a BRL or Pix transaction. It is the cleanest quantified cost in the file and it is not a Yuno estimate.
+3. **Reach is a partial path, not a dead end and not a switch.** BRL, Boleto, local card schemes and instalments are documented; Pix is not; and BRL is approval-gated per merchant. The honest framing is *reach and coverage*, not capability.
+4. **Never claim they "can't do Brazil."** They already partly can. A payments lead would know it in one line, and the thread would be over.
+
+> 💡 **Internal note, not for an email.** Reach's own Boleto guide names **Nippon-Yasan** — a cross-border Japanese e-commerce retailer — as its worked integration example. That is the closest public analogue to YesStyle's profile that exists in their current provider's documentation. Useful for understanding what Reach can already do; it is *someone else's* reference customer and does not belong in outreach.
+
+---
+
 ### Overall Research Confidence
 
 **High on financials and payment economics — the highest in this repo. Medium on the stack. Low on methods and traffic.**
@@ -547,6 +681,8 @@ Competitor scoring cannot be completed — **no competitor's PSP or orchestrator
 **Low confidence:** **traffic is fully estimated**, with only 5 countries public and 47.66% unallocated; it is deliberately not used for geography. Also unresolved: whether the currency matrix is fully current (it omits iDEAL/BLIK/P24/OXXO, which demonstrably exist, so it is either stale or scoped to card and wallet rails only) and whether PayPal Pay in 4 is still live.
 
 **Traffic data was ESTIMATED via WebSearch fallback** — not supplied, not API-sourced.
+
+**High confidence on the LatAm pass (Section 13), with two named gaps.** The IOF rate, Reach's Brazil coverage and SHEIN's method list were each re-verified by me first-hand at primary source rather than taken from agent summaries — and doing so overturned one agent finding (instalments) and rescued one wrongly-refuted one (SHEIN's parcelado terms). **Not established and deliberately left empty:** any quantified cross-border approval-rate penalty for Brazil or Mexico, and any numeric Pix MDR.
 
 ---
 
