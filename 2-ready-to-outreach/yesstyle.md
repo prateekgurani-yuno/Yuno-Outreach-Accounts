@@ -39,7 +39,10 @@
 - **OXXO (Mexico cash voucher)** — dedicated help page exists `[UNVERIFIED — page 403]`
 - **Binance Pay / USDT** — accepted since Aug 2023 `[UNVERIFIED]`
 - **CyberSource** — fraud/decisioning layer `[UNVERIFIED — search summary only]`
-- **Braintree (PayPal-owned)** — ✅ **confirmed as the wallet gateway.** Their own help-page JSON uses the constants **`GOOGLEPAY_BRAINTREE`** and **`APPLEPAY_BRAINTREE`**. Recovered from an archived snapshot of their live help page
+- **Braintree (PayPal-owned)** — ✅ **confirmed as the wallet gateway.** Their own help-page JSON uses the constants **`GOOGLEPAY_BRAINTREE`** and **`APPLEPAY_BRAINTREE`**
+- **Reach (withreach.com)** — ✅ **confirmed present in the card flow**, via a bank-statement descriptor on YesStyle's own credit-card help page: *"in some cases… a different name may be listed (e.g., **CKO Withreach.com** or **Withreach.com**)."* **Reach is a cross-border merchant-of-record and local-acquiring provider.** Note the wording: *"usually YESSTYLE… in some cases"* — so Reach is an **exception path, not confirmed as the primary acquirer**
+- **CyberSource (Visa-owned)** — ✅ **confirmed as the fraud-screening vendor**, named verbatim on the same page. **It replaced Retail Decisions between Feb 2014 and Sep 2017** — proof they actively change payment-chain vendors
+- **HSBC Hong Kong** — the Direct Deposit help page names an HSBC Hong Kong account in the name of **YESSTYLE.COM LIMITED**
 - ⚠️ **The raw-card acquirer is still never named**, in 606 pages of prospectus or three annual reports. Their own help page calls it only *"an international payment gateway"*. A grep of all archived pages for Adyen, Stripe, Checkout.com, dLocal, EBANX, Nuvei, Worldpay, CyberSource, Conekta, Openpay and Airwallex returned **only Braintree**
 
 ### Orchestration status
@@ -111,6 +114,20 @@ I initially reported that "payment gateway" was **singular with zero plural uses
 - **The "About Payment" help index** — the complete local-method inventory, **verified identical in English and German**
 - **Braintree identified as the wallet gateway** from those constants — the first time any gateway is named for this merchant in any source
 - These are **archived copies of public help documentation**, not a bypass of a live control. The live URLs were left alone after they returned 403
+
+**✅ Added by a dedicated deep-research pass (102 agents, 3-vote adversarial verification):**
+- **Reach (withreach.com) is in the card flow** — descriptor *"CKO Withreach.com"* on their own help page, verified across 12 archived captures. **Non-circularly corroborated**: HobbyLink Japan, an unrelated merchant, independently tells its customers they may see *"CKO WithReach"* when paying through Reach — so the string is a real Reach descriptor, not a YesStyle typo
+- **CyberSource named as the fraud vendor**, having **replaced Retail Decisions between Feb 2014 and Sep 2017** (the original "fraudlent" typo carries across both versions, which is how the swap was dated). **They change payment-chain vendors deliberately** — a useful precedent to cite
+- **No help-page evidence of a card re-platform 2018 → Mar 2026**, which substantially resolves the vintage caveat on the Greenfield classification
+- **HK rails are currency-gated, not destination-gated** — pay in HKD and you can use them shipping anywhere
+
+**⚠️ Carried caveats on the Reach finding — do not overstate it:**
+- The **"Withreach" half is direct evidence**; the **"CKO = Checkout.com" half is one inferential step.** Reach's own descriptor documentation lists only GIP, RCH, Reach, GoInterpay and Calforex as its prefixes, and **"CKO WithReach" appears nowhere in Reach's docs**
+- YesStyle's own wording is *"usually YESSTYLE… **in some cases**"*, so **Reach is an exception path. It is NOT established as the primary or sole card acquirer**, and the acquirer carrying the bulk of card volume remains unnamed in every source examined
+- The reason YesStyle gives (*"the transaction may be controlled by your credit card company"*) is **technically wrong merchant boilerplate** and cannot be used to infer routing logic
+
+**❌ A third fabrication caught and killed by the deep-research pass:**
+- **"YesStyle cooperates with Przelewy24."** A search-engine AI summary asserted this with no underlying source; the only real przelewy24.pl case study concerns an unrelated Dotpay migration. The **Polish-language** help page was cross-checked directly — PayPro 0, Adyen 0, Stripe 0, PayU 0, *"operator płatności"* 0 — so the absence is not an English-localisation artifact. **The BLIK/P24 provider is genuinely unestablished**
 
 **❌ Two fabrications caught and killed — both would have been damaging:**
 1. **"YesStyle Brazil accepts Visa, Mastercard, Elo, Amex, Boleto and Pix, with a 2-hour Pix code expiry."** Entirely false — the detail was scraped from **`countrystyle.com.br`, an unrelated Brazilian retailer**, and conflated with YesStyle. The authoritative currency matrix has **no BRL at all**. Had this reached an email it would have been a **direct factual inversion of the real gap**
@@ -209,8 +226,10 @@ Global rank #2,680; #14 in Lifestyle > Beauty and Cosmetics (US); +7.38% MoM. To
 | China / cross-border | **Alipay** | `[Terms/Help]` | help page hsi.862 `[UNVERIFIED]` |
 | **Mexico** | **OXXO** cash voucher | `[Terms/Help]` — high section ID, recently added | help page hsi.2714 `[UNVERIFIED]` |
 | Global crypto | **Binance Pay / USDT** | `[Press Release]`, Aug 2023 | binance.com `[UNVERIFIED]` |
-| Fraud / decisioning | **CyberSource** | `[UNVERIFIED — search summary only]` | appears in **no** filing |
-| **Card gateway** | **NEVER NAMED** | — | their own help page says only *"an international payment gateway"* |
+| **Card flow (some transactions)** | **Reach (withreach.com)** — cross-border **merchant of record** + local acquiring | `[Terms/Help]` — bank-statement descriptor, verified across 12 archived captures | yesstyle.com/en/credit-card help page |
+| Fraud / decisioning | **CyberSource** (Visa-owned) | `[Terms/Help]` — named verbatim, first-party | same page |
+| Bank account (Direct Deposit) | **HSBC Hong Kong**, account in the name of YESSTYLE.COM LIMITED | `[Terms/Help]` | Direct Deposit help page |
+| **Primary card acquirer** | **STILL NEVER NAMED** | — | their own help page says only *"an international payment gateway"* (singular, on the card page) |
 
 **Zero hits** across the 606-page prospectus and FY2023/24/25 annual reports for: Adyen, Stripe, Checkout.com, Worldpay, Braintree, Global Payments, AsiaPay, PayDollar, Oceanpayment, Airwallex, PingPong, LianLian, WorldFirst, dLocal, EBANX.
 
@@ -233,7 +252,12 @@ Also: *"Our cash rebate or incentive income represents amounts received from **p
 
 `orchestrat*` = **0** across 606 prospectus pages and three annual reports. No vendor hits. No internal payments platform named. No payments engineering hire found.
 
-> ⚠️ **Vintage caveat, on the record:** the architectural sentences are from the 2021 prospectus describing 2018–2020, when revenue was ~a quarter of today's. Since then revenue has gone ~US$135m → US$501m and Apple Pay, Google Pay and OXXO have been added. **"None detected" = nothing found up to 2021 and nothing since to contradict it — not a verified 2026 greenfield.** Confirm on the call.
+> **The vintage caveat is now substantially resolved — this was the biggest weakness in the classification and it has been tested directly.**
+> A dedicated deep-research pass pulled every archived capture of the credit-card help page. The bank-statement descriptor paragraph naming **Reach** is **absent from the 25 Jan 2018 snapshot, present from 29 Jul 2020, and character-for-character identical across all 12 subsequent 200-status captures through 3 Mar 2026** (MD5 of the 700-byte window is stable across each era, differing only in surrounding template markup and one trailing space).
+>
+> **Two consequences:** the Reach arrangement **pre-dates the December 2021 prospectus**, so the prospectus description covers it; and there is **no help-page evidence of a card re-platform across the entire 3.7× revenue growth period.**
+>
+> ⚠️ **Two limits kept on the record:** an unchanged FAQ is weak evidence of *backend* stability — the claim is scoped to help-page evidence, not to an assertion that no re-platform occurred. And the Jan 2018 → Jul 2020 gap is 2.5 years, so the insertion is only bracketed to that window. **Still worth confirming on the call, but this is no longer a soft classification.**
 
 > **MANUAL:** load a YesStyle checkout in a browser with DevTools and read the payment iframe/redirect hosts. Cloudflare blocks automated access; a human with a browser resolves in ten minutes what 20 searches could not.
 
@@ -270,7 +294,7 @@ Both live URLs return 403, but both were recovered from **Wayback Machine snapsh
 | Middle East | **Mada (SA) · KNET (KW) · Tabby · Tamara · STC Pay · cash on delivery** | Domestic cards / BNPL / cash | **SOURCED ABSENT** | SAR row = Visa/MC/Amex/PayPal; KWD row = Visa/MC only |
 | **Oceania** | Cards, PayPal, Apple Pay, Google Pay | — | **CONFIRMED** | AUD/NZD rows |
 | Oceania | Afterpay · Zip · POLi · PayTo | BNPL / bank | **SOURCED ABSENT** | A + B |
-| **Hong Kong** | **PayMe · Tap & Go · FPS · Octopus** | Wallet / instant bank | **CONFIRMED — HKD only** | matrix A + hsi.2526 |
+| **Hong Kong** | **PayMe · Tap & Go · FPS · Octopus** | Wallet / instant bank | **CONFIRMED — gated on paying in HKD, *not* on shipping destination.** Their own FAQ: *"as long as you choose to pay in Hong Kong dollars (HKD), you can pay using Tap & Go, FPS, PayMe or Octopus."* Three of the four are **members-only** (PayMe excepted), and refund-to-original-method is **unavailable** for Tap & Go, FPS and Octopus | matrix A + hsi.2526 |
 | **South Korea** | **KakaoPay · Naver Pay · local card PG** | Wallet / domestic cards | **SOURCED ABSENT** — KRW row enumerates Visa/MC/Amex/JCB/Google Pay only | matrix A |
 | Greater China | Alipay · WeChat Pay · UnionPay | Wallet / cards | **SOURCED ABSENT** — CNY row = Visa/MC/Amex/JCB only | matrix A |
 | Japan | konbini · PayPay | Cash / wallet | **SOURCED ABSENT** | JPY row |
@@ -532,9 +556,13 @@ Competitor scoring cannot be completed — **no competitor's PSP or orchestrator
 > **Why it matters:** It omits iDEAL, BLIK, P24 and OXXO, which demonstrably exist — so it is either stale or scoped to card and wallet rails only. The sourced absences already survive this (each is absent from *both* enumerated lists), but a live check would put them beyond argument.
 > **Action:** VPN into **Brazil and Germany** and walk the checkout. Lower priority than it was — the archived enumerations are strong enough to write from.
 
-> **Area:** The card gateway's identity
-> **Why it matters:** Never named in 606 pages of prospectus or three annual reports. It determines who the incumbent actually is.
-> **Action:** DevTools on a live checkout — read the payment iframe/redirect host.
+> **Area:** The PRIMARY card acquirer — still the one real gap
+> **Why it matters:** Reach is now confirmed in the card flow, but only as an *"in some cases"* exception path. The acquirer carrying the bulk of card volume is named nowhere in 606 prospectus pages, three annual reports, or any first-party page. It determines who the incumbent actually is.
+> **Action:** DevTools on a live checkout — read the payment iframe/redirect host. **Or simply place a small test order and read the bank descriptor**, which is now known to be informative on this merchant. A deep-research pass with 102 agents could not close this from public sources; a single test transaction would.
+
+> **Area:** Whether Reach is merchant of record on those transactions
+> **Why it matters:** If Reach is MoR, it owns the settlement currency and the FX conversion on that slice — which bears directly on the audited exchange losses and on what Yuno would actually be displacing versus complementing.
+> **Action:** Ask on the call. Reach's own consumer terms say statements *"will include a reference to 'Reach' and the Supplier"*.
 
 > **Area:** Whether the 2021 architecture still holds
 > **Why it matters:** The greenfield classification rests on it, and revenue has grown 3.7× since.
