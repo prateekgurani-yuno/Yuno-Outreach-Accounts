@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-16 00:17*
+*Last updated: 2026-09-16 00:44*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -52,7 +52,7 @@
 | [Virgin Australia](1-to-outreach/virgin-australia.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [ZIPAIR](1-to-outreach/zipair.md) | Airlines | Japan | P1 | 2026-09-10 |
 
-## 🟢 Ready to Outreach (9)
+## 🟢 Ready to Outreach (10)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -65,6 +65,7 @@
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus ai… | 14/24 | Greenfield | 2026-09-15 |
 | [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech (live 1-on-1 / small… | 14/24 | In-house | 2026-09-14 |
 | [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 | In-house | 2026-09-15 |
+| [Indodax](2-ready-to-outreach/indodax.md) | Crypto & digital assets (retail exchange… | 12/24 | Greenfield | 2026-09-16 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield | 2026-09-14 |
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 | Undetermined | 2026-09-16 |
 
