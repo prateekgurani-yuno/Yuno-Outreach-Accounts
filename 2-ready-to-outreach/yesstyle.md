@@ -1,6 +1,6 @@
 # YesStyle
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 19 / 24 → ⭐ High Priority — earned on arithmetic, no override needed
 **Industry:** Cross-border e-commerce (Asian beauty & fashion) · **HQ:** 5/F KC100, 100 Kwai Cheong Road, Kwai Chung, Hong Kong · **Researched:** 2026-09-16 · **First email sent:** —
 **Motion:** **Greenfield** — multiple gateways, directly integrated, no routing layer. They pick the gateway; the gateway picks the acquirer.
@@ -63,8 +63,327 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach YesStyle` to draft the 12-touch sequence,
-or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: Greenfield — multiple gateways, directly integrated, no routing layer.
+        ⚠️ With the research file's own caveat applied: the architectural finding comes from
+        the 2021 IPO prospectus describing 2018-2020 operations. Phase 1 therefore never
+        asserts "you have no orchestration layer" as fact. Every Phase 1 observation is
+        drawn from FY2025 / H1 2026 audited filings or live help pages instead.
+
+Observable setup facts (from research, with sources):
+- Payment gateway charges FY2025 US$11,160k = 2.2% of revenue, down from 2.6% in FY2022
+  and FY2023, 2.5% in FY2024, and 2.1% in H1 2026 — source: audited, itemised, Section 12
+- Net exchange losses FY2025 US$4,890k = 1.0% of revenue, UP 92.3%, which the filings
+  attribute to "more payments settled by our payment gateway" — source: Section 12
+- Combined payment cost FY2025 = US$16,046k = 3.20% of revenue ≈ 69% of net profit
+  — source: Section 12 (arithmetic on two audited lines)
+- South Korea is the #3 market at US$37,650k / 7.5% of revenue, and the KRW row enumerates
+  Visa, Mastercard, Amex, JCB and Google Pay only. KakaoPay, Naver Pay and local card PG are
+  SOURCED ABSENT — source: Section 1 + Section 4, recovered from archived snapshots
+- Korea has TWO operating subsidiaries and a 147,000 sq ft warehouse, so local acquiring is
+  permissible — source: Section 2
+- Hong Kong (home, 7.0% — SMALLER than Korea) carries PayMe, FPS, Tap & Go and Octopus,
+  the richest method set anywhere in the estate — source: Section 1
+- Their own help page: conversion runs on "an internal exchange rate, which is periodically
+  changed based on our bank's exchange rates" — source: Section 4
+- A separate help page tells shoppers "some banks or credit card companies will charge
+  transaction fees for international purchases" — source: Section 4
+- "payment gateway companies" appears in the plural 10 times in the prospectus; the raw-card
+  acquirer is never named in 606 pages — source: Section 3
+- The gateway, not YesStyle, picks the acquiring bank "depending on the location of customer
+  and payment type", priced "on a per country and/or per currency basis" — source: Section 3
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Rate is improving while FX is deteriorating, and both sit in the same payment chain
+   → "Gateway charges fell to 2.2% of revenue last year. Net exchange losses rose 92.3%,
+      which your filings tie to payments settled by the gateway."
+   MATERIALITY: highest. Two audited lines from their own accounts moving in opposite
+   directions. They cannot dispute either half, and it reframes the conversation away from
+   rate — where they are already winning — onto FX and routing, where they are not.
+2. Korea vs Hong Kong — the asymmetry inside their own estate
+   → "Korea, your #3 market, takes cards and Google Pay. Hong Kong is smaller and takes
+      PayMe, FPS, Tap & Go and Octopus."
+   MATERIALITY: high. Two of their own markets at near-identical revenue with opposite rail
+   depth. The larger one is the thinner one.
+
+   (Held at 2. A third was available — Brazil billed in USD with 3.5% IOF and Pix absent —
+   but LatAm is out of Prateek's territory and it would dilute a clean two-punch opener.
+   It is reserved for a manual touch.)
+
+Bridge variant: A — complexity
+Rationale: multi-gateway and multi-market is established on current sources, not inferred.
+Their own filings use "payment gateway companies" in the plural ten times, PayPal, Braintree,
+Reach and CyberSource are each separately confirmed, and audited revenue exceeds 1% in 13+
+countries. Variant A describes that shape without asserting the absence of a routing layer,
+which the vintage caveat does not let us claim in Phase 1.
+
+Hypothesis for Phase 2 (E3):
+The FX line is structural rather than a treasury problem — nearly all volume is acquired
+cross-border against Hong Kong, so every non-USD market pays a conversion on the way in, and
+the shopper's issuer usually adds a second one.
+Backing logic: the filings themselves attribute the 92.3% FX rise to "more payments settled
+by our payment gateway", so the cause is inside the payment chain by their own account. Their
+help pages confirm both halves of the double conversion — an "internal exchange rate, which
+is periodically changed" on their side, and an issuer international transaction fee on the
+customer's. With 85.6% of non-current assets in Hong Kong and no US, UK or EU operating
+subsidiary, there is almost no local acquiring footprint outside Asia to route to today.
+
+Success case for Phase 3 (E4):
+Selected case: Livelo
+Tier: 2 — same payment pattern, different region and industry. Stated plainly in the email.
+Match rationale: the library flags Livelo as the decline-cascade case, to be used when a
+prospect already runs 2+ acquirers with nothing failing over between them. That is YesStyle's
+shape. No Tier 1 exists: there is no Asian-beauty or cross-border-retail case in the library,
+and Open English (the nearest multi-country logo) carries no public numbers, so it cannot
+carry an E4's three quantified bullets.
+Numbers to lead with: +5% approval rate · 50% of failed transactions recovered by instant
+re-routing to a secondary acquirer · millions of R$ saved (3 quantified, verified 2026-09-14)
+Optional benchmark: SKIP. The "~8% average authorisation uplift" traces to Yuno's own blog,
+not to independent evidence, so it is not a benchmark. Livelo's sourced numbers are stronger
+than a figure we would have to caveat.
+
+Touch-by-touch angles:
+- E2 angle: the FX observation → routing to local acquirers per geography (one mechanism only)
+- LK1 angle: gateway rate down, FX up 92.3%, filings tie it to the gateway
+- LK2 angle: rate is going the right way while FX goes the wrong way, in the same chain
+- LK3 angle: Livelo recovered half its failed transactions by sending the retry elsewhere
+- LK4 angle: FRESH — two Korean subsidiaries and a 147,000 sq ft warehouse, cards-only checkout
+- E8 angle: clean exit, with an offer to circle back after FY2026 results
+```
+
+**Calendar.** Day 1 anchored to **Monday 21 September 2026**. The sequence uses even 2-day
+gaps, so no start date avoids weekends entirely — **four touches shift to the next business
+day**, marked inline below.
+**Hong Kong general holidays inside this window: Friday 26 September** (day following
+Mid-Autumn) **and Thursday 1 October** (National Day). No proposed meeting slot falls on
+either, or on **Monday 19 October** (day following Chung Yeung).
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 21 Sep
+
+**Subject:** FX losses vs gateway charges
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on YesStyle's payment setup. Two things stood out:
+
+- Gateway charges fell to 2.2% of revenue last year. Net exchange losses rose 92.3%, which your filings tie to payments "settled by our payment gateway".
+- Korea, your #3 market, takes cards and Google Pay. Hong Kong is smaller and takes PayMe, FPS, Tap & Go and Octopus.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 23 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing gateways. Additive, nothing gets ripped out.
+- Traffic routes per BIN, market and method to whichever rail performs best.
+- If a provider degrades, volume moves across automatically.
+- Adding a PSP, an acquirer or a method becomes a configuration change rather than an integration.
+
+On the FX line specifically, the part that matters is routing to a local acquirer per geography. A Korean card acquired and settled in Korea, rather than cross-border against Hong Kong, takes the conversion step out of the transaction entirely.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 25 Sep
+
+```text
+Hey {{recipient.first_name}} — dropped you a note over email, flagging it here too in case this is the easier channel. Quick one: your FY2025 gateway charges came down to 2.2% of revenue while net exchange losses rose 92.3%, and the filings tie that second line to payments settled by the gateway. Curious whether that maps to anything you're working through.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · ~~Sun 27 Sep~~ → **send Mon 28 Sep** · NEW EMAIL
+
+**Subject:** Where the FX line comes from
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that the FX line is structural rather than a treasury problem: nearly all of it is acquired cross-border against Hong Kong, so every non-USD market pays a conversion on the way in.
+
+Your own help pages describe conversion running on "an internal exchange rate, which is periodically changed", and separately warn shoppers that their bank may add a fee for international purchases. So the customer usually takes a second hit, and cross-border auths tend to decline at higher rates than locally acquired ones.
+
+Does that line sit with finance, or with whoever owns the gateway relationships?
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing gateways, so you can acquire locally where it's worth it. Keep your stack, add what's missing.
+
+Friday 2 October is open. Would 10am or 3.30pm your time work for a quick 15?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Tue 29 Sep
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: your gateway rate is going the right way while your FX line is going the wrong way, and both sit inside the same payment chain. If that's anywhere on your radar, would Monday 5 or Tuesday 6 October at 11am your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · ~~Thu 1 Oct — HK National Day~~ → **send Fri 2 Oct** · NEW EMAIL
+
+**Subject:** How Livelo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week. Sharing a quick example of what solved looks like.
+
+Livelo, a Brazilian loyalty business, partnered with Yuno for smart routing. When a transaction declines, it gets instantly re-routed to a secondary acquirer rather than ending there. What that produced:
+
+- Approval rate up 5%
+- 50% of failed transactions recovered (you read that right, half)
+- Millions of reais saved
+
+Worth saying plainly: that's a payment-pattern match, not a beauty or cross-border one, and those results came out of Brazil. What carries over is the shape. Your own filings name payment gateway companies in the plural, with no routing layer visible between them, so today a decline is the end of the transaction.
+
+Same orchestration layer above their existing stack. No rip-out.
+
+Thursday 8 October is open. Would 3pm or 4.30pm your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · ~~Sat 3 Oct~~ → **send Mon 5 Oct** · MANUAL
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+> **Strongest unused material for this touch:** the **Brazil / IOF teardown**. Brazil is
+> billed in USD, so every Brazilian shopper pays **3.5% IOF** on top (Decreto 12.499/2025,
+> verified at Planalto), and **Pix is sourced-absent from YesStyle's checkout and from
+> Reach's entire 38-method set**. LatAm grew **+224% in FY2025 and +178% in H1 2026**, and
+> **Mexico beat its full FY2025 revenue inside H1 2026**. Full sizing is in Section 13.
+> A one-page written teardown of that corridor is the highest-value manual asset available.
+
+#### Touch 8 — Email 6 · Day 15 · ~~Mon 5 Oct — collides with the shifted E5~~ → **send Tue 6 Oct** · MANUAL
+
+*Placeholder — second manual approach, different format from E5.*
+
+> **Suggested format: annotated screenshots, not prose.** Put the Korean checkout's
+> enumerated method list beside the Hong Kong one. Two of their own markets, near-identical
+> revenue, and the larger one is the thinner. Section 4 has both enumerations recovered from
+> archived snapshots.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 7 Oct
+
+```text
+Hey {{recipient.first_name}} — Livelo recovered half of its failed transactions just by sending the retry to a different acquirer. Worth 15 minutes to see whether that maps to your setup? Monday 12 October at 10.30am your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Fri 9 Oct · MANUAL
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+> **Freshest hooks available:** **Tim Wang appointed General Manager, U.S. on 28 Aug 2026**,
+> three days before the company reported a **17.6% YoY fall in US H1 2026 revenue** against a
+> record group half (+23.2%), with the **US de minimis exemption having ended 29 Aug 2025**.
+> Also live: the **first US physical store** (Great Mall, Milpitas CA, May 2026), which adds
+> card-present to a pure-play online stack. A new US GM inheriting a declining US number is
+> the most reply-likely bridge in the file.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · ~~Sun 11 Oct~~ → **send Mon 12 Oct or Tue 13 Oct**
+
+```text
+Hey {{recipient.first_name}} — last LinkedIn ping from me on this. One thing I never raised: Korea has two of your operating subsidiaries and a 147,000 sq ft warehouse, and the checkout there still runs on cards. If timing works, Thursday 15 October at 2pm your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Tue 13 Oct · REPLY IN THREAD to Touch 4 or Touch 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back once your FY2026 results land. And if payments sits with someone else on your side, happy to be pointed there.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### CTA schedule — five distinct slots, all Hong Kong time
+
+| Touch | Sent | Proposed slot(s) | HKT → IST |
+|---|---|---|---|
+| E3 | Mon 28 Sep | **Fri 2 Oct, 10:00 or 15:30** | 07:30 / 13:00 IST |
+| LK2 | Tue 29 Sep | **Mon 5 or Tue 6 Oct, 11:00** | 08:30 IST |
+| E4 | Fri 2 Oct | **Thu 8 Oct, 15:00 or 16:30** | 12:30 / 14:00 IST |
+| LK3 | Wed 7 Oct | **Mon 12 Oct, 10:30** | 08:00 IST |
+| LK4 | Mon 12–Tue 13 Oct | **Thu 15 Oct, 14:00** | 11:30 IST |
+
+HKT is IST + 2:30, so every slot above is inside Prateek's working day. No booking link
+anywhere in the sequence, by decision: the reply is the booking.
+
+Note that **LK4 goes out on Mon 12 Oct, the same day as LK3's proposed slot** — which is the
+intended shape: if the slot went untaken, LK4 is the nudge.
+
+---
+
+### Source Notes
+
+- ✅ **Gateway charges 2.2% of FY2025 revenue (US$11,160k), down from 2.6% in FY2022–23** — audited and itemised across five periods, Section 12
+- ✅ **Net exchange losses US$4,890k, +92.3%, 1.0% of revenue** — audited, Section 12. The attribution to *"more payments settled by our payment gateway"* is the filings' own wording, not an inference
+- ✅ **Korea #3 at US$37,650k / 7.5%, enumerated as Visa, Mastercard, Amex, JCB, Google Pay** — recovered from archived snapshots, so the absence of KakaoPay, Naver Pay and local card PG is a sourced absence from an enumerated list, Sections 1 and 4
+- ✅ **Korea: two operating subsidiaries plus a 147,000 sq ft warehouse** — Section 2. This is what makes the cards-only checkout an asymmetry rather than a constraint
+- ✅ **Hong Kong carries PayMe, FPS, Tap & Go, Octopus at 7.0% of revenue** — Section 1
+- ✅ **Both FX quotes are verbatim from YesStyle's own help pages** — Section 4
+- ✅ **"payment gateway companies" in the plural, 10 times in the prospectus** — Section 3
+- ✅ **Livelo: +5% approval, 50% of failed transactions recovered, millions of R$ saved** — verified live on y.uno 2026-09-14, and E4 states outright that it is Brazilian and a pattern match
+- ✅ **HK general holidays checked at source** — 26 Sep and 1 Oct 2026 are general holidays (GovHK). No proposed slot lands on either, or on 19 Oct
+- ⚠️ **The greenfield finding is 2021-vintage** — `orchestrat*` returns 0 across the 606-page prospectus, but that document describes 2018–2020 operations at roughly a quarter of today's revenue. **Phase 1 deliberately never claims the absence of a routing layer.** E4 hedges it to *"no routing layer visible"*. **If a discovery call reveals an incumbent layer, E4 is the only touch that needs rewriting.**
+- ⚠️ **The header ICP score is 19/24, written against the retired 24-point matrix.** The current matrix is 29 points and the two are not comparable. This does not affect the sequence, but the file should be rescored before it is used in any cross-account comparison
+- ⚠️ **Reach is an exception path, not the primary acquirer** — their own help page says *"usually YESSTYLE… in some cases"* a Withreach descriptor appears. **Never tell YesStyle that Reach acquires their cards.** Not used in any touch
+- ⚠️ **The raw-card acquirer is still unnamed** in 606 pages of prospectus and three annual reports. No touch names or guesses it
+- ❌ **No recipient identified.** Every touch uses `{{recipient.first_name}}`. The most likely owners on current evidence are the **CFO / finance-transformation function** (the FX line is theirs) and **Tim Wang, GM U.S.** for the US-specific manual touch. Confirm before sending
+- ❌ **Benchmark deliberately omitted from E4.** The "~8% average authorisation uplift" traces to Yuno's own blog and is our marketing, not third-party evidence
+
+### Success Case Alternatives
+
+- **Reserva** — e-commerce, single market, +4% approval via smart routing. Closer on industry than Livelo, but one number where E4 needs three. Good for a manual touch.
+- **Vibra** — first-time-buyer approval lifted more than 30 percentage points to 80%. Worth switching to if discovery shows YesStyle's problem is new-customer conversion rather than decline recovery, which is plausible at 2.86m customers and a US$65 average order.
+- **inDrive** — multi-country scale (50+ countries, ~90% approval, 10 new countries in under 8 months). The right swap if the conversation turns to market entry rather than cost.
+- **Open English** — the only multi-country recurring logo, but **no public numbers**, so it cannot carry an E4. One-line relevance signal only.
 
 </details>
 
