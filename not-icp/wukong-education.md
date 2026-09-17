@@ -1,6 +1,6 @@
 # WuKong Education
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔴 Not ICP
 **ICP Score:** 14 / 24 → ⭐ **High Priority** — earned on arithmetic, no override needed
 **Industry:** E-Learning & EdTech (live 1-on-1 / small-group tutoring) · **HQ:** Contested — Mountain View, CA claimed; operational centre of gravity Auckland, NZ; billing entity Hong Kong · **Researched:** 2026-09-14 · **First email sent:** —
 **Motion:** In-house — but a *shallow* in-house layer. See Section 3B.
@@ -1014,3 +1014,12 @@ Not run — Agent 5's budget went to establishing the cohort's payment stacks, w
 **❌ Discarded as different companies:** `wukong.com` (小悟空 AI assistant) · "Black Myth: Wukong" (video game)
 
 </details>
+
+
+---
+
+## Rejection Rationale
+
+Manual review
+
+*Marked: 2026-09-17*

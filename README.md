@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-16 01:07*
+*Last updated: 2026-09-17 03:35*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -59,14 +59,14 @@
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 | Greenfield | 2026-09-15 |
-| [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty &… | 19/24 | Greenfield | 2026-09-16 |
+| [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 | Greenfield | 2026-09-16 |
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 | Competitive | 2026-09-15 |
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | 16/24 | In-house | 2026-09-15 |
-| [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diasp… | 15/24 | Displacement | 2026-09-14 |
-| [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus ai… | 14/24 | Greenfield | 2026-09-15 |
-| [WuKong Education](2-ready-to-outreach/wukong-education.md) | E-Learning & EdTech (live 1-on-1 / small… | 14/24 | In-house | 2026-09-14 |
+| [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 | Displacement | 2026-09-14 |
+| [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 | Greenfield | 2026-09-15 |
+| [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 | Greenfield | 2026-09-17 |
 | [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 | In-house | 2026-09-15 |
-| [Indodax](2-ready-to-outreach/indodax.md) | Crypto & digital assets (retail exchange… | 12/24 | Greenfield | 2026-09-16 |
+| [Indodax](2-ready-to-outreach/indodax.md) | Crypto & digital assets (retail exchange) | 12/24 | Greenfield | 2026-09-16 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 | Greenfield | 2026-09-14 |
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 | Undetermined | 2026-09-16 |
 
@@ -76,6 +76,6 @@
 |---------|----------|-----|------------|
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 | 2026-09-15 |
 
-## 🔴 Not ICP (3)
+## 🔴 Not ICP (4)
 
 See [not-icp/](not-icp/) for rejection rationale.
