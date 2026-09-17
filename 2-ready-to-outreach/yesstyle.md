@@ -71,7 +71,7 @@ or call this from `/prepare_batch`.*
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 16 / 24
+### ICP Score breakdown — 19 / 24
 | Signal | Points | Status |
 |--------|--------|--------|
 | Orchestration status | **+4 ✅** | **None detected — greenfield.** `orchestrat*` = 0 across a 606-page prospectus and three annual reports; no vendor hits anywhere. Caveat on vintage recorded above |
