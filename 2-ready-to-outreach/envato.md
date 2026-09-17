@@ -1,7 +1,7 @@
 # Envato
 
 **Status:** 🟡 Research complete — outreach not yet generated
-**ICP Score:** 19 / 29 → ⭐ **High Priority**
+**ICP Score:** 20 / 29 → ⭐ **High Priority**
 **Industry:** Digital-goods marketplace + creative subscription (two-sided) · **HQ:** Melbourne, Australia — **wholly owned by Shutterstock, Inc. (NYSE: SSTK) since 22 July 2024** · **Researched:** 2026-09-17 · **First email sent:** —
 **Motion:** **Greenfield** — two hard-coded, single-PSP-per-surface integrations with no routing layer. The classification is affirmative, not a "couldn't find" (see 3B).
 
@@ -26,10 +26,20 @@
 
 **Summary:** Envato runs **Envato Elements** (creative-asset subscription) and the **Envato Market** marketplaces — ThemeForest, CodeCanyon, VideoHive, AudioJungle, GraphicRiver, PhotoDune — selling digital goods worldwide and paying out to a global author base. It is genuinely two-sided: money in from buyers in USD on four card brands plus PayPal, and money out to **42,000+ earning authors across 173 countries** in **137 currencies**.
 
-**SimilarWeb total visits:** **Not obtained.** No supplied data, no MCP tools, and a WebSearch fallback was not accepted. **This is a multi-domain business** (elements.envato.com, themeforest.net, codecanyon.net, videohive.net, audiojungle.net, graphicriver.net, photodune.net) and any single-domain figure would distort the country profile badly. **No country split is asserted anywhere in this report.**
+**SimilarWeb total visits:** **~5.79M/month combined across five domains** (Aug 2026) — `[ESTIMATE, not confirmed]`, free-tier panel data, and a **floor**: four further Envato domains were not covered.
+
+> ⚠️ **Aggregation mattered enormously here.** On themeforest.net alone India reads **19.57%**; across the combined estate it falls to **14.67%**, because Elements — 62% of all traffic — skews toward the US, Brazil and Mexico. A single-domain read would have overstated India by a third. **58.1% of traffic is unattributed** (free tier exposes only top-5 countries per domain), so every share below is a floor.
 
 ### Top 5 markets
-> ⚠️ **This table cannot be completed.** No traffic data was obtained, and **Envato publishes no buyer-geography breakdown**. The premise that India, Indonesia and Vietnam are top Envato markets is **plausible for a developer/designer buyer base but is NOT verified** — do not put a market ranking in an email. What *is* sourced is that the method set is **globally uniform and USD-only**, so the rail gap applies everywhere rather than market-by-market.
+| Rank | Country | Traffic | Accepted methods | Missing methods | Local entity |
+|------|---------|---------|------------------|-----------------|--------------|
+| 1 | **India** | **14.67%** `[EST]` | Visa, Mastercard, Amex USD-only, PayPal (+Apple Pay on Elements) — **USD only** | **UPI, netbanking, RuPay, EMI, UPI Autopay — SOURCED ABSENT** | ❌ none |
+| 2 | **United States** | **11.67%** `[EST]` | As above | — | ✅ Envato USA, Inc. (Utah) |
+| 3 | **Indonesia** | **4.73%** `[EST]` | As above | **QRIS, GoPay, OVO, DANA, ShopeePay, virtual account — SOURCED ABSENT** | ❌ none |
+| 4 | Brazil | 2.91% `[EST]` | As above | Pix, boleto — sourced absent | ❌ none |
+| 5 | **Pakistan** | **2.17%** `[EST]` | As above | JazzCash, Easypaisa — sourced absent | ❌ none |
+
+*Also: Mexico 2.49%, Bangladesh 0.88%, Russia 0.79%. **58.1% unattributed.** Australia — the HQ — does not appear at all.*
 
 ### Legal entities
 - **Shutterstock, Inc.** (NYSE: SSTK) — ⚠️ **the contracting entity in Envato's current terms.** Envato Market User Terms, rev. **14 Aug 2026**, define *"Envato, we, us or our"* as **"Shutterstock, Inc."** Same in the Elements User Terms and the Elements Author Terms (rev. 1 Jul 2026)
@@ -50,6 +60,7 @@
 
 ### Buying signals
 - 💥 **Getty/Shutterstock merger ABANDONED — Getty terminated 7 July 2026**, after the UK CMA required divestiture of Shutterstock's entire editorial business (15 May 2026) and Getty's board declined (30 June 2026). **Shutterstock is standalone again and needs Envato — the growth asset it paid US$245m for — to perform**
+- 💸 **Shutterstock booked a $173.7m goodwill impairment in Q2 2026** after the Getty termination, and fair-valued its entire single reporting unit at **$363.7m** — *less than twice what it paid for Envato alone*. Parent revenue **−17% YoY**; subscribers down to **951,000** from 1,073,000
 - 📉 **Envato cut ~200 roles, ~30% of its workforce, in March 2026** across Australia, New Zealand, Mexico and the US `[UNVERIFIED — search summary only]`. **Fewer engineers to build payment integrations in-house — buy-vs-build tilts toward buy**
 - 🔄 **Tax and payout systems are already being consolidated into Shutterstock**: *"We are aligning how royalty withholding tax (RWT) works on Envato payments with Shutterstock"*, first affected payout **September 2026**. A live integration programme is running right now
 - 🗣️ **They publicly solicit regional payment methods** on their own help page — see the hook above
@@ -67,22 +78,22 @@
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 19 / 29
+### ICP Score breakdown — 20 / 29
 | Signal | Points | Status |
 |--------|--------|--------|
-| **Monthly transaction count** | **+5 ⚠️** | ⚠️ **NOT FOUND — ASSUMED ≥100,000/month. `[ASSUMPTION — not researched.]`** Envato publishes no order count, no GMV and no revenue since the acquisition; Shutterstock does not break Envato out. **Basis:** Shutterstock's own completion release states the acquisition added **650,000 subscribers, taking the group to 1.15 million**. Subscription renewals alone, at ~1.15m subscribers billed monthly or annually, plus per-item marketplace purchases across six marketplaces, put the figure comfortably above 100,000/month. **Billing unit: Elements subscription renewals + per-item marketplace purchases.** Author payouts are excluded — they are money *out*. **This is an assumption and cannot carry or reject the account.** |
+| **Monthly transaction count** | **+3** | ✅ **DERIVED from Envato's own public counter — ~59,000/month current run-rate, ~97,000/month trailing twelve months.** Envato Market publishes a live cumulative `items sold` figure in its footer. **I verified it reads byte-identical across themeforest.net, codecanyon.net, audiojungle.net and videohive.net** (`78,946,574` at 2026-09-17), which proves it is group-wide, not per-domain. Differenced against archived snapshots to get a rate. **Billing unit: per-item marketplace purchases.** ⚠️ **This EXCLUDES Envato Elements subscription renewals, which are not published in any form.** Total transactions are therefore higher and plausibly ≥100,000 — **but only the Market half is established, so the band is scored on that.** |
 | Orchestration status | **+4** | ✅ **None detected — affirmative CSP evidence**, not a failed search. |
 | 3+ countries | **+3** | ✅ Sells worldwide; pays authors in **137 currencies across 173 countries**; entities in Australia and the US. |
 | Multiple PSPs | **+3** | ✅ **Braintree** (marketplace card) + **PayPal** (wallet) + **Stripe** (subscription/account layer) + **Trolley** (payouts). All first-party sourced. |
-| Local rail or licensing gap in a top-3 market | **0** | ⬜ **Not awarded — and this is the painful one.** The rail gap is *sourced*: the Elements list is a closed enumeration and Google Pay is explicitly refused. But the rule requires the gap to be in a **top-3 traffic market**, and **no traffic data was obtained and Envato publishes no buyer geography**. I cannot name a top-3 market, so I cannot award it. **This is a data gap, not an evidence gap — see Manual Research.** |
+| Local rail or licensing gap in a top-3 market | **+3** | ✅ **Now awarded — traffic was obtained late in the run and closed the gap.** Aggregated across five Envato domains, **India is the #1 market at 14.67%** and **Indonesia #3 at 4.73%**. **UPI is absent from Envato's enumerated accepted-method list**, as is QRIS. Both absences are sourced against a closed first-party enumeration, in markets now ranked. |
 | Recent expansion | **0** | ❌ No new market entry. The 2026 events are a *contraction* (~30% headcount) and an abandoned merger. |
 | Payment issues reported | **+2** | ✅ **Trustpilot 2.2/5 across 9,044 reviews**, plus a concrete checkout-integrity defect quoted below, plus Envato's own documented cross-border decline problem. |
 | Funding >$10M | **0** | ❌ Wholly owned by a public parent; no round. |
-| High traffic outside home | **+2** | ✅ Awarded on structure, not traffic: an Australian-HQ'd marketplace selling **USD-only worldwide** with authors in 173 countries. Australia is self-evidently a minority of demand. |
+| High traffic outside home | **+2** | ✅ **Now evidenced, not inferred:** Australia does not appear in the top markets at all. India 14.67%, US 11.67%, Indonesia 4.73%, Brazil 2.91%, Mexico 2.49%, Pakistan 2.17%, Bangladesh 0.88%. |
 | Competitor using orchestration | **0** | ❌ None confirmed. **And the brief's merchant-of-record hypothesis was tested and NOT established** — no evidence any competitor uses Paddle, FastSpring or Lemon Squeezy. Do not assert it. |
 | Payment job postings | **0** | ⬜ None found; the jobs board is retired. |
 
-**Tier:** **19 / 29 → ⭐ High Priority.** No analyst override applied.
+**Tier:** **20 / 29 → ⭐ High Priority.** No analyst override applied.
 
 > **Why no override, in either direction.** The app-store trap does not apply — this is web checkout, not IAP. Volume is assumed rather than sourced, but assumptions cannot carry an account, and the other 14 points stand on first-party evidence. **The honest caveat is territory, not score** — see below.
 
@@ -120,11 +131,28 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 
 ### Section 1: Website Traffic Analysis by Country
 
-**Data source: NONE OBTAINED.** No supplied SimilarWeb data, no MCP tools, and a WebSearch fallback was not accepted for a country split across a seven-domain estate.
+**Data source: WebSearch fallback against SimilarWeb, aggregated across five domains.** Path 3 of 3 — everything here is `[ESTIMATE, not confirmed]`.
 
-**Consequence, stated plainly:** there is no traffic table, and **no buyer-geography claim appears anywhere in this report**. Envato publishes no breakdown either. **This directly cost 3 ICP points** — the rail gap is sourced but cannot be tied to a named top-3 market. It is the single most valuable gap to close.
+| Rank | Country | Share of combined | Est. monthly visits | Source |
+|---|---|---|---|---|
+| 1 | **India** | **14.67%** | ~848,800 | SimilarWeb Aug 2026 `[EST]` |
+| 2 | **United States** | **11.67%** | ~675,000 | `[EST]` |
+| 3 | **Indonesia** | **4.73%** | ~273,900 | `[EST]` |
+| 4 | Brazil | 2.91% | ~168,300 | `[EST]` |
+| 5 | Mexico | 2.49% | ~144,200 | `[EST]` |
+| 6 | **Pakistan** | 2.17% | ~125,400 | `[EST]` |
+| 7 | **Bangladesh** | 0.88% | ~51,100 | `[EST]` |
+| — | **Unattributed** | **58.1%** | ~3,363,200 | free-tier limit |
 
-One structural fact stands in for geography: the method set and USD-only pricing are **globally uniform**, so the rail gap applies in every market rather than varying by one.
+**Domain mix** (visits/month): elements.envato.com 3.567M (61.6%) · themeforest.net 1.100M (19.0%) · codecanyon.net 0.567M (9.8%) · audiojungle.net 0.295M (5.1%) · videohive.net 0.258M (4.5%). **Combined ~5.79M/month.**
+
+> ⚠️ **Three limits, all material.** (i) The free tier exposes only the **top five countries per domain**, so **58.1% is unattributed** and every share is a **floor**, not a point estimate. (ii) Only **five of nine** Envato domains were covered — graphicriver.net, photodune.net, envato.com and tutsplus.com are missing, so the total is also a floor. (iii) This is modelled panel data, not Envato's analytics.
+
+> 💡 **Aggregation changed the answer.** On themeforest.net alone India reads **19.57%**; across the estate it is **14.67%**, because Elements (62% of traffic) skews to the US, Brazil and Mexico. Reading one domain would have overstated India by a third — exactly the distortion the method warns about.
+
+**APAC markets in territory — India, Indonesia, Pakistan, Bangladesh — are at least ~22.5% of attributed visits**, and certainly more given the unattributed majority.
+
+> ⚠️ **Traffic is not revenue, and here the two diverge sharply.** Shutterstock's Q2 2026 10-Q reports revenue as **North America 53.2%, Europe 26.7%, rest of world 20.1%** — group-wide, with APAC not separated. **India and Indonesia drive volume; North America drives money.** A classic high-traffic / low-ARPU emerging-market skew. Do not present traffic share as revenue share.
 
 ### Section 2: Legal Entities & Local Presence
 
@@ -321,7 +349,9 @@ One structural fact stands in for geography: the method set and USD-only pricing
 | Annual revenue | **Not disclosed post-acquisition.** Shutterstock does not break Envato out | — |
 | GMV | **Not found** | — |
 | Average transaction value | **Not found.** Marketplace items are commonly $19–$59 `[UNVERIFIED]` | — |
-| **Monthly transaction count** | ⚠️ **NOT FOUND — ASSUMED ≥100,000/month. `[ASSUMPTION — not researched.]`** Basis: ~1.15m group subscribers post-acquisition plus per-item purchases across six marketplaces. **Billing unit: subscription renewals + per-item purchases**, excluding author payouts | Assumption |
+| **Monthly transaction count** | ✅ **DERIVED — Envato Market: ~59,000/month current run-rate; ~97,000/month trailing 12 months.** From Envato's own live cumulative counter (`78,946,574 items sold`, verified by me byte-identical across four marketplace domains on 2026-09-17), differenced against archived snapshots. ⚠️ **Excludes Elements subscription renewals — not published anywhere.** Total is higher and plausibly ≥100,000, but only the Market half is established | Envato footer counter + Wayback ✅ |
+| **Marketplace volume trend** | ⚠️ **~126,000/month (Sep–Dec 2025) → ~59,000/month (Sep 2026). A >50% collapse in twelve months.** Independently consistent with Shutterstock's reported −17% Q2 2026 revenue | Same derivation |
+| **Cumulative community earnings** | **$1,254,306,531** — but Envato's CEO said **"$1.3 billion"** in May 2024. **A cumulative counter cannot go backwards**, so this counter excludes Elements and Placeit payouts | Verified by me |
 | Primary currency | **USD only**, globally | ✅ |
 | Top 3 markets by revenue | **Not found — Envato publishes no buyer geography** | — |
 | Billing channel split | **N/A** — web checkout, no app-store IAP exposure | — |
@@ -346,9 +376,13 @@ One structural fact stands in for geography: the method set and USD-only pricing
 
 ### Manual Research Recommendations
 
-> **Area:** Buyer geography — **the top gap, and worth 3 ICP points**
-> **Why it matters:** the rail gap is fully sourced, but the matrix requires it in a **top-3 traffic market** and no country data exists. Closing this alone moves the account to **22/29**.
-> **Action:** pull SimilarWeb across all seven domains and aggregate, or paste the data into `accounts/traffic/envato.md`. **Cheapest, highest-leverage action on the account.**
+> **Area:** Envato Elements subscription renewals per month — **now the top gap**
+> **Why it matters:** the Market half is derived from their own counter (~59k/month). Elements is 62% of traffic and the whole subscription business, and its renewal count is **published nowhere**. It decides whether the true total is ~59k or several hundred thousand — i.e. whether this scores +3 or +5.
+> **Action:** discovery question. Do not estimate it; the monthly-vs-annual billing mix is also undisclosed, so it cannot be derived from the subscriber count.
+
+> **Area:** Traffic for the four uncovered domains
+> **Why it matters:** the 5.79M/month figure and every country share are floors, and 58.1% of traffic is unattributed.
+> **Action:** paste full SimilarWeb data into `accounts/traffic/envato.md` covering graphicriver.net, photodune.net, envato.com and tutsplus.com.
 
 > **Area:** Stripe vs Braintree for Elements subscription volume
 > **Why it matters:** it determines whether a PSP migration is already underway — which is either the best possible timing or the worst.
