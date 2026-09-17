@@ -1,6 +1,6 @@
 ---
 name: research
-description: Generate an exhaustive, fact-based payment intelligence report on any APAC target company from a payment orchestrator sales perspective. Scores against the 24-point APAC ICP matrix and saves to 2-ready-to-outreach/.
+description: Generate an exhaustive, fact-based payment intelligence report on any APAC target company from a payment orchestrator sales perspective. Scores against the 29-point APAC ICP matrix and saves to 2-ready-to-outreach/.
 argument-hint: <company name>
 allowed-tools: Agent, WebSearch, WebFetch, Read, Write, Bash
 ---
@@ -109,7 +109,7 @@ session whose environment has a permissive network policy.
 
    ```
    git add 2-ready-to-outreach/{normalized-name}.md
-   git commit -m "research: {Company Name} (ICP {X}/24, {tier})"
+   git commit -m "research: {Company Name} (ICP {X}/29, {tier})"
    ```
 
    Push only if the working session has been told to push. This repository holds internal
@@ -177,6 +177,7 @@ of burning a research run:
 | Company is an existing Yuno customer | Stop and flag |
 | Company has no online payment volume (pure govt/university/non-transacting) | Stop and flag |
 | Company is HQ'd west of Dubai with no APAC operations | Out of territory — stop and flag |
+| **Monthly transaction count is confirmed under 40,000** | **Below minimum volume — stop and flag.** Only a *sourced* or soundly-derived figure fires this gate. An assumption never does. |
 
 ---
 
@@ -422,7 +423,7 @@ Render exactly this, filling `{placeholders}` with researched values:
 # {Company Name}
 
 **Status:** 🟡 Research complete — outreach not yet generated
-**ICP Score:** {X} / 24 → {tier emoji + label}
+**ICP Score:** {X} / 29 → {tier emoji + label}
 **Industry:** {from research} · **HQ:** {from research} · **Researched:** {YYYY-MM-DD} · **First email sent:** —
 **Motion:** {Greenfield / Displacement / In-house / Competitive}
 
@@ -475,7 +476,7 @@ or call this from `/prepare_batch`.*
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — {X} / 24
+### ICP Score breakdown — {X} / 29
 | Signal | Points | Status |
 |--------|--------|--------|
 | Orchestration status | +4 / +3 / +1 | {award and rationale} |
@@ -489,7 +490,7 @@ or call this from `/prepare_batch`.*
 | Competitor using orchestration | +2 | {status} |
 | Payment job postings | +1 | {status} |
 
-**Tier:** High Priority (14+) ⭐ / Medium (8–13) 🟢 / Low (<8) 🔴 → {tier}
+**Tier:** High Priority (17+) ⭐ / Medium (10–16) 🟢 / Low (<10) 🔴 → {tier}
 {If a public payment RFP was confirmed, add: "**RFP override — escalated to ⭐ High Priority.**"}
 {If an analyst override applies, state it here in full — see the override rules.}
 
@@ -517,17 +518,18 @@ Section 1/2/3 wrappers.}
 3. The `<h2>` MUST be on the same line as `<summary>`: `<summary><h2>...</h2></summary>`.
 4. The Top 5 markets table consolidates all six columns into one row per market.
 5. The `**Industry:** ... · **HQ:** ...` header is one line with ` · ` separators.
-6. Tier emoji: `⭐ High Priority` for 14+, `🟢 Medium` for 8–13, `🔴 Low` for <8.
+6. Tier emoji: `⭐ High Priority` for 17+, `🟢 Medium` for 10–16, `🔴 Low` for <10.
 
 ---
 
 ## TARGET COMPANY ICP SELF-SCORE
 
-Apply this 24-point matrix to the TARGET company. **Only award points for VERIFIED signals
+Apply this 29-point matrix to the TARGET company. **Only award points for VERIFIED signals
 with a source. "Uncertain" = 0 points, mark ⬜.**
 
 | Signal | Points | Rule |
 |--------|--------|------|
+| **Monthly transaction count** | **5 / 3 / 2 / REJECT** | **≥100,000/month = +5.** 50,000–99,999 = **+3**. 40,000–49,999 = **+2**. **Under 40,000/month = NOT AN ICP — stop and flag, regardless of every other signal.** See the mandatory disclosure rule below; a figure that is *assumed* rather than sourced **must never trigger the rejection**. |
 | Orchestration status | 4 / 3 / 1 | **+4** if Section 3B says "None detected — direct PSP integrations only" (greenfield). **+3** if a regional orchestrator such as Juspay is confirmed (displacement — already orchestration-aware, shorter education cycle). **+1** if an in-house layer or a global orchestrator competitor is incumbent. Uncertain = 0, ⬜. |
 | 3+ countries | 3 | Section 1 shows 3+ countries with >1% traffic share OR Section 2 confirms 3+ legal entities. |
 | Multiple PSPs | 3 | Section 3A confirms 2+ PSPs with evidence. |
@@ -539,7 +541,7 @@ with a source. "Uncertain" = 0 points, mark ⬜.**
 | Competitor using orchestration | 2 | Section 11C confirms a competitor adopting an orchestrator. |
 | Payment job postings | 1 | Section 6 shows payment-related hires. |
 
-**Total: 24.**
+**Total: 29.**
 
 **Changed from the EMEA matrix, and why:**
 - *Public RFP (+3) removed from the matrix.* Public payment RFPs are rare in APAC outside
@@ -552,9 +554,52 @@ with a source. "Uncertain" = 0 points, mark ⬜.**
   opportunity, not a disqualification — but it is a different sale, and the score should
   say so.
 
+### Monthly transaction count — mandatory disclosure rule
+
+This is the only signal that can reject an account on its own, so it is the only one where
+**saying nothing is not an option.** Every report must state, in the ICP breakdown and in
+Section 12, which of these three cases applies:
+
+| Case | How to write it |
+|---|---|
+| **Sourced** | The merchant, a filing, a regulator or a credible third party publishes it. Give the figure, the period and the URL. Mark ✅. |
+| **Derived** | Not published, but computed from two sourced inputs (e.g. annual revenue ÷ average transaction value, or annual orders ÷ 12). Show the arithmetic and both inputs. Mark ✅ only if *both* inputs are sourced — otherwise it is an assumption. |
+| **Assumed** | Neither available. **Say so in the first line of the row.** Then give a best-guess figure with the reasoning that produced it, and label it `[ASSUMPTION — not researched]`. |
+
+**Write it so the reader can never mistake which one they are reading.** Use these exact
+forms:
+
+- `✅ SOURCED: ~420,000/month — {figure, period, URL}`
+- `✅ DERIVED: ~445,000/month — US$501.5m ÷ US$65.1 AOV ÷ 12. Both inputs audited, {URL}.`
+- `⚠️ NOT FOUND — ASSUMED ~60,000/month. [ASSUMPTION — not researched.] Basis: {reasoning}.`
+
+**Three hard rules:**
+
+1. **An assumption never rejects an account.** The under-40,000 auto-reject fires only on a
+   sourced or soundly-derived figure. If the number is assumed, score the band it implies,
+   mark the row ⚠️, and put "confirm monthly transaction count" at the top of Manual
+   Research Recommendations. Rejecting a real prospect on a number nobody sourced is a
+   worse error than carrying it one more call.
+2. **Never present a derivation as a measurement.** If either input is unsourced, the output
+   is an assumption no matter how careful the arithmetic. This repo has already shipped one
+   transaction estimate built on an unverified revenue line — it was labelled, and it must
+   stay labelled.
+3. **Watch what a "transaction" means for this merchant.** Prepaid packages, annual plans and
+   telco-bundled subscriptions bill far less often than they deliver; app-store IAP and
+   carrier billing may not appear in the merchant's own transaction count at all. State the
+   billing unit you are counting.
+
+**Band boundaries** (non-overlapping, so there is no judgement call at the edges):
+≥100,000 → **5** · 50,000–99,999 → **3** · 40,000–49,999 → **2** · <40,000 → **reject**.
+
 **Status legend:** ✅ verified (met and sourced) · ⬜ uncertain (0 points) · ❌ not met.
 
-**Tier mapping:** 14+ = ⭐ High Priority · 8–13 = 🟢 Medium · <8 = 🔴 Low.
+**Tier mapping:** 17+ = ⭐ High Priority · 10–16 = 🟢 Medium · <10 = 🔴 Low.
+
+> **Thresholds were rescaled when the matrix went from 24 to 29 points**, so a tier means
+> the same thing it did before (⭐ was 58% of the old total, 🟢 started at 33%). Scores
+> written against the /24 matrix are not comparable to /29 scores — do not compare them
+> across files without rescoring.
 
 ### Analyst override
 
@@ -819,7 +864,7 @@ If none: *"No public case studies found of direct competitors adopting payment o
 
 #### 11D. Prospect Scoring
 
-Apply the same 24-point matrix to the competitors and peers above. Only verified signals.
+Apply the same 29-point matrix to the competitors and peers above. Only verified signals.
 
 | Signal | Points | Status | Evidence Source |
 |--------|--------|--------|-----------------|
@@ -842,6 +887,7 @@ Any strong prospect **not** on the list is a genuine find — call it out.
 | GMV / Gross Transaction Volume | | |
 | Average Transaction Value (USD) | | |
 | Est. Annual Transactions | Revenue / ATV or GMV / ATV | Calculated |
+| **Monthly transaction count** | **MANDATORY — state SOURCED / DERIVED / ASSUMED explicitly. Never leave blank.** | See the disclosure rule in the ICP matrix |
 | Active Customers / Users | | |
 | Primary Currency | | |
 | Top 3 Markets by Revenue | | |

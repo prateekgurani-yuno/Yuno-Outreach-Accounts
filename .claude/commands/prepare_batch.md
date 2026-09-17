@@ -64,11 +64,12 @@ manual context Prateek captured — and the header fields (Industry, HQ, Priorit
 Invoke `/research {Original Company Name}` with the notes injected as additional context.
 
 ### 3c. Parse the ICP score
-Read the saved file, find `**ICP Score:** {N} / 24 → {tier}`, extract `N`.
+Read the saved file, find `**ICP Score:** {N} / 29 → {tier}`, extract `N`.
 
 ### 3d. Branch on score
 
-**If N < 8, or an analyst override rejects the account:**
+**If N < 10, or the monthly transaction count is a SOURCED figure under 40,000, or an
+analyst override rejects the account:**
 
 1. Append inside the Section 3 `<details>` block, just before its closing `</details>`:
 
@@ -78,20 +79,21 @@ Read the saved file, find `**ICP Score:** {N} / 24 → {tier}`, extract `N`.
    {1–2 sentences citing the specific missing signals, or the override reasoning.}
    ```
 
-2. Update the status header to `**Status:** 🔴 Not ICP — score {N}/24`
-   (or `— analyst override` where the override, not the score, drove it).
+2. Update the status header to `**Status:** 🔴 Not ICP — score {N}/29`
+   (or `— analyst override` where the override, not the score, drove it, or
+   `— under 40k monthly transactions` where the volume gate fired).
 
 3. Move and clean up:
    ```bash
    git mv 2-ready-to-outreach/{normalized-name}.md not-icp/{normalized-name}.md
    git rm 1-to-outreach/{normalized-name}.md
-   git commit -m "reject: {Original Company Name} — ICP {N}/24 below threshold"
+   git commit -m "reject: {Original Company Name} — ICP {N}/29 below threshold"
    ```
 
 4. **Pull a replacement** — the next stub by queue priority, excluding anything already in
    this batch and the scaffolding files. If the queue is exhausted, continue without one.
 
-**If N ≥ 8:**
+**If N ≥ 10:**
 
 1. Invoke `/full-outreach {Original Company Name}`.
 2. Clean up the stub:
@@ -129,7 +131,7 @@ Write `batches/{YYYY-MM-DD-HH-MM}.md`:
 
 | Company | ICP | Motion | Traffic data | Outcome | Replacement? |
 |---------|-----|--------|--------------|---------|--------------|
-| {Name} | {N}/24 | {greenfield/displacement/in-house} | supplied / estimated | ✅ ready / 🔴 not-icp | — / yes |
+| {Name} | {N}/29 | {greenfield/displacement/in-house} | supplied / estimated | ✅ ready / 🔴 not-icp | — / yes |
 
 ## Key research flags (read before outreach)
 

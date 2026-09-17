@@ -35,7 +35,7 @@ List `.md` files (excluding `_README.md`, `_template.md`, `.gitkeep`) in `1-to-o
 # {Company Name}
 
 **Status:** {emoji + label}
-**ICP Score:** {N} / 24 → {tier}
+**ICP Score:** {N} / 29 → {tier}
 **Industry:** {industry} · **HQ:** {country} · **Researched:** {date} · **First email sent:** {date or —}
 **Motion:** {greenfield / displacement / in-house / competitive}
 ```
@@ -73,14 +73,14 @@ Capture the current timestamp as `YYYY-MM-DD HH:MM`. Write:
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
-| [{Name}](2-ready-to-outreach/{filename}) | {Industry} | {N}/24 | {motion} | {date} |
+| [{Name}](2-ready-to-outreach/{filename}) | {Industry} | {N}/29 | {motion} | {date} |
 {sorted by ICP descending}
 
 ## 🔵 Outreached ({N})
 
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
-| [{Name}](3-outreached/{filename}) | {Industry} | {N}/24 | {date} |
+| [{Name}](3-outreached/{filename}) | {Industry} | {N}/29 | {date} |
 {sorted by First Sent descending, limit 30}
 
 {If truncated:}
