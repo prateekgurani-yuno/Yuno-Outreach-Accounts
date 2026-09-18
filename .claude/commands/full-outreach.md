@@ -605,8 +605,12 @@ The numbers question is not.** Rules that still apply:
   routing. A strong airline E4 is Wingo's numbers plus a one-line "Qatar Airways, Copa and
   Avianca run on the same layer". Precedent: the Air New Zealand sequence.
   **Competitive context for airline prospects, first-party sourced and usable:** Cathay
-  Pacific expanded to Adyen direct acquiring across 45+ markets including New Zealand and
-  Australia (Mar 2026); Singapore Airlines consolidated onto Adyen direct acquiring to stop
+  Pacific expanded Adyen **direct acquiring** to **six markets — Hong Kong, Australia, New
+  Zealand, the United States, Japan and India** (Adyen newsroom, **23 Mar 2026**), reporting
+  a **10% authorisation-rate increase in India**; the relationship began in 2014 and Adyen is
+  **not** described as sole or exclusive. ⚠️ **CORRECTED 2026-09-18: this line previously read
+  "45+ markets", which is wrong — the figure appears nowhere in the release or any syndication
+  of it, and Cathay would know it was false. Never use 45.** Singapore Airlines consolidated onto Adyen direct acquiring to stop
   "running payments across multiple third-party platforms"; Emirates appears on CellPoint
   Digital's own airline customer wall; Cebu Pacific's CellPoint case study states it
   "implemented its multi-acquirer strategy more efficiently". Name the airline and what it
