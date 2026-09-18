@@ -1,15 +1,14 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-18 21:07*
+*Last updated: 2026-09-18 21:10*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (89)
+## 📋 To Outreach (88)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
-| [iTicket](1-to-outreach/iticket.md) | Event & Travel Ticketing | New Zealand | P1 | 2026-09-10 |
 | [Japan Airlines (JAL)](1-to-outreach/japan-airlines-jal.md) | Airlines | Japan | P1 | 2026-09-10 |
 | [Jetstar Airways](1-to-outreach/jetstar-airways.md) | Airlines | Australia | P1 | 2026-09-10 |
 | [KKday](1-to-outreach/kkday.md) | Event & Travel Ticketing | Taiwan | P1 | 2026-09-10 |
@@ -141,7 +140,7 @@
 |---------|----------|-----|------------|
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
-## 🔴 Not ICP (7)
+## 🔴 Not ICP (8)
 
 See [not-icp/](not-icp/) for rejection rationale.
 
