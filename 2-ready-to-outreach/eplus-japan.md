@@ -1,6 +1,6 @@
 # eplus (イープラス)
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 16 / 29 → 🟢 **Medium**
 **Industry:** Event ticketing (live music, theatre, sport, classical, anime) + live streaming · **HQ:** Ebisu Garden Place Tower 8F, Shibuya-ku, **Tokyo, Japan** — 株式会社イープラス, capital ¥972.5m, founded 30 Jul 1999, FY-end March · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Greenfield** — none detected, on affirmative architectural evidence: two entirely separate storefronts on two different platforms with two non-overlapping method sets (see 3B).
@@ -89,16 +89,297 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach eplus (イープラス)` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Four instructions for whoever drafts it:**
+```
+=== PAIN VECTOR EXTRACTION ===
 
-1. **The 7-month refund cliff is the opener.** It is first-party, verbatim, structural, and impossible to dispute. It also passes the "asymmetry inside their own stack" test from the voice anchor: **their sales window is 6–12 months and their card refund window is 7.** Those two numbers are both theirs, and they do not fit together.
-2. **The cross-border FAQ is the second observation** and it is the one that stings, so it needs the diplomatic clause. Frame it as *"that reads like a decline pattern nobody's been able to route around"*, never as *"you're blaming your customers."*
-3. **Korean is the sharpest specific.** They run a K-POP・韓流 genre category on the domestic site and support no Korean and no Korean rails on the inbound storefront. **Verify Korean inbound demand before asserting materiality** — it is very likely large, but "likely" is not sourced.
-4. **Do not name Credit Saison or Sony Music as fact.** The ownership change is agent-reported and unverified, and getting a shareholder wrong in a first email is unrecoverable. If it is used at all, it goes in E3 as a question.
+Motion: Greenfield — none detected, affirmatively. Two storefronts, two platforms, two
+        non-overlapping method sets. Phase 1 may note the shape; it must not lecture.
 
-**Never claim:** that we know their acquirer, that Wellnet handles their konbini collection (only the refunds are verified), that 3DS2 is mandatory (unverified), or any ticket/order volume figure — **there isn't one**.
+Observable setup facts (verified first-hand, 2026-09-18):
+- 7-MONTH REFUND CLIFF, their own words: 「カード決済日から7か月以上経過している場合、
+  『ウェルネット送金サービス』でのご返金となります」 — a card refund older than seven
+  months leaves the card rail and becomes a Wellnet bank remittance
+- Every non-card refund is a Wellnet remittance by default
+- ib.eplus.jp FAQ, verbatim: "We only accept credit card of VISA and MasterCard. It is
+  possible that your credit card has a restriction (ex. it can't settle from overseas),
+  so please contact your credit card company directly."
+- ib.eplus.jp also: "In case that you used a debit card, a service fee will be charged
+  once when the payment is failed, but it will return to your account after a few days."
+- T+1 RECONCILIATION: konbini / Pay-easy / net banking status flips to 入金完了 only
+  「支払日の翌日15時以降」 — after 15:00 the following day
+- AND THEY DOCUMENT THE CONSEQUENCE: 「システムの都合上、お支払手続き後に支払期限の
+  ご案内メールが配信される場合があります」 — a payment-deadline reminder may go out
+  AFTER the customer has already paid
+- Exactly three domestic methods; lump-sum card only; konbini and Pay-easy both ¥330/txn
+- ib.eplus.jp is a separate CS-Cart install: Visa, Mastercard, Alipay only, seven
+  currencies, English + Simplified + Traditional Chinese, NO Korean
+- 28m members; 33,316 live event listings on 2026-09-18
+- LIVE INCIDENT on their own homepage: the PARCO PRODUCE 2026 pre-order was invalidated
+  in full by eplus's own error, refunds split across a card reversal and a Wellnet
+  remittance dated ~21 Aug
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The 7-month refund cliff -> "Your help centre says a card refund more than seven
+   months after the payment date goes out as a bank remittance rather than back to the
+   card."
+   MATERIALITY: highest, and it passes the voice anchor's asymmetry test exactly — their
+   SALES window is six to twelve months and their card REFUND window is seven. Both
+   numbers are theirs. They do not fit together and nobody has to be blamed for it.
+2. The cross-border decline answer -> "Your inbound site takes Visa, Mastercard and
+   Alipay, and its FAQ answer for a failed payment is to contact your card company."
+   MATERIALITY: high. Sourced verbatim. Needs the diplomatic clause — see below.
+
+   HELD AT 2. Deliberately saved for later touches: the T+1 dunning admission (E3
+   backing logic), the missing Korean and UnionPay/WeChat Pay (LK4), the live PARCO
+   refund incident (E7 manual). Every touch gets fresh material.
+
+Bridge variant: C — friction
+Rationale: not A (the provider count is low and mostly undisclosed, so a "complexity"
+frame would be asserting something I cannot evidence) and not B (there is no single-PSP
+story — I can name exactly one provider and it is a refund rail). Both lead observations
+are friction the customer feels. C is the accurate one.
+
+Hypothesis for Phase 2 (E3):
+Collection and refund were built separately, so each method has its own lifespan and its
+own exit path — and the refund side is where that shows.
+Backing logic: a card refund expires off its own rail at seven months. Every non-card
+refund is a manual remittance from the start. Konbini and Pay-easy settlement lands T+1
+at 15:00, and eplus's own help centre says that is why a payment-deadline reminder can
+reach someone who has already paid. In a business selling six to twelve months ahead,
+where cancelling a whole tour is a normal event rather than an edge case, refunds are a
+primary operation running on rails that were never designed together.
+
+Success case for Phase 3 (E4):
+Selected case: Rappi
+Tier: 2 — same payment pattern (multi-method estate, heavy reconciliation and manual
+      operations load), different industry and region. STATED AS SUCH in the email.
+Match rationale: no Tier 1 exists — there is no ticketing or Japanese case in the
+library. Rappi is the library's operational-burden case and the "80% less analyst work"
+bullet answers the manual-remittance and T+1 reconciliation problem directly, which is
+the actual hypothesis. Wingo and Livelo both prove approval-rate mechanics, which is not
+what this account is about.
+Numbers to lead with: zero implementation delays · hundreds of payment methods through
+one integration · 80% less analyst work
+Optional benchmark: SKIP. The "~8% average authorisation uplift" is Yuno's own blog
+figure and this is not an approval-rate argument anyway.
+
+Touch-by-touch angles:
+- E2 angle: the refund cliff -> ONE mechanism: unified reconciliation and a single
+  ledger, with the fallback payout running inside the same layer.
+  *** HONESTY CONSTRAINT, NON-NEGOTIABLE: we CANNOT extend a scheme's refund window and
+  must not imply we can. A payments buyer knows that window is the scheme's, not the
+  merchant's. E2 says so explicitly. What changes is that the fallback is automatic and
+  stays in one ledger instead of becoming a manual process in a second system. Claiming
+  otherwise would lose this thread in one reply — and would deserve to. ***
+- LK1 angle: the seven-month refund cliff, one sentence
+- LK2 angle: collection and refund were built separately
+- LK3 angle: Rappi — 80% less analyst work, same providers
+- LK4 angle: FRESH — no Korean and no UnionPay or WeChat Pay on the inbound storefront,
+  while the domestic site runs a prominent K-POP・韓流・アジア category
+- E8 angle: clean exit, offer to circle back after the year-end season
+```
+
+**Calendar.** Day 1 anchored to **Monday 5 October 2026**. Japanese public holidays inside the
+window: **スポーツの日 (Sports Day) Mon 12 Oct** and **文化の日 (Culture Day) Tue 3 Nov**. **No
+send day and no proposed slot falls on either**, or on a weekend.
+
+**Times are JST (UTC+9), which is IST+3:30.** Slots run 14:00–16:00 JST, i.e. 10:30–12:30 IST.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 5 Oct
+
+**Subject:** Seven-month refund window on cards
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on eplus's payment setup. Two things stood out:
+
+- Your help centre says a card refund more than seven months after the payment date goes out as a bank remittance rather than back to the card. Tickets go on sale six to twelve months ahead.
+- Your inbound site takes Visa, Mastercard and Alipay, and its FAQ answer for a failed payment is to contact your card company.
+
+That kind of setup usually has some friction worth checking on.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 7 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, nothing gets ripped out.
+- Collection and refund run through the same layer, so every method's money movement lands in one ledger.
+- Adding a method, a provider or a payout rail becomes a configuration change rather than a project.
+- One integration covers both your domestic flow and the inbound one.
+
+On the seven-month point, I should be straight with you: nobody can extend a scheme's refund window, us included — that's the scheme's rule, not yours. What changes is what happens once it closes. The fallback payout runs inside the same layer and reconciles in the same ledger, rather than becoming a separate manual process in a second system.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 9 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: your help centre says a card refund past seven months goes out as a bank remittance instead of back to the card, and tickets go on sale six to twelve months ahead. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 13 Oct · NEW EMAIL
+
+**Subject:** Read on your refund paths
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that collection and refund were built separately, so each method ended up with its own lifespan and its own exit path.
+
+Three things point that way. A card refund expires off its own rail at seven months. Every non-card refund is a remittance from the start. And konbini and Pay-easy settlement only lands at 15:00 the following day — your own help centre says that's why a payment-deadline reminder can reach someone who has already paid.
+
+In a business where cancelling a whole run is normal rather than exceptional, that makes refunds a primary operation, not an edge case.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing providers so collection and refund reconcile in one place — keep your stack, add what's missing.
+
+Thursday is open for me — would 14:00 or 15:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 15 Oct
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: collection and refund look like they were built separately, which is why each method has a different lifespan and a different exit. If that's anywhere on your radar, would Monday the 19th at 15:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 19 Oct · NEW EMAIL
+
+**Subject:** How Rappi cut analyst work 80%
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — sharing an example of what solved looks like. Different industry and region, so I'll be straight that it's a pattern match: a merchant carrying a lot of methods and a lot of manual money-movement work, which is the shape rather than the sector.
+
+Rappi put Yuno above its existing providers:
+
+- 80% less analyst work on payment operations (you read that right)
+- Hundreds of payment methods available through one integration
+- Zero implementation delays on new methods and markets
+
+Same orchestration layer above their existing stack — no rip-out. The first bullet is the one I'd point at: that number came out of reconciliation and exception handling, which is where your refund paths currently sit.
+
+One thing I'm curious about: when a run gets cancelled, roughly what share of those refunds are already past the seven-month card window by the time you process them?
+
+Wednesday the 21st is open — would 16:00 your time work?
+
+Full case here if useful: https://y.uno/success-cases/rappi
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Wed 21 Oct · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle: the PARCO PRODUCE 2026 incident, which is on their own homepage.** A
+> pre-order was invalidated in full by eplus's own error — their words: 「全て弊社の不手際に
+> 起因するものであり…全責任は弊社に帰属する」 — and the refund ran down **two different
+> paths**, a card sales-data reversal for one group and a Wellnet remittance dated roughly
+> three weeks later for the other. ⚠️ **Handle with real care.** They owned it publicly and
+> handled it well. The angle is *"a single refund exercise split across two rails and two
+> timelines"*, never *"you had an incident."* If it cannot be written warmly, skip it.
+
+#### Touch 8 — Email 6 · Day 15 · Fri 23 Oct · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** a side-by-side of the domestic method set against the inbound one —
+> three methods versus three, with almost no overlap, ¥330 fees on two domestic rails, and
+> seven currencies on the inbound side. Built entirely from their own published pages. **The
+> non-overlap is the point and it needs no commentary.**
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Tue 27 Oct
+
+```text
+Hey {{recipient.first_name}} — Rappi cut payment analyst work by 80% without changing any of their providers; it came out of reconciliation and exception handling. Worth 15 minutes to see if it maps to your setup? Thursday the 29th at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Thu 29 Oct · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** inbound is a **named business line** in eplus's own corporate
+> navigation —「インバウンドチケット販売」— and it runs on a completely separate platform from
+> the domestic site. A strategic business unit on its own stack is a real architecture
+> question and a flattering one to ask about. ⚠️ **Do not mention the Sony Music ownership
+> change** — it is unverified and getting a shareholder wrong here is unrecoverable.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 2 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I kept noticing: eplus.jp runs a K-POP・韓流 category, and the inbound site has no Korean and takes no UnionPay or WeChat Pay. If timing works, Wednesday the 4th at 15:30 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 4 Nov · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+You're heading into year-end, which is the worst possible time to open a payments workstream. If timing's just off, happy to circle back in the new year once the season has cleared.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist — five things before Touch 1 goes out
+
+1. ⛔ **Never claim we can extend a scheme refund window.** E2 says the opposite on purpose.
+   This is the one line in the sequence that would end the thread if it were overclaimed.
+2. ⛔ **Never mention Sony Music or Credit Saison.** The ownership change is agent-reported
+   and I could not verify it against eplus's own corporate site.
+3. ⛔ **Never say they take PayPay.** 「PayPay銀行」 in their Pay-easy list is PayPay *Bank*.
+4. ⚠️ **Re-check the seven-month clause** at `support-qa.eplus.jp/hc/ja/articles/360041662793`
+   before send. It is the whole opener.
+5. ⚠️ **Re-check the PARCO notice is still live** before writing E5. If it has been taken down,
+   drop that touch rather than referencing something the recipient cannot go and read.
 
 </details>
 

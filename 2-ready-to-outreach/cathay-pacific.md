@@ -1,6 +1,6 @@
 # Cathay Pacific
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 18 / 29 → ⭐ **High Priority** — earned on arithmetic, no override
 **Industry:** Airlines (full-service + wholly-owned LCC) · **HQ:** Hong Kong — Cathay Pacific Airways Ltd, **HKEX 00293** · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Coverage play, not displacement.** No orchestrator detected, but **Adyen is confirmed and consolidated — in six markets out of 100+ destinations.** The pitch is the gap between those two numbers, never "you need orchestration".
@@ -79,12 +79,298 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Cathay Pacific` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Three instructions for whoever drafts it:**
-1. ⛔ **Never say "45 markets."** Six. See the correction at the top.
-2. **This is a coverage play.** They are consolidated on a strong provider and it is working. **Do not suggest they need orchestration** — open on the gap between six acquiring markets and a hundred-plus destinations, and on the two fastest-growing origins being the least covered.
-3. **The India +10% is the single best opener** — it is their own published number, it proves they measure per-market auth, and it invites the obvious question about the other markets.
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: COVERAGE PLAY. Not greenfield in spirit, not displacement, not in-house.
+        Cathay is consolidated on a strong provider and it is demonstrably working.
+        The pitch is the gap between six acquiring markets and a hundred-plus
+        destinations. NEVER "you need orchestration" — they have a working setup and
+        published proof of it. Treat this like the in-house override: anchor on REACH,
+        never on the existing decision being wrong.
+
+Observable setup facts (verified first-hand, 2026-09-18):
+- Adyen direct acquiring in SIX markets: Hong Kong, Australia, New Zealand, the United
+  States, Japan, India. Relationship since 2014. NOT described as sole or exclusive.
+  (Adyen newsroom, 23 Mar 2026.) *** THE NUMBER IS SIX. NEVER 45. ***
+- Cathay reported a +10% authorisation-rate increase in India after implementation —
+  their own published number
+- 100+ destinations; 33 distinct payment tenders enumerated on their own page
+- FY2025 revenue by origin of sale: North Asia (Mainland/HK/Taiwan) HK$65,846m = 56%;
+  South Asia/MEA HK$4,729m +32.3%; Europe HK$10,620m +28.8%
+- Adyen acquiring covers Hong Kong but NOT mainland China and NOT Taiwan — inside the
+  origin region that is 56% of all revenue
+- Octopus — Hong Kong's flagship stored-value scheme — is absent from a 33-tender list
+  that does include e-CNY, FPS, PayMe, VietQR, QRPh, UPI, RuPay and PayTo
+- Surcharging of 0.70% on AU and NZ departures, capped AUD 120 / NZD 70
+- HK Express, wholly owned, loss-making, visibly separate payment stack
+- 20 new destinations in 2025; ~10% capacity growth guided 2026; HK$100bn+ committed
+  including "digital innovation"
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Their own India result -> "You published a 10% authorisation uplift in India after
+   adding local acquiring there in March."
+   MATERIALITY: highest. It is THEIR number, it is flattering rather than critical, it
+   proves they already measure auth per market, and it makes the next bullet inevitable
+   without us having to assert anything.
+2. Coverage vs growth -> "That acquiring covers six markets. You fly to a hundred-plus,
+   and your two fastest-growing origins — South Asia and the Middle East up 32%, Europe
+   up 29% — are the two least covered."
+   MATERIALITY: high. An asymmetry entirely inside their own published numbers. Both
+   halves come from their own results release, so neither can be disputed.
+
+   HELD AT 2 ON PURPOSE. Octopus is deliberately saved for LK4 and HK Express for the
+   E7 manual bridge, so every later touch has fresh material rather than a re-run.
+
+Bridge variant: B — limitations
+Rationale: one visible PSP, strong multi-market growth signals. That is textbook B, and
+B's "at your stage, that kind of setup usually comes with some limitations" is the only
+transition that describes a coverage gap without implying the current setup is a mistake.
+
+Hypothesis for Phase 2 (E3):
+Acquiring coverage has not kept pace with where the revenue is actually growing, because
+standing up local acquiring is a per-market project rather than a configuration change.
+Backing logic: they proved the mechanism works and published the number — +10% in India,
+from one market. The same shaped opportunity sits unharvested in mainland China, Taiwan,
+Korea and the whole of Europe. Greater China alone is 56% of origin-of-sale revenue with
+acquiring in Hong Kong only, and Europe grew 28.8% with none at all. This is not a
+capability gap, it is a throughput gap: the rate at which new acquiring markets can be
+added is slower than the rate at which the network is growing.
+
+Success case for Phase 3 (E4):
+Selected case: inDrive
+Tier: 2 — same payment pattern (multi-country coverage expansion), different industry.
+      STATED AS SUCH in the email.
+Match rationale: DELIBERATELY NOT WINGO, and the reason matters. Wingo is the Tier 1
+airline case but its numbers are approval-via-retry, and the hypothesis here is REACH.
+inDrive's "10 new countries in under 8 months" is the number that actually answers the
+question Cathay would ask. Forcing the airline case because the prospect is an airline
+would mean proving the wrong thing. The airline credibility is supplied separately by
+naming Qatar Airways, Copa Airlines and Avianca — with NO NUMBERS attached, ever.
+Numbers to lead with: ~90% approval rate · 10 new countries live in under 8 months ·
+50+ countries on one integration
+Optional benchmark: SKIP, twice. The "~8% average authorisation uplift" is Yuno's own
+blog figure, not third-party evidence — and it would be absurd to quote an 8% average at
+a merchant that has published its own 10%. The IATA/EDC "$20.3bn / 2.1% of industry
+revenue" figure is untraced to the primary source per our own skill file. Not used.
+
+Touch-by-touch angles:
+- E2 angle: six markets vs a hundred-plus -> ONE mechanism: routing to local acquirers
+  per geography, added as configuration rather than as a per-market integration project
+- LK1 angle: the India +10% and the question it invites, one sentence
+- LK2 angle: coverage has not kept pace with where the revenue is growing
+- LK3 angle: inDrive — 10 new countries live in under 8 months
+- LK4 angle: FRESH — Octopus absent from a 33-tender list, on the home carrier's checkout
+- E8 angle: clean exit, offer to circle back after the FY2026 interim results
+```
+
+**Calendar.** Day 1 anchored to **Monday 5 October 2026**, deliberately clearing **National
+Day (1 Oct)** and the Mid-Autumn holiday week entirely rather than threading between them.
+
+> ⚠️ **Two Hong Kong holidays inside the window are NOT verified and must be checked before
+> send: the day following Mid-Autumn Festival (late Sep) and Chung Yeung Festival (mid-to-late
+> Oct, lunar-dated).** I have not confirmed either 2026 date and will not guess at one. **Day 11
+> is placed on Tue 20 Oct rather than Mon 19 Oct as a hedge against Chung Yeung.** Re-check
+> against the Hong Kong Government's published 2026 general holidays before Touch 1 goes out.
+
+**Times are HKT (UTC+8), which is IST+2:30.** Slots run 14:00–16:00 HKT, i.e. 11:30–13:30 IST —
+comfortably inside both working days.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 5 Oct
+
+**Subject:** Your India auth result, and the other markets
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on Cathay's payment setup. Two things stood out:
+
+- You published a 10% authorisation uplift in India after adding local acquiring there in March.
+- That acquiring covers six markets. You fly to a hundred-plus — and your two fastest-growing origins, South Asia and the Middle East up 32% and Europe up 29%, are the two least covered.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 7 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, and nothing you have today gets touched.
+- Routing is per geography, so cards issued in a market can be acquired locally in that market rather than cross-border.
+- Adding an acquirer in a new market becomes a configuration change rather than an integration project.
+- One integration covers every PSP, method and market, so the next twenty destinations don't each need their own build.
+
+On the coverage point specifically — the India result already proved the mechanism at Cathay. The constraint isn't whether local acquiring lifts auth, you've published that it does. It's how many markets a year you can stand one up in.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 9 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: the 10% auth uplift Cathay published for India came from adding local acquiring in one market, and that acquiring now covers six of a hundred-plus destinations. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 13 Oct · NEW EMAIL
+
+**Subject:** Acquiring coverage vs where revenue is growing
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that acquiring coverage hasn't kept pace with where the revenue is actually growing, because standing up a new market is a project rather than a setting.
+
+Two things point that way. Greater China is 56% of origin-of-sale revenue and the acquiring there covers Hong Kong, not the mainland and not Taiwan. And Europe grew 28.8% last year with no local acquiring at all.
+
+None of that is a capability question — you've already published the 10% India result. It's a throughput one.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing PSPs so a new acquiring market is configuration rather than a build — keep your stack, add what's missing.
+
+Thursday is open for me — would 15:00 or 16:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 15 Oct
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: acquiring coverage looks like it's grown slower than the network has, and the two origins growing fastest are the two with the least of it. If that's anywhere on your radar, would Tuesday the 20th at 14:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Tue 20 Oct · NEW EMAIL
+
+**Subject:** How inDrive added 10 countries in 8 months
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — sharing an example of what solved looks like. It's mobility rather than aviation, and I've picked it deliberately: the airline cases in our library prove retry and approval, and your question isn't approval, it's reach.
+
+inDrive put Yuno above its existing providers:
+
+- 10 new countries live in under 8 months (you read that right)
+- ~90% approval rate across the estate
+- 50+ countries running through one integration
+
+Same orchestration layer above their existing stack — no rip-out. On the aviation side, Qatar Airways, Copa Airlines and Avianca run on the same layer.
+
+One thing I'm genuinely curious about: when you added India, how much of the elapsed time was the acquiring relationship versus the integration work on your side?
+
+Thursday the 22nd is open — would 15:30 your time work?
+
+Full case here if useful: https://y.uno/en/success-stories/indrive
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Thu 22 Oct · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle:** the **0.70% AU/NZ departure surcharge**, capped AUD 120 / NZD 70, on a
+> base that includes fare, taxes, fuel surcharges and ancillaries. Adyen acquires locally in
+> both those markets and Cathay *still* surcharges there — which makes surcharge policy a
+> pricing decision rather than a cost pass-through, and a genuinely interesting thing to ask
+> about. ⚠️ **Ask, don't assert.** We do not know their cost of acceptance in those corridors
+> and guessing at it would be the fastest way to lose a payments audience.
+
+#### Touch 8 — Email 6 · Day 15 · Mon 26 Oct · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** a one-page table of their own 33 tenders mapped against the six
+> acquiring markets and the six origin-of-sale regions from their results. It is entirely
+> built from their own published material, it takes about twenty minutes, and it makes the
+> coverage gap visual rather than argued. **The blank cells do the work.**
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 28 Oct
+
+```text
+Hey {{recipient.first_name}} — inDrive went live in 10 new countries in under 8 months on one integration, without changing providers. Worth 15 minutes to see if it maps to your setup? Friday the 30th at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Fri 30 Oct · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor: HK Express.** Wholly owned, currently loss-making, and running a
+> visibly separate payment stack from the mainline. A group that has proved local acquiring is
+> worth 10% in one market is running its LCC on different rails entirely. That is a real
+> question and it is nobody's fault. ⚠️ **Frame it as a group-architecture question, never as
+> "your LCC is losing money"** — that reads as a dig at a business unit the reader may own.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Tue 3 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I never worked out: your checkout carries 33 tenders including e-CNY, FPS, PayMe and PayTo, and no Octopus. If timing works, Thursday the 5th at 16:00 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Thu 5 Nov · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+You're coming off the best result since 2010 with capacity guided up around 10%, so a new payments workstream may simply not be this year's problem. If timing's just off, happy to circle back after the interim results.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist — five things before Touch 1 goes out
+
+1. ⛔ **Never say "45 markets." It is six.** The correction at the top of this file exists
+   because our own skill file carried the false number. Cathay would know instantly.
+2. ⛔ **Never suggest they need orchestration.** They have a working, published, measured
+   setup. The entire sequence is about reach, and one sentence breaking that would end it.
+3. ⛔ **Never name the orchestrator Singapore Airlines runs.** Naming a competitor is
+   forbidden, and it is also the fastest way to make this look like a vendor bake-off.
+4. ⚠️ **Verify the 2026 Hong Kong general holidays** — Mid-Autumn and Chung Yeung are lunar
+   and I have not confirmed either date. Day 11 is already hedged onto a Tuesday.
+5. ⚠️ **Re-confirm the Octopus absence** on the live payment-options page before LK4. It is a
+   33-item list and lists change.
 
 </details>
 

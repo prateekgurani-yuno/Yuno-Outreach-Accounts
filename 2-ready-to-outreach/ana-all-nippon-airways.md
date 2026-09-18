@@ -1,6 +1,6 @@
 # ANA (All Nippon Airways)
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 23 / 29 → ⭐ **High Priority**
 **Industry:** Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) · **HQ:** Tokyo, **Japan** — ANA Holdings Inc., **TSE 9202** · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Greenfield** — none detected. Unusually well-evidenced for a greenfield call: ANA's own payment pages show three *separate* point-to-point hand-offs rather than one routing layer (see 3B).
@@ -98,16 +98,303 @@ The table above is ANA's **complete** published method set on its own payment hu
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach ANA (All Nippon Airways)` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Four instructions for whoever drafts it:**
+```
+=== PAIN VECTOR EXTRACTION ===
 
-1. **The migration apology is the opener, and quote ANA's own page — not a news story.** Frame it as an observation about what a core-platform migration does to the payment layer, never as a dig. The diplomatic clause is mandatory here: *"not because anyone's doing it badly — a PSS cutover is genuinely hard."*
-2. **The sharpest single observation is the international paid-seat cancellation being entirely offline.** It is a paid ancillary whose refund path is a phone call, stated by ANA. That is a concrete, checkable, non-insulting fact.
-3. **DO NOT LEAD ON PAYPAY. The gate is resolved and it came back red.** I checked JAL's own domestic payment page: **JAL takes no PayPay either**, and no Apple Pay, Rakuten Pay, LINE Pay, d払い, au PAY, Amazon Pay, Google Pay or Paidy. ANA is if anything slightly ahead of JAL on wallets. **Using the wallet gap as an E1 observation earns the reply "JAL doesn't either" and ends the thread.** It goes in E3 as a roadmap question, phrased as curiosity about where wallets sit on their plan — not as a deficiency.
-4. **Do not run the cross-border angle as the primary.** ANA is a domestic-heavy carrier — the corridor story is real but secondary. The primary is **lifecycle**: a booking that can be paid four different ways but changed only one way. Apple Pay not working for a rebooking fare difference is the crispest illustration and it is ANA's own footnote.
+Motion: Greenfield — none detected, affirmatively. Four methods on four separate paths.
+        But the framing is LIFECYCLE, never "you have no orchestration layer" and never
+        the wallet gap (JAL is identical — see the Hook).
 
-**Never claim:** that ANA lacks instalments (the international table explicitly links to instalment and revolving payment information), that we know their acquirer (nobody does), or anything about UATP/IATA settlement (unverified).
+Observable setup facts (verified first-hand, 2026-09-18):
+- Apple Pay footnote, ANA's own words: 「航空券の新規ご購入時のみご利用になれます。
+  ご購入後の予約変更時の差額支払いにはご利用になれません」 — new purchases only, and
+  explicitly NOT for a fare difference on a rebooking
+- International paid seat selection: 「現在、ANAウェブサイトで有料座席指定の取消・変更を
+  承ることができません」 — no online cancellation or change at all, call centre only
+- ANA SKY Coin refunds process without displaying the refund amount
+- Award-ticket weather refunds complete without sending a confirmation email
+- Konbini and Pay-easy leave ana.co.jp entirely for a hosted site, named verbatim as
+  決済代行会社「ウェルネット社」, behind a consent interstitial (STEP5 → STEP6)
+- PayPal is a separate redirect with its own ¥1,000,000 cap
+- Domestic card is 一括払いのみ (lump-sum only); the international table instead links out
+  to a separate "Credit Card Payment Service" page for instalments and revolving
+- Amadeus Altea domestic PSS go-live 2025-05-29; ANA still publicly apologising for
+  system errors on 2026-08-06
+- FY2025 revenue Y2,539.2bn (record); FY2026 operating income guided 217.4bn -> 150.0bn
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The Apple Pay lifecycle asymmetry -> "Apple Pay works for a new booking on your site,
+   but your own footnote says it can't pay the fare difference when someone changes one."
+   MATERIALITY: highest. It is an asymmetry inside their own stack, sourced to their own
+   footnote. It cannot be disputed and it needs no interpretation. This is the voice
+   anchor's strongest move applied exactly.
+2. The offline ancillary refund -> "Paid seat selection on international can't be
+   cancelled or changed on the site at all — your page sends people to the call centre."
+   MATERIALITY: high. A paid ancillary whose refund path is a human being.
+3. Four methods, four paths -> "Konbini and Pay-easy hand off to a separate hosted site,
+   PayPal is its own redirect with a Y1m cap, and cards stay on ANA."
+   MATERIALITY: medium, but it does the bridging work into E2 and it is purely factual.
+
+   DELIBERATELY NOT USED: the wallet gap (JAL is identical — see the Hook), anything
+   about volume or revenue, and anything that reads as a comment on the migration going
+   badly. The migration is CONTEXT, not an accusation.
+
+Bridge variant: C — friction
+Rationale: ANA does have 2+ visible processors and is multi-market, which on paper is
+variant A. But both lead observations are LIFECYCLE friction, not provider count, and
+variant A's "complexity" framing would point the email at the wrong thing. C describes
+what the observations actually show.
+
+Hypothesis for Phase 2 (E3):
+The payment layer looks built per transaction type rather than per booking — so anything
+that happens AFTER the first successful payment tends to fall off the rail it was paid on.
+Backing logic: Apple Pay can open a booking but their own footnote says it cannot amend
+one. A paid international seat can be sold online but not cancelled online. A SKY Coin
+refund completes without showing an amount; an award refund completes without an email.
+Four methods, four paths, and the only one that covers the full lifecycle is the raw card.
+At ANA's passenger volume, every one of those exceptions is a contact-centre minute — and
+FY2026 guides operating income down 31% on revenue guided up.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 on industry (airline, and the only quantified airline case in the library),
+      2 on pattern (Wingo's numbers are approval/retry, my hypothesis is lifecycle).
+      STATED AS SUCH in the email — no pretending it is an exact match.
+Match rationale: it is the one airline case with published numbers, and the
+"1,000+ payment methods through one integration" bullet speaks directly to the lifecycle
+point: a method configured once is available everywhere in the booking's life, not only
+at first purchase.
+Numbers to lead with: +14% approval rate (initial implementation phase) ·
+1,000+ payment methods through one integration · 3DS and fraud tooling in the same layer
+Plus one line naming Qatar Airways, Copa Airlines and Avianca as running on the same
+layer — NO NUMBERS ATTACHED to any of them, ever.
+Optional benchmark: SKIP, twice over. The "~8% average authorisation uplift" is Yuno's
+own blog figure, not third-party evidence. The IATA/EDC "$20.3bn, 2.1% of industry
+revenue" would be the perfect airline hook but the skill file says trace it to the
+IATA/EDC primary source first, and nobody has. Not used.
+
+Touch-by-touch angles:
+- E2 angle: the Apple Pay asymmetry -> ONE mechanism: a single layer above the existing
+  providers where the method and the credential persist across the whole booking — the
+  original sale, the change, the ancillary, the refund — instead of being re-integrated
+  per transaction type
+- LK1 angle: the Apple Pay footnote, one sentence
+- LK2 angle: the payment layer is built per transaction type, not per booking
+- LK3 angle: Wingo — 1,000+ methods through one integration, +14% approval
+- LK4 angle: FRESH — the Singapore Airlines JV. Joint fares launched in May, one
+  commercial JV, two entirely different payment stacks underneath
+- E8 angle: clean exit, offer to circle back once the Altea cutover has settled
+```
+
+**Calendar.** Day 1 anchored to **Monday 28 September 2026** — deliberately *after* Japan's
+Silver Week: **敬老の日 (Respect for the Aged Day) Mon 21 Sep** and **秋分の日 (Autumnal
+Equinox Day) Wed 23 Sep**. One further Japanese public holiday falls inside the send window:
+**スポーツの日 (Sports Day), Mon 12 Oct**. **No send day and no proposed meeting slot falls on
+any of the three**, or on a weekend.
+
+**Times are JST (UTC+9), which is IST+3:30.** Per the rulebook, Japan gets afternoon-local
+slots so they land as late morning for Prateek — every slot below is 14:00–16:00 JST, i.e.
+10:30–12:30 IST.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 28 Sep
+
+**Subject:** Apple Pay on your rebooking flow
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on ANA's payment setup. Three things stood out:
+
+- Apple Pay works for a new booking on your site, but your own footnote says it can't pay the fare difference when someone changes one.
+- Paid seat selection on international can't be cancelled or changed on the site at all — your page sends people to the call centre.
+- Konbini and Pay-easy hand off to a separate hosted site, PayPal is its own redirect with a ¥1m cap, and cards stay on ANA.
+
+That kind of setup usually has some friction worth checking on.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 30 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, nothing gets ripped out.
+- One integration covers every method and every market, so a method enabled once is available everywhere.
+- The routing layer holds the credential, so the same method can carry a booking and then the change, the ancillary and the refund against it.
+- Adding a PSP, an acquirer or a rail becomes a configuration change rather than a project.
+
+On the Apple Pay point specifically — that footnote usually isn't an Apple Pay limitation, it's a sign the wallet was integrated at the point of sale rather than at the booking. Once the method sits in the layer rather than in the checkout, the fare difference is just another auth against the same credential.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 2 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: Apple Pay works for a new booking on ana.co.jp, but your own footnote rules it out for the fare difference on a change. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 6 Oct · NEW EMAIL
+
+**Subject:** Read on your post-purchase payment paths
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that the payment layer was built per transaction type rather than per booking, so anything that happens after the first successful payment falls off the rail it was paid on.
+
+Three things point that way. Apple Pay can open a booking but your footnote says it can't amend one. A paid international seat can be sold online but not cancelled online. And a SKY Coin refund completes without showing the customer an amount.
+
+At your passenger volume every one of those exceptions lands in the contact centre, which is an odd place for cost to sit in a year where operating income is guided down.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing PSPs so a method carries the whole booking lifecycle rather than just the sale — keep your stack, add what's missing.
+
+Thursday is open for me — would 15:00 or 16:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+> **One embedded discovery question is permitted in E3 or E4 only.** It is placed in E4 below,
+> not here — E3 is already carrying the hypothesis and a CTA, and two asks in one email
+> dilute both.
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 8 Oct
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: the payment stack looks built per transaction type rather than per booking, which is why a method can start a booking but not amend one. If that's anywhere on your radar, would Tuesday the 13th at 14:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Tue 13 Oct · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — sharing a quick example of what solved looks like. Different region and a smaller carrier, so I'll be straight that it's a pattern match rather than a like-for-like.
+
+Wingo, the Colombian low-cost carrier, put Yuno above its existing providers:
+
+- +14% approval rate, from the initial implementation phase alone (not too bad, right?)
+- 1,000+ payment methods available through one integration — configured once, live everywhere in the booking
+- 3DS and fraud tooling in the same layer, rather than per-provider
+
+That middle bullet is the one that maps to your setup. Same orchestration layer above their existing stack — no rip-out. Qatar Airways, Copa Airlines and Avianca run on the same layer.
+
+Genuinely curious about one thing: when someone changes an international booking, does the fare difference go back to the original method, or does it start a fresh payment?
+
+Friday the 16th is open — would 14:00 or 15:00 your time work?
+
+Full case here if useful: https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Thu 15 Oct · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle:** an annotated screenshot teardown of the ANA payment page showing the
+> four separate paths side by side, with the Apple Pay footnote circled. Everything needed is
+> already in Section 1 of this file and all of it is first-party. **A Loom walking the
+> international rebooking flow would be stronger still** — it makes the lifecycle argument
+> visible rather than asserted.
+
+#### Touch 8 — Email 6 · Day 15 · Mon 19 Oct · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** the contact-centre cost arithmetic. ANA's own page routes every
+> international paid-seat cancellation to a phone agent; pair that with the FY2026 operating
+> income guidance (¥217.4bn → ¥150.0bn) and let them do the multiplication. **Do not put a
+> number on it ourselves — we don't have their call volumes or their cost per contact, and
+> inventing either would be the one thing that loses this thread.**
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 21 Oct
+
+```text
+Hey {{recipient.first_name}} — Wingo got 1,000+ payment methods through a single integration, configured once and live across the whole booking rather than per transaction type. Worth 15 minutes to see if it maps to your setup? Friday the 23rd at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Fri 23 Oct · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** the **Singapore Airlines joint venture**, with joint fares
+> launched in May. Two carriers now selling a shared commercial product across two entirely
+> different payment stacks. That is a genuinely interesting operational question and it is
+> from ANA's own results release. ⚠️ **Do not state or imply that SQ is a Yuno customer —
+> they are not. SQ runs a competitor's layer, and naming it is forbidden.** The angle is the
+> JV, not the vendor.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Tue 27 Oct
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I keep coming back to: the SQ joint venture sells a shared fare across two completely separate payment stacks. If timing works, Thursday the 29th at 15:30 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Thu 29 Oct · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+Fair guess that a payments conversation is not the priority while the Altéa cutover is still settling. If that's the case, happy to circle back once it has — that's usually when the payment layer's edges become obvious anyway.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist — four things to re-verify before Touch 1 goes out
+
+1. **The international paid-seat restriction is temporary by design.** It is the sharpest line
+   in E1. **Re-load `ana.co.jp/ja/jp/promotion/renewal-2025-2026/special-notice/` on the
+   morning of 28 Sep.** If it has been fixed, swap that bullet for the SKY Coin refund
+   amount-not-displayed defect and check that one too.
+2. **The Apple Pay footnote** — same page-check discipline, on the payment hub.
+3. **Never mention PayPay.** JAL is identical and the reply writes itself. It belongs in a
+   later conversation as a roadmap question, not in this sequence.
+4. **Never name our competitors** — not in the SQ JV touch, not anywhere.
 
 </details>
 

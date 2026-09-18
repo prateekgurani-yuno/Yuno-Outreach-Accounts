@@ -1,6 +1,6 @@
 # China Airlines
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 14 / 29 → 🟢 **Medium**
 **Industry:** Airlines (passenger + unusually cargo-heavy) · **HQ:** Taoyuan, **Taiwan** — China Airlines Ltd, **TWSE 2610** · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Greenfield** — none detected. ⚠️ Weaker basis than most files here: mostly an absence of hits, with one piece of behavioural corroboration (see 3B).
@@ -68,11 +68,315 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach China Airlines` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Two instructions for whoever drafts it:**
-1. **The Oct 2023 outage is the opener** and it is verified. Frame it as an observation about failover, not as a dig at their engineering.
-2. **Do not claim they lack instalments or convenience-store payment.** Both are *unchecked*, not sourced-absent, and instalments in particular would be an embarrassing thing to get wrong in Taiwan. They belong in E3 as a question.
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: Greenfield — BUT SEE THE CAVEAT IN SECTION 3. This is the weakest orchestration
+        call in the repo: mostly an absence of search hits, with the Oct 2023 no-failover
+        outage as the only behavioural corroboration. The sequence is written so that it
+        NEVER asserts "you have no orchestration layer" — every observation is about
+        observed behaviour, not about inferred architecture. If the greenfield call turns
+        out to be wrong, nothing in these emails becomes false.
+
+*** DISAMBIGUATION — GET THIS RIGHT OR THE THREAD IS DEAD ***
+China Airlines is TAIWANESE. Taipei/Taoyuan, TWSE 2610. It is NOT Air China, NOT China
+Eastern, NOT China Southern. Every reference in the sequence must be unmistakably to the
+Taiwanese carrier.
+
+Observable setup facts (verified first-hand, 2026-09-18):
+- OCT 2023: Mastercard authorisation failed on china-airlines.com for roughly 4–5 days
+  while Visa kept working. CI's own stated cause on 20 Oct: they updated their 3-D Secure
+  protocol and 「mastercard沒有更新到」. CS denied a problem on 18 Oct 「都沒人反應」, then
+  acknowledged it on the 20th. The remedy customers were offered: pay by LINE Pay instead
+  and forfeit their card rewards.
+- NOT A ONE-OFF: auth-failure threads recur on PTT's aviation board across 2018, 2020,
+  2023 and 2024. One is titled 「華航網站購票常信用卡授權失敗」 — 常 means frequently.
+- METHOD SCOPING, from CI's own 2022 release: PayPal in nine NAMED markets; LINE Pay on
+  Taiwan-departing flights and the eMall only, Taiwan-issued cards only; UnionPay, WeChat
+  Pay and Alipay on mainland-China departures only.
+- Estate: at least three booking front ends, a standalone refund portal, a separate
+  e-shop domain, plus Tigerair Taiwan and Mandarin Airlines on their own sites.
+- FY2025 consolidated revenue NT$209.09bn. Roughly a third is CARGO — invoiced B2B and
+  largely outside a card checkout. This must be said out loud on any call.
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The no-failover pattern -> "In October 2023 Mastercard auth failed on your site for
+   about five days while Visa kept working, and the fix offered to customers was to pay
+   another way. Similar reports show up on PTT in 2018, 2020 and 2024 too."
+   MATERIALITY: highest. Verified from a fetched customer thread including CI's own
+   stated cause. The 2018/2020/2024 recurrence is what makes a 2023 event current rather
+   than stale — WITHOUT IT THIS BULLET IS THREE YEARS OLD AND SHOULD NOT BE SENT.
+2. Per-market method scoping -> "PayPal is live in nine named markets, LINE Pay only on
+   Taiwan-departing flights, and UnionPay, WeChat Pay and Alipay only on mainland-China
+   departures."
+   MATERIALITY: high, and it is their own announcement. Every method scoped to a route
+   or a market rather than available to a customer.
+
+   HELD AT 2. The multi-front-end estate is saved for LK4; the cargo caveat and the
+   group-carrier question go to the manual touches.
+
+Bridge variant: C — friction
+Rationale: NOT A — I cannot evidence multi-PSP complexity because I cannot name a single
+PSP. NOT B — "single visible PSP" requires a visible PSP and there is none. The
+observations are real customer-facing friction that does not cleanly map to either
+structural story, which is precisely what C exists for.
+
+Hypothesis for Phase 2 (E3):
+Methods look like they were added per market and per route rather than per customer, and
+there is no visible fallback when one path degrades — so a single-point failure becomes a
+customer-facing outage and the only remedy on offer is manual.
+Backing logic: one scheme's 3DS mismatch took card acceptance down for days while the
+other scheme was unaffected, which is what a stack without an alternate path looks like
+from the outside. The remedy CI offered — pay by LINE Pay and lose your card rewards —
+was a customer-executed workaround, not a system one. And the same complaint recurs
+across four separate years.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 — airline, AND the mechanism matches the hypothesis exactly. Yuno's own wording
+      for Wingo is "automatic retries of failed payments through multiple providers",
+      which is the direct answer to a single-path failure. This is the rare case where
+      the industry match and the pattern match are the same case.
+Numbers to lead with: +14% approval rate (stated as initial implementation phase) ·
+1,000+ payment methods through one integration · 3DS and fraud tooling in the same layer
+The 3DS bullet is deliberately third and deliberately included — CI's 2023 outage was
+caused by a 3DS protocol update.
+Plus one line naming Qatar Airways, Copa Airlines and Avianca — NO NUMBERS, ever.
+Optional benchmark: SKIP. The "~8% average authorisation uplift" is Yuno's own blog
+figure, and the IATA/EDC $20.3bn figure is untraced to primary source per our own skill
+file.
+
+Touch-by-touch angles:
+- E2 angle: the no-failover pattern -> ONE mechanism: automatic failover to an alternate
+  path when a provider or a scheme route degrades, so recovery is systemic not manual
+- LK1 angle: the Oct 2023 five-day single-scheme failure, one sentence
+- LK2 angle: methods per market and per route, with no visible fallback
+- LK3 angle: Wingo — automatic retries across multiple providers, +14%
+- LK4 angle: FRESH — three booking front ends, a standalone refund portal, a separate
+  e-shop domain, and two subsidiary carriers on their own sites
+- E8 angle: clean exit, offer to circle back
+
+*** THINGS THIS SEQUENCE MUST NEVER CLAIM ***
+- That CI lacks card instalments (分期). UNCHECKED, not sourced-absent. Instalments are
+  the dominant mechanic for high-ticket travel in Taiwan and being wrong about it would
+  be humiliating. It appears ONCE, as the embedded discovery question in E3.
+- That CI lacks 超商代收 (convenience-store cash) or ATM transfer. Same reason.
+- That CI lacks Apple Pay or Google Pay. Unchecked.
+- Any PSP or acquirer name. Zero were identified.
+- That Tigerair and Mandarin run separate stacks. Strongly implied, not verified.
+- Any USD conversion of NT$209.09bn taken from Taipei Times — their figure is off by
+  roughly 10x. Use the NTD number or nothing.
+```
+
+**Calendar.** Day 1 anchored to **Monday 19 October 2026**, clearing **National Day
+(Double Ten, 10 Oct)** and any substitute weekday around it, plus the Mid-Autumn period,
+rather than threading between them.
+
+> ⚠️ **Taiwanese public holidays are partly lunar-dated and I have not verified the 2026
+> calendar.** No holiday is known to fall inside 19 Oct – 18 Nov, but **check the DGPA's
+> published 2026 calendar before Touch 1 goes out.**
+
+**Times are Taiwan time (UTC+8), which is IST+2:30.** Slots run 14:00–16:00 local, i.e.
+11:30–13:30 IST.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 19 Oct
+
+**Subject:** Single-scheme outage on your booking flow
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on China Airlines' payment setup. Two things stood out:
+
+- In October 2023 Mastercard authorisation failed on your site for about five days while Visa kept working, and the fix offered to customers was to pay another way. Similar reports show up on PTT in 2018, 2020 and 2024 as well.
+- PayPal is live in nine named markets, LINE Pay only on Taiwan-departing flights, and UnionPay, WeChat Pay and Alipay only on mainland-China departures.
+
+That kind of setup usually has some friction worth checking on.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 21 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, nothing gets ripped out.
+- When a provider or a scheme route starts degrading, traffic moves to an alternate path automatically rather than waiting on a fix.
+- Routing is per BIN, market and method, so one scheme's behaviour doesn't decide whether the checkout works.
+- One integration to add a PSP, an acquirer, a rail or a method.
+
+On the 2023 event specifically — the interesting part isn't that a 3DS update went out of step, that happens to everyone. It's that there was no second path for the traffic to take while it was fixed, so the recovery had to be the customer changing payment method.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 23 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: in Oct 2023 Mastercard auth was down on china-airlines.com for about five days while Visa was fine, and the remedy offered was to pay by another method. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 27 Oct · NEW EMAIL
+
+**Subject:** Read on your failover path
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that methods were added per market and per route rather than per customer, and that there's no visible fallback when one path degrades.
+
+The 2023 event is the clearest signal. One scheme's 3DS mismatch took card acceptance down for days while the other scheme was unaffected, and the remedy on offer was a customer-executed workaround rather than a system one. The same complaint then recurs across four separate years.
+
+None of that reads as anyone doing it badly — it reads as a stack with one path per method.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing PSPs so traffic can move when a path degrades — keep your stack, add what's missing.
+
+One thing I genuinely don't know and couldn't establish from outside: does your own checkout offer 分期付款, or do customers get instalments only through their issuing bank?
+
+Thursday is open for me — would 15:00 or 16:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 29 Oct
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: the methods look scoped per market and per route, with no visible fallback when one path degrades. If that's anywhere on your radar, would Monday the 2nd at 14:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 2 Nov · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — sharing an example of what solved looks like. Wingo is a Colombian low-cost carrier, so a different region and a smaller operation, but the mechanism is the one that matters here.
+
+They put Yuno above their existing providers:
+
+- +14% approval rate, from the initial implementation phase alone (pretty solid, right?)
+- Automatic retries of failed payments through multiple providers, rather than a customer-executed workaround
+- 1,000+ payment methods and 3DS handled in the same layer
+
+That last point is the one I'd underline given 2023 — when 3DS sits in the routing layer rather than per-provider, a protocol mismatch on one scheme stops being a site-wide event.
+
+Same orchestration layer above their existing stack — no rip-out. Qatar Airways, Copa Airlines and Avianca run on the same layer.
+
+Wednesday the 4th is open — would 15:30 your time work?
+
+Full case here if useful: https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Wed 4 Nov · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle:** the honest scoping map. Take CI's own 2022 release and lay out which
+> method is available on which departure — PayPal in nine named markets, LINE Pay Taiwan-departing
+> only and Taiwan-issued cards only, UnionPay/WeChat/Alipay mainland-departing only — against
+> their route map. **Entirely their own published material.** ⚠️ **Leave the unchecked rails
+> (分期, 超商代收, ATM transfer, Apple Pay, Google Pay) off the map entirely rather than
+> marking them absent.**
+
+#### Touch 8 — Email 6 · Day 15 · Fri 6 Nov · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** the cargo honesty move. Roughly a third of CI's revenue is freight,
+> invoiced B2B and largely outside a card checkout. **Saying that out loud, unprompted, before
+> they have to** is the single most credibility-building thing available on this account — it
+> shows we read the results rather than the headline revenue number. Then scope the
+> conversation to the passenger and eMall side deliberately.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Tue 10 Nov
+
+```text
+Hey {{recipient.first_name}} — Wingo got +14% approval by retrying failed payments automatically across multiple providers, instead of asking the customer to switch method. Worth 15 minutes to see if it maps to your setup? Thursday the 12th at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Thu 12 Nov · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** the group question. CI, **Tigerair Taiwan** and **Mandarin
+> Airlines** each run their own domain and their own FAQ. ⚠️ **Ask whether the payment stacks
+> are shared — do not assert that they aren't.** Separate stacks are strongly implied and
+> completely unverified, and asserting it invites a one-word correction.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 16 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I kept running into: there are at least three separate booking front ends on china-airlines.com plus a standalone refund portal. If timing works, Wednesday the 18th at 16:00 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 18 Nov · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+Entirely possible payments isn't where the attention is right now, and that's fair. If timing's just off, happy to circle back next quarter.
+
+If it ever comes back up, just reply here — and if payments sits with someone else, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist — six things before Touch 1 goes out
+
+1. ⛔ **China Airlines is TAIWANESE.** Not Air China, not China Eastern, not China Southern.
+   Check every reference and check the recipient's own title and entity.
+2. ⛔ **Never claim they lack instalments, 超商代收, ATM transfer, Apple Pay or Google Pay.**
+   All unchecked. Instalments appear exactly once, as a question, in E3.
+3. ⛔ **Never assert "you have no orchestration layer."** The greenfield call here is the
+   weakest in the repo. Every observation in this sequence is about observed behaviour, so
+   none of it breaks if the call is wrong.
+4. ⛔ **Never name a PSP or acquirer.** Zero were identified.
+5. ⚠️ **The 2018/2020/2024 recurrence is load-bearing.** Without it the opener is a
+   three-year-old incident. **Re-check the PTT threads are still reachable before send.**
+6. ⚠️ **Verify the 2026 Taiwanese public holiday calendar.** Partly lunar-dated, unverified.
 
 </details>
 
