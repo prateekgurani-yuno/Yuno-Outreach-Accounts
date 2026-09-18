@@ -1,6 +1,6 @@
 # Amorepacific
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 17 / 29 → ⭐ **High Priority** — earned on arithmetic, no override applied
 **Industry:** Cosmetics manufacturer and brand owner (Sulwhasoo, Laneige, Innisfree, Etude, Hera, COSRX) · **HQ:** Seoul, South Korea · **Listed:** Amorepacific Corporation, KRX **090430** · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Greenfield** — and unusually so: **four separate payment estates with nothing shared between them.** Classification is affirmative, verified by me from three live payment-config endpoints.
@@ -61,9 +61,291 @@ FY2024 direction: **Americas +83%, and it "surpassed Greater China to become the
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Amorepacific` to draft the 12-touch sequence — **after reading the volume warning at the top of this file.***
+### Pain Vector Extraction
 
-**Instruction for whoever drafts it:** lead on **fragmentation**, never on volume. The observation that writes itself is the wallet asymmetry in 3C — it is their own configuration, it is machine-readable, and it is not arguable.
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: Greenfield — none detected, affirmatively. Phase 1 may note the absence of a
+        routing layer. But the framing is FRAGMENTATION, never volume (see the warning
+        at the top of this file).
+
+Observable setup facts (verified first-hand, 2026-09-18):
+- global.amoremall.com/payments/config returns applePayConfig:null, shopifyPayConfig:null,
+  googlePayConfig:null, amazonPayCv2Config:null — and paypalConfig present
+- the SAME response carries dynamicCheckoutPrioritization:
+  ["ApplePay","ShopifyPay","PayPal","AmazonPayCv2","GooglePay"] — it is configured to lead
+  with two wallets that are switched off
+- us.laneige.com (shopId 25501892660) and us.sulwhasoo.com (shopId 24983994413) both carry
+  Apple Pay, Google Pay and Shop Pay, with applePayConfig.shopifyPaymentsEnabled = true
+- Korea runs a separate in-house mall on KG Inicis; Korean brand sites run on Cafe24
+- Cross-border runs PayPal + Eximbay; each Western brand has its own Shopify Payments account
+- Domestic 55.2% / overseas 43.8%; Americas now the largest overseas market; Greater China
+  -13.5% YoY and under active offline rationalization
+- Brazil and South Africa named as new cross-border entries in the 1Q26 deck
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The wallet asymmetry → "Your US brand stores lead checkout with Apple Pay, Google Pay and
+   Shop Pay. Your cross-border mall is configured to lead with Apple Pay and Shop Pay too,
+   and neither is switched on."
+   MATERIALITY: highest. Machine-readable from their own endpoints, both halves. It cannot
+   be disputed and it needs no interpretation.
+2. Four estates → "Korea runs on one provider, cross-border on another, and each Western
+   brand store has its own separate merchant account."
+   MATERIALITY: high. It is the structural fact the whole account rests on.
+
+   (Held at 2. Deliberately NOT used: anything about volume, revenue or scale.)
+
+Bridge variant: A — complexity
+Rationale: multi-provider and multi-market is established first-hand, not inferred. Four
+named providers across five platforms. Variant A describes that shape without projecting
+pain, which Phase 1 forbids.
+
+Hypothesis for Phase 2 (E3):
+Each brand and each region is its own payment island, so nothing is shared — no common
+vault, no common reporting, no common routing. A shopper who buys Laneige in the US and
+Sulwhasoo cross-border is two unrelated customers to the payment stack.
+Backing logic: three separate Shopify shop IDs with three independently-configured stacks,
+plus KG Inicis and Cafe24 in Korea. Every new market entry — Brazil and South Africa are
+named in their own 1Q26 deck — lands on whichever estate happens to serve it.
+
+Success case for Phase 3 (E4):
+Selected case: Rappi
+Tier: 2 — same payment pattern (multi-country, multi-brand, heavy provider and method
+breadth, operational reconciliation load), different industry and region. Stated in the email.
+Match rationale: no Tier 1 exists. There is no cosmetics or Korean case in the library.
+Rappi is the library's operational-burden case and is the closest to a merchant carrying
+several parallel estates.
+Numbers to lead with: zero implementation delays · hundreds of payment methods through one
+integration · 80% less analyst work
+Optional benchmark: SKIP. The "~8% average authorisation uplift" is Yuno's own blog figure,
+not third-party evidence, and this sequence is not an approval-rate argument anyway.
+
+Touch-by-touch angles:
+- E2 angle: the four estates → unified reconciliation + a single routing layer (one mechanism)
+- LK1 angle: the wallet asymmetry, one sentence
+- LK2 angle: each brand and region is its own payment island
+- LK3 angle: Rappi cut analyst work 80% without changing providers
+- LK4 angle: FRESH — Brazil and South Africa are named in their own 1Q26 deck
+- E8 angle: clean exit, offer to circle back after FY2026 results
+```
+
+**Calendar.** Day 1 anchored to **Monday 28 September 2026** — deliberately *after* **Chuseok
+(24–26 Sep)**. Korean holidays inside the send window: **Mon 5 Oct** (substitute for National
+Foundation Day, 3 Oct falling on a Saturday) and **Fri 9 Oct** (Hangeul Day). **No send day
+and no proposed meeting slot falls on either**, or on a weekend.
+
+**Times are KST (UTC+9), which is IST+3:30.** Per the rulebook, Korea gets afternoon-local
+slots so they land as late morning for Prateek — every slot below is 14:00–16:30 KST,
+i.e. 10:30–13:00 IST.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 28 Sep
+
+**Subject:** Wallets on your cross-border mall
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on Amorepacific's payment setup. Two things stood out:
+
+- Your US brand stores lead checkout with Apple Pay, Google Pay and Shop Pay. Your cross-border mall is configured to lead with Apple Pay and Shop Pay too, and neither is switched on.
+- Korea runs on one provider, cross-border on another, and each Western brand store sits on its own separate merchant account.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 30 Sep · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, nothing gets ripped out.
+- One integration covers every brand and every region, so a method enabled once is available everywhere.
+- Settlement, refunds and disputes from every provider land in one ledger.
+- Adding a PSP, an acquirer or a wallet becomes a configuration change rather than a project.
+
+On the four estates specifically, the part that matters is the reconciliation layer. Today Korea, cross-border and each Western brand report separately, so there is no single view of a customer or a settlement. That is the piece that collapses first.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 2 Oct
+
+```text
+Hey {{recipient.first_name}} — dropped you a note over email, flagging it here too in case this is the easier channel. Quick one: your US brand stores lead checkout with Apple Pay, Google Pay and Shop Pay, and your cross-border mall is set up to lead with Apple Pay and Shop Pay but has neither enabled. Curious whether that's deliberate or just where the roadmap landed.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · ~~Sun 4 Oct~~ · ~~Mon 5 Oct — National Foundation Day substitute~~ → **send Tue 6 Oct** · NEW EMAIL
+
+**Subject:** Four payment estates, nothing shared
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that each brand and each region is its own payment island: Korea on one provider, cross-border on another, and every Western brand store on its own separate merchant account.
+
+Which means nothing is shared across them. No common vault, no common reporting, no common routing. Someone who buys Laneige in the US and Sulwhasoo cross-border is two unrelated customers to the payment stack, and every new market lands on whichever estate happens to serve it.
+
+When a new market goes live, does payments sit with the regional team or with a central group?
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing providers, so the brands stay where they are and the layer above them becomes one. Keep your stack, add what's missing.
+
+Thursday 8 October is open. Would 2pm or 4pm your time work for a quick 15?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · ~~Tue 6 Oct — taken by the shifted E3~~ → **send Wed 7 Oct**
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: every brand and every region looks like its own payment island, so nothing is shared between them — not the vault, not the reporting, not the routing. If that's anywhere on your radar, would Monday 12 or Tuesday 13 October at 3pm your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Thu 8 Oct · NEW EMAIL
+
+**Subject:** How Rappi solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week. Sharing a quick example of what solved looks like.
+
+Rappi runs multiple brands and verticals across a lot of countries, with a different provider mix in most of them. They put Yuno above the existing stack rather than replacing it. What that produced:
+
+- Zero implementation delays on new payment integrations
+- Hundreds of payment methods reachable through one integration
+- 80% less analyst work on reconciliation (that one surprised me too)
+
+Worth saying plainly: Rappi is a Latin American super app, not a beauty group, so this is a payment-pattern match rather than an industry one. What carries over is the shape — several parallel estates, each with its own provider and its own reporting, and the reconciliation load that creates.
+
+Same orchestration layer above their existing stack. No rip-out.
+
+Wednesday 14 October is open. Would 2.30pm or 4.30pm your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/success-cases/rappi
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · ~~Sat 10 Oct~~ → **send Mon 12 Oct** · MANUAL
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+> **Strongest asset available:** a side-by-side screenshot of the three `/payments/config`
+> responses. `global.amoremall.com` with four `null` wallet configs next to `us.laneige.com`
+> and `us.sulwhasoo.com` with all three enabled. It is their own data, it takes ten seconds
+> to read, and it makes the point without a sentence of argument.
+
+#### Touch 8 — Email 6 · Day 15 · ~~Mon 12 Oct — taken by the shifted E5~~ → **send Tue 13 Oct** · MANUAL
+
+*Placeholder — second manual approach, different format from E5.*
+
+> **Suggested angle: the China contraction.** Greater China fell **13.5% YoY** and is under
+> explicit *"offline channel rationalization"* in their own 1Q26 deck, while **Americas
+> became the largest overseas market**. A short written note on what shifting weight from
+> China to the Americas and EMEA does to a payment estate that was built region by region.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 14 Oct
+
+```text
+Hey {{recipient.first_name}} — Rappi cut reconciliation analyst work by 80% without changing a single provider, just by putting one layer above them. Worth 15 minutes to see whether that maps to your setup? Monday 19 October at 3.30pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Fri 16 Oct · MANUAL
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+> **Freshest hook:** their own 1Q26 deck names **Brazil and South Africa** as new cross-border
+> entries, plus **IOPE into the Americas** and **Aestura into Europe and Sephora**. Four new
+> market entries landing on an estate that already has four providers. That is the
+> expansion-readiness conversation, and it is dated and first-party.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · ~~Sun 18 Oct~~ → **send Mon 19 Oct**
+
+```text
+Hey {{recipient.first_name}} — last LinkedIn ping from me on this. One thing I never raised: your own 1Q26 deck names Brazil and South Africa as new cross-border markets, on top of IOPE into the Americas. Four new entries across an estate that already runs four providers. If timing works, Thursday 22 October at 2pm your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Tue 20 Oct · REPLY IN THREAD to Touch 4 or Touch 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back once your FY2026 results land. And if payments sits with someone else on your side, happy to be pointed there.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### CTA schedule — five distinct slots, all KST
+
+| Touch | Sent | Proposed slot(s) | KST → IST |
+|---|---|---|---|
+| E3 | Tue 6 Oct | **Thu 8 Oct, 14:00 or 16:00** | 10:30 / 12:30 IST |
+| LK2 | Wed 7 Oct | **Mon 12 or Tue 13 Oct, 15:00** | 11:30 IST |
+| E4 | Thu 8 Oct | **Wed 14 Oct, 14:30 or 16:30** | 11:00 / 13:00 IST |
+| LK3 | Wed 14 Oct | **Mon 19 Oct, 15:30** | 12:00 IST |
+| LK4 | Mon 19 Oct | **Thu 22 Oct, 14:00** | 10:30 IST |
+
+No slot falls on **5 Oct** or **9 Oct**, the two Korean public holidays in the window, or on a
+weekend. No booking link anywhere, by decision — the reply is the booking.
+
+---
+
+### Source Notes
+
+- ✅ **Every Phase 1 observation was verified by me first-hand** on 2026-09-18 from three live `/payments/config` endpoints. Both halves of the wallet asymmetry are machine-readable from Amorepacific's own responses.
+- ✅ **The `dynamicCheckoutPrioritization` array is verbatim** — `["ApplePay","ShopifyPay","PayPal","AmazonPayCv2","GooglePay"]` — sitting in the same response as four `null` wallet configs.
+- ✅ **KG Inicis** from their own Korean footer escrow disclosure; **Eximbay + PayPal** from `global.amoremall.com/pages/faqs`.
+- ✅ **Korean public holidays checked at source.** Chuseok 24–26 Sep, National Foundation Day substitute Mon 5 Oct, Hangeul Day Fri 9 Oct. Day 1 was moved to 28 Sep specifically to clear Chuseok.
+- ✅ **Rappi is Tier 2 and E4 says so outright.** No implication that the results came from Asia.
+- ⚠️ **No volume claim appears anywhere in the sequence.** This is deliberate and non-negotiable — see the warning at the top of this file. No revenue figure, no transaction count, no "you process X".
+- ⚠️ **No recipient identified.** All twelve touches use `{{recipient.first_name}}`. The likely owner is a group digital or e-commerce lead rather than a brand-level marketer — the fragmentation argument only lands with someone who sees more than one estate.
+- ❌ **Benchmark omitted from E4.** The "~8% authorisation uplift" is Yuno's own blog figure and this is not an approval-rate argument.
+- ❌ **Not used, deliberately:** the "Amorepacific Holdings" rename (aggregator-only and contradicted by their own site), the COSRX deal terms (search-summary only), and "over 40% of global sales from e-commerce" (exists in no IR document).
+
+### Success Case Alternatives
+- **inDrive** — 50+ countries, ~90% approval, 10 new countries in under 8 months. Better swap if the conversation turns to **market entry** (Brazil, South Africa, IOPE Americas) rather than reconciliation load.
+- **McDonald's / Arcos Dorados** — unified processing across 21 countries. The closest structural analogue to a multi-brand group with regional estates, but no public link and no published metrics, so it cannot carry an E4.
+- **Livelo** — use only if discovery reveals declines with no failover. Nothing in this research points there yet.
 
 </details>
 
