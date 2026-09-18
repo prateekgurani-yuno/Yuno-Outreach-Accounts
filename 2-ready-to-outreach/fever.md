@@ -1,6 +1,6 @@
 # Fever
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 16 / 29 → 🟢 **Medium**
 **Industry:** Live-entertainment discovery & ticketing marketplace (Candlelight, immersive experiences) · **HQ:** ⚠️ **Fever Labs Inc., Delaware / New York** — *not Madrid* · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** ⚠️ **COMPETITIVE — a global orchestrator is already in production.** Not greenfield. Read 3B before drafting a single line.
@@ -100,16 +100,303 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Fever` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Five instructions for whoever drafts it — this one is high-risk and needs care:**
-1. ⛔ **MOTION IS COMPETITIVE. Never imply they lack orchestration.** They run ProcessOut in production. The `/full-outreach` rule is to proceed only where research surfaced a concrete gap — **it did, and it is unusually clean: orchestration in production and zero local rails across nine live APAC markets.** The pitch is *"your orchestration isn't reaching APAC"*, never *"you need orchestration."*
-2. ⛔ **NEVER NAME THE INCUMBENT.** Not ProcessOut, not Checkout.com, not Nuvei. Naming it turns this into a vendor bake-off and breaks the rulebook.
-3. **Open on the Korea asymmetry.** It is inside their own stack, it is machine-verifiable, and it needs no external benchmark.
-4. **Get the entity right.** Fever Labs Inc., Delaware/NY. **Do not write "Madrid-based."**
-5. **The payout leg is the underweighted second wedge** — monthly settlement to APAC organizers in nine currencies. Most orchestration pitches ignore payouts; this one shouldn't.
+```
+=== PAIN VECTOR EXTRACTION ===
 
-**Never claim:** that Fever uses PayU (the field is inside the Nuvei object), that Apple Pay is absent (unresolved), any APAC revenue share (not disclosed — **do not fabricate one**), or the Trustpilot double-charge pattern as fact (see Source Notes).
+Motion: COMPETITIVE — a global orchestrator is live in production. This is the
+        hardest motion in the rulebook, and it only proceeds because research
+        surfaced a concrete gap. It did, and it is unusually clean:
+        ORCHESTRATION IN PRODUCTION, ZERO LOCAL RAILS IN NINE APAC MARKETS.
+        The pitch is "your orchestration isn't reaching APAC."
+        It is NEVER "you need orchestration." NEVER name the incumbent.
+
+Observable setup facts (verified first-hand, 2026-09-18):
+- Gateway config byte-identical on /en/seoul and /en/singapore:
+  nuvei (prod) · paypal · checkout (pk_ypka...) · googlePay (PRODUCTION) ·
+  processOut (riskEnvironment PRODUCTION) · forter
+- "paymentMethods":[]  — an empty array, on every APAC city page
+- Seoul page: 7 Kakao refs + 7 Naver refs, EVERY ONE OAuth
+  (kauth.kakao.com/oauth/authorize, nid.naver.com/oauth2.0/authorize,
+  populated WEBCLIENT_KAKAO_CLIENT_ID and WEBCLIENT_NAVER_CLIENT_ID)
+- KakaoPay / Naver Pay / Toss Pay / PAYCO / Samsung Pay: ZERO occurrences
+- Local-currency base pricing verified: KRW 199 hits on Seoul, 0 on Singapore;
+  SGD 421 on Singapore, 0 on Seoul
+- Nine live APAC markets, ~800 live ticketed events across 13 cities
+- Terms, verbatim: Fever "acts as the Organizer's limited agent solely for the
+  purpose of using its third-party payment providers to collect payments ...
+  and passing such payments through to the applicable Organizer"
+- Terms also warn of "fees for purchasing tickets and registrations in foreign
+  currencies or from foreign persons" and "credit card surcharges and currency
+  conversion rates"
+- Entity: Fever Labs Inc., Delaware, offices 50 Greene St, New York
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The Korea asymmetry -> "Your Seoul site ships Kakao and Naver login, fully
+   configured, and prices in won. The checkout is cards, Google Pay and PayPal."
+   MATERIALITY: highest by a distance. It is an asymmetry entirely inside their
+   own stack — they localized the front door and not the till — it is
+   machine-verifiable from their own production page, and it requires no
+   external benchmark and no claim about their vendors.
+2. The identical-config observation -> "The payment config your Seoul, Singapore,
+   Tokyo and Mumbai pages serve is the same one, with no market-specific method
+   in it."
+   MATERIALITY: high, and it is the one that opens the real conversation without
+   ever saying the word orchestration.
+
+   HELD AT 2. The payout leg is saved for E7 and the India/UPI point for LK4.
+
+Bridge variant: SKIP the bridge.
+Rationale: the rulebook says skip when the observations already do the bridging
+work. These two do exactly that — "same config everywhere, localized login, no
+local rail" IS the bridge. And every stock bridge line risks implying an absence
+of routing, which would be factually wrong here and would end the thread.
+
+Hypothesis for Phase 2 (E3):
+The routing layer is doing its job on the acquiring side and has never been
+pointed at local methods, because adding an APM is a commercial and compliance
+project per market rather than a routing decision.
+Backing logic: nine markets, local-currency pricing in all of them, Korean
+social login shipped, a second brand for India — and one identical global
+payment config. That is not a team that ignored APAC. It is a team whose
+payment layer reaches every market and whose method coverage doesn't.
+
+Success case for Phase 3 (E4):
+Selected case: Rappi
+Tier: 2 — same payment pattern (marketplace, many markets, two-sided money
+      movement, heavy method breadth), different industry and region. STATED.
+Match rationale: DELIBERATELY NOT an approval-rate case. Fever already has
+routing; proving routing lifts approval tells them nothing they don't know.
+Rappi's "hundreds of payment methods through one integration" and "zero
+implementation delays" speak to METHOD REACH and TIME-TO-MARKET per market,
+which is the actual gap.
+Numbers: hundreds of payment methods through one integration · zero
+implementation delays on new methods and markets · 80% less analyst work
+Optional benchmark: SKIP. The ~8% figure is Yuno's own blog and would be a
+bad look quoted at a team that already runs smart routing.
+
+Touch-by-touch angles:
+- E2 angle: the Korea asymmetry -> ONE mechanism: local methods added as
+  configuration in markets where the layer already runs, rather than as a
+  per-market commercial and compliance project
+- LK1 angle: Kakao login, no KakaoPay, one sentence
+- LK2 angle: the layer reaches every market, the method coverage doesn't
+- LK3 angle: Rappi — hundreds of methods on one integration, zero delays
+- LK4 angle: FRESH — three Indian cities, INR pricing, a dedicated brand, no UPI
+- E8 angle: clean exit
+
+*** ABSOLUTE PROHIBITIONS ON THIS ACCOUNT ***
+- NEVER "you need orchestration" / "you have no routing layer." Factually wrong.
+- NEVER name ProcessOut, Checkout.com, Nuvei, Forter or any incumbent. The
+  rulebook forbids naming an incumbent and it would turn this into a bake-off.
+- NEVER say "Madrid-based." The entity is Fever Labs Inc., Delaware/NY.
+- NEVER claim they use PayU. The field sits inside the Nuvei object.
+- NEVER claim Apple Pay is absent. Genuinely unresolved.
+- NEVER cite an APAC revenue share. None is disclosed.
+- NEVER cite the Trustpilot duplicate-charge pattern until someone verifies it.
+```
+
+**Calendar.** Day 1 anchored to **Monday 19 October 2026**, clearing **Fiesta Nacional de
+España (Mon 12 Oct)**. **All Saints (Sun 1 Nov)** falls on a weekend; Day 11 is placed on
+**Tue 3 Nov** rather than Mon 2 Nov as a hedge against a regional substitute day.
+
+> ⚠️ **TIME ZONE ASSUMPTION — CHECK BEFORE SENDING.** Slots below are **CET (UTC+1)**, on the
+> assumption the payments owner sits in **Madrid**, which is Fever's engineering hub and
+> largest office. **The contracting entity is in New York.** If the contact turns out to be
+> US-based, **every slot in this sequence needs redoing** — 10:00 CET is 04:00 in New York.
+> Confirm location from LinkedIn before Touch 1.
+
+Slots run **10:00–11:00 CET = 14:30–15:30 IST**, which works comfortably for both.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 19 Oct
+
+**Subject:** Kakao login, no Kakao Pay
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on Fever's payment setup across your Asian cities. Two things stood out:
+
+- Your Seoul site ships Kakao and Naver login, fully configured, and prices in won. The checkout is cards, Google Pay and PayPal.
+- The payment config your Seoul, Singapore, Tokyo and Mumbai pages serve is the same one, with no market-specific method in it.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 21 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above whatever you're routing through today. Additive, and nothing you've built gets touched.
+- A local method becomes a configuration change in a market where your layer already runs, rather than its own commercial and compliance project.
+- One integration covers the method, the settlement currency and the reporting, so adding KakaoPay in Korea doesn't mean a new relationship to manage.
+- The same applies to payouts on the other side.
+
+To be clear about what I'm not saying: you're plainly not missing a routing layer. What I'd be curious about is the per-market method work — that's usually the bit that doesn't scale with the number of cities, because each one is a separate commercial conversation rather than a technical one.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 23 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: feverup.com/en/seoul ships fully-configured Kakao and Naver login and prices in KRW, and the checkout is cards, Google Pay and PayPal. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 27 Oct · NEW EMAIL
+
+**Subject:** Read on your APAC method coverage
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that your routing layer reaches every market you sell in and your method coverage doesn't, because adding a local method is a commercial and compliance project per market rather than a routing decision.
+
+What points that way is how deliberate everything else is. Nine Asian markets with local-currency base pricing. Korean-language product and Korean social login. A separate brand for India. That is not a team that overlooked the region — it's a team whose payment layer got there and whose method set didn't.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above what you already route through, so a local method is configuration in a market where the layer is already live — keep your stack, add what's missing.
+
+Thursday is open for me — would 10:00 or 11:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 29 Oct
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: the layer reaches all nine of your Asian markets and the method coverage doesn't, which usually means each local rail is its own commercial project rather than a config change. If that's anywhere on your radar, would Tuesday the 3rd at 10:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Tue 3 Nov · NEW EMAIL
+
+**Subject:** How Rappi solved the per-market method problem
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — an example of what solved looks like. Rappi is a marketplace rather than a ticketing platform and it's Latin America rather than Asia, so I'll be straight that it's a pattern match: many markets, many methods, and money moving in both directions.
+
+They put Yuno above their existing routing:
+
+- Hundreds of payment methods live through one integration
+- Zero implementation delays on new methods and new markets (you read that right)
+- 80% less analyst work on payment operations
+
+I've picked this one deliberately over our approval-rate cases. You already route; proving that routing lifts approval would be telling you something you know. The bullet that matters here is the second one — the gap between deciding to add a rail and having it live.
+
+Same layer above what they already had — no rip-out.
+
+One thing I'm genuinely curious about: when you decided to ship Kakao and Naver login for Korea, was Kakao Pay considered in the same piece of work, or is payment method coverage a separate track entirely?
+
+Thursday the 5th is open — would 11:00 your time work?
+
+Full case here if useful: https://y.uno/success-cases/rappi
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Thu 5 Nov · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle: the payout leg, which most orchestration pitches ignore.** Fever's own
+> Terms say it acts as *"the Organizer's limited agent"* to collect and pass payments through
+> to organizers. That means **monthly settlement to event partners across nine APAC
+> currencies**, funded by a card-centric collection stack and entangled with their
+> event-financing arm, where recoupment comes out of ticketing settlement. **Ask about FX and
+> payout latency on the Asia leg.** ⚠️ **Ask — do not assert.** We have no visibility into
+> their payout mechanics.
+
+#### Touch 8 — Email 6 · Day 15 · Mon 9 Nov · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** a nine-row table — one per live APAC market — with the local rail that
+> dominates it in one column and what their checkout offers in the other. Built entirely from
+> their own city pages. **The second column being identical nine times over is the whole
+> point and needs no commentary.**
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 11 Nov
+
+```text
+Hey {{recipient.first_name}} — Rappi got to zero implementation delay on new methods and markets, on top of routing they already had. Worth 15 minutes to see if it maps to your setup? Friday the 13th at 10:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Fri 13 Nov · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** the **India second brand**. Three Indian cities, INR pricing, a
+> dedicated storefront under a separate marketplace channel — and the same global payment
+> config. **UPI is not a nice-to-have in India; it is most of the market.** ⚠️ **Frame as a
+> question about whether the second brand was a distribution decision or a payments one** —
+> that is genuinely interesting and not a criticism.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Tue 17 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. The one that stuck with me: three Indian cities, INR pricing, a dedicated brand, and no UPI in the checkout config. If timing works, Thursday the 19th at 11:00 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Thu 19 Nov · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+Entirely possible APAC method coverage is a known item that's just sitting behind other things — that would be a completely reasonable place for it to be. If timing's just off, happy to circle back next quarter.
+
+If it ever comes back up, just reply here — and if this sits with someone else, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist — this is the highest-risk sequence in the batch
+
+1. ⛔ **Never imply they lack orchestration.** They run it in production. One careless sentence ends this.
+2. ⛔ **Never name the incumbent** — not the orchestrator, not the PSPs, not the fraud vendor.
+3. ⛔ **Never write "Madrid-based."** Fever Labs Inc., Delaware/New York.
+4. ⚠️ **Confirm the contact's time zone before Touch 1.** Every slot assumes CET.
+5. ⚠️ **Re-pull `feverup.com/en/seoul` and re-check the gateway config** on the morning of Day 1. The Korea asymmetry is the whole opener, and a config is a deployment away from changing.
+6. ⚠️ **Do not assert zero APMs at final checkout.** Method resolution is server-side per cart. E1 says what the *config* serves, which is exactly what is verified — keep it that way.
 
 </details>
 
