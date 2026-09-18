@@ -19,6 +19,9 @@ DOWNSTREAM = ["2-ready-to-outreach", "3-outreached", "not-icp"]
 # Accounts already in flight or dropped outside the pipeline folders.
 SKIP = {"viu", "invideo-ai", "luno"}
 
+# STAGE values that must never produce an outreach stub, whatever the priority says.
+BLOCKED_STAGES = {"do not contact"}
+
 
 def normalize(name: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", name.lower())
@@ -80,7 +83,7 @@ def main() -> int:
 
     rows = list(csv.DictReader(TAL.open()))
     wanted = {normalize(c) for c in args.company}
-    seen, made, skipped = existing(), 0, 0
+    seen, made, skipped, blocked = existing(), 0, 0, 0
     today = datetime.date.today().isoformat()
 
     for row in rows:
@@ -96,6 +99,10 @@ def main() -> int:
         match = slug in wanted or filtered
         if not match:
             continue
+        if (row.get("STAGE") or "").strip().lower() in BLOCKED_STAGES:
+            print(f"BLOCKED (STAGE={row['STAGE'].strip()}): {row['COMPANY']}")
+            blocked += 1
+            continue
         if slug in SKIP or slug in seen:
             skipped += 1
             continue
@@ -107,7 +114,7 @@ def main() -> int:
         made += 1
 
     print(f"\n{made} stub(s) {'planned' if args.dry_run else 'created'}, {skipped} skipped "
-          f"(already in the pipeline or on the skip list).")
+          f"(already in the pipeline or on the skip list), {blocked} blocked on STAGE.")
     return 0
 
 
