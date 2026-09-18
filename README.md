@@ -1,19 +1,14 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-18 18:24*
+*Last updated: 2026-09-18 21:07*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (94)
+## 📋 To Outreach (89)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
-| [EVA Air](1-to-outreach/eva-air.md) | Airlines | Taiwan | P1 | 2026-09-10 |
-| [Fever](1-to-outreach/fever.md) | Event & Travel Ticketing | — | P1 | 2026-09-10 |
-| [Fly91](1-to-outreach/fly91.md) | Airlines | India | P1 | 2026-09-10 |
-| [HK Express](1-to-outreach/hk-express.md) | Airlines | Hong Kong | P1 | 2026-09-10 |
-| [Interpark Ticket](1-to-outreach/interpark-ticket.md) | Event & Travel Ticketing | South Korea | P1 | 2026-09-10 |
 | [iTicket](1-to-outreach/iticket.md) | Event & Travel Ticketing | New Zealand | P1 | 2026-09-10 |
 | [Japan Airlines (JAL)](1-to-outreach/japan-airlines-jal.md) | Airlines | Japan | P1 | 2026-09-10 |
 | [Jetstar Airways](1-to-outreach/jetstar-airways.md) | Airlines | Australia | P1 | 2026-09-10 |
@@ -104,7 +99,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (25)
+## 🟢 Ready to Outreach (29)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -119,14 +114,17 @@
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | 16/24 ⚠️ | In-house | 2026-09-15 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 ⚠️ | Displacement | 2026-09-14 |
 | [Cathay Pacific](2-ready-to-outreach/cathay-pacific.md) | Airlines (full-service + wholly-owned LCC) | 18/29 | Coverage play, not displacement | 2026-09-18 |
+| [HK Express](2-ready-to-outreach/hk-express.md) | Airlines (low-cost carrier, short-haul) | 18/29 | In-house | 2026-09-18 |
 | [Amorepacific](2-ready-to-outreach/amorepacific.md) | Cosmetics manufacturer and brand owner (Sulwhasoo, Laneige, Innisfree, Etude, Hera, COSRX) | 17/29 | Greenfield | 2026-09-18 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 ⚠️ | Greenfield | 2026-09-15 |
 | [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 ⚠️ | Greenfield | 2026-09-17 |
 | [Azar](2-ready-to-outreach/azar.md) | Social / random video chat (virtual-currency + subscription) | 16/29 | In-house | 2026-09-17 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, classical, anime) + live streaming | 16/29 | Greenfield | 2026-09-18 |
+| [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marketplace (Candlelight, immersive experiences) | 16/29 | ⚠️ COMPETITIVE | 2026-09-18 |
 | [Ticketek](2-ready-to-outreach/ticketek.md) | Live event ticketing (primary sale + owned secondary marketplace), agent-of-seller model | 16/29 | In-house | 2026-09-17 |
 | [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 ⚠️ | In-house | 2026-09-15 |
 | [bitFlyer](2-ready-to-outreach/bitflyer.md) | Crypto & digital assets (retail exchange) | 15/29 | Greenfield on paper | 2026-09-17 |
+| [EVA Air](2-ready-to-outreach/eva-air.md) | Airlines (long-haul international, cargo-heavy) | 15/29 | Greenfield | 2026-09-18 |
 | [Indodax](2-ready-to-outreach/indodax.md) | Crypto & digital assets (retail exchange) | 12/24 ⚠️ | Greenfield | 2026-09-16 |
 | [China Airlines](2-ready-to-outreach/china-airlines.md) | Airlines (passenger + unusually cargo-heavy) | 14/29 | Greenfield | 2026-09-18 |
 | [Sociolla](2-ready-to-outreach/sociolla.md) | Beauty retail, omnichannel (e-commerce + 150 physical stores + SOCO app) | 13/29 | In-house layer | 2026-09-18 |
@@ -134,6 +132,7 @@
 | [Cebu Pacific](2-ready-to-outreach/cebu-pacific.md) | Airlines (low-cost carrier) | 11/29 | Competitive | 2026-09-18 |
 | [LivU (莱熙)](2-ready-to-outreach/livu.md) | Live random video chat / social discovery (consumer, coin-based virtual currency + recurring subscription) | 11/29 | In-house orchestration | 2026-09-17 |
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 ⚠️ | Greenfield | 2026-09-14 |
+| [Interpark Ticket (NOL 티켓)](2-ready-to-outreach/interpark-ticket.md) | Event ticketing (concerts, musicals, theatre, sport) | 10/29 | In-house | 2026-09-18 |
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 ⚠️ | Undetermined | 2026-09-16 |
 
 ## 🔵 Outreached (1)
@@ -142,7 +141,7 @@
 |---------|----------|-----|------------|
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
-## 🔴 Not ICP (6)
+## 🔴 Not ICP (7)
 
 See [not-icp/](not-icp/) for rejection rationale.
 
