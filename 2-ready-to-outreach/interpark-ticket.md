@@ -1,6 +1,6 @@
 # Interpark Ticket (NOL 티켓)
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 10 / 29 → 🟢 **Medium** (clears the ≥10 outreach bar; see the scoring note)
 **Industry:** Event ticketing (concerts, musicals, theatre, sport) · **HQ:** Seoul, **South Korea** — **(주)놀유니버스 NOL Universe Co., Ltd.**, Yanolja group · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **In-house** — self-licensed PG, own wallet and vault, dual card PGs in parallel. Affirmative evidence, not absent hits (see 3B).
@@ -90,15 +90,299 @@ Also verified: `"Refunds are processed in **KRW**. The final amount received may
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Interpark Ticket` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Six instructions for whoever drafts it:**
-1. **The ₩8,000 fee notice is the opener.** It is their own document, to their own promoters, itemising payment cost. Nothing else in this file comes close.
-2. ⛔ **Do NOT pitch replacing their Korean PG.** Korea's domestic acquiring is entity-gated; KG Inicis and Toss Payments stay. **The sellable surface is the cross-border leg only.** Getting this wrong marks us as not understanding the market.
-3. **Motion is in-house.** They built it and licensed it. Anchor on reach and opportunity cost.
-4. **Call them NOL Universe / NOL 티켓**, not Interpark Triple.
-5. **Do not assert the KRW-only claim for ticketing** until someone confirms those strings govern the ticket checkout and not the stay flow. **Use the ₩8,000 fee and the eKYC gate instead — both are unambiguous.**
-6. **Do not say PayPal. Do not say UnionPay is rejected.** Both are contradicted by the live page.
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: IN-HOUSE, and unusually so — they hold the PG licence themselves.
+        Respect it completely. The pitch is NOT their domestic stack, which is
+        excellent and entity-gated anyway. The pitch is the cross-border leg,
+        and they have already costed it in writing.
+
+Observable setup facts (verified first-hand, 2026-09-18):
+- Merchant-facing notice, verbatim: 「본인인증이 적용된 상품은 예매수수료 8,000원이
+  적용됩니다. 예매수수료는 웹사이트 운영, 결제수수료 외에도 본인인증/부정예매방지 및
+  글로벌 예매 시스템 운영 비용이 포함돼 있습니다.」
+  — a ₩8,000 global booking fee, itemised as covering PAYMENT PROCESSING FEES,
+  identity verification, fraud prevention and running a SECOND booking system
+- Stated cause of the increase: 「Fraud Detecting System 지원 결제프로세스 및
+  부정예매 방지 기술 도입에 따른 예매수수료 인상」
+- Global eKYC mandatory since 2024-07-01 for concerts and musicals; passport
+  required; one passport per account; 「대한민국 여권으로는 본인인증을 할 수 없습니다」
+- Domestic 본인인증 gained a 1-year expiry on 2024-07-11; expired customers
+  cannot book until they re-verify; it runs on a Korean mobile number
+- Processor disclosure names ㈜KG이니시스 AND 토스페이먼츠 on ONE line for ONE
+  identical scope, plus Hecto Financial, Naver, Kakao Pay, PAYCO, Viva
+  Republica, KG Mobilians, Galaxia Moneytree, Coocon — 8+ counterparties
+- The 국외이전 table discloses exactly ONE overseas recipient: Braze, for CRM.
+  No foreign payment processor anywhere.
+- globalinterpark.com and ticket.interpark.com/global both 301 to world.nol.com
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Their own fee itemisation -> "Your global booking fee notice puts ₩8,000 a
+   ticket against website operation, payment processing, identity verification
+   and running a second booking system."
+   MATERIALITY: highest in the entire batch. It is their own document, to their
+   own promoters, and it means we are not hypothesising a pain point — they
+   have measured it and written it down. Nothing else here comes close.
+2. The passport gate -> "Global buyers need passport eKYC before they can book
+   a concert, and a Korean passport can't be used there at all."
+   MATERIALITY: high. Structural, first-party, and it explains the fee.
+
+   HELD AT 2. The dual-PG point is saved for E3 backing logic, and the
+   instalment-on-wallets exclusion for LK4.
+
+Bridge variant: SKIP.
+Rationale: the observations already bridge. A merchant that has itemised its own
+cross-border payment cost does not need to be told that setups like theirs
+"usually come with limitations" — they have written the limitation down. Adding
+a stock bridge line after their own number would read as padding.
+
+Hypothesis for Phase 2 (E3):
+The domestic stack is genuinely well built, and the cross-border leg is running
+as a second system with its own fee, its own identity gate and its own booking
+platform — because the domestic rails could not be extended to foreign buyers.
+Backing logic: two card PGs contracted in parallel for one identical scope,
+eight-plus payment counterparties integrated point to point, a self-run PG
+licence, and not one foreign payment processor in the cross-border disclosure.
+That is a stack built to serve Korea extremely well. The foreign demand then
+had to go somewhere, and it went into a parallel system that customers are
+being charged ₩8,000 a ticket to run.
+
+Success case for Phase 3 (E4):
+Selected case: inDrive
+Tier: 2 — same payment pattern (cross-border coverage expansion), different
+      industry. STATED AS SUCH.
+Match rationale: the question here is reach into foreign demand, not approval
+mechanics and not operational load. inDrive's "10 new countries in under 8
+months" is the number that answers "how fast could the foreign leg actually be
+served properly." Wingo and Livelo both prove approval-rate mechanics, which
+is not this account's problem.
+Numbers: ~90% approval rate · 10 new countries live in under 8 months ·
+50+ countries through one integration
+Optional benchmark: SKIP. The ~8% figure is Yuno's own blog.
+
+Touch-by-touch angles:
+- E2 angle: the ₩8,000 fee -> ONE mechanism: the foreign leg served through the
+  same layer rather than as a parallel system, so cross-border acceptance stops
+  being a separate platform with separate costs
+- LK1 angle: the fee itemisation, one sentence
+- LK2 angle: the domestic stack is excellent and the foreign leg is a second system
+- LK3 angle: inDrive — 10 new countries in under 8 months
+- LK4 angle: FRESH — 무이자 할부 unavailable on every wallet they support
+- E8 angle: clean exit
+
+*** NEVER ***
+- NEVER pitch replacing their Korean PG. Domestic acquiring is entity-gated;
+  KG Inicis and Toss Payments stay. Getting this wrong marks us as not
+  understanding the market, and it is the fastest way to lose this thread.
+- NEVER say "Interpark Triple." It is NOL Universe / NOL 티켓.
+- NEVER say PayPal is on the global site. Zero occurrences on the live page.
+- NEVER say UnionPay is rejected. A live NOL World X UnionPay promo says otherwise.
+- NEVER assert KRW-only presentment for TICKETING. Those strings sit in an
+  accommodation block and may govern stays. Use the ₩8,000 fee instead.
+- NEVER quote "Interpark Ticket does ~$500M revenue." That figure is
+  group-level NOL Universe commission revenue, not ticketing, and not GMV.
+```
+
+**Calendar.** Day 1 anchored to **Monday 2 November 2026**, clearing Korea's autumn holiday
+cluster — **Chuseok (24–26 Sep)**, **National Foundation Day (3 Oct)** and **Hangeul Day
+(9 Oct)** — entirely rather than threading between them. No Korean public holiday falls
+inside 2 Nov – 2 Dec.
+
+**Times are KST (UTC+9), IST+3:30.** Per the rulebook Korea gets afternoon-local slots so they
+land as late morning for Prateek — every slot is **14:00–16:00 KST = 10:30–12:30 IST**.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 2 Nov
+
+**Subject:** Your ₩8,000 global booking fee
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on NOL 티켓's payment setup. Two things stood out:
+
+- Your global booking fee notice puts ₩8,000 a ticket against website operation, payment processing, identity verification and running a second booking system.
+- Global buyers need passport eKYC before they can book a concert, and a Korean passport can't be used there at all.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 4 Nov · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing providers. Additive, and your domestic stack doesn't move.
+- The foreign leg runs through the same layer as everything else, rather than as a separate platform with its own costs.
+- Cards issued abroad get acquired closer to the issuer, which is usually where the approval difference on cross-border sits.
+- Adding a foreign-market method becomes configuration rather than a new integration.
+
+To be explicit about what I'm not proposing: nothing about KG Inicis or Toss Payments. Korean domestic acquiring is where it needs to be, and it isn't the part I'd have anything useful to say about. It's the foreign-demand leg — the one you're currently charging ₩8,000 a ticket to run — that I'd be curious about.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 6 Nov
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: your own promoter notice itemises the ₩8,000 global booking fee as covering payment processing, identity verification and running a second booking system. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 10 Nov · NEW EMAIL
+
+**Subject:** Read on your cross-border leg
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that the domestic stack is genuinely well built, and the foreign leg ended up as a second system because the domestic rails couldn't be extended to buyers outside Korea.
+
+What points that way is how thorough the domestic side is. Two card PGs contracted in parallel for the same scope, virtual accounts, carrier billing through two vendors, four wallets, your own PIN-checkout wallet. That's a lot of deliberate work, and none of it reaches a fan in Jakarta or Taipei.
+
+So the foreign demand went somewhere else — a separate platform, a passport gate, and a fee that you've itemised yourself.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing providers so the foreign leg runs through the same layer as the domestic one — keep your stack, add what's missing.
+
+Thursday is open for me — would 14:00 or 15:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 12 Nov
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: the domestic stack is excellent and the foreign leg is a second system with its own fee and its own identity gate. If that's anywhere on your radar, would Monday the 16th at 15:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 16 Nov · NEW EMAIL
+
+**Subject:** How inDrive added 10 countries in 8 months
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — an example of what solved looks like. It's mobility rather than ticketing, and I've picked it on purpose: the airline and retail cases in our library prove approval-rate mechanics, and your question isn't approval, it's reach into foreign demand.
+
+inDrive put Yuno above its existing providers:
+
+- 10 new countries live in under 8 months (you read that right)
+- ~90% approval rate across the estate
+- 50+ countries running through one integration
+
+Same layer above their existing stack — no rip-out, and in your case nothing domestic would change at all.
+
+One thing I'm genuinely curious about: when you sized the ₩8,000 fee, roughly how much of it was the payment leg versus the identity and fraud tooling? Those usually move very differently once the foreign flow isn't a separate system.
+
+Wednesday the 18th is open — would 16:00 your time work?
+
+Full case here if useful: https://y.uno/en/success-stories/indrive
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Wed 18 Nov · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle:** the proxy-buying industry. A paid service sector exists specifically to
+> buy Korean concert tickets on behalf of foreign fans, and it markets itself on exactly this
+> failure — Korean-only on-sales and declined foreign cards. ⚠️ **Verify at least one such
+> service's marketing copy first-hand before referencing it**; everything we have on this is
+> search-summary level. Framed carefully, "there is a business model built on your checkout
+> being hard to use from abroad" is a very strong, non-insulting observation.
+
+#### Touch 8 — Email 6 · Day 15 · Fri 20 Nov · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle:** a two-column comparison of the domestic method set against the global
+> one, built entirely from their own pages. Domestic: four wallets, carrier billing, virtual
+> accounts, gift certificates, instalments. Global: card, Alipay, WeChat Pay. **The asymmetry
+> is the argument.** ⚠️ **Confirm the global method list governs ticketing before using it —
+> see the caveat in Section 1.**
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Tue 24 Nov
+
+```text
+Hey {{recipient.first_name}} — inDrive went live in 10 new countries in under 8 months on one integration, without touching their existing domestic setup. Worth 15 minutes to see if it maps to your foreign leg? Thursday the 26th at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Thu 26 Nov · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** the **1-year domestic 본인인증 expiry** introduced 11 July 2024.
+> An existing, verified, paying customer is silently blocked from booking the moment it
+> lapses — on a product where the on-sale window is measured in seconds. **That is a
+> conversion question, not a payments one, which is exactly why it is an interesting thing
+> for a payments person to raise.**
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 30 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I keep coming back to: 무이자 할부 is the biggest lever you have on a ₩200,000 ticket, and it's unavailable on every wallet you support. If timing works, Wednesday the 2nd at 15:30 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 2 Dec · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+You're heading into year-end on-sales, which is the worst possible time to open a payments workstream. If timing's just off, happy to circle back in the new year.
+
+If it ever comes back up, just reply here — and if the global side sits with a different team, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist
+
+1. ⛔ **Never pitch replacing the Korean PG.** Entity-gated. E2 says so explicitly and that line is load-bearing — it is what proves we understand the market.
+2. ⛔ **Never say Interpark Triple.** NOL Universe / NOL 티켓.
+3. ⛔ **Never say PayPal; never say UnionPay is rejected.** Both contradicted by the live page.
+4. ⛔ **Never quote the ~$500M figure** as Interpark Ticket revenue.
+5. ⚠️ **Do not use the KRW-only argument** until someone confirms those strings govern ticketing rather than stays.
+6. ⚠️ **Re-verify the ₩8,000 notice is still live** at `tmanager.interpark.com/html/reservationFee.html` before Touch 1. It is the entire opener.
+7. ⚠️ **Re-read the ICP judgement call at the top of this file.** If Prateek decides the self-held PG licence routes this to Partnerships, **this sequence must not send.**
 
 </details>
 

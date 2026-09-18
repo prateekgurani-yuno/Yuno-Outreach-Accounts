@@ -1,6 +1,6 @@
 # EVA Air
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
 **ICP Score:** 15 / 29 → 🟢 **Medium**
 **Industry:** Airlines (long-haul international, cargo-heavy) · **HQ:** Taoyuan/Taipei, **Taiwan** — EVA Airways Corp, Evergreen Group, **TWSE 2618** · **Researched:** 2026-09-18 · **First email sent:** —
 **Motion:** **Greenfield** — none detected. ⚠️ The "no orchestrator" half rests largely on absent search hits, but there is affirmative counter-evidence of **in-house payment engineering** (see 3B).
@@ -76,15 +76,300 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach EVA Air` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Four instructions for whoever drafts it:**
-1. **The iDeal-versus-no-Taiwanese-rails contrast is the opener.** It is a single sentence, it is from their own page, and it needs no interpretation.
-2. **The corporate-card refusal is the second observation and it is the sharper of the two commercially** — it is revenue they are declining on purpose, alongside a UATP programme aimed at exactly those buyers. Use the diplomatic clause; it was a security decision, not carelessness.
-3. **Say the cargo caveat out loud.** Roughly a quarter of EVA's revenue is freight, invoiced B2B and outside any card checkout. Naming it unprompted is the most credibility-building move available on this account.
-4. **Do not assert an acquirer, a PSS vendor, or Amadeus.** Nothing is established. The `.aspx` booking front end argues against an Amadeus-hosted retail layer but proves nothing about the PSS.
+```
+=== PAIN VECTOR EXTRACTION ===
 
-**Never claim:** that EVA uses Amadeus (unverified in both directions), any PSP name (zero identified), that ATM transfer is available (a search summary asserted it; **I grepped both first-party pages and found zero ATM hits — treat the summary as wrong**), or anything from the complaint corpus (see Source Notes).
+Motion: Greenfield — none detected. BUT the honest read is "single acquirer on a
+        stock LPM menu, with in-house engineering done ad hoc", not "they never
+        thought about payments." They built their own in-flight card
+        authorisation over satellite Wi-Fi in 2014 and certified it with an
+        acquiring bank themselves. Treat them as competent. Do not condescend.
+
+Observable setup facts (verified first-hand, two snapshots six months apart):
+- The complete published method set, which EVA states is the UNION across all
+  departure markets: VISA / MasterCard / Amex / JCB / Discover / UATP, plus
+  PayPal, UnionPay, iDeal, Alipay. That is all of it.
+- Grep across both pages: 分期 = 0, 超商 = 0, ATM = 0, LINE Pay = 0, 街口 = 0,
+  Apple Pay = 0. Sourced absence, and because the list is the union, absence
+  from it means absence in every market.
+- iDeal — a Dutch bank-transfer rail — IS on the list.
+- Verbatim: 「由於商務卡/公司卡不受3DS認證政策的保護，為了您的交易安全，
+  本系統不接受以商務卡/公司卡進行交易。」 — corporate cards refused outright.
+- UATP, an airline corporate settlement rail, is accepted four lines above it.
+- 3DS mandatory on every transaction since 2021-03-02, with EVA's own page
+  warning 「以避免交易失敗」.
+- Non-3DS fallback, verbatim: present the physical card at an airport counter
+  48h/1h before departure and sign a consent form, or 「本公司將拒絕旅客搭機」.
+- PayPal blocked for Taiwan-registered PayPal accounts.
+- Refunds: 7 working days to card; 20 working days where paid by cash/cheque.
+- FY2025 consolidated revenue NT$220,333mn, second-highest ever. ~25% cargo.
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. The iDeal contrast -> "Your checkout takes iDeal — Dutch bank transfer — and
+   no Taiwanese local rail: no instalments, no 超商代收, no ATM transfer."
+   MATERIALITY: highest. One sentence, from their own page, and the juxtaposition
+   does all the work. No interpretation required and nothing to dispute.
+2. The corporate-card refusal -> "You don't accept commercial or company cards
+   on the website — your own page says so — while accepting UATP four lines
+   above it."
+   MATERIALITY: very high commercially. This is revenue declined on purpose.
+   NEEDS THE DIPLOMATIC CLAUSE: it was a security decision, not carelessness.
+
+   HELD AT 2. The 3DS airport-counter fallback is saved for E3 backing logic,
+   the cargo caveat for the E6 manual touch, and UNI Air for LK4.
+
+Bridge variant: B — limitations
+Rationale: one payment estate, high-ticket long-haul product, strong growth.
+The observations describe a stock method menu rather than fragmentation, which
+rules out A, and they are structural rather than customer-facing friction,
+which makes B a better fit than C.
+
+Hypothesis for Phase 2 (E3):
+The method set looks like whatever the platform ships by default rather than
+anything curated for Taiwan, and the 3DS policy is doing risk control that
+routing and step-up logic would normally do — which is why the fallback is a
+person at an airport counter.
+Backing logic: a Taiwanese carrier whose checkout carries a Dutch bank rail and
+none of its own market's is not a set anyone chose; it is a menu that came with
+something. And a blanket 3DS mandate since 2021, with corporate cards excluded
+entirely because they sit outside 3DS protection, is a policy that trades
+approval for certainty. The tell is the fallback: a passenger presenting a
+physical card at a counter, or being refused boarding.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 on industry, 2 on pattern. STATED AS SUCH.
+Match rationale: the 3DS bullet is why. Wingo carries 3DS and fraud tooling in
+the same layer as routing, which is the direct answer to a carrier whose only
+risk instrument is a blanket mandate with a manual fallback. The 1,000+ methods
+bullet answers the rail gap in the same email.
+Numbers: +14% approval rate (initial implementation phase) · 1,000+ payment
+methods through one integration · 3DS and fraud tooling in the same layer
+Plus Qatar Airways, Copa Airlines and Avianca named — NO NUMBERS, ever.
+Optional benchmark: SKIP both. The ~8% is Yuno's own blog; the IATA/EDC figure
+is untraced per our own skill file.
+
+Touch-by-touch angles:
+- E2 angle: the iDeal contrast -> ONE mechanism: one integration to add a rail,
+  so a local method is a configuration change rather than a platform question
+- LK1 angle: iDeal yes, 分期 no — one sentence
+- LK2 angle: the method set looks shipped rather than chosen
+- LK3 angle: Wingo — 3DS in the same layer as routing, +14%
+- LK4 angle: FRESH — UNI Air runs a separate booking engine and a narrower
+  method set again (cards and UnionPay only)
+- E8 angle: clean exit
+
+*** NEVER ***
+- Any PSP, acquirer or PSS vendor name. Zero were identified. Never "Amadeus."
+- 網路ATM as available — a search summary claimed it; I grepped both first-party
+  pages and found zero ATM hits. Treat the summary as wrong.
+- Anything from the complaint corpus. Not one thread was read. Never "error 15."
+- The 13.33m passenger figure or the FY2025 passenger/cargo split as exact
+  numbers — both unverified.
+```
+
+**Calendar.** Day 1 anchored to **Monday 26 October 2026**. ⚠️ **China Airlines is also in this
+batch and its sequence runs 19 Oct – 18 Nov.** They are direct competitors with different
+contacts, so parallel running is fine — **but do not reuse a single observation across the
+two sequences.** Nothing in this file overlaps with the China Airlines file, and it should
+stay that way.
+
+> ⚠️ **Taiwanese public holidays are partly lunar-dated and I have not verified the 2026
+> calendar. Check the DGPA's published dates before Touch 1.**
+
+**Times are Taiwan time (UTC+8), IST+2:30.** Slots 14:00–16:00 local = 11:30–13:30 IST.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 26 Oct
+
+**Subject:** iDeal on your checkout, no 分期
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on EVA Air's payment setup. Two things stood out:
+
+- Your checkout takes iDeal — Dutch bank transfer — and no Taiwanese local rail. No 分期付款, no 超商代收, no ATM transfer.
+- You don't accept commercial or company cards on the website. Your own page says so, four lines below UATP.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the 'everything payments' platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 28 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up — wanted to put a bit more behind what Yuno actually does, and how it would address what I flagged.
+
+- We sit above your existing provider. Additive, nothing gets ripped out.
+- Adding a rail — instalments, convenience-store cash, ATM transfer — becomes a configuration change rather than a platform question.
+- Routing is per BIN, market and method, so the right rail is offered to the right cardholder.
+- 3DS and fraud tooling sit in the same layer as routing rather than as a blanket policy.
+
+On the iDeal point specifically — that's not a criticism, it's a tell. A method set with a Dutch bank rail and no Taiwanese one usually isn't a set anyone chose; it's the menu that came with the platform. Which is fine until the home market is the one missing.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the word and I'll back off — otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 30 Oct
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case more useful than email. Quick one: evaair.com lists iDeal as a payment option and no Taiwanese rail at all — no 分期, no 超商代收, no ATM. Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Tue 3 Nov · NEW EMAIL
+
+**Subject:** Read on your 3DS policy
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this — based on what I see, my read is that the 3DS mandate is doing risk control that routing and step-up logic would normally handle, and the method set is whatever the platform ships rather than anything chosen for Taiwan.
+
+The tell is the fallback. A card without 3DS means the passenger presents the physical card at an airport counter and signs a consent form, or doesn't board. That's a real cost in staff time and denied boardings, and it sits downstream of a policy decision made in 2021.
+
+The corporate-card exclusion looks like the same logic — company cards sit outside 3DS protection, so they're refused entirely. Not because anyone's doing it badly; it's the safe answer when the only instrument available is a blanket rule.
+
+At Yuno (a16z-backed, top-100 fintech), we sit above your existing provider so 3DS becomes selective rather than universal — keep your stack, add what's missing.
+
+Thursday is open for me — would 15:00 or 16:00 your time work for a quick 15 minutes?
+
+Best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Thu 5 Nov
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: the method set reads like what the platform shipped rather than what Taiwan needs, and the 3DS policy is carrying risk control that routing usually does. If that's anywhere on your radar, would Monday the 9th at 14:00 your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 9 Nov · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week — an example of what solved looks like. Wingo is a Colombian low-cost carrier, so a different region and a different model, but the mechanism maps closely.
+
+They put Yuno above their existing provider:
+
+- +14% approval rate from the initial implementation phase alone (pretty solid, right?)
+- 1,000+ payment methods available through one integration
+- 3DS and fraud tooling handled in the same layer as routing, rather than as a blanket rule
+
+That third bullet is the one I'd underline. When 3DS sits in the routing layer, it becomes selective — applied where risk warrants it rather than to every transaction and every card type. Which is usually what makes it possible to stop excluding an entire category of card.
+
+Same layer above their existing stack — no rip-out. Qatar Airways, Copa Airlines and Avianca run on the same layer.
+
+One thing I'm curious about: roughly how often does the airport card-verification step actually get used — is it a handful of passengers a day, or more than that?
+
+Wednesday the 11th is open — would 15:30 your time work?
+
+Full case here if useful: https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Thanks,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Wed 11 Nov · ⚠️ MANUAL
+
+> **Placeholder — Prateek writes this one.**
+>
+> **Suggested angle: the corporate-travel contradiction, properly built.** EVA runs a UATP-accepting
+> corporate programme and a BizFam/MICE channel, and refuses commercial and company cards on
+> the web. **Lay the two facts side by side from their own pages and ask where those bookings
+> go instead** — presumably a TMC or a phone call, both of which cost more to serve. ⚠️ **Ask
+> where the volume goes; do not assert that it is lost.**
+
+#### Touch 8 — Email 6 · Day 15 · Fri 13 Nov · ⚠️ MANUAL
+
+> **Placeholder — different format from E5.**
+>
+> **Suggested angle: the cargo honesty move.** Roughly a quarter of EVA's revenue is freight,
+> invoiced B2B and outside any card checkout. **Saying that unprompted, before they have to,
+> is the single most credibility-building thing available on this account** — it shows we read
+> the results rather than the headline number. Then scope the conversation to the passenger
+> and SKY SHOP side deliberately.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Tue 17 Nov
+
+```text
+Hey {{recipient.first_name}} — Wingo moved 3DS into the same layer as routing so it applies selectively rather than to every transaction, and got +14% approval alongside it. Worth 15 minutes to see if it maps to your setup? Thursday the 19th at 14:30 your time is open.
+```
+
+---
+
+### Between Phases (Day 19)
+
+#### Touch 10 — Email 7 · Day 19 · Thu 19 Nov · ⚠️ MANUAL
+
+> **Placeholder — manual creative bridge.**
+>
+> **Freshest unused anchor:** **UNI Air**. It runs a completely separate booking engine on a
+> different domain, with a narrower method set again — cards and UnionPay only, per its own
+> terms. A group-architecture question, and a fair one. ⚠️ **Ask whether the stacks are
+> shared; do not assert that they are separate** beyond what the two sites show.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 23 Nov
+
+```text
+Hey {{recipient.first_name}} — last LK ping from me on this. One thing I kept noticing: UNI Air runs its own booking engine with a narrower method set again, cards and UnionPay only. If timing works, Wednesday the 25th at 16:00 your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Wed 25 Nov · REPLY IN THREAD to E3
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+You're coming off the second-best revenue year in the company's history with a large fleet programme running, so a payments workstream may simply not be this year's problem. If timing's just off, happy to circle back next quarter.
+
+If it ever comes back up, just reply here — and if payments sits elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+---
+
+### ⚠️ Send-time checklist
+
+1. ⛔ **Never name a PSP, acquirer or PSS vendor.** Zero were identified. **Never say Amadeus.**
+2. ⛔ **Never say ATM transfer is available.** A search summary claimed it; both first-party pages return zero ATM hits.
+3. ⛔ **Never quote a complaint, a review or "error 15."** Not one thread was read.
+4. ⚠️ **`evaair.com` 403s every automated fetch.** Everything here came from Wayback snapshots — **re-confirm the method list and the corporate-card clause from a browser before Touch 1.** They are the whole sequence.
+5. ⚠️ **Do not reuse any observation from the China Airlines sequence.** Same market, different carrier, overlapping contacts network.
 
 </details>
 
