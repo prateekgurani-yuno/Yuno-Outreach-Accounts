@@ -1,7 +1,17 @@
-.DS_Store
-*.swp
-*~
-.venv/
+# Scratch fetch artifacts.
+#
+# Research agents curl pages while working and occasionally write the output into
+# the repo root instead of the session scratchpad. Those dumps are scraped
+# third-party HTML, not account data, and must never be committed to this repo —
+# it is private target-account intelligence, not a page cache.
+#
+# Deliberately scoped to the repository ROOT only, so a genuine .html or .json
+# that ever belongs inside a pipeline folder is still tracked normally.
+/*.html
+/*.json
+/*.xls
+/*.xlsx
+
+# Python
 __pycache__/
 *.pyc
-scratch/
