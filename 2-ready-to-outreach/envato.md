@@ -99,7 +99,7 @@
 
 ---
 
-### ⚠️ TERRITORY — resolve before outreach
+### ✅ TERRITORY — RESOLVED 2026-09-19: Prateek is proceeding
 
 | Factor | Points to |
 |---|---|
@@ -109,7 +109,13 @@
 | Tax/payout systems **being aligned to Shutterstock** as of Sept 2026 | AMER ❌ |
 | Envato Pty Ltd reduced to **DMCA agent + one creator contract** | AMER ❌ |
 
-**My read:** Envato remains an APAC-HQ'd *operating* entity and is defensible as in-territory, but the payments counterparty is a US-listed parent and a consolidation programme is visibly running. **Check with AMER whether Shutterstock, Inc. is already owned elsewhere on the account list before spending a sequence here.** An APAC-personalised email sent into a Shutterstock payments org will land wrong.
+**Decision — 2026-09-19: Prateek is targeting this account.** The concern below was raised and he has taken the call; Envato remains an APAC-HQ'd *operating* entity in Melbourne and is defensible as in-territory. **Treat the territory question as closed.**
+
+**The residual risk, for drafting only — not for re-opening the targeting decision.** The payments counterparty is a US-listed parent, arbitration sits in New York, and a payments-specific consolidation programme is visibly running (RWT alignment, first affected payout September 2026). **The reader may not be in Australia.**
+
+➡️ **So the sequence must NOT be APAC-personalised.** Lead on the **single USD-only checkout**, the **approval-rate cost**, and the **in/out asymmetry** (137 payout currencies vs one collection currency). **India and Indonesia belong in the email as evidence of scale — proof the gap is expensive — not as the subject of the pitch.** Framed that way it reads correctly whether it lands in Melbourne or New York.
+
+⚠️ **Still worth a one-line check with AMER** on whether Shutterstock, Inc. is already owned elsewhere on the account list — that is a duplicate-coverage question, not a territory one, and it does not block the sequence.
 
 ### Source Notes
 - ✅ **Envato's three help centres reached via the open Zendesk API** — `help.market.envato.com`, `help.author.envato.com`, `help.elements.envato.com`, `/api/v2/help_center/en-us/articles.json`. **455 articles pulled and parsed by me.** The HTML 403s; the API does not. Same technique that cracked Indodax and Azar.
