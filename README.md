@@ -1,19 +1,14 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-18 21:10*
+*Last updated: 2026-09-19 13:39*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (88)
+## 📋 To Outreach (83)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
-| [Japan Airlines (JAL)](1-to-outreach/japan-airlines-jal.md) | Airlines | Japan | P1 | 2026-09-10 |
-| [Jetstar Airways](1-to-outreach/jetstar-airways.md) | Airlines | Australia | P1 | 2026-09-10 |
-| [KKday](1-to-outreach/kkday.md) | Event & Travel Ticketing | Taiwan | P1 | 2026-09-10 |
-| [Korean Air](1-to-outreach/korean-air.md) | Airlines | South Korea | P1 | 2026-09-10 |
-| [Lion Air](1-to-outreach/lion-air.md) | Airlines | Indonesia | P1 | 2026-09-10 |
 | [Moshtix](1-to-outreach/moshtix.md) | Event & Travel Ticketing | Australia | P1 | 2026-09-10 |
 | [Nok Air](1-to-outreach/nok-air.md) | Airlines | Thailand | P1 | 2026-09-10 |
 | [Oztix](1-to-outreach/oztix.md) | Event & Travel Ticketing | Australia | P1 | 2026-09-10 |
@@ -98,7 +93,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (29)
+## 🟢 Ready to Outreach (34)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -107,14 +102,19 @@
 | [ANA (All Nippon Airways)](2-ready-to-outreach/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | Greenfield | 2026-09-18 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
 | [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | Greenfield | 2026-09-16 |
+| [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activities, attraction tickets) | 22/29 | ⚠️ DISPLACEMENT | 2026-09-19 |
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 ⚠️ | Competitive | 2026-09-15 |
 | [Envato](2-ready-to-outreach/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | Greenfield | 2026-09-17 |
 | [Little Hotelier](2-ready-to-outreach/little-hotelier.md) | Hospitality SaaS (channel manager, booking engine, PMS) + embedded payments | 20/29 | Greenfield | 2026-09-17 |
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | 16/24 ⚠️ | In-house | 2026-09-15 |
+| [Lion Air Group](2-ready-to-outreach/lion-air.md) | Airlines (LCC group — Lion Air, Batik Air, Wings Air, Batik Air Malaysia, Thai Lion Air) | 19/29 | Greenfield | 2026-09-19 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 ⚠️ | Displacement | 2026-09-14 |
 | [Cathay Pacific](2-ready-to-outreach/cathay-pacific.md) | Airlines (full-service + wholly-owned LCC) | 18/29 | Coverage play, not displacement | 2026-09-18 |
 | [HK Express](2-ready-to-outreach/hk-express.md) | Airlines (low-cost carrier, short-haul) | 18/29 | In-house | 2026-09-18 |
+| [Jetstar Airways](2-ready-to-outreach/jetstar-airways.md) | Airlines (low-cost carrier) | 18/29 | In-house (partial) | 2026-09-19 |
 | [Amorepacific](2-ready-to-outreach/amorepacific.md) | Cosmetics manufacturer and brand owner (Sulwhasoo, Laneige, Innisfree, Etude, Hera, COSRX) | 17/29 | Greenfield | 2026-09-18 |
+| [Japan Airlines (JAL)](2-ready-to-outreach/japan-airlines-jal.md) | Airlines (full-service, domestic + international, cargo, mileage commerce) | 17/29 | Greenfield | 2026-09-19 |
+| [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house | 2026-09-19 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 ⚠️ | Greenfield | 2026-09-15 |
 | [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 ⚠️ | Greenfield | 2026-09-17 |
 | [Azar](2-ready-to-outreach/azar.md) | Social / random video chat (virtual-currency + subscription) | 16/29 | In-house | 2026-09-17 |
