@@ -154,7 +154,43 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 
 > ### ⚠️ Traffic is not revenue — and the regional split you want does NOT exist
 >
-> **Shutterstock does not break out Envato.** It reports as a **single reporting unit**; Envato appears in the Q2 2026 10-Q only in the trademark list and in a sentence naming the brands Content is distributed under. **There is no Envato revenue line and no Envato regional split.** Everything below is group-wide.
+> **Shutterstock does not break out Envato post-2024.** It reports as a **single reporting unit**; Envato appears in the Q2 2026 10-Q only in the trademark list and in a sentence naming the brands Content is distributed under. **There is no Envato regional split at any point.** The group figures below are group-wide.
+>
+> ### ✅ BUT ENVATO'S STANDALONE REVENUE *IS* PUBLIC — found 2026-09-19
+>
+> Shutterstock had to file **PwC-audited Envato financials under Rule 3-05** ([8-K/A, 2024-10-03](https://www.sec.gov/Archives/edgar/data/1549346/000154934624000039/), Ex-99.1 and Ex-99.3) and the acquisition-year contribution under **ASC 805** in the FY2024 10-K. **Revenue is USD thousands as presented in the Article 11 pro forma.**
+>
+> | Period | Revenue | Source |
+> |---|---|---|
+> | **FY ended 30 Jun 2023** (audited) | **$190.3M** | 8-K/A Ex-99.3 |
+> | Six months to 31 Dec 2022 | $92.3M | same |
+> | Six months to 31 Dec 2023 | $99.8M | same |
+> | **Calendar 2023** (A−B+C, Shutterstock's own presentation) | **$197.8M** | same |
+> | **Q1 2024** (3 months to 31 Mar) | **$49.7M** | same |
+> | **22 Jul – 31 Dec 2024** (post-acquisition) | **$90.5M** | [FY2024 10-K](https://www.sec.gov/Archives/edgar/data/1549346/000154934625000011/sstk-20241231.htm) |
+>
+> FY2024 10-K verbatim: *"For the year ended December 31, 2024, **revenues of $90.5 million**… were included in the Consolidated Statements of Operations related to **Envato**."* Over ~5.3 months that is **~$17.0M/month, ~$204M annualised** — consistent with CY2023.
+>
+> **P&L shape at acquisition:**
+>
+> | | CY2023 | Q1 2024 |
+> |---|---|---|
+> | Revenue | $197.8M | $49.7M |
+> | Total opex | $162.7M | $39.6M |
+> | **Operating income** | **$35.1M** | **$10.1M** |
+> | **Operating margin** | **17.8%** | **20.3%** |
+>
+> Growth on the comparable half: H2 2022 $92.3M → H2 2023 $99.8M = **+8.1%**.
+>
+> 💰 **Shutterstock paid US$245m for ~$198M of revenue at a ~20% operating margin — about 1.24× revenue.** A strikingly low multiple.
+>
+> ⚠️ **The series stops at 2024.** ASC 805 disclosure applies only in the acquisition year, so **there is no Envato revenue line for 2025 or 2026.** Pro forma combined went **FY2024 $1,045.4M → FY2025 $989.9M (−5.3%)**, then H1 2026 **−17.4%** — the decline accelerated sharply after year one, **but that is group and cannot be attributed to Envato from the filings.** The Envato-specific post-acquisition signal is the **marketplace volume collapse in Section 3** (~126k/month → ~59k/month), not anything in the 10-K.
+>
+> ⚠️ **The PwC opinion is QUALIFIED — and it is benign.** The sole basis: the statements omitted **IFRS 1 first-time-adoption comparatives and transition disclosures**. Not going concern, not a misstatement. **Do not treat it as a red flag and do not raise it in outreach.**
+>
+> ✅ **This validates the Envato-share arithmetic below.** $197.8M / $1,079.5M pro forma = **18.3% of the combined entity** — close to the ~20% used in the India correction, so that reasoning holds.
+>
+> 🧰 **False positive recorded:** a raw scan for `AUD` in the pro forma returned 36 hits. **Every one was the substring inside `unaudited`.** Add to the running list: **`unaudited` → AUD.**
 >
 > **Group revenue by customer location** — [Q2 2026 10-Q](https://www.sec.gov/Archives/edgar/data/1549346/000154934626000029/sstk-20260630.htm), filed 2026-08-07, revenue note. Pulled from the primary filing on 2026-09-19; figures in $000s.
 >
