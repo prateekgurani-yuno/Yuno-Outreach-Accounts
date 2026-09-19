@@ -77,7 +77,20 @@ The table above is ANA's **complete** published method set on its own payment hu
 >
 > **The e-money ceiling is Rakuten Edy, Mobile Suica and JCB Premo. No PayPay. No code wallet of any kind.**
 >
-> 📌 **ANA is named on its own site as using 決済代行会社「ウェルネット社」 for exactly these rails.** So the reason ANA lacks Japan's dominant wallet is **not a preference and not an oversight — the vendor carrying its cash and bank rails does not offer it.** That is a structural ceiling, it is true across the category, and it is a much stronger thing to raise than a missing feature. **This is now usable in E3 where the original wallet-gap framing was not.**
+> 📌 **ANA is named on its own site as using 決済代行会社「ウェルネット社」 for exactly these rails.**
+>
+> ### ⛔ CORRECTION — 2026-09-19. The vendor-ceiling reading was WRONG. Do not pitch it.
+>
+> I previously concluded from this that ANA's missing wallets were **a vendor constraint, not a choice**. **That causal claim is refuted**, and the refutation comes from inside ANA's own holding company.
+>
+> **Peach Aviation is a Wellnet customer AND carries five code wallets.** Verified first-hand on Peach's own payment page, `https://www.flypeach.com/lm/fares/payment`, 2026-09-19 — a dedicated **バーコード決済** section in the navigation and in the availability matrix, listing **楽天ペイ · PayPay · d払い · Alipay · WeChat Pay**, each with its own currency and channel columns. PayPay carries the restriction 「PayPayでの決済は、あらかじめチャージされた「PayPay残高払い」のみご利用いただけます」. (Peach's Wellnet relationship: Wellnet's own 2012-01-11 release, retrieved via Wayback, describes 「Peach Aviationとウェルネットサーバが直接接続され24時間稼動」. Continuation to 2026 is **strong inference, not verified** — Peach's current page names no 決済代行会社.)
+>
+> **So Wellnet's e-money ceiling is a ceiling on *that one rail*, not on the airline.** Peach simply runs a second, parallel wallet rail alongside Wellnet's konbini/Pay-easy rail. ANA could do the same and has not.
+>
+> ### ✅ The replacement framing — which is *stronger*, not weaker
+> This turns **"they can't"** into **"they haven't"**, and it puts the counter-example **inside ANA's own consolidation scope**. A sister airline in the same holding company, on the same konbini vendor, made the opposite choice and has been shipping wallets since 2017.
+>
+> ⚠️ **Carry this caveat into outreach so a call cannot correct you:** this refutes the *causal* claim only. It does **not** prove ANA evaluated wallets and rejected them. The honest framing is **"your own LCC does this and you don't"** — never "you were wrong about your vendor".
 
 ### Known PSPs
 | Provider | Role | Evidence |
