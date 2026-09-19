@@ -63,10 +63,67 @@
 - 💥 **Delisted from Apple.** Verified across eight storefronts. Whatever Apple carried now has to run through rails that were built as the secondary path.
 - 🔄 **`enableCheckoutV2` — an acquirer re-integration in flight today.** Two live Checkout.com keys, a feature flag, and a `localStorage.removeItem("enableCheckoutV2")` kill switch. Someone is hand-rolling a migration.
 - 🔁 **Recurring card-on-file billing on their own till** — weekly and monthly coin subscriptions, plus a stored-card vault. See 3B. This is the involuntary-churn conversation, and none of it is app-store revenue.
-- 🧩 **One payment front-end, white-labelled across the brand portfolio.** The same bundle rebrands to **Vivah** when `appType` is unset, and LivU's own config carries `"callbackDomain":"https://www.tumile.me"`. One integration change propagates across the group.
-- 📦 **Sibling apps expand the deal** — **Tumile** (on the same payment platform) and **Yaar**, which Riley Cillian describes as *"an Android Application Package (APK) available for **direct download only**"* — i.e. **100% off-store billing by construction**.
+- 🧩 **ONE payment estate across the brand portfolio — now proven, not inferred.** See the dedicated estate section below. **Tumile runs its own till on its own domain and it is wired into LivU's own payment infrastructure**, down to a byte-identical fraud partition ID. **One integration change propagates across every brand.**
+- 📦 **Sibling apps expand the deal** — **Tumile** (verified same estate) and **Yaar**, which Riley Cillian describes as *"an Android Application Package (APK) available for **direct download only**"* — i.e. **100% off-store billing by construction**.
 - 🌏 **Reseller rail proves APAC local-method demand** — they built ID/MY/PH/TH Codashop storefronts rather than serve those rails first-party.
 - ❌ **No funding round, no payments job posting, no public RFP found.**
+
+
+### 🏗️ THE PROPERTY ESTATE — deep research, 2026-09-19
+
+**Question asked:** map every app and domain in the group and establish each one's payment stack, hunting for divergence.
+**Answer: they diverge at the brand layer and converge completely at the payment layer. It is one estate.**
+
+#### ✅ VERIFIED BY ME DIRECTLY — LivU and Tumile are one payment system
+
+I fetched both tills and both bundle sets and diffed them. `www.tumile.me/payment` and `www.livuchat.com/payment` are separate builds — different app-bundle hashes (`app.6c48d5a6…` vs `app.8cde0939…`), a Tumile-specific `tumilemanifest.js`, and no redirect between them.
+
+**And yet Tumile's own payment page declares LivU's payment infrastructure:**
+
+| Host declared on BOTH tills | What it is |
+|---|---|
+| `portal.rcplatformhk.com` | the group gateway |
+| `api.livuchat.com` | **LivU-branded API host** |
+| `proxyweb.livuchat.com` | **the dLocal redirect** (established in 3B) |
+| `h5.livuchat.com` | **LivU-branded CDN origin** |
+
+**Tumile's till routes through hosts branded `livuchat.com`.** The only hosts that differ between the two pages are the policy pages — `privacy.`/`safety.tumile.me` versus `privacy.`/`safety.livuchat.com`.
+
+**Inside the bundles, the payment layer is character-for-character identical:**
+- Same gateway endpoints: `gatewayApi+"/plutus-order-service/api/1/orders"`, `…/1/subscriptions`, `…/plutus-user-sync/api/users/1/`, `gatewayApi2+"/facade/api/switch/asyncConfig"`
+- Same acquirer routing primitives: `payermax`, `airwallex`, `checkout`, plus `thirdPaymentRecon`
+- Same logging host `rclog.rcplatformhk.com`
+- **The same TrustDecision fraud partition ID — `tdfp/de/49a1070ee5594f34b3bc8027e40f5bd9` — byte-identical on both pages**
+- **`Vivah` appears in BOTH app bundles**, confirming the white-label rebrand is shared code, not LivU-specific
+- **Both vendor bundles are exactly 523,428 bytes** — same source, different build config
+- `appId: baseConfig.appType` is threaded through every API call — **the properties are tenants on one codebase, multiplexed by appId**
+
+> 📌 **THIS IS THE COMMERCIAL POINT.** A deal here is not one app. **The payment path is a single shared system and every brand is a tenant on it** — so one integration lands the whole portfolio, and conversely every brand inherits the same acquirer set, the same fraud vendor and the same five-acquirer routing decision. **Lead with this.**
+
+#### ⚠️ WHAT THE RESEARCH CLAIMED THAT ITS OWN VERIFICATION PANEL KILLED
+
+The run's headline summary asserts a wider estate — *"Mixu, Solla Chat, Livcam and 1v1chat.me… operated through a second Hong Kong shell, Mastercroff Developer Limited."* **Its own adversarial verification refuted much of that: 16 of 25 claims were killed.** Do not repeat the summary.
+
+| Claim | Verdict |
+|---|---|
+| **Solla Chat belongs to this group** | 🔴 **REFUTED 0–3.** Attributed by shared CDN and runtime only, never by developer of record. The panel called it an **app-name/category collision candidate**. |
+| **Mixu belongs to this group** | 🔴 **Refused.** Its actual Play developer of record is **Breaking Barriers Now B.V., a Dutch entity**, which the panel unanimously declined to treat as group-owned — despite `mixu.rcplatformhk.com` existing on the group's gateway domain. |
+| **Mastercroff's Suite 3705A proves common control with Clash Arts' Suite 3705** | 🔴 **Refuted.** Address adjacency in a Hong Kong office tower is suggestive of a shared corporate-services provider, **not proof of common control.** |
+| **Solla runs a divergent gateway (`api.mastercroff.com`)** | 🟡 **1–2, not confirmed.** And it only matters if Solla is group-owned, which is refuted. |
+| **The corporate site lists exactly three products (sourced absence)** | 🔴 **Refuted 0–3.** |
+| **The Apple delisting spans every Apple platform type** | 🔴 **Refuted 0–3.** |
+
+**What survives on the estate question: LivU, Tumile and Yaar.** Tumile and LivU are attributed to **Clash Arts (HK) Limited by the company's own GDPR disclosures**, which is the strongest evidence class available here. **Everything beyond those three is infrastructure adjacency, not ownership.**
+
+#### 🍎 The Apple delisting — scope tightened
+✅ **Proven account-wide for Apple developer `id1273950115` = CLASH ARTS HK LIMITED** (alternate display name *LIVU Team*, app *LivU* `id1273950116`): the developer page returns HTTP 200 with an **empty rendered shelf and an empty schema.org offer catalogue**, and **Apple's independent iTunes lookup API returns the artist record with zero software entries.**
+
+⚠️ **But that is the whole of it.** **No sibling Apple developer account was ever searched**, so the absence of Tumile, Yaar or anything else from the App Store is **unchecked, not sourced**. **And no cause, no date and no policy-violation record was found at all — never assert a reason in outreach.**
+
+#### 🏢 The merchant-of-record shells — still untraced, and that is itself the finding
+**Harvest Green Limited** (EU), **Baker Street Digital Technology Service Limited** (UK), **GoQun Limited** (rest of world) and the newly-surfaced **Mastercroff Developer Limited** were **not found in the Hong Kong Companies Registry, UK Companies House, the Irish CRO, ACRA or BVI.** All that exists are self-published website footers — **three of which share one site template and one suite number.**
+
+> **Four billing entities that bill real consumers and appear in no registry anyone can reach.** That is worth understanding before a commercial conversation, and it is a reason to expect the payments owner to be unusually senior.
 
 </details>
 
