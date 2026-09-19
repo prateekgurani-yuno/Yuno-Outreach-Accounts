@@ -152,7 +152,28 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 
 **APAC markets in territory — India, Indonesia, Pakistan, Bangladesh — are at least ~22.5% of attributed visits**, and certainly more given the unattributed majority.
 
-> ⚠️ **Traffic is not revenue, and here the two diverge sharply.** Shutterstock's Q2 2026 10-Q reports revenue as **North America 53.2%, Europe 26.7%, rest of world 20.1%** — group-wide, with APAC not separated. **India and Indonesia drive volume; North America drives money.** A classic high-traffic / low-ARPU emerging-market skew. Do not present traffic share as revenue share.
+> ### ⚠️ Traffic is not revenue — and the regional split you want does NOT exist
+>
+> **Shutterstock does not break out Envato.** It reports as a **single reporting unit**; Envato appears in the Q2 2026 10-Q only in the trademark list and in a sentence naming the brands Content is distributed under. **There is no Envato revenue line and no Envato regional split.** Everything below is group-wide.
+>
+> **Group revenue by customer location** — [Q2 2026 10-Q](https://www.sec.gov/Archives/edgar/data/1549346/000154934626000029/sstk-20260630.htm), filed 2026-08-07, revenue note. Pulled from the primary filing on 2026-09-19; figures in $000s.
+>
+> | Region | Q2 2026 | share | Q2 2025 | **YoY** | H1 2026 | share | **H1 YoY** |
+> |---|---|---|---|---|---|---|---|
+> | North America | 118,133 | 53.3% | 147,884 | **−20.1%** | 207,154 | 49.2% | **−22.7%** |
+> | Europe | 59,181 | 26.7% | 64,389 | **−8.1%** | 121,902 | 29.0% | **−6.6%** |
+> | Rest of the world | 44,487 | 20.1% | 54,717 | **−18.7%** | 91,915 | 21.8% | **−17.2%** |
+> | **Total** | **221,801** | | **266,990** | **−16.9%** | **420,971** | | **−17.4%** |
+>
+> Also disclosed: *"The United States… accounted for **38%** and 42% of consolidated revenue for the six months ended June 30, 2026 and 2025"* and *"**No other country accounts for more than 10%** of the Company's revenue in any period presented."*
+>
+> **⛔ CORRECTION — 2026-09-19. An earlier version of this line said "India and Indonesia drive volume; North America drives money," citing the <10% disclosure as confirmation. That was overstated and is retracted.**
+>
+> The 10% is a ceiling on India **at group level**, and Envato is a minority of the group. If Envato is ~20% of group revenue and India contributes ~2% of core Shutterstock, India could be **up to roughly 40% of Envato's revenue** and the filing would read exactly as it does. **India's revenue share at Envato is UNKNOWN, not small.** The low-ARPU inference is still reasonable — but it is an inference from ARPU norms, **not** something the filing establishes. **Never write "India is small for you" in an email**; they know their own numbers.
+>
+> **⚠️ No region is growing.** All three are declining. Europe's rising *share* is attrition, not growth. **A "help you grow region X" pitch does not fit this company** — down 17% on revenue, ~30% of Envato's workforce cut, $173.7m impairment. **Anchor on conversion and cost: recovered declines are margin on revenue already earned and already paid for.**
+>
+> **⚠️ Territory note:** "Rest of the world" is tagged `AllRegionsOfTheWorldExceptNorthAmericaAndEuropeMember` — it lumps APAC with LatAm, MEA. **APAC is not separable at any level of this filing, so no revenue-led APAC email can be built from disclosed data.** Use the Envato-specific marketplace volume figure in Section 3 instead — transactions, not traffic, and Envato's own published counter.
 
 ### Section 2: Legal Entities & Local Presence
 
