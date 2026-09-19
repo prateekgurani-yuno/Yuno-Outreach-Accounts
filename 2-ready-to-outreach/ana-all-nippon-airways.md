@@ -65,6 +65,19 @@ The table above is ANA's **complete** published method set on its own payment hu
 > **This is a Japanese legacy-carrier category norm, not an ANA failing.** Opening on it invites the true and fatal reply *"JAL doesn't either."* **The rail gap belongs in E3 as a question about roadmap, never in E1 as an observation.**
 >
 > ⚠️ **Same trap on both sites: 「PayPay銀行」 appears in the Pay-easy bank list on JAL's page. That is PayPay *Bank*, not the wallet.** Two hits, both in that list. Do not misread it as acceptance on either carrier.
+>
+> ### ★ UPDATE 2026-09-19 — WE NOW KNOW *WHY*, AND IT IS BETTER THAN THE ORIGINAL OBSERVATION
+>
+> Researching JAL surfaced the mechanism behind the shared absence. **JAL's own international payment page links out to `multiple-payment.biz` — the only non-analytics third party on the page — which is Wellnet's product site**, titled 「ウェルネット（WELLNET）マルチペイメントサービス」. ✅ **Both verified by me.**
+>
+> Wellnet's own copy: 「2000年5月から稼動開始。**国内主要航空会社の全て**…」 — *"in operation since May 2000. Used by all of Japan's major domestic airlines."*
+>
+> **And its complete method set, from its own FAQ:**
+> > 「クレジットカード/コンビニ(現金）/ATM(ペイジー)/ネットバンク/**電子マネー(楽天Edy,モバイルSuica,JCBプレモ)**/支払秘書」
+>
+> **The e-money ceiling is Rakuten Edy, Mobile Suica and JCB Premo. No PayPay. No code wallet of any kind.**
+>
+> 📌 **ANA is named on its own site as using 決済代行会社「ウェルネット社」 for exactly these rails.** So the reason ANA lacks Japan's dominant wallet is **not a preference and not an oversight — the vendor carrying its cash and bank rails does not offer it.** That is a structural ceiling, it is true across the category, and it is a much stronger thing to raise than a missing feature. **This is now usable in E3 where the original wallet-gap framing was not.**
 
 ### Known PSPs
 | Provider | Role | Evidence |
