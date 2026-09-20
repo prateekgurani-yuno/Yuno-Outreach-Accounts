@@ -279,7 +279,37 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 
 **Merchant of record — a nuance that matters.** Envato is **not** a full MoR; it is an **expressly limited agent**. Terms, verbatim: *"**WE DO NOT PROCESS PAYMENTS FOR ANY ENVATO MARKET SERVICES.**… we may use one or more third-party payment processors"* and *"we receive that payment as a **limited agent for the Author**."* The one exception: *"For EU VAT purposes only, **Envato steps into the supply chain as the supplier on record**."*
 
-⚠️ **Open question:** whether **Stripe or Braintree acquires Elements subscription volume today.** Both are live simultaneously — Braintree for declines and restrictions, Stripe for invoices and the account-layer card form. A migration may be in progress. This needs a logged-in checkout observation.
+### ✅ NARROWED 2026-09-20 — the evidence now leans clearly to Stripe on Elements
+
+**Re-pulled live CSP headers across the estate.** Mapping the rails onto the Note 5 revenue split:
+
+| Surface | Rail | Revenue (FY-Jun-23) | Share | Confidence |
+|---|---|---|---|---|
+| **Envato Market** (6 marketplaces) | **Braintree + PayPal** | $37.5M *commission* | **19.7%** | ✅ **Verified 2026-09-20** |
+| **Envato Elements** (subscriptions) | **Stripe** | $152.9M *gross* | **80.3%** | 🟡 **Strong inference** |
+
+**PROVEN — Market → Braintree.** Live CSP on `themeforest.net/checkout` and `codecanyon.net/checkout` (served even on a 404):
+```
+connect-src 'self' account.envato.com ... *.braintree-api.com *.braintreegateway.com *.paypal.com
+script-src  ... *.paypal.com
+```
+**Zero Stripe on either.**
+
+**PROVEN — the account layer → Stripe, exclusively.** `account.envato.com` serves a `strict-dynamic` nonce CSP:
+```
+script-src  'strict-dynamic' ... https://js.stripe.com https://*.js.stripe.com
+frame-src   ... https://js.stripe.com https://*.js.stripe.com
+connect-src ... https://api.stripe.com
+```
+**Braintree absent. PayPal absent.** (Note the Market checkout's `connect-src` includes `account.envato.com` — so the account layer is shared session/identity infrastructure across both estates, while the card rails differ.)
+
+**INFERENCE — Elements subscription billing runs on Stripe.** Three supports: (i) the account/billing layer is Stripe-only on a strict CSP; (ii) the Elements invoices article, **updated 2026-09-17**, says a subscription invoice is *"managed by Stripe"* — that is Stripe Billing, implying the subscription object lives in Stripe; (iii) Elements accepts **Apple Pay**, and Stripe's Payment Element is the only wallet-capable surface evidenced anywhere in the estate.
+
+⚠️ **The one contrary signal is weaker than this file previously credited.** The sole remaining Braintree trace on Elements is a **link to Braintree's public *Prohibited Transactions* policy page** about restricted regions (Failed payments article, edited 2026-08-03). **That is documentation, not an acquiring signal** — equally consistent with a legacy link that survived a migration.
+
+❌ **Still not settled:** `elements.envato.com`'s own app CSP. **Every path 403s behind Cloudflare, including `/robots.txt`** — the challenge-page CSP it returns is Cloudflare's, not Envato's, and must not be mistaken for it. **A logged-in browser session is the only way to close this.**
+
+➡️ **Drafting consequence.** The two-vault argument is **clean by business line**: a customer who subscribes to Elements *and* buys on ThemeForest has their card stored **twice, in two vaults, with two updaters and two token sets**. And the recurring-billing conversation — 80.3% of revenue — is a **Stripe** conversation. **Do not argue the wrong gateway on a call.**
 
 #### 3B. Payment Orchestrator
 
