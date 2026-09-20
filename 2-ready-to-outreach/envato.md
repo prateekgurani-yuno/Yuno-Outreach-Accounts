@@ -286,7 +286,9 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 | Surface | Rail | Revenue (FY-Jun-23) | Share | Confidence |
 |---|---|---|---|---|
 | **Envato Market** (6 marketplaces) | **Braintree + PayPal** | $37.5M *commission* | **19.7%** | ✅ **Verified 2026-09-20** |
-| **Envato Elements** (subscriptions) | **Stripe** | $152.9M *gross* | **80.3%** | 🟡 **Strong inference** |
+| **Envato Elements** (subscriptions) | **Stripe and/or Braintree — unresolved** | $152.9M *gross* | **80.3%** | ❌ **NOT established** — see retraction below |
+
+⚠️ **The revenue shares above are FY ended 30 June 2023 — over three years stale.** Since then Shutterstock acquired the business and **marketplace item sales reportedly halved** (~126k → ~59k/month, Section 3). Elements clearly dominates, but **the current ratio is unknown — do not quote "80/20" as a present-day fact.**
 
 **PROVEN — Market → Braintree.** Live CSP on `themeforest.net/checkout` and `codecanyon.net/checkout` (served even on a 404):
 ```
@@ -303,9 +305,29 @@ connect-src ... https://api.stripe.com
 ```
 **Braintree absent. PayPal absent.** (Note the Market checkout's `connect-src` includes `account.envato.com` — so the account layer is shared session/identity infrastructure across both estates, while the card rails differ.)
 
-**INFERENCE — Elements subscription billing runs on Stripe.** Three supports: (i) the account/billing layer is Stripe-only on a strict CSP; (ii) the Elements invoices article, **updated 2026-09-17**, says a subscription invoice is *"managed by Stripe"* — that is Stripe Billing, implying the subscription object lives in Stripe; (iii) Elements accepts **Apple Pay**, and Stripe's Payment Element is the only wallet-capable surface evidenced anywhere in the estate.
+### ⛔ RETRACTED SAME DAY — "Elements runs on Stripe" was OVERSTATED. Do not use it.
 
-⚠️ **The one contrary signal is weaker than this file previously credited.** The sole remaining Braintree trace on Elements is a **link to Braintree's public *Prohibited Transactions* policy page** about restricted regions (Failed payments article, edited 2026-08-03). **That is documentation, not an acquiring signal** — equally consistent with a legacy link that survived a migration.
+An earlier version of this block inferred that **Elements subscription billing runs on Stripe**, from the account layer being Stripe-only plus the *"managed by Stripe"* invoices line. **That inference does not close, for two reasons.**
+
+**1. PayPal breaks the chain.** Elements' Accepted Payment Methods article, **updated 2026-09-15**, states: *"Can I use PayPal to pay for Envato Elements? **Yes, PayPal is fully accepted for Envato subscriptions.**"* But `account.envato.com`'s CSP contains **no PayPal at all**. If that surface were the whole Elements payment path, PayPal would have to appear in it. **It does not, so it isn't.**
+
+**2. The Braintree signal was dismissed too readily.** This file previously called the Elements failed-payments link to **Braintree's Prohibited Transactions page** "documentation, not an acquiring signal." That was weak: **Braintree is PayPal-owned and PayPal is its flagship native method.** Braintree still carrying PayPal on Elements is the simplest explanation for that link, and the article was edited **2026-08-03**.
+
+⚠️ **But the counter-evidence is ALSO weak, and the reason is methodological.** `account.envato.com` serves **no `form-action` directive**. A **redirect-based PayPal flow — a full-page POST out to PayPal — would leave no CSP trace whatsoever.** So PayPal's absence from that CSP proves nothing either.
+
+> 🧰 **METHOD NOTE, applies to every account in this repo.** **CSP evidences what a page loads in-band — scripts, iframes, XHR. It is near-useless for redirect-based payment methods**, which navigate away and need no allowlist entry (absent `form-action`). **Check for a `form-action` directive before treating a CSP absence as a sourced absence.** This file applied the technique sloppily and the correction is recorded here rather than buried.
+
+### ✅ What actually stands
+
+| Claim | Status |
+|---|---|
+| Market checkout → **Braintree + PayPal** | ✅ **Solid** — live CSP, zero Stripe |
+| `account.envato.com` **card rail** → **Stripe** | ✅ **Solid** — Stripe.js in `script-src`, `frame-src` **and** `connect-src` |
+| Elements **subscription charges** → Stripe | ❌ **NOT ESTABLISHED** |
+| **Braintree still in the Elements path** | 🟡 **Plausible**, on the PayPal link |
+
+➡️ **Safe to say in outreach:** *one customer, two vaults* — Market on Braintree, the account-layer card rail on Stripe, both proven, and a customer who does both has credentials stored in two places. **This does not depend on resolving Elements.**
+❌ **NOT safe to say:** "your subscriptions run on Stripe."
 
 ❌ **Still not settled:** `elements.envato.com`'s own app CSP. **Every path 403s behind Cloudflare, including `/robots.txt`** — the challenge-page CSP it returns is Cloudflare's, not Envato's, and must not be mistaken for it. **A logged-in browser session is the only way to close this.**
 
