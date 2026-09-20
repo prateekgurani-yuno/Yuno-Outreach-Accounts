@@ -196,6 +196,34 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 >
 > ✅ **This validates the Envato-share arithmetic below.** $197.8M / $1,079.5M pro forma = **18.3% of the combined entity** — close to the ~20% used in the India correction, so that reasoning holds.
 >
+> ### ⛔ REGIONAL SPLIT FOR ENVATO: CONFIRMED NOT TO EXIST — checked 2026-09-20
+>
+> **I read all 28 pages of the audited statements.** They are filed as **scanned JPEGs** (`annualfinal-envatofinanc001–028.jpg` in the 8-K/A), which is why the HTML wrapper is only 15KB and why text search finds nothing. **Note 5 Revenue disaggregates by PRODUCT only. There is no segment note and no geographic disclosure anywhere in the document.**
+>
+> **The reason is structural, so it will never exist for the pre-acquisition years:** Envato Pty Ltd was a **private company**, and **IFRS 8 segment reporting binds only entities with publicly traded debt or equity.** They were never required to disclose geographic revenue. **This is a checked absence — stop looking.**
+>
+> ### ✅ WHAT NOTE 5 DOES GIVE — the product split, and it is more useful
+>
+> **FY ended 30 June 2023, USD'000** (the statements are presented in **USD**, confirmed on the note headers — not AUD):
+>
+> | Line | Amount | Share | Recognition |
+> |---|---|---|---|
+> | **Platform subscriptions fees** (Envato Elements) | **$152,859** | **80.3%** | **Principal → GROSS sales price** |
+> | **Platform one-time service fees** (the six marketplaces) | **$37,454** | **19.7%** | **Agent → COMMISSION receivable only** |
+> | **Total revenue from ordinary activities** | **$190,313** | | |
+>
+> Note 4, verbatim: *"For platform subscriptions fees, the Group has determined that it meets the criteria of acting as a **principal** and therefore recognises the **gross sales price**. For the platform one-time service fees, the Group has determined that it meets the criteria of acting as an **agent** and therefore recognises the **amount of commission receivable**."*
+>
+> 💥 **Consequence 1 — payment volume is materially larger than revenue.** The $37.5M marketplace line is **commission, not GMV**. Gross buyer spend through that checkout never appears in revenue. Money moving through Envato's checkout ≈ **$153M (Elements, gross) + marketplace GMV**. ⚠️ **Envato's commission rate was NOT verified this session — do not put a GMV figure in outreach until someone checks the published author fee schedule.**
+>
+> 💥 **Consequence 2 — this is a SUBSCRIPTION business by revenue, not a marketplace.** **80.3% of revenue is recurring billing**, in **USD only**, on Braintree/Stripe, **with no local rail anywhere in the world.**
+>
+> ⛔ **CORRECTION to earlier drafting advice in this file and in chat:** the marketplace item-sales collapse (~126k → ~59k/month, Section 3) was recommended as the lead signal. **It sits in the 19.7% half.** The subscription side is ~4× larger by revenue and is where recurring-billing failure compounds — involuntary churn, failed renewals, account updater, network tokens, retry logic. **Lead there.** ➡️ **Read `.claude/reference/subscription-payments.md` before drafting; this is not "subscription-adjacent", it is a subscription business.**
+>
+> 💸 **Also in Note 4 — a USD 18.1M global sales tax provision**, 9.5% of revenue: *"a provision for potential global sales tax exposures across all its products… estimated exposures by country."* A company already carrying a large, country-by-country indirect-tax problem.
+>
+> ✅ Going concern statement is clean. 🧰 **Technique recorded: SEC exhibits can be scanned JPEGs — a text grep returning nothing does NOT mean the disclosure is absent. Check the filing's `index.json` for image files before concluding.**
+>
 > 🧰 **False positive recorded:** a raw scan for `AUD` in the pro forma returned 36 hits. **Every one was the substring inside `unaudited`.** Add to the running list: **`unaudited` → AUD.**
 >
 > **Group revenue by customer location** — [Q2 2026 10-Q](https://www.sec.gov/Archives/edgar/data/1549346/000154934626000029/sstk-20260630.htm), filed 2026-08-07, revenue note. Pulled from the primary filing on 2026-09-19; figures in $000s.
