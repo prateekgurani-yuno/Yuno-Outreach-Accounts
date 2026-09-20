@@ -17,7 +17,46 @@
 >
 > > *"If you need a payment method that isn't currently available—**especially a regional payment provider specific to your country**—please get in touch with our support team to let us know."*
 >
-> A global marketplace billing **USD-only** off a **single PayPal-family gateway**, telling its own buyers that their cards get blocked because of where it acquires, and publicly inviting requests for local rails. **You can quote them to themselves.**
+> A global marketplace billing in **three Western currencies** off a **single PayPal-family gateway**, telling its own buyers that their cards get blocked because of where it acquires, and publicly inviting requests for local rails. **You can quote them to themselves.**
+>
+> ## 🚨 THE STRONGEST EVIDENCE IN THIS FILE — found 2026-09-20
+>
+> **Envato publishes a help article titled *"Why can't I subscribe to Envato from India?"*** — updated **2026-09-11**. [Link](https://help.elements.envato.com/hc/en-us/articles/4408165799577-Why-can-t-I-subscribe-to-Envato-from-India). Verbatim:
+>
+> > *"Some users in India are unable to subscribe to Envato, or find that their **existing subscription fails to renew**. This is caused by a **Reserve Bank of India (RBI) mandate** that requires additional customer authentication for recurring credit card transactions. As a result, some Indian banks block these payments before they reach Envato. **This issue affects both new subscriptions and automatic renewals** for customers using India-based bank cards."*
+> >
+> > *"Because Envato's subscription billing processes renewals automatically, **it may not be able to satisfy this additional authentication step**, causing the payment to be declined by the card issuer."*
+> >
+> > *"**Envato is currently unable to offer a direct technical workaround for this issue.**"*
+> >
+> > *"**Will Envato fix this payment issue?** … **Envato is unable to change how this structural authentication works.** The most effective path forward is to contact your card issuer."*
+>
+> Their remedies to the customer: **phone your bank, try PayPal, check back periodically.**
+>
+> **Read what this is.** Their **#1 traffic market (14.67%)**. The **80.3%-of-revenue** business. **Recurring billing structurally broken**, and a **published admission that they cannot fix it.** `.claude/reference/subscription-payments.md` §3 calls RBI e-mandate *"the single strongest recurring-payments hook in the territory"* — and here it is confirmed first-party rather than inferred.
+>
+> ✅ **This also removes the verification risk.** Do **not** cite RBI rules yourself (they change, and the research skill forbids citing them from background knowledge). **Quote Envato's own page instead.**
+>
+> ### ✅ CROSS-BORDER — CONFIRMED in their own words, three pages, all live
+>
+> | Their words | Page | Updated |
+> |---|---|---|
+> | *"…enable recurring **international** payments…"* | Why can't I subscribe from India | **2026-09-11** |
+> | *"since Envato is Australia-based, some card issuers block **overseas** payments by default"* | Common PayPal and credit card issues | 2026-09-16 |
+> | *"may charge additional fees, **including international transaction fees**"* | Refund policy | 2026-09-16 |
+>
+> **Structural bound, independent of acquirer domicile:** entities exist only in **AU and US**; top markets are **India 14.67%, US 11.67%, Indonesia 4.73%, Brazil 2.91%, Mexico 2.49%, Pakistan 2.17%** — **Australia does not appear in the top five.** Whether they acquire in Sydney or New York, the large majority of buyers sit outside it. ⚠️ **The acquirer's domicile is still NOT established — do not quote a cross-border percentage.**
+>
+> ### ⛔ CURRENCY CORRECTION — "USD only" was WRONG for Elements
+>
+> This file asserted a **single USD-only checkout worldwide**. That is **correct for Market and wrong for Elements**, which is 80.3% of revenue.
+>
+> - **Market** — *"All transactions are processed in US dollars."* ✅ USD only (updated 2026-09-16)
+> - **Elements** — *"Envato subscription fees are in US Dollars, **or if you are in the European Union, in Euros**. We may offer subscription fees in other currencies from time to time."* (User Terms, updated **2026-09-18**); refunds issue in *"either **USD, EUR, or GBP**"* (updated 2026-09-16)
+>
+> **The claim narrows but survives:** USD, EUR and GBP serve the US and EU and **none of the top emerging markets** — India, Indonesia, Brazil, Pakistan and Mexico all still convert. **Say "three Western currencies, none of them local to your biggest markets", never "USD only".**
+>
+> ✅ **And the replacement quote is stronger.** Elements User Terms, updated 2026-09-18: *"**You are responsible for all costs of currency conversion**… you may incur additional costs when purchasing from Envato Elements, **which we have no control over.**"*
 >
 > ⚠️ **But read the territory flag first — the contracting entity is now Shutterstock, Inc.**
 
@@ -33,7 +72,7 @@
 ### Top 5 markets
 | Rank | Country | Traffic | Accepted methods | Missing methods | Local entity |
 |------|---------|---------|------------------|-----------------|--------------|
-| 1 | **India** | **14.67%** `[EST]` | Visa, Mastercard, Amex USD-only, PayPal (+Apple Pay on Elements) — **USD only** | **UPI, netbanking, RuPay, EMI, UPI Autopay — SOURCED ABSENT** | ❌ none |
+| 1 | **India** | **14.67%** `[EST]` | Visa, Mastercard, Amex USD-only, PayPal (+Apple Pay on Elements) — **USD (Market) / USD-EUR-GBP (Elements)**. ⚠️ **Subscriptions structurally FAIL here — see the RBI block at the top** | **UPI, netbanking, RuPay, EMI, UPI Autopay — SOURCED ABSENT** | ❌ none |
 | 2 | **United States** | **11.67%** `[EST]` | As above | — | ✅ Envato USA, Inc. (Utah) |
 | 3 | **Indonesia** | **4.73%** `[EST]` | As above | **QRIS, GoPay, OVO, DANA, ShopeePay, virtual account — SOURCED ABSENT** | ❌ none |
 | 4 | Brazil | 2.91% `[EST]` | As above | Pix, boleto — sourced absent | ❌ none |
@@ -133,7 +172,7 @@
 
 ## Executive Summary
 
-Envato is a two-sided digital-goods business — Envato Elements (subscription) plus six Envato Market marketplaces — HQ'd in Melbourne and **wholly owned by Shutterstock since July 2024**. Buyers pay in **USD only**, through **four card brands, Apple Pay (Elements only) and PayPal**, on a **single PayPal-family gateway (Braintree)**, with **Stripe** on the newer subscription/account layer and **no local payment method anywhere in the world**. Meanwhile Envato pays its authors in **137 currencies over 83 local clearing routes** — it has solved localisation for money *out* and not for money *in*. The motion is **Greenfield**, confirmed affirmatively from checkout CSP headers, and the sharpest asset is that Envato's own help pages both diagnose the cross-border decline problem and invite requests for regional providers.
+Envato is a two-sided digital-goods business — Envato Elements (subscription) plus six Envato Market marketplaces — HQ'd in Melbourne and **wholly owned by Shutterstock since July 2024**. Buyers pay in **USD on Market and USD/EUR/GBP on Elements** — **no local currency in any emerging market** — through **four card brands, Apple Pay (Elements only) and PayPal**, on a **single PayPal-family gateway (Braintree)**, with **Stripe** on the newer subscription/account layer and **no local payment method anywhere in the world**. Meanwhile Envato pays its authors in **137 currencies over 83 local clearing routes** — it has solved localisation for money *out* and not for money *in*. The motion is **Greenfield**, confirmed affirmatively from checkout CSP headers, and the sharpest asset is that Envato's own help pages both diagnose the cross-border decline problem and invite requests for regional providers.
 
 ### Section 1: Website Traffic Analysis by Country
 
@@ -216,7 +255,7 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 >
 > 💥 **Consequence 1 — payment volume is materially larger than revenue.** The $37.5M marketplace line is **commission, not GMV**. Gross buyer spend through that checkout never appears in revenue. Money moving through Envato's checkout ≈ **$153M (Elements, gross) + marketplace GMV**. ⚠️ **Envato's commission rate was NOT verified this session — do not put a GMV figure in outreach until someone checks the published author fee schedule.**
 >
-> 💥 **Consequence 2 — this is a SUBSCRIPTION business by revenue, not a marketplace.** **80.3% of revenue is recurring billing**, in **USD only**, on Braintree/Stripe, **with no local rail anywhere in the world.**
+> 💥 **Consequence 2 — this is a SUBSCRIPTION business by revenue, not a marketplace.** **80.3% of revenue is recurring billing**, in **USD/EUR/GBP only**, on Braintree/Stripe, **with no local rail anywhere in the world — and structurally failing in India, their #1 market, by their own published admission.**
 >
 > ⛔ **CORRECTION to earlier drafting advice in this file and in chat:** the marketplace item-sales collapse (~126k → ~59k/month, Section 3) was recommended as the lead signal. **It sits in the 19.7% half.** The subscription side is ~4× larger by revenue and is where recurring-billing failure compounds — involuntary churn, failed renewals, account updater, network tokens, retry logic. **Lead there.** ➡️ **Read `.claude/reference/subscription-payments.md` before drafting; this is not "subscription-adjacent", it is a subscription business.**
 >
@@ -260,7 +299,7 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 |---|---|---|---|---|
 | **Worldwide** | Unknown — no data | ❌ none outside AU/US | Not verified | **High — and self-documented** |
 
-> *"Warning: Envato operates a single USD-only checkout worldwide with no local billing entity outside Australia and the United States. Transactions are processed cross-border, with higher scheme costs, lower approval rates and FX exposure."*
+> *"Warning: Envato operates with no local billing entity outside Australia and the United States, billing in USD on Market and USD/EUR/GBP on Elements — no local currency in any emerging market. Transactions are processed cross-border, with higher scheme costs, lower approval rates and FX exposure."* ⚠️ **Corrected 2026-09-20 — the original said "single USD-only checkout worldwide", which is wrong for Elements.**
 >
 > **This is not an inference — Envato says it.** *"since Envato is Australia-based, some card issuers block overseas payments by default."*
 
@@ -412,7 +451,7 @@ An earlier version of this block inferred that **Elements subscription billing r
 | Card input | **Tokenised PSP-side** — *"card details are stored securely by our payment processor, not by Envato. Card information is never transmitted to or stored on Envato's own servers"* | Good |
 | Methods visible | Elements: 4 card brands + Apple Pay + PayPal. Market: 4 card brands + PayPal | **Poor for a global marketplace** |
 | **Location-based display** | ❌ **None — the method set is globally uniform** | **Poor** |
-| **Multi-currency** | ❌ **USD only.** *"All transactions are processed in US dollars"* | **Poor** |
+| **Multi-currency** | ⚠️ **Market: USD only** (*"All transactions are processed in US dollars"*). **Elements: USD/EUR/GBP.** **No local currency in any emerging market.** | **Poor** |
 | Handling fee | *"A handling fee may apply on orders under $150"* — stated repeatedly; **amount not published** | Fair |
 | 3DS | **Not observable** | — |
 | Saved cards | Yes, vaulted PSP-side | Good |
@@ -495,7 +534,7 @@ An earlier version of this block inferred that **Elements subscription billing r
 | **Monthly transaction count** | ✅ **DERIVED — Envato Market: ~59,000/month current run-rate; ~97,000/month trailing 12 months.** From Envato's own live cumulative counter (`78,946,574 items sold`, verified by me byte-identical across four marketplace domains on 2026-09-17), differenced against archived snapshots. ⚠️ **Excludes Elements subscription renewals — not published anywhere.** Total is higher and plausibly ≥100,000, but only the Market half is established | Envato footer counter + Wayback ✅ |
 | **Marketplace volume trend** | ⚠️ **~126,000/month (Sep–Dec 2025) → ~59,000/month (Sep 2026). A >50% collapse in twelve months.** Independently consistent with Shutterstock's reported −17% Q2 2026 revenue | Same derivation |
 | **Cumulative community earnings** | **$1,254,306,531** — but Envato's CEO said **"$1.3 billion"** in May 2024. **A cumulative counter cannot go backwards**, so this counter excludes Elements and Placeit payouts | Verified by me |
-| Primary currency | **USD only**, globally | ✅ |
+| Primary currency | **USD (Market) / USD, EUR, GBP (Elements)** — no emerging-market currency | ✅ |
 | Top 3 markets by revenue | **Not found — Envato publishes no buyer geography** | — |
 | Billing channel split | **N/A** — web checkout, no app-store IAP exposure | — |
 
