@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-20 02:36*
+*Last updated: 2026-09-20 04:16*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -88,28 +88,36 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (39)
+## 🟢 Ready to Outreach (47)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
+| [Gravity Co., Ltd. (NASDAQ: GRVY)](2-ready-to-outreach/gravity.md) | Online & mobile game developer/publisher — the Ragnarok franchise | 24/29 | Greenfield | 2026-09-20 |
 | [ANA (All Nippon Airways)](2-ready-to-outreach/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | Greenfield | 2026-09-18 |
+| [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | 23/29 | In-house orchestration | 2026-09-20 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
 | [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | Greenfield | 2026-09-16 |
 | [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activities, attraction tickets) | 22/29 | ⚠️ DISPLACEMENT | 2026-09-19 |
 | [Peach Aviation](2-ready-to-outreach/peach-aviation.md) | Low-cost carrier (direct-to-consumer, >95% of sales through own website) | 22/29 | Greenfield | 2026-09-19 |
+| [SEA Gamer Mall (SEAGM)](2-ready-to-outreach/sea-gamer-mall.md) | Digital-goods marketplace — game top-ups, gift cards, credits | 22/29 | Greenfield | 2026-09-20 |
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 ⚠️ | Competitive | 2026-09-15 |
+| [Com2uS Corp](2-ready-to-outreach/com2us.md) | Mobile game publisher — Summoners War, Com2uS Pro Baseball, Starseed | 21/29 | ⚠️ DISPLACEMENT | 2026-09-20 |
 | [Peatix](2-ready-to-outreach/peatix.md) | Event ticketing & registration platform (marketplace; collects from attendees, remits to organisers) | 21/29 | Greenfield | 2026-09-19 |
 | [Envato](2-ready-to-outreach/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | Greenfield | 2026-09-17 |
 | [Little Hotelier](2-ready-to-outreach/little-hotelier.md) | Hospitality SaaS (channel manager, booking engine, PMS) + embedded payments | 20/29 | Greenfield | 2026-09-17 |
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | 16/24 ⚠️ | In-house | 2026-09-15 |
+| [Cygames, Inc.](2-ready-to-outreach/cygames.md) | Mobile & browser game developer — Uma Musume Pretty Derby, Granblue Fantasy, Shadowverse, Princess Connect | 19/29 | In-house orchestration | 2026-09-20 |
+| [HAGO](2-ready-to-outreach/hago.md) | Casual game + voice-chat social app | 19/29 | In-house orchestration, and an unusually developed one | 2026-09-20 |
 | [Lion Air Group](2-ready-to-outreach/lion-air.md) | Airlines (LCC group — Lion Air, Batik Air, Wings Air, Batik Air Malaysia, Thai Lion Air) | 19/29 | Greenfield | 2026-09-19 |
+| [Webzen Inc.](2-ready-to-outreach/webzen.md) | Online & mobile game developer/publisher + IP licensor — MU Online, Metin2, R2 | 19/29 | In-house orchestration on the addressable estate | 2026-09-20 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | 15/24 ⚠️ | Displacement | 2026-09-14 |
 | [Cathay Pacific](2-ready-to-outreach/cathay-pacific.md) | Airlines (full-service + wholly-owned LCC) | 18/29 | Coverage play, not displacement | 2026-09-18 |
 | [HK Express](2-ready-to-outreach/hk-express.md) | Airlines (low-cost carrier, short-haul) | 18/29 | In-house | 2026-09-18 |
 | [Jetstar Airways](2-ready-to-outreach/jetstar-airways.md) | Airlines (low-cost carrier) | 18/29 | In-house (partial) | 2026-09-19 |
 | [Amorepacific](2-ready-to-outreach/amorepacific.md) | Cosmetics manufacturer and brand owner (Sulwhasoo, Laneige, Innisfree, Etude, Hera, COSRX) | 17/29 | Greenfield | 2026-09-18 |
+| [Asphere Innovations (PlayPark) — *formerly Asiasoft*](2-ready-to-outreach/asiasoft-playpark.md) | Online game publisher/operator — PlayPark brand | 17/29 | In-house orchestration | 2026-09-20 |
 | [Japan Airlines (JAL)](2-ready-to-outreach/japan-airlines-jal.md) | Airlines (full-service, domestic + international, cargo, mileage commerce) | 17/29 | Greenfield | 2026-09-19 |
 | [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house | 2026-09-19 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 ⚠️ | Greenfield | 2026-09-15 |
@@ -140,7 +148,7 @@
 |---------|----------|-----|------------|
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
-## 🔴 Not ICP (9)
+## 🔴 Not ICP (11)
 
 See [not-icp/](not-icp/) for rejection rationale.
 
