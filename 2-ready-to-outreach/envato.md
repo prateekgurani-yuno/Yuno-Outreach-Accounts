@@ -308,7 +308,13 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 > **VAT on Envato Market FAQ**, updated **2026-09-16**, verbatim:
 > > *"Envato collects VAT from EU consumer buyers under EU digital VAT rules, using **VAT number EU372009975**… As of **1 October 2019, Ireland became Envato's Member State of Identification** under the EU VAT Mini One Stop Shop (MOSS) scheme."*
 >
-> **Read the VAT number: `EU372009975`. The `EU` prefix is a NON-UNION SCHEME registration** — the regime for businesses **not established in the EU**. An Irish-established entity would carry an **`IE`** prefix. **Ireland is the administrative filing point precisely BECAUSE there is no EU establishment.**
+> **Ireland is a VAT FILING JURISDICTION, not an entity.** Under the non-Union scheme a business outside the EU selling digital services to EU consumers must register **somewhere** in the bloc, picks one country as its **Member State of Identification**, files a single return there covering all EU sales, and that country distributes the VAT onward. **No establishment, no office, no legal entity, no bank account.**
+
+✅ **Verified against the European Commission's own OSS documentation, 2026-09-20.** Its worked example describes Envato's exact situation: *"a trader **established in the US registers in Ireland** to use the non-Union scheme."*
+
+⚠️ **Softened 2026-09-20:** an earlier version of this note asserted that the **`EU` prefix** on `EU372009975` marks a non-Union registration and that an Irish-established entity would carry **`IE`**. That is probably right but **the Commission page checked does not document the numbering convention, so treat the prefix claim as NOT independently verified.** It does not affect the conclusion — the substantive point (**MSI registration ≠ establishment**) is confirmed by the Commission's own example, and Envato's self-description does the rest.
+
+✅ **The billing entity is American, confirmed in both current terms:** *"**Envato, we, us or our: Shutterstock, Inc.**"* — Elements User Terms (upd **2026-09-18**) **and** Market User Terms (upd **2026-09-11**). **No EU entity is named in either** — no B.V., no S.à r.l., no GmbH, no Irish Limited. Arbitration sits in **New York**.
 >
 > Envato confirms it in the same article, twice: *"**Envato is an Australian company** — why does EU VAT apply?"* and *"While **Envato is based in Australia**…"*
 >
