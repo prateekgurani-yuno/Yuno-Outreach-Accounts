@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-19 15:06*
+*Last updated: 2026-09-20 02:36*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -88,7 +88,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (38)
+## 🟢 Ready to Outreach (39)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -132,6 +132,7 @@
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 ⚠️ | Greenfield | 2026-09-14 |
 | [Interpark Ticket (NOL 티켓)](2-ready-to-outreach/interpark-ticket.md) | Event ticketing (concerts, musicals, theatre, sport) | 10/29 | In-house | 2026-09-18 |
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 ⚠️ | Undetermined | 2026-09-16 |
+| [ThaiTicketMajor](2-ready-to-outreach/ticketnet-thailand.md) | Live event ticketing (concerts, theatre, sport), agent-of-promoter with heavy offline counter/cash distribution | -1/29 | Not established | 2026-09-20 |
 
 ## 🔵 Outreached (1)
 
@@ -148,3 +149,4 @@ See [not-icp/](not-icp/) for rejection rationale.
 > ⚠️ **12 file(s) still scored on the retired /24 matrix** and are marked ⚠️ above. Their scores are NOT comparable to a /29 score and must be re-run before they are prioritised against anything else:
 >
 > `bangkok-airways` · `citilink` · `garuda-indonesia` · `great-learning` · `indodax` · `vietjet-air` · `vietnam-airlines` · `viu` · `watsons` · `yesstyle` · `yupptv` · `air-new-zealand`
+*Parse error: 2-ready-to-outreach/ticketnet-thailand.md (parse error)*
