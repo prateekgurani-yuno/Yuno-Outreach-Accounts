@@ -322,6 +322,28 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 > 3. **That is structurally expected.** Under SCA, recurring **merchant-initiated transactions are generally out of scope** once the mandate is authenticated. India's e-mandate is stricter — it bites on the mandate **and** on above-threshold debits. **Europe genuinely is the easier regime for recurring billing. Do not imply otherwise; it is wrong on the substance and checkable.**
 > 4. Europe is **EMEA territory** regardless.
 >
+> ### ⚠️ REFINED 2026-09-20 — "weakest argument" was too blunt. Split friction from cost.
+>
+> The four points above are about **customer-facing friction**, and there they hold. **On COST OF ACCEPTANCE, Europe may be a strong argument** — that was under-weighted.
+>
+> **The interchange point.** EU consumer-card interchange is capped by the **Interchange Fee Regulation at 0.2% debit / 0.3% credit — but only INTRA-EEA**, i.e. issuer *and* acquirer both inside the zone. **An EU-issued card acquired from outside the EEA is inter-regional and falls outside the cap**, at materially higher rates. `apac-payments.md` frames it identically: *"Interchange is capped intra-EEA (IFR), so cross-border framing only applies outside the zone."* **Envato is outside the zone** — confirmed by the `EU`-prefixed VAT number above.
+>
+> So on an identical EU transaction, an EU-established competitor pays capped interchange and **Envato does not** — plus the scheme's inter-regional assessment on top. **Cost of acceptance on European volume is structurally above the local benchmark.**
+>
+> **The invisible third cost.** They bill EU customers in **EUR** but presumably settle to AUD or USD. **The buyer sees no FX — Envato absorbs the conversion on the settlement side.** Inverse of India: there the *customer* bears FX and abandons; here the *merchant* bears it and it shows up as margin.
+>
+> ### ⛔ THE CAVEAT THAT COULD KILL THIS ENTIRE ARGUMENT
+>
+> **The acquirer's domicile is NOT established**, and there is a specific scenario where none of the above holds. Both gateways have **EEA-licensed entities** — **Stripe Payments Europe (Ireland)** and **PayPal (Europe) S.à r.l. (Luxembourg)**. **If Envato's EU volume is acquired through either, those transactions are intra-EEA and IFR-capped, and the interchange argument collapses entirely.**
+>
+> Acquiring entity normally follows the **merchant's** domicile, not the customer's — and Envato is AU-operating with a US contracting entity, so inter-regional is the likelier setup. **But "likelier" is not "established."**
+>
+> ➡️ **Make it a discovery question, never a claim:** *"Is your EU volume acquired through an EEA entity, or from Australia?"* **Yes to Australia → uncapped interchange on a large revenue base. Yes to Ireland → you learned something and lost nothing.**
+>
+> ⚠️ **Rate discipline.** The 0.2%/0.3% caps are stable law from 2015 but **must be sourced before use** per the research skill. **Never quote inter-regional interchange rates** — they are not in this file because they would be recited from memory, not sourced.
+>
+> ✅ **Net:** Europe is a **bad conversion story and a possibly good margin story.** Different pitch, different audience — a CFO cares about the second.
+>
 > ### ✅ USE THE ASYMMETRY INSTEAD — the strongest drafting move in this file
 >
 > Per `email-samples.md`: contrast two of the prospect's own systems so neither half can be disputed.
