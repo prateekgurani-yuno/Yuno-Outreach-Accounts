@@ -303,7 +303,36 @@ Envato is a two-sided digital-goods business — Envato Elements (subscription) 
 >
 > **This is not an inference — Envato says it.** *"since Envato is Australia-based, some card issuers block overseas payments by default."*
 
+> ### ⛔ THE IRELAND TRAP — checked 2026-09-20. EU VAT registration is NOT an EU entity.
+>
+> **VAT on Envato Market FAQ**, updated **2026-09-16**, verbatim:
+> > *"Envato collects VAT from EU consumer buyers under EU digital VAT rules, using **VAT number EU372009975**… As of **1 October 2019, Ireland became Envato's Member State of Identification** under the EU VAT Mini One Stop Shop (MOSS) scheme."*
+>
+> **Read the VAT number: `EU372009975`. The `EU` prefix is a NON-UNION SCHEME registration** — the regime for businesses **not established in the EU**. An Irish-established entity would carry an **`IE`** prefix. **Ireland is the administrative filing point precisely BECAUSE there is no EU establishment.**
+>
+> Envato confirms it in the same article, twice: *"**Envato is an Australian company** — why does EU VAT apply?"* and *"While **Envato is based in Australia**…"*
+>
+> ➡️ **EU VAT registration ≠ EU establishment ≠ EU acquiring.** If anyone at Envato answers *"we're registered in Ireland"*, that is a **tax filing, not an acquirer**. Same trap as the *"for EU VAT purposes only, Envato steps into the supply chain as the supplier on record"* line in the Elements terms. **Do not let either be mistaken for local presence.**
+> *(Note: Shutterstock's 10-Q separately shows Irish long-lived assets — that is **Shutterstock's** footprint, not Envato's, and does not change the above.)*
+>
+> ### ⚠️ EUROPE IS THE WEAKEST CROSS-BORDER ARGUMENT IN THIS ESTATE — do not lead on it
+>
+> 1. **No FX for EU buyers** — billed in **EUR**. Europe, the US and the UK are the only markets where the billing currency matches the buyer. India, Indonesia, Brazil, Pakistan, Mexico all convert.
+> 2. **No European equivalent of the India article exists.** Both help centres were searched for **SCA, PSD2, 3D Secure and authentication** — **nothing**. A documented five-year-old unfixed India failure, and no documented Europe failure.
+> 3. **That is structurally expected.** Under SCA, recurring **merchant-initiated transactions are generally out of scope** once the mandate is authenticated. India's e-mandate is stricter — it bites on the mandate **and** on above-threshold debits. **Europe genuinely is the easier regime for recurring billing. Do not imply otherwise; it is wrong on the substance and checkable.**
+> 4. Europe is **EMEA territory** regardless.
+>
+> ### ✅ USE THE ASYMMETRY INSTEAD — the strongest drafting move in this file
+>
+> Per `email-samples.md`: contrast two of the prospect's own systems so neither half can be disputed.
+>
+> > **They localised currency and tax compliance for Europe — EUR pricing, an EU VAT registration, country-by-country tax tables. They localised nothing for India, their largest market by traffic, where their own help page says subscriptions fail and they cannot fix it.**
+>
+> One company, two markets, two levels of investment, every element sourced from their own pages.
+
 > ⚠️ **No regulatory acquiring gate is asserted.** None was verified this run.
+
+> 🧰 **False positives caught in the Europe sweep — add to the running list:** **`DMCA` → SCA** and **`scam`/`escalate` → SCA** (these flooded a help-centre search for Strong Customer Authentication). Also re-confirmed: `separate` → SEPA, `is ideal for` → iDEAL.
 
 ### Section 3: Payment Providers & Payment Stack
 
