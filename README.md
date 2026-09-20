@@ -132,7 +132,7 @@
 | [Great Learning](2-ready-to-outreach/great-learning.md) | E-Learning & EdTech | 9/24 ⚠️ | Greenfield | 2026-09-14 |
 | [Interpark Ticket (NOL 티켓)](2-ready-to-outreach/interpark-ticket.md) | Event ticketing (concerts, musicals, theatre, sport) | 10/29 | In-house | 2026-09-18 |
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 ⚠️ | Undetermined | 2026-09-16 |
-| [ThaiTicketMajor](2-ready-to-outreach/ticketnet-thailand.md) | Live event ticketing (concerts, theatre, sport), agent-of-promoter with heavy offline counter/cash distribution | -1/29 | Not established | 2026-09-20 |
+| [ThaiTicketMajor](2-ready-to-outreach/ticketnet-thailand.md) | Live event ticketing (concerts, theatre, sport), agent-of-promoter with heavy offline counter/cash distribution | — *(not scored)* | Not established | 2026-09-20 |
 
 ## 🔵 Outreached (1)
 
