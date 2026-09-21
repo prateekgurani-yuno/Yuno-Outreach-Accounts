@@ -73,52 +73,37 @@ Game developer/publisher and IP licensor. DART: 「지배회사로서 게임 개
 
 **E1 drafted 2026-09-21 — touches 2–12 NOT generated.** Run `/full-outreach Webzen` for the rest of the sequence.
 
-### ✉️ E1 — Day 1
+### ✉️ E1 — Day 1 · **COLD FIRST TOUCH** (no prior contact)
 
 **Subject:** Webzen + Yuno
 
-> Hello {{recipient.first_name}}!
+> Hello {{recipient.first_name}},
 >
-> As mentioned via LinkedIn — I spent some time looking at how Webzen.com collects globally, and wanted to share a few things I'm seeing.
+> I spent some time looking at how Webzen.com collects payments globally. A few things stood out:
 >
-> Three things I see repeat at PC MMO publishers running their own global top-up portal:
+> - **The player picks the acquirer, not you.** Wcoin top-up presents a wall of provider tiles — ChillPay, Boacompra, PagSeguro, Terminal3, paysafecard, EPIN, and three separate PayPal accounts for US, EU and JP. If one declines, the player backs out and chooses a different tile themselves. On 27 January the game came back from scheduled maintenance and the payment page didn't — Wcoin top-up stayed down on its own.
 >
-> - **The player picks the acquirer, not you.** Wcoin top-up presents a wall of provider tiles — ChillPay, Boacompra, PagSeguro, Terminal3, paysafecard, EPIN, and three separate PayPal accounts for US, EU and JP. If one declines, the player has to back out and choose a different tile themselves. There's no retry behind the scenes. On 27 January the game came back from scheduled maintenance and the payment page didn't — Wcoin top-up stayed down on its own.
+> - **Thailand got built properly, the Philippines didn't.** After SEA publishing came in-house in 2022, Thailand got PromptPay QR, ShopeePay and mobile banking across Kasikorn, SCB and Krungsri. The Philippines has no GCash, no Maya, no over-the-counter — for a franchise with a large Filipino base.
 >
-> - **Thailand got built properly, the Philippines didn't.** After SEA publishing came in-house in 2022, Thailand got PromptPay QR, ShopeePay and mobile banking across Kasikorn, SCB and Krungsri. The Philippines has no GCash, no Maya, no over-the-counter — for a franchise with a large Filipino base. Same region, same decision, two very different outcomes.
+> - **FX is repriced by hand, once a month.** Wcoin amounts are recalculated from the previous month's average USD rate. Every day between resets, a player in Brazil or Thailand pays a price that isn't today's price — on top of whatever their issuer adds on a charge acquired out of Korea.
 >
-> - **FX is repriced by hand, once a month.** Wcoin amounts are recalculated from the previous month's average USD rate. Every day between resets, a player in Brazil or Thailand is paying a price that isn't today's price — and that sits on top of whatever their issuer adds on a charge acquired out of Korea.
+> At your scale that kind of setup usually comes with some complexity.
 >
-> Yuno is a payment orchestrator: a single integration from which you connect any PSP or local method, with automatic routing and failover, plus one panel with normalised data across all your providers.
+> I work at Yuno — top-100 fintech, a16z-backed. We consider ourselves the "everything payments" platform: one integration, every PSP, every method, every market.
 >
-> Would any of these work for a short call? Korea time:
->
-> - **Monday 28th, 4:00pm**
-> - **Tuesday 29th, 2:00pm or 4:00pm**
-> - **Wednesday 30th, 3:00pm**
->
-> Happy to go over where you're feeling this most, and then show you how we solve it.
+> Rather than pitch you based on assumptions — is there anything payment-related you're working through at the moment that we might be able to help with?
 >
 > Best,
 > Prateek
 
 #### Notes on this draft
 
-- **⚠️ Slot dates avoid Chuseok.** Korean public holidays run **24–26 September 2026**, which knocked out the normal "2–3 business days out" window. Slots are the following week. All times KST (IST +3.5h), so 2:00pm KST = 10:30am IST.
-- **No acceptance-rate number was used.** The SEAGM template carries a "+12% acceptance" line; it is omitted here deliberately. Every claim in this draft is traceable to Webzen's own pages, notices or filings, so it survives a reply from someone who knows the stack. Add the figure only if it is an approved, sourced stat.
-- **Nova AI / payment recovery is held for a later touch.** The 75%-recovery figure plus Webzen's absolute no-refund policy and retry-less checkout is a strong pairing, but E1 is already carrying three observations.
+- **⚠️ This is a genuinely cold first touch — Prateek confirmed there is no prior LinkedIn contact.** An earlier version of this draft was modelled directly on the SEAGM mail, which opened *"As mentioned via LinkedIn"* and proposed three meeting slots. **Both were removed.** The SEAGM slots were earned by a prior conversation; cold, proposing specific times asks for a calendar commitment before the prospect has agreed there is anything to discuss. Per `/full-outreach` Touch 1, E1 carries **no meeting ask** — the CTA is a soft open question and the slots return at E3.
+- **The Yuno introduction line was added** for the same reason: SEAGM could skip it because LinkedIn had already made the introduction.
+- **No acceptance-rate number was used.** The SEAGM template carries a "+12% acceptance" line; omitted deliberately. Every claim here is traceable to Webzen's own pages, notices or filings, so it survives a reply from someone who knows the stack. Add the figure only if it is an approved, sourced stat.
+- **Nova AI / payment recovery is held for a later touch.** The 75%-recovery figure plus Webzen's absolute no-refund policy and retry-less checkout is a strong pairing, but E1 already carries three observations.
+- **If the slots go back in** (a legitimate but more aggressive cold choice), they must skip **24–26 September 2026 — Chuseok**. All times KST, which is IST +3.5h, so 2:00pm KST = 10:30am IST.
 - **Sources for each bullet:** the tile wall and the three regional PayPal accounts → Webzen's own top-up guide screenshots; the 27 Jan 2026 payment-page outage → Webzen notice 35349; Thailand's ChillPay rail and the Philippines gap → notice 31889 and the absence of any PH-specific method anywhere; monthly FX repricing → notices 15091 (2015) and 30728 (2022).
-- **Opening line assumes a prior LinkedIn touch**, mirroring the SEAGM mail. Swap it for a cold opener if no such touch exists.
-
-⚠️ **Read before drafting.**
-
-1. **Lead with Thailand vs the Philippines** — same in-sourcing decision in 2022, one market got a full local rail, the other got nothing. Internal asymmetry, both halves theirs.
-2. **Second observation: the tile wall itself.** Eleven PSP-branded tiles, **three of which are separate regional PayPal accounts**, where a declined attempt means backing out and picking a different vendor. Plus FX recomputed **by hand once a month** from last month's average USD rate rather than priced at authorisation.
-3. **PortOne is the live objection, and it is already inside the house.** Their Korean *mobile* privacy policy names 포트원 as a delegated processor. Expect *"we already have an orchestrator."* The counter is factual: **PortOne does not touch the cross-border global portal**, which is where all the pain is — and their Korean *PC* policy names five direct PGs with no layer at all.
-4. **Never quote FY2024 revenue.** Use FY2025.
-5. **Never imply the royalty or mobile buckets are addressable.** Gameforge and five Chinese publishers bill those players; Apple and Google bill the rest.
-6. **Do not use the forum complaint titles** (§3) — the forum is dead and only indexed titles survive.
-7. **Motion is in-house on the addressable estate.** Wcoin is a real, decade-old build. Yuno slots *underneath* Wcoin; it does not replace it. Say so.
 
 </details>
 
