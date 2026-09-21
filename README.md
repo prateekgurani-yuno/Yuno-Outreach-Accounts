@@ -1,11 +1,11 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-21 02:11*
+*Last updated: 2026-09-21 09:13*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (78)
+## 📋 To Outreach (77)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
@@ -69,7 +69,6 @@
 | [Ruangguru](1-to-outreach/ruangguru.md) | E-Learning & EdTech | Indonesia | P1 | 2026-09-18 |
 | [Scaler](1-to-outreach/scaler.md) | E-Learning & EdTech | India | P1 | 2026-09-18 |
 | [Sephora Singapore](1-to-outreach/sephora-singapore.md) | Beauty & Cosmetics | Singapore | P1 | 2026-09-18 |
-| [Shaadi.com](1-to-outreach/shaadi-com.md) | Dating | India | P1 | 2026-09-18 |
 | [Shiseido](1-to-outreach/shiseido.md) | Beauty & Cosmetics | Japan | P1 | 2026-09-18 |
 | [Simoptions](1-to-outreach/simoptions.md) | Esims & Connectivity | — | P1 | 2026-09-18 |
 | [Singapore Press Holdings](1-to-outreach/singapore-press-holdings.md) | Digital Products & Subscriptions | Singapore | P1 | 2026-09-18 |
@@ -88,7 +87,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (45)
+## 🟢 Ready to Outreach (46)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -123,6 +122,7 @@
 | [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 ⚠️ | Greenfield | 2026-09-17 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, classical, anime) + live streaming | 16/29 | Greenfield | 2026-09-18 |
 | [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marketplace (Candlelight, immersive experiences) | 16/29 | ⚠️ COMPETITIVE | 2026-09-18 |
+| [Shaadi.com](2-ready-to-outreach/shaadi-com.md) | Matrimonial matchmaking — prepaid membership subscriptions | 16/29 | ⚠️ DISPLACEMENT | 2026-09-21 |
 | [Ticketek](2-ready-to-outreach/ticketek.md) | Live event ticketing (primary sale + owned secondary marketplace), agent-of-seller model | 16/29 | In-house | 2026-09-17 |
 | [VietJet Air](2-ready-to-outreach/vietjet-air.md) | Airlines (low-cost carrier) | 13/24 ⚠️ | In-house | 2026-09-15 |
 | [bitFlyer](2-ready-to-outreach/bitflyer.md) | Crypto & digital assets (retail exchange) | 15/29 | Greenfield on paper | 2026-09-17 |
