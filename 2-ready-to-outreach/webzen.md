@@ -71,7 +71,44 @@ Game developer/publisher and IP licensor. DART: 「지배회사로서 게임 개
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Webzen`.*
+**E1 drafted 2026-09-21 — touches 2–12 NOT generated.** Run `/full-outreach Webzen` for the rest of the sequence.
+
+### ✉️ E1 — Day 1
+
+**Subject:** Webzen + Yuno
+
+> Hello {{recipient.first_name}}!
+>
+> As mentioned via LinkedIn — I spent some time looking at how Webzen.com collects globally, and wanted to share a few things I'm seeing.
+>
+> Three things I see repeat at PC MMO publishers running their own global top-up portal:
+>
+> - **The player picks the acquirer, not you.** Wcoin top-up presents a wall of provider tiles — ChillPay, Boacompra, PagSeguro, Terminal3, paysafecard, EPIN, and three separate PayPal accounts for US, EU and JP. If one declines, the player has to back out and choose a different tile themselves. There's no retry behind the scenes. On 27 January the game came back from scheduled maintenance and the payment page didn't — Wcoin top-up stayed down on its own.
+>
+> - **Thailand got built properly, the Philippines didn't.** After SEA publishing came in-house in 2022, Thailand got PromptPay QR, ShopeePay and mobile banking across Kasikorn, SCB and Krungsri. The Philippines has no GCash, no Maya, no over-the-counter — for a franchise with a large Filipino base. Same region, same decision, two very different outcomes.
+>
+> - **FX is repriced by hand, once a month.** Wcoin amounts are recalculated from the previous month's average USD rate. Every day between resets, a player in Brazil or Thailand is paying a price that isn't today's price — and that sits on top of whatever their issuer adds on a charge acquired out of Korea.
+>
+> Yuno is a payment orchestrator: a single integration from which you connect any PSP or local method, with automatic routing and failover, plus one panel with normalised data across all your providers.
+>
+> Would any of these work for a short call? Korea time:
+>
+> - **Monday 28th, 4:00pm**
+> - **Tuesday 29th, 2:00pm or 4:00pm**
+> - **Wednesday 30th, 3:00pm**
+>
+> Happy to go over where you're feeling this most, and then show you how we solve it.
+>
+> Best,
+> Prateek
+
+#### Notes on this draft
+
+- **⚠️ Slot dates avoid Chuseok.** Korean public holidays run **24–26 September 2026**, which knocked out the normal "2–3 business days out" window. Slots are the following week. All times KST (IST +3.5h), so 2:00pm KST = 10:30am IST.
+- **No acceptance-rate number was used.** The SEAGM template carries a "+12% acceptance" line; it is omitted here deliberately. Every claim in this draft is traceable to Webzen's own pages, notices or filings, so it survives a reply from someone who knows the stack. Add the figure only if it is an approved, sourced stat.
+- **Nova AI / payment recovery is held for a later touch.** The 75%-recovery figure plus Webzen's absolute no-refund policy and retry-less checkout is a strong pairing, but E1 is already carrying three observations.
+- **Sources for each bullet:** the tile wall and the three regional PayPal accounts → Webzen's own top-up guide screenshots; the 27 Jan 2026 payment-page outage → Webzen notice 35349; Thailand's ChillPay rail and the Philippines gap → notice 31889 and the absence of any PH-specific method anywhere; monthly FX repricing → notices 15091 (2015) and 30728 (2022).
+- **Opening line assumes a prior LinkedIn touch**, mirroring the SEAGM mail. Swap it for a cold opener if no such touch exists.
 
 ⚠️ **Read before drafting.**
 
