@@ -1,8 +1,8 @@
 # Azar
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🔵 Outreached — E1 sent manually via Gong; touches 2–12 NOT yet drafted
 **ICP Score:** 16 / 29 → 🟢 **Medium** — one point below ⭐, and the reason is stated in the breakdown
-**Industry:** Social / random video chat (virtual-currency + subscription) · **HQ:** Seoul, South Korea (Hyperconnect Inc.), owned by Match Group, Inc. (NASDAQ: MTCH) · **Researched:** 2026-09-17 · **First email sent:** —
+**Industry:** Social / random video chat (virtual-currency + subscription) · **HQ:** Seoul, South Korea (Hyperconnect Inc.), owned by Match Group, Inc. (NASDAQ: MTCH) · **Researched:** 2026-09-17 · **First email sent:** 2026-09-21
 **Motion:** **In-house** — they built their own multi-PSP router (Adyen · Toss · Stripe enum). Respect the build; argue reach and opportunity cost, never that the build is wrong.
 
 ---
@@ -70,6 +70,10 @@
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
 *Not yet generated. Run `/full-outreach Azar` to draft the 12-touch sequence — **but resolve the territory question in Section 3 first.***
+
+> ⚠️ **E1 was written and sent manually via Gong on 2026-09-21; it is not reproduced here.**
+> **Touches 2–12 do not exist.** This account is live with nothing behind the first email —
+> run `/full-outreach Azar` to draft the remaining sequence before the thread goes cold.
 
 </details>
 

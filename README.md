@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-20 04:16*
+*Last updated: 2026-09-21 02:11*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -88,7 +88,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (47)
+## 🟢 Ready to Outreach (45)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -105,7 +105,6 @@
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 ⚠️ | Competitive | 2026-09-15 |
 | [Com2uS Corp](2-ready-to-outreach/com2us.md) | Mobile game publisher — Summoners War, Com2uS Pro Baseball, Starseed | 21/29 | ⚠️ DISPLACEMENT | 2026-09-20 |
 | [Peatix](2-ready-to-outreach/peatix.md) | Event ticketing & registration platform (marketplace; collects from attendees, remits to organisers) | 21/29 | Greenfield | 2026-09-19 |
-| [Envato](2-ready-to-outreach/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | Greenfield | 2026-09-17 |
 | [Little Hotelier](2-ready-to-outreach/little-hotelier.md) | Hospitality SaaS (channel manager, booking engine, PMS) + embedded payments | 20/29 | Greenfield | 2026-09-17 |
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | 16/24 ⚠️ | In-house | 2026-09-15 |
 | [Cygames, Inc.](2-ready-to-outreach/cygames.md) | Mobile & browser game developer — Uma Musume Pretty Derby, Granblue Fantasy, Shadowverse, Princess Connect | 19/29 | In-house orchestration | 2026-09-20 |
@@ -122,7 +121,6 @@
 | [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house | 2026-09-19 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 ⚠️ | Greenfield | 2026-09-15 |
 | [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 ⚠️ | Greenfield | 2026-09-17 |
-| [Azar](2-ready-to-outreach/azar.md) | Social / random video chat (virtual-currency + subscription) | 16/29 | In-house | 2026-09-17 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, classical, anime) + live streaming | 16/29 | Greenfield | 2026-09-18 |
 | [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marketplace (Candlelight, immersive experiences) | 16/29 | ⚠️ COMPETITIVE | 2026-09-18 |
 | [Ticketek](2-ready-to-outreach/ticketek.md) | Live event ticketing (primary sale + owned secondary marketplace), agent-of-seller model | 16/29 | In-house | 2026-09-17 |
@@ -142,10 +140,12 @@
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 ⚠️ | Undetermined | 2026-09-16 |
 | [ThaiTicketMajor](2-ready-to-outreach/ticketnet-thailand.md) | Live event ticketing (concerts, theatre, sport), agent-of-promoter with heavy offline counter/cash distribution | — *(not scored)* | Not established | 2026-09-20 |
 
-## 🔵 Outreached (1)
+## 🔵 Outreached (3)
 
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
+| [Azar](3-outreached/azar.md) | Social / random video chat (virtual-currency + subscription) | 16/29 | 2026-09-21 |
+| [Envato](3-outreached/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | 2026-09-21 |
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
 ## 🔴 Not ICP (11)

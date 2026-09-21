@@ -1,8 +1,8 @@
 # Envato
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🔵 Outreached — E1 sent manually via Gong; touches 2–12 NOT yet drafted
 **ICP Score:** 20 / 29 → ⭐ **High Priority**
-**Industry:** Digital-goods marketplace + creative subscription (two-sided) · **HQ:** Melbourne, Australia — **wholly owned by Shutterstock, Inc. (NYSE: SSTK) since 22 July 2024** · **Researched:** 2026-09-17 · **First email sent:** —
+**Industry:** Digital-goods marketplace + creative subscription (two-sided) · **HQ:** Melbourne, Australia — **wholly owned by Shutterstock, Inc. (NYSE: SSTK) since 22 July 2024** · **Researched:** 2026-09-17 · **First email sent:** 2026-09-21
 **Motion:** **Greenfield** — two hard-coded, single-PSP-per-surface integrations with no routing layer. The classification is affirmative, not a "couldn't find" (see 3B).
 
 ---
@@ -111,6 +111,10 @@
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
 *Not yet generated. Run `/full-outreach Envato` to draft the 12-touch sequence — **after resolving the territory question in Section 3.***
+
+> ⚠️ **E1 was written and sent manually via Gong on 2026-09-21; it is not reproduced here.**
+> **Touches 2–12 do not exist.** This account is live with nothing behind the first email —
+> run `/full-outreach Envato` to draft the remaining sequence before the thread goes cold.
 
 </details>
 
