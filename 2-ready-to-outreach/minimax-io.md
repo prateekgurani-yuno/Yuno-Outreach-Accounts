@@ -1,6 +1,6 @@
 # MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 23 / 29 → ⭐ **High** — ties z.ai for the highest score in this pipeline, **and unlike z.ai it has no compliance blocker.** This is the actionable one.
 **Industry:** AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) · **HQ:** Shanghai, China · **Listco:** Cayman Islands · **Billing entity:** Nanonoble Pte. Ltd. (Singapore) · **Researched:** 2026-09-24 · **First email sent:** —
 **Motion:** 🛑 IN-HOUSE · two live acquirers already
@@ -108,18 +108,301 @@ And from `agent.minimax.io`: `function E(){ return i.a1 ? r.xZ.Stripe : r.xZ.Ali
 <details>
 <summary><h2>✉️ Section 2 — Full Outreach Sequence</h2></summary>
 
-## Not yet generated — run `/full-outreach minimax.io`
+### Pain Vector Extraction
 
-Nothing blocks it. The angle is settled by the research:
+**Motion:** **IN-HOUSE** — and not a thin one. Stripe primary, Airwallex live on Hailuo, Alipay on the China build, Apple/Google IAP, plus offline bank transfer. Routed by two build flags and a `jumpUrl` null-check. A live public config shows `backend_payment_migration_percent: 100`, i.e. they have **just finished** rebuilding the payment backend themselves. **Never imply they need orchestration, and never imply the build was wrong.**
 
-- **Motion is IN-HOUSE and they have two acquirers already.** Never imply they need orchestration or haven't thought about payments. They have a payments team, it chose Airwallex alongside Stripe, and it is a named Stripe reference. **Anchor on reach and on the cost of maintaining the switch by hand.**
-- **E1 bullet 1 — the currency asymmetry.** Apple bills their users in 16 currencies, their own checkout bills in one. Both halves are theirs; neither is disputable.
-- **E1 bullet 2 — Vietnam.** #1 market at 15.33%, and their primary acquirer has no Vietnamese rail at all. This is an acquirer gap, not a configuration gap — the distinction is the whole argument.
-- **E1 bullet 3 — the localisation/payment split.** They shipped `vi`, `pt`, `ko`, `ja` route trees and then charge all of them USD-on-card.
-- **Diplomatic clause is needed here** — they have clearly invested in payments. *"Not because anyone's doing it badly"* earns the rest.
-- **⚠️ Do NOT lead with the Trustpilot score or the GitHub refund threads.** Naming a merchant's public complaints in a first touch reads as an attack. The *mechanism* (authorisation decoupled from provisioning, no self-service payment-method management) is fair game in E3 once a hypothesis is allowed.
-- **⚠️ Do NOT claim Talkie payment breakage.** Talkie's own review corpus is price-and-ads complaints, not payment failures. The failure evidence is Hailuo and the developer platform.
-- **E4 has no Tier-1 case available** — no AI video, AI companion or LLM-API company publicly uses an orchestrator. Use a Tier-2 match on payment pattern (cross-border USD subscription book with emerging-market concentration), not a vertical match.
+**App-store trap checked (§4, `subscription-payments.md`): PASSES.** IAP does not dominate. H1 2026 is 63.4% Open Platform, which carries no IAP at all, and ~70–80% of the consumer book runs on web rails. Roughly **85% of revenue is addressable.** The mix inverted from 67% consumer in FY2025, so the old objection no longer holds.
+
+**Observable setup facts (all verified first-hand, see Section 3):**
+- Apple bills their customers in **16 currencies** (VND, IDR, THB, PHP, MYR, KRW, JPY, HKD, SGD, AUD, BRL, MXN, NGN, RUB, GBP, USD) — iTunes lookup, storefront by storefront
+- Their own checkout is USD-only: `currency: i.a1 ? "USD" : "CNY"`, `$` hardcoded in the price template, `locales: ["en"]`, and the ToS reads *"all payments are in USD"*
+- Their own docs publish the accepted set twice: *"two ways to fund your account: **Online Payment** and **Bank Transfer**"* — source: `platform.minimax.io/docs/faq/about-account.md`
+- **Vietnam is the #1 market at 15.33%** of traffic; Stripe has **no Vietnamese local rail at all** and Vietnam is absent from its supported-countries page
+- They shipped `vi`, `pt`, `ko`, `ja` locales with live route trees, and bill all of them in USD
+- CNY 36 against USD 5 in a public config: a **hardcoded 7.2 FX peg**, not a rate feed
+- Prospectus risk factor, verbatim: *"We collaborate with third-party online payment channels for payment collection. Any interruption of their services… Any interruption in their payment services could adversely affect our payment collection, and in turn, our revenue."*
+- Talkie was pulled from Apple's App Store for ~2 months from mid-December 2024; **average daily downloads fell ~16,800** (prospectus)
+- Every card flow is a server-created hosted redirect, so **no 3DS or retry control sits with them**
+
+**Selected observations for Phase 1 (ranked by materiality):**
+1. **Currency asymmetry inside their own business** → *"Apple bills your users in sixteen currencies. Your own checkout bills in one."* Highest materiality: both halves are theirs, neither is disputable, and it is the exact shape the voice anchor calls strongest.
+2. **Vietnam #1 with no reachable local rail** → *"Vietnam is your largest market and your docs list two ways to pay: online payment and bank transfer."* Uses their own document, per the samples' most repeatable habit.
+3. **Localisation/payment split** → *"You shipped Vietnamese, Portuguese, Korean and Japanese, and charge all four in dollars."*
+
+**Bridge variant:** **A — complexity.** Five payment channels across two regional builds and two Singapore entities, with the switch hand-written. Not "limitations" — the estate is genuinely multi-provider.
+
+**Hypothesis for Phase 2 (E3):** Buyers in Vietnam, India, Brazil and Nigeria paying a USD card cross-border against a Singapore entity are the least likely in their base to hold an international card and the most likely to be declined by their issuer — and because every flow is a hosted redirect, the retry and 3DS decisions sit with the PSP rather than with MiniMax.
+**Backing logic:** ~37% of traffic sits in markets where cards are the minority rail; the same users pay Apple in local currency, so the willingness to pay is demonstrated and the gap is at the rail, not at the price.
+
+**Success case for Phase 3 (E4):** **Vibra** · **Tier 2 — same payment pattern, different industry.**
+Match rationale: MiniMax is acquiring **first-time payers** in emerging markets, which is exactly what Vibra's numbers measure, and Vibra also launched new methods rather than only tuning existing ones. Honest adjacency worth stating: Vibra's results came from **Brazil, which is MiniMax's #4 market at 5.23%** — so the market is genuinely shared, and no APAC claim is implied.
+Numbers to lead with: new-user approval lifted **more than 30 percentage points, to 80%**; launched **Apple Pay, Nu Pay and Google Pay**; same orchestration layer above the existing stack.
+Optional benchmark: **SKIP.** The ~8% routing uplift traces to Yuno's own blog, not an independent study.
+
+**Touch-by-touch angles:**
+- **E2:** currency/rail asymmetry → *one integration to add any method, no per-rail rebuild* (plus the additive point, which matters more here than usual given the replatform they just finished)
+- **LK1:** Apple's sixteen currencies against their one
+- **LK2:** the cross-border decline hypothesis, one sentence
+- **LK3:** Vibra's first-time-buyer number
+- **LK4:** Vietnam, stripped to one line
+- **E8:** clean exit, no new argument
+
+---
+
+### 📅 Schedule — shifted to clear China's Golden Week
+
+⚠️ **Day 1 is Thursday 8 October 2026, not today.** China's National Day falls on **1 October** and the holiday week runs **1–7 October**; Mid-Autumn Festival is **25 September**. A sequence starting 24 September would land E3, LK2 and E4 — the diagnosis email and two of the five meeting asks — inside Golden Week, when nobody at a Shanghai company is reading cold email. Weekend touches are pushed to the next business day.
+
+| Touch | Day | Send date |
+|---|---|---|
+| E1 | 1 | Thu 8 Oct 2026 |
+| E2 | 3 | Fri 9 Oct 2026 |
+| LK1 | 5 | Mon 12 Oct 2026 |
+| E3 ★ | 7 | Wed 14 Oct 2026 |
+| LK2 ★ | 9 | Fri 16 Oct 2026 |
+| E4 ★ | 11 | Mon 19 Oct 2026 |
+| E5 *(manual)* | 13 | Tue 20 Oct 2026 |
+| E6 *(manual)* | 15 | Thu 22 Oct 2026 |
+| LK3 ★ | 17 | Mon 26 Oct 2026 |
+| E7 *(manual)* | 19 | Tue 27 Oct 2026 |
+| LK4 ★ | 21 | Wed 28 Oct 2026 |
+| E8 | 23 | Fri 30 Oct 2026 |
+
+All proposed meeting times are **China Standard Time (UTC+8)**. Prateek is IST, CST minus 2:30, so every slot below is comfortable at both ends.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Thu 8 Oct
+
+**Subject:** Sixteen currencies, then one
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at MiniMax's payment setup. A few things stood out.
+
+Apple bills your users in sixteen currencies. I checked storefront by storefront: dong,
+rupiah, baht, peso, won, yen, real. Your own checkout bills in dollars.
+
+Vietnam is your largest market by traffic. Your docs list two ways to fund an account,
+online payment and bank transfer.
+
+You shipped Vietnamese, Portuguese, Korean and Japanese, and charge all four in dollars.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working
+through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Fri 9 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would
+address what I flagged.
+
+We sit above the providers you already run, so nothing gets ripped out. You keep Stripe.
+Routing happens per BIN, market and method, to whichever rail performs best for that
+transaction. If a provider degrades, traffic moves without anyone being paged. And adding a
+new method, acquirer or rail is a config change on one integration rather than a build.
+
+That last one is the piece that matters for the currency gap. MoMo in Vietnam, UPI in India,
+Pix in Brazil: those arrive as methods on the integration you already have, not as four
+separate projects.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just
+say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Mon 12 Oct
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case more useful than email.
+
+Quick one: Apple bills MiniMax users in sixteen currencies, your own checkout bills in
+dollars. I went storefront by storefront to check.
+
+Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Wed 14 Oct · NEW EMAIL
+
+**Subject:** Read on your Vietnam exposure
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. Based on what I can see, my read is that your approval rate
+is weakest exactly where your growth is: buyers in Vietnam, India, Brazil and Nigeria paying
+a dollar card, cross-border, against a Singapore entity.
+
+Those are the buyers least likely to hold an international card and the most likely to be
+declined by their own issuer, not because anyone's doing it badly. And the same users pay
+Apple in their own currency, so the willingness to pay is already proven. The gap sits at
+the rail.
+
+Worth asking: when a first-time buyer in Vietnam fails, do you see it as a decline or as
+someone who changed their mind?
+
+At Yuno, a16z-backed and top-100 fintech, we sit above your existing PSPs so you can reach
+local rails per market without another payments project. Keep your stack, add what's
+missing.
+
+Monday the 19th is open for me. Would 3pm or 4:30pm your time work for a quick 15 minutes?
+If payments sits elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Fri 16 Oct
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week.
+
+Short version: the buyers driving your growth in Vietnam, India and Brazil are the ones a
+dollar card cross-border tends to serve worst, and they already pay Apple in local currency.
+
+If that's anywhere on your radar, would Tuesday the 20th at 11:30am your time work for a
+quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 19 Oct · NEW EMAIL
+
+**Subject:** How Vibra solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, sharing a quick example of what solved looks like.
+
+Vibra runs a retail and loyalty business in Brazil, which is your fourth-largest market. Most
+of their buyers were paying for the first time, same as yours in Vietnam and India. They
+partnered with Yuno to lift approval on exactly that cohort:
+
+- New-user approval went up more than 30 percentage points, to 80% (you read that right)
+- Launched Apple Pay, Nu Pay and Google Pay on the same integration
+- No change to the providers already underneath
+
+Different industry, same payment pattern: first-time payers in a market where the card is
+not the default rail. I'd rather be straight that this is a pattern match than dress it up
+as an AI case.
+
+For adjacency closer to home, NetEase Games and Garena both run on us across Asia. No
+published numbers on either, so I won't invent any.
+
+Thursday the 22nd is open. Would 11am or 4pm your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/vibra
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Tue 20 Oct · MANUAL
+*Placeholder — manual creative approach. Do not auto-write.*
+
+**Suggested angle, strongest material available:** a short annotated walkthrough of the currency asymmetry. Two screenshots side by side — the Talkie App Store listing in the Vietnam storefront showing a dong price, and their own checkout showing dollars. Nothing needs saying over the top of it.
+
+#### Touch 8 — Email 6 · Day 15 · Thu 22 Oct · MANUAL
+*Placeholder — second manual approach, different format from E5.*
+
+**Suggested angle:** quote their own prospectus risk factor back to them, one line, no commentary: *"Any interruption in their payment services could adversely affect our payment collection, and in turn, our revenue."* Then one sentence on what a second rail with automatic failover does to that sentence.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Mon 26 Oct
+
+```text
+Hey {{recipient.first_name}}, one proof point rather than another argument.
+
+Vibra lifted first-time-buyer approval past 80% on the providers they already had, by adding
+local methods on one integration rather than rebuilding per rail.
+
+Worth 15 minutes to see if it maps to your setup? Wednesday the 28th at 3:30pm your time is
+open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Tue 27 Oct · MANUAL
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+**Fresh anchors available, unused so far in the sequence:** the Team Token Plan withdrawal effective 5 September 2026 (packaging churn, worth a genuine question); the H1 2026 results, where Open Platform revenue grew 703% and became 63.4% of the business; or the HKEX listing itself if a relevant filing lands in the window.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Wed 28 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this.
+
+Your Korean and Japanese buyers are on the same dollar card as everyone else, and both
+markets have local rails that convert better.
+
+If timing works, Monday the 2nd at 12pm your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Fri 30 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back in the new year. And if it ever comes back
+up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **Apple bills in 16 currencies** — iTunes lookup API, `id=6740326134`, tested per storefront 2026-09-24: VND, IDR, THB, PHP, MYR, KRW, JPY, HKD, SGD, AUD, BRL, MXN, NGN, RUB, GBP, USD
+- ✅ **Own checkout is USD-only** — `currency: i.a1 ? "USD" : "CNY"` in production bundles; `subscribe_modal_price_format = "${{amount}}"`; `locales: ["en"]`; ToS *"all payments are in USD"*
+- ✅ **"Online Payment and Bank Transfer"** — `platform.minimax.io/docs/faq/about-account.md`, and again in the homepage FAQPage JSON-LD
+- ✅ **Vietnam 15.33%, #1 market** — SimilarWeb supplied by Prateek 2026-09-24, `accounts/traffic/minimax-io.md`
+- ✅ **Stripe has no Vietnamese rail** — Vietnam absent from `stripe.com/global`, 0 occurrences, while 10 other named markets appear
+- ✅ **vi / pt / ko / ja locales shipped** — locale map plus live route trees in `hailuoai.video/robots.txt`
+- ✅ **Vibra numbers** — https://y.uno/en/success-stories/vibra
+- ✅ **NetEase Games and Garena nameable** — Yuno's site-wide "TRUSTED BY GLOBAL TEAMS" list. **No numbers exist for either; none used**
+- ✅ **Brazil is MiniMax's #4 market at 5.23%** — same SimilarWeb export
+- ✅ **Prospectus payment-channel risk factor** (E6 placeholder) — HKEX prospectus, read directly
+- ✅ **Team Token Plan withdrawal, 5 Sept 2026** (E7 anchor) — live public config `code_plan_detail`
+- ⚠️ **Not used anywhere, deliberately:** Trustpilot 1.4/5, the 18+ open GitHub payment threads, and the "Do not pay again" strings. All verified, all true, all far too close to naming a merchant's public complaints in a cold thread. They are reply material, not opening material.
+- ⚠️ **Not used:** the US$800M ARR figure. Secondary only, and it contradicts the first-party H1 2026 number.
+- ⚠️ **Not used:** the Disney/Hollywood copyright suit and the Anthropic distillation accusation. Live reputational matters, irrelevant to payments, and raising either would end the thread.
+
+### Success Case Alternatives
+
+- **Livelo** — the decline-cascade case: +5% approval, 50% of failed transactions recovered. The better choice if a reply shifts the conversation onto failover between Stripe and Airwallex specifically, since Livelo is the case where a secondary acquirer recovers declines.
+- **inDrive** — ~90% approval across 50+ countries, 10 new countries in under 8 months. Use if the conversation turns to market breadth rather than approval on a cohort.
+- **Rappi** — hundreds of methods, 80% less analyst work. Use if they raise the engineering cost of maintaining the switch themselves.
 
 </details>
 

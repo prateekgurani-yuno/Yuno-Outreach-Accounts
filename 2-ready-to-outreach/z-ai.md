@@ -1,6 +1,6 @@
 # z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)
 
-**Status:** 🔴 **BLOCKED — compliance hold. Do not outreach until Yuno legal/compliance clears it.** Research complete; no outreach sequence generated, by decision.
+**Status:** 🔴 **BLOCKED — compliance hold. Do not outreach until Yuno legal/compliance clears it.** Sequence IS drafted in Section 2 and is ready to send the moment the hold clears. Status deliberately left 🔴, not 🟢, so nothing reads as a green light.
 **ICP Score:** 23 / 29 → ⭐ **High** — one of the strongest payment-fit profiles in this pipeline. **The score and the block are independent axes. Read both.**
 **Industry:** AI / LLM model-as-a-service — prepaid API credits + auto-renewing developer subscriptions · **HQ:** Beijing, China · **Billing entity:** JINGSHENG HENGXING TECHNOLOGY PTE. LTD. (Singapore) · **Researched:** 2026-09-24 · **First email sent:** —
 **Motion:** 🛑 BLOCKED (compliance hold) · IN-HOUSE when cleared
@@ -99,17 +99,317 @@ Accepted set is the same in every one of the 122 countries: **international card
 <details>
 <summary><h2>✉️ Section 2 — Full Outreach Sequence</h2></summary>
 
-## ⛔ Not generated — by decision, not by omission.
+## 🛑 DRAFTED BUT NOT SENDABLE — read this before anything else
 
-`/full-outreach` was **not** run on this account. The BIS Entity List status is unresolved and the Affiliates Rule reimposes on 2026-11-10. Drafting a 12-touch sequence for a merchant that compliance may rule undeliverable wastes the work and risks it being sent.
+**Prateek asked for this sequence and it is drafted in full below. The compliance hold from the top of this file has not moved, and I have deliberately NOT flipped the status to 🟢.**
 
-**The sequence is cheap to generate once the block clears.** Run `/full-outreach z.ai` at that point. The angle is already settled by the research:
+Zhipu AI is on the US BIS Entity List (90 FR 4617, presumption of denial, still current in the eCFR), and the BIS 50% Affiliates Rule un-suspends on **2026-11-10** — which is **before Day 23 of this sequence would land if it started today**. That timing is not incidental: a sequence begun now would still be running when the rule that may sweep in the Singapore billing entity comes back into force.
 
-- **Motion is in-house, so respect the build.** They wrote their own eligibility layer over two PSPs. Never suggest they need orchestration.
-- **Lead on the 3DS admission**, in their own words, against the India/Indonesia/Brazil traffic mix. It is their sentence, not our claim.
-- **Second bullet is the localisation asymmetry**, not a missing-rail list: they run a separate USD price book, Singapore-time pricing windows and a dedicated international entity — i.e. they built a genuine international business — and then accept payment in exactly one way in all 122 countries.
-- **Third bullet is the reseller leakage**, which is quantified and theirs: 19 GLM model IDs on OpenRouter, `z-ai/glm-5.3` served by **34 endpoints**, Z.AI's own priced **$1.40/M** against Baidu at **$0.561/M** and DeepInfra at **$0.562/M** — and `z-ai/glm-5.3-prime` served by **Alibaba only**, not by z.ai at all.
-- **Do not pitch API token volume.** Aggregators have it. Pitch the **subscription book** — recurring, card-on-file, 122 countries, USD-only, and contractually un-resellable by their own terms (below).
+**Do not send any touch below until Yuno legal and compliance answer the question in the header flag.** If they clear it, this is ready to go and only the dates need re-basing. If they don't, nothing here was wasted — it just doesn't send.
+
+I have kept the status at 🔴 rather than 🟢 on purpose. A file marked "ready to outreach" is a pipeline instruction to send, and that would be the wrong instruction for this account today.
+
+---
+
+### Pain Vector Extraction
+
+**Motion:** **IN-HOUSE**, thin form. Exactly two rails, Stripe and PayPal, behind a hand-rolled eligibility layer (`/pay/authorized/payment-types` serving a `payTypes` array, `/pay/preference/{get,add}` storing a default, and a `paymentChannel === "PAYPAL" ? "PayPal" : "Card"` branch in transaction records). **They built routing. Respect it. Anchor on reach, never on the build being wrong.**
+
+**App-store trap checked (§4, `subscription-payments.md`): PASSES.** No IAP anywhere. The entire book is prepaid API credits plus auto-renewing GLM Coding Plan subscriptions, billed direct. All of it addressable.
+
+**Observable setup facts (all verified first-hand, see Section 3):**
+- Their own FAQ, verbatim: *"When using a credit card to recharge, please ensure that you are not using 3DS verification. **3DS verification is not supported in our platform at this moment.**"*
+- Two rails only, and the second is geo-gated: `/pay/paypal/isSupport` is an eligibility pre-check, so PayPal is not offered everywhere
+- **PayPal does not operate in Bangladesh (3.87% of traffic) or Pakistan (3.03%)** — in those markets an international card is the only option
+- Zero local payment methods in any of 122 countries. India is the #1 market at 11.20% with no UPI
+- *"All prices are in USD"* — their own pricing page. Peak-hour windows defined in **Singapore Standard Time**
+- The billing core is still China-domestic: `api.z.ai/.../public_pricing` returns Chinese `purchaseMethodName` values (`连续包月`, `按季采购`) and carries **no `currency` field at all**
+- Their own FAQ again: *"a small minimum applies when charging your credit card. If the remaining amount is less, we will round up the deduction to meet this minimum"*
+- Their own subscription terms: *"Z.ai is not liable for errors or issues caused by third-party payment **processors**"* — plural
+- Four verified public payment failures, including a $19.90 bundle paid for and never credited, open 13 days with zero replies
+
+**Selected observations for Phase 1 (ranked by materiality):**
+1. **The 3DS admission** → *"Your own FAQ asks customers to turn 3DS off."* Highest materiality by a distance: it is self-published, unambiguous, and a structural decline source in exactly their top markets.
+2. **Two rails, one of which is unavailable in two of their top ten markets** → *"Bangladesh and Pakistan are both in your top ten, and PayPal doesn't operate in either."*
+3. **The asymmetry inside their own stack** → *"You built a separate international entity, a separate USD price book and Singapore-time pricing windows, and the billing core underneath still prices in Chinese with no currency field."*
+
+**Bridge variant:** **B — limitations.** Two rails, but one is geo-gated, so the effective state in much of the traffic base is a single rail across many markets. Not "complexity" — the estate is thin, not fragmented.
+
+**Hypothesis for Phase 2 (E3):** With 3DS switched off and card-only coverage in South Asia, the decline surface is concentrated in India, Bangladesh and Pakistan — and because the model is prepaid, a declined top-up is not a deferred sale, it is service stopping mid-task.
+**Backing logic:** ~18% of traffic sits in India, Bangladesh and Pakistan combined. Indian issuers decline foreign-acquired transactions at higher rates than local-acquired ones, and a no-3DS cross-border auth is the weakest version of that attempt. The prepaid model converts a decline into an outage rather than an abandoned cart.
+
+**Success case for Phase 3 (E4):** **Livelo** · **Tier 2 — same payment pattern, different industry and region.**
+Match rationale: Livelo is the case where a merchant **already running more than one acquirer with no failover between them** starts recovering declines by instantly routing to the secondary. That is z.ai's exact architecture — two rails, hand-rolled selection, no failover.
+Numbers to lead with: **+5% approval rate**; **50% of failed transactions recovered**; **millions of R$ saved**.
+Optional benchmark: **SKIP.** The ~8% routing uplift is Yuno's own published figure, not independent evidence.
+
+**Touch-by-touch angles:**
+- **E2:** 3DS and the two-rail limit → *smart routing across multiple acquirers plus automatic failover*
+- **LK1:** the 3DS line from their own FAQ
+- **LK2:** the South Asia decline hypothesis in one sentence
+- **LK3:** Livelo's 50% recovery figure
+- **LK4:** the prepaid-outage framing, stripped to one line
+- **E8:** clean exit
+
+---
+
+### 📅 Schedule — shifted to clear China's Golden Week
+
+⚠️ **Day 1 is Thursday 8 October 2026, not today.** China's National Day is **1 October** with the holiday week running **1–7 October**, and Mid-Autumn Festival is **25 September**. Starting on 24 September would put E3, LK2 and E4 inside Golden Week. Weekend touches shift to the next business day.
+
+⚠️ **These dates are provisional and will need re-basing.** The compliance hold has to clear first, and the Affiliates Rule date of **10 November 2026** falls just after Day 23. Re-base from whenever legal responds.
+
+| Touch | Day | Send date |
+|---|---|---|
+| E1 | 1 | Thu 8 Oct 2026 |
+| E2 | 3 | Fri 9 Oct 2026 |
+| LK1 | 5 | Mon 12 Oct 2026 |
+| E3 ★ | 7 | Wed 14 Oct 2026 |
+| LK2 ★ | 9 | Fri 16 Oct 2026 |
+| E4 ★ | 11 | Mon 19 Oct 2026 |
+| E5 *(manual)* | 13 | Tue 20 Oct 2026 |
+| E6 *(manual)* | 15 | Thu 22 Oct 2026 |
+| LK3 ★ | 17 | Mon 26 Oct 2026 |
+| E7 *(manual)* | 19 | Tue 27 Oct 2026 |
+| LK4 ★ | 21 | Wed 28 Oct 2026 |
+| E8 | 23 | Fri 30 Oct 2026 |
+
+All proposed meeting times are **China Standard Time (UTC+8)**. Prateek is IST, CST minus 2:30.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Thu 8 Oct
+
+**Subject:** Your FAQ asks buyers to disable 3DS
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at Z.ai's payment setup. A few things stood out.
+
+Your own FAQ asks customers to make sure they are not using 3DS, because it isn't supported
+on the platform yet.
+
+Bangladesh and Pakistan are both in your top ten markets by traffic. PayPal doesn't operate
+in either, so an international card is the only way through.
+
+India is your largest market, and there's no UPI on the checkout.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno, top-100 fintech, a16z-backed. We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working
+through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Fri 9 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would
+address what I flagged.
+
+We sit above the providers you already run, so nothing gets ripped out. You keep Stripe.
+Routing happens per BIN, market and method, to whichever acquirer performs best for that
+attempt. When one degrades, traffic moves automatically rather than failing. And a declined
+transaction can be retried through a different provider entirely, on its own schedule.
+
+That last part is where the 3DS gap and the two-rail setup meet. A cross-border card attempt
+without 3DS, in a market where PayPal isn't available, has one chance. With a second
+acquirer underneath, it has more than one, and the customer never sees the difference.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just
+say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Mon 12 Oct
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case more useful than email.
+
+Quick one: your own FAQ asks buyers to disable 3DS before topping up, because it isn't
+supported yet. For a book that's card-only in South Asia, that's a live decline surface.
+
+Curious if that maps to anything you're working through on the payments side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Wed 14 Oct · NEW EMAIL
+
+**Subject:** Read on your South Asia declines
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that your decline surface is concentrated in India,
+Bangladesh and Pakistan, which together make up roughly a fifth of your traffic, and that it
+costs you more than it would cost most merchants.
+
+Two reasons. A cross-border card attempt with 3DS switched off is the weakest version of
+that attempt, and local issuers tend to decline foreign-acquired transactions at higher rates
+than locally-acquired ones. Then there's your model: because credits are prepaid, a failed
+top-up isn't an abandoned cart. It stops service in the middle of someone's work.
+
+Worth asking: when a top-up fails, does anyone see it as a support ticket, or does it only
+show up as churn later?
+
+At Yuno, a16z-backed and top-100 fintech, we sit above your existing PSPs so a failed attempt
+gets a second route instead of an error. Keep your stack, add what's missing.
+
+Monday the 19th is open for me. Would 3pm or 4:30pm your time work for a quick 15 minutes?
+If payments sits elsewhere, happy to be pointed there.
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Fri 16 Oct
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week.
+
+Short version: with 3DS off and card-only coverage in South Asia, a failed top-up doesn't
+just lose a sale on a prepaid model. It stops service mid-task.
+
+If that's anywhere on your radar, would Tuesday the 20th at 11:30am your time work for a
+quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Mon 19 Oct · NEW EMAIL
+
+**Subject:** How Livelo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, sharing a quick example of what solved looks like.
+
+Livelo runs a large loyalty and rewards business and was already using more than one
+acquirer, with no automatic way to move a declined transaction between them. Same shape as
+running Stripe alongside a second rail. They added Yuno above what they had:
+
+- Approval rate up 5%
+- Half of all failed transactions recovered by instantly routing to a secondary acquirer
+  (not too bad, right?)
+- Millions of reais saved
+
+Different industry and a different region, so I'd rather call it a pattern match than dress
+it up as something it isn't. The pattern is the part that transfers: two acquirers, no
+failover between them, declines that were never retried anywhere else.
+
+For adjacency closer to home, NetEase Games runs on us across dozens of markets. No published
+numbers there, so I won't invent any.
+
+Thursday the 22nd is open. Would 11am or 4pm your time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Tue 20 Oct · MANUAL
+*Placeholder — manual creative approach. Do not auto-write.*
+
+**Suggested angle, strongest material available:** their own subscription terms say *"Z.ai is not liable for errors or issues caused by third-party payment processors"* — plural. Quote that one line and ask which processor the sentence was written for. It is their language, it concedes processor risk, and the plural concedes more than one.
+
+#### Touch 8 — Email 6 · Day 15 · Thu 22 Oct · MANUAL
+*Placeholder — second manual approach, different format from E5.*
+
+**Suggested angle:** the card-minimum round-up. Their FAQ says *"a small minimum applies when charging your credit card. If the remaining amount is less, we will round up the deduction to meet this minimum."* That is a merchant working around card economics by hand. One screenshot, one question about how the minimum was chosen.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Mon 26 Oct
+
+```text
+Hey {{recipient.first_name}}, one proof point rather than another argument.
+
+Livelo was running more than one acquirer with no failover between them. After adding a
+routing layer, half of their failed transactions were recovered by moving instantly to the
+secondary.
+
+Worth 15 minutes to see if it maps to your setup? Wednesday the 28th at 3:30pm your time is
+open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Tue 27 Oct · MANUAL
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+**Fresh anchors available, unused so far:** the September 2026 capital raise, where the use-of-proceeds names *"MaaS platform, API, Coding Plan"* explicitly — a funded mandate to grow exactly the self-serve book this sequence is about. Or the resale clause in their subscription terms, which protects the subscription book from aggregators and is the reason that book is worth optimising.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Wed 28 Oct
+
+```text
+Hey {{recipient.first_name}}, last LinkedIn ping from me on this.
+
+One thing I keep coming back to: you price in USD across 122 countries, and the billing core
+underneath still has no currency field in it.
+
+If timing works, Monday the 2nd at 12pm your time is open for a quick 15.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Fri 30 Oct · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back next quarter. And if it ever comes back up,
+just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **3DS not supported** — `docs.z.ai/help/faq.md`, verbatim, fetched 2026-09-24
+- ✅ **Two rails, PayPal geo-gated** — `/pay/stripe/*` and `/pay/paypal/{isSupport,setupToken,subscribe}` in the production billing bundle; live publishable key `pk_live_51Rh0Ih…`; three endpoints probed for liveness
+- ✅ **India 11.20% #1, Bangladesh 3.87%, Pakistan 3.03%** — SimilarWeb supplied by Prateek, `accounts/traffic/z-ai.md`
+- ✅ **PayPal does not operate in Bangladesh or Pakistan** — **verified 2026-09-24 against PayPal's own worldwide country page** (`paypal.com/us/webapps/mpp/country-worldwide`). I probed 37 countries against it: 32 are listed, and **Bangladesh, Pakistan, Afghanistan, Ghana and Turkey are absent**, while Nepal, Sri Lanka, Cambodia, India, Indonesia, Vietnam, Nigeria and Singapore are all present. The E1 bullet is safe to send as written.
+- ✅ **No local methods anywhere** — bundle enumeration plus the merchant's own accepted-method statement; all five apparent hits disproved
+- ✅ **"All prices are in USD"** — `docs.z.ai/guides/overview/pricing`
+- ✅ **China-domestic billing core** — `api.z.ai/api/biz/overseas/team/subscribe/product/public_pricing`, live and unauthenticated, Chinese `purchaseMethodName` values, no `currency` field
+- ✅ **Card-minimum round-up** (E6 placeholder) — `docs.z.ai/devpack/faq`
+- ✅ **"third-party payment processors"** plural (E5 placeholder) — `docs.z.ai/legal-agreement/subscription-terms`
+- ✅ **Use of proceeds names "API, Coding Plan"** (E7 anchor) — HKEX filing `2026091300025.pdf`, read directly
+- ✅ **Livelo numbers** — https://y.uno/en/success-stories/livelo
+- ✅ **NetEase Games nameable** — Yuno's site-wide "TRUSTED BY GLOBAL TEAMS" list plus a customer spotlight. **No published numbers; none used**
+- ⚠️ **"Roughly a fifth of your traffic"** in E3 — India 11.20 + Bangladesh 3.87 + Pakistan 3.03 = **18.10%**. Accurate as "roughly a fifth", but if anyone prefers precision use 18%
+- ⚠️ **Not used anywhere, deliberately:** the four verified payment failures, including the GitHub issue where a $19.90 bundle was paid for and never credited. All verified, but naming a merchant's public complaints in a cold thread reads as an attack. Reply material, not opening material.
+- ⚠️ **Not used:** anything touching the Entity List, the Singapore ownership chain, or the data-transfer controversy. None of it belongs in commercial outreach.
+
+### Success Case Alternatives
+
+- **Vibra** — new-user approval up more than 30 percentage points, to 80%. Better than Livelo if the conversation turns to acquiring first-time payers in South Asia rather than recovering declines.
+- **inDrive** — ~90% approval across 50+ countries. Use if they push on breadth: 122 countries is the closest thing z.ai has to inDrive's problem.
+- **Rappi** — hundreds of methods, 80% less analyst work. Use if they raise the engineering cost of maintaining the two-rail switch themselves.
 
 </details>
 
