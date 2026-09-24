@@ -239,7 +239,11 @@ This is `/pay/paypal/isSupport` failing in the field: card declines, PayPal is t
 
 **③ Self-published, `docs.z.ai/help/faq.md`, verbatim:** *"When using a credit card to recharge, please ensure that you are not using 3DS verification. **3DS verification is not supported in our platform at this moment.**"*
 
-⚠️ `[UNVERIFIED — could not fetch]` GitHub issue `zai-org/GLM-5#148` (reported as payment captured but credits never provisioned, open 13 days unanswered). **This session's proxy scopes GitHub to the working repo, so I could not reach it and cannot confirm it exists.** Do not use it in outreach. Also unverified from the same batch: three 2026 price rises, the January sign-up throttle, and the 钛媒体 *"passport tax"* / *"智谱让微信支付宝躺赢了"* story about overseas developers opening Alipay/WeChat accounts to buy the cheaper China-region plan. **That last one is worth Prateek's time to verify** — if true, it is buyers routing around the international checkout to reach the domestic one, which is the sharpest possible version of this account's problem.
+**④ ⭐ VERIFIED 2026-09-24 — payment captured, credits never provisioned.** GitHub issue [`zai-org/GLM-5#148`](https://github.com/zai-org/GLM-5/issues/148), author `smabbutt`, opened **11 September 2026, still open with ZERO comments** 13 days later. Title verbatim: *"GLM API Usage Bundle purchased and confirmed by payment receipt, but account balance shows 0.00 — error 1113 on all requests."* A **$19.90** bundle was paid for, the payment appears in their own invoice history, and every API call returns error 1113 *"Insufficient balance or no resource package."*
+
+> **Correction to an earlier note in this file.** I first recorded this issue as unverifiable because `curl` to github.com returns a 403 repo-scope message in this environment. That was wrong about the environment, not just about the issue: **`WebFetch` reaches github.com even though `curl` and `api.github.com` are repo-scoped.** I have now fetched and verified the issue. It is usable in outreach.
+
+⚠️ Still unverified from the same batch: three 2026 price rises, the January sign-up throttle, and the 钛媒体 *"passport tax"* / *"智谱让微信支付宝躺赢了"* story about overseas developers opening Alipay/WeChat accounts to buy the cheaper China-region plan. **That last one is worth Prateek's time to verify** — if true, it is buyers routing around the international checkout to reach the domestic one, which is the sharpest possible version of this account's problem.
 
 ## 8. Aggregator leakage — measured, and it reshapes the pitch
 
@@ -312,7 +316,7 @@ H1 2026 segments: **Cloud/MaaS RMB 825.18m · On-Premise RMB 128.72m.** Gross ma
 - H1 2026 financials (aggregator + press, not the filing)
 - Pro/Max subscription prices ($80/$168)
 - Pre-IPO funding history, IPO pricing, STAR Market plans (search summaries)
-- GitHub issue `zai-org/GLM-5#148` — **unreachable, existence unconfirmed**
+- ~~GitHub issue `zai-org/GLM-5#148`~~ — **now VERIFIED by me via WebFetch, 2026-09-24.** Moved to the verified list above; see §7 ④.
 - Malaysia and UK subsidiaries
 - Competitor stacks (Moonshot/MiniMax/DeepSeek) — agent bundle-mining, methodology sound, not re-run by me
 - Which acquirer sits behind Stripe, the settlement currency, and whether `payTypes` holds anything beyond STRIPE and PAYPAL
@@ -330,7 +334,7 @@ H1 2026 segments: **Cloud/MaaS RMB 825.18m · On-Premise RMB 128.72m.** Gross ma
 
 - ⭐ **New false positive for the running list: `classGroupId` (tailwind-merge) → UPI.**
 - ⚠️ **Scratchpad cross-contamination happened twice this session** — an "Airwallex" hit from Moonshot pages leaked into a z.ai grep, and earlier a "LINE Pay" hit from an airline account leaked into Cygames. Both were caught only by context-printing every hit. **Recommend per-account scratchpad scoping for agents.**
-- **The repo-scoped GitHub proxy is a real research limit.** `curl` to `github.com/<any other repo>` returns a 403 with a repo-scope message, not a network error. Third-party GitHub issues are effectively unreachable for research in this environment unless the repo is attached.
+- ⭐ **CORRECTED: third-party GitHub issues ARE reachable here — via `WebFetch`, not `curl`.** `curl` to `github.com/<any other repo>` returns a 403 repo-scope message and `api.github.com` also 403s, which looks exactly like a hard block. **`WebFetch` is not repo-scoped and fetches the issue page fine.** I wrongly recorded a load-bearing complaint as unverifiable on the strength of the curl failure alone. **Lesson: a 403 from one tool is not a network verdict — try the other tool before recording "unreachable."** Trustpilot behaves the same way (curl 403, WebFetch fine).
 - **CSP `form-action` rule held again:** z.ai sends none, so CSP absence proved nothing here. The absence claim rests on bundle enumeration plus the merchant's own published accepted-method list.
 
 </details>
