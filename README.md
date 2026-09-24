@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-24 14:22*
+*Last updated: 2026-09-24 15:34*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -87,7 +87,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (47)
+## 🟢 Ready to Outreach (48)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -96,6 +96,7 @@
 | [Gravity Co., Ltd. (NASDAQ: GRVY)](2-ready-to-outreach/gravity.md) | Online & mobile game developer/publisher — the Ragnarok franchise | 24/29 | Greenfield | 2026-09-20 |
 | [ANA (All Nippon Airways)](2-ready-to-outreach/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | Greenfield | 2026-09-18 |
 | [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | 23/29 | In-house orchestration | 2026-09-20 |
+| [MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100](2-ready-to-outreach/minimax-io.md) | AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) | 23/29 | 🛑 IN-HOUSE | 2026-09-24 |
 | [z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)](2-ready-to-outreach/z-ai.md) | AI / LLM model-as-a-service — prepaid API credits + auto-renewing developer subscriptions | 23/29 | 🛑 BLOCKED (compliance hold) | 2026-09-24 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
 | [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | Greenfield | 2026-09-16 |
