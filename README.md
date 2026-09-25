@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-24 16:03*
+*Last updated: 2026-09-25 12:38*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -150,7 +150,7 @@
 | [Envato](3-outreached/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | 2026-09-21 |
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
-## 🔴 Not ICP (11)
+## 🔴 Not ICP (12)
 
 See [not-icp/](not-icp/) for rejection rationale.
 
