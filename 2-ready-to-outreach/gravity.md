@@ -106,6 +106,96 @@ The selection thesis said "PC MMO implies web top-up." **That is half wrong.** A
 6. **Do not use the ReclameAqui complaints** (see §3) — Cloudflare-blocked on all three routes, never verified.
 7. **Motion is greenfield**, so noting the absence of a routing layer is fair game — but the stronger frame is that twelve provider relationships across eleven markets is what the absence *costs*, not that it is a mistake.
 
+---
+
+### 👤 Who to pitch — verified from the FY2025 20-F (Item 6.A) on 2026-09-28
+
+> ⛔ **"Gravity Games" is not a company. It was liquidated.** 20-F footnote, verbatim:
+> *"We acquired an aggregate of 50.83% equity interest in **Gravity Games Corporation
+> ("Gravity Games")**, formerly known as Barunson Interactive… and subsequently increased
+> our ownership in Gravity Games to 85.5% in August 2013. **Due to the liquidation of
+> Gravity Games, Gravity took over Dragonica IP.**"*
+> Corroborated in the officer bios: *"Mr. Kim was a **liquidator of Gravity Games from
+> March 2018 to September 2018**."* Crunchbase and MarketScreener still list it as live
+> with a sitting CEO — that is stale vendor data, and it is where the name leaks in from.
+> There is no LinkedIn company page for it. Pitch **Gravity Co., Ltd.** or a named live
+> subsidiary.
+
+**Primary target — Heung Gon Kim, Chief Financial Officer & Executive Director, Gravity Co., Ltd.**
+
+He is not just group CFO. The 20-F lists him as **Director and CFO of essentially every
+entity that pays a payment-processing commission**:
+
+| Entity | Market | Kim's role (20-F) |
+|---|---|---|
+| Gravity Co., Ltd. | Korea / group | CFO since Sep 2008; Executive Director since Mar 2021 |
+| **Gravity Game Hub** | **Singapore / Malaysia / Philippines** | Director since Jan 2021, **CFO since Mar 2021** |
+| **Gravity Communications** | **Taiwan / HK / Macau** | Director and CFO since Apr 2018 |
+| Gravity Game Vision | Hong Kong | Director since Jan 2022, CFO since Jul 2022 |
+| Gravity Game United | — | Director and CFO since Mar 2025 |
+| Gravity NeoCyon | Korea | Director since Mar 2011, CFO since May 2011 |
+| Gravity Game Link | Indonesia | Director since Feb 2019 |
+| Gravity Game Tech | Thailand | Director since Jul 2019 |
+| Gravity Game Arise | Japan | Director since Jul 2019 |
+| Gravity Interactive | US / LatAm | Director since Mar 2011, **Vice President** since Mar 2021, CFO Jun 2009–Mar 2020 |
+
+**Why he is the right person and not a compromise:** the hook in this file *is* a CFO
+number. The 1.4–2.8% / 5–21% / 1.5–24% / 0.7–30% commission ranges are his disclosure,
+signed off in the filing he certifies. And the one range the 20-F **withholds** —
+Singapore, Malaysia, the Philippines — belongs to Gravity Game Hub, where he is CFO. He is
+the only person who can see all eleven ranges side by side, and the only one for whom
+cost-of-acceptance is a P&L line rather than someone else's integration.
+
+- Email: `kheung@gravity.co.kr` — ⚠️ **[UNVERIFIED — search-summary only, never confirmed on
+  a primary page.]** The IR route that IS sourced from the 20-F/IR site: `ir@gravity.co.kr`,
+  +82-2-2132-7800, IR Unit, 15F, 396 World Cup buk-ro, Mapo-gu, Seoul 03925.
+- **No LinkedIn profile found** for him. Korean-listed CFOs are usually absent, and the
+  Gravity Co. page lists only 124 employees against a 501–1,000 headcount band. Treat him
+  as a **Gong (email) target, not a Chief (LinkedIn) target.**
+
+**LinkedIn-reachable target — Yoshinori Kitamura, Chairman & Co-CEO, Gravity Co., Ltd.**
+
+- 🔗 `https://www.linkedin.com/in/yoshinori-kitamura-97947a3a/` — ⚠️ profile surfaced in
+  search with the headline *"GungHo Online Entertainment Inc - Executive Director ■Updates
+  on the latest happenings at Gravity Group"*; **LinkedIn returns HTTP 999 to this
+  environment so the page body was never read. Verify by eye before messaging.**
+- The 20-F makes him the widest-authority person in the group: Co-CEO since Mar 2026,
+  Executive Director since Mar 2008, Chairman since Apr 2011, and **CEO of Gravity
+  Interactive, Gravity Communications, Gravity Game Link, Gravity Game Tech, Gravity Game
+  Arise, Gravity Game Hub, Gravity Game Vision and Gravity Game Unite** — every regional
+  publisher — plus CEO of Gravity NeoCyon since Oct 2009.
+- ⚠️ **The GungHo overlap is real and it cuts both ways.** He has been *"a Director and
+  Executive General Manager of the GV Business Division at GungHo Online Entertainment,
+  Inc. since March 2006 and June 2007."* GungHo holds 59.31% and is the Japan licensee.
+  Messaging him is legitimate — the Taiwan, Thailand, SEA and LatAm stacks are Gravity's
+  own — but **do not mention Japan, Japanese rails, or GungHo.** Keep the scope to the
+  markets Gravity bills directly.
+
+**Third thread — Hyun Chul Park, Co-CEO & Executive Director.** Co-CEO since Mar 2026 (sole
+CEO Mar 2011–Mar 2026), Director of Gravity Interactive since Nov 2014 and its President
+since Mar 2021, President of Gravity NeoCyon since Apr 2026. Use him only if Kim goes dark
+— he owns the US/LatAm entity where the 0.7–30% range sits, but no LinkedIn profile was
+found and there is no obvious email route.
+
+**Company LinkedIn pages — all four fetched and confirmed live on 2026-09-28:**
+
+| Page | URL | What the page says |
+|---|---|---|
+| 그라비티 (Gravity Co., Ltd.) — **the parent, start here** | `https://www.linkedin.com/company/gravity-co.-ltd` | Computer Games · Seoul · 501–1,000 band · **124 employees listed** · gravity.co.kr |
+| **Gravity Game Hub** — SG/MY/PH, the withheld range | `https://www.linkedin.com/company/gravity-game-hub` | Computer Games · Singapore 068805 · 11–50 band · **46 employees listed** · posting Ragnarok: The Promised Adventure Pre-CBT |
+| Gravity Interactive, Inc. — US/LatAm | `https://www.linkedin.com/company/gravity-interactive-inc.` | Computer Games · Buena Park, CA · 11–50 band · **62 employees listed** · warpportal.com |
+| *(no page exists for Gravity Games)* | — | liquidated 2018 |
+
+⚠️ **Gravity Game Hub's registered address in the 20-F is 14 Robinson Road, #10-02 Far East
+Finance Building, Singapore, 1,401 sq ft.** The LinkedIn page says 068805, which is the
+Robinson Road postcode. Consistent — but 1,401 sq ft and 46 LinkedIn profiles means this is
+a small publishing office, not a payments function. **Do not pitch the payment stack into
+Gravity Game Hub directly; use it only to reference the SG/MY/PH gap when writing to Kim.**
+
+**Not verified, do not use:** a search summary asserted *"Mr Harry Choi is the president of
+Gravity Game Hub."* The name **"Choi" appears nowhere in the FY2025 20-F**, and no page was
+fetched to support it. Treat as unconfirmed.
+
 </details>
 
 <details>
