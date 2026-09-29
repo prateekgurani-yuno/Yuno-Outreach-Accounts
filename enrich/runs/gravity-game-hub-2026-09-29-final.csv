@@ -1,0 +1,12 @@
+name,title,company,domain,email,email_valid,email_source,failure_reason
+Sohyun Kim,Account Executive,Gravity Game Hub,gravitygamehub.com,sohyun.kim@gravitygamehub.com,yes,leadmagic,
+Satrio Brahmantyo,Business Process Outsourcing,Gravity Game Hub,gravitygamehub.com,,no,,no_email_found
+Chaewon Hwang,Product Specialist,Gravity Game Hub,gravitygamehub.com,,no,,no_email_found
+Tubagus Angga,COO,Gravity Game Hub,gravitygamehub.com,,no,,error: URLError
+Ramadhani Juhdansyah,Business Development Manager & Game Director,Gravity Game Hub,gravitygamehub.com,,no,,no_email_found
+Brian Trihadrianto,General Manager,Gravity Game Hub,gravitygamehub.com,,no,,no_email_found
+Jiren Yeo,Business Partnerships Manager,Gravity Game Hub,gravitygamehub.com,,no,,no_email_found
+Yoshinori Kitamura,CEO,Gravity,gravitygamehub.com,,no,,no_email_found
+An Seokmin,Finance Manager,Gravity Game Hub,gravity.co.kr,seokmin.an@gravity.co.kr,yes,leadmagic,
+Tan Changan,Senior Product Specialist,Gravity Game Hub,gravitygamehub.com,changan.tan@gravitygamehub.com,yes,findymail,
+Gino Allarey,Product Specialist,Gravity Game Hub,gravitygamehub.com,gino@gravitygamehub.com,yes,leadmagic,
