@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-28 15:33*
+*Last updated: 2026-09-29 15:44*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -87,7 +87,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (48)
+## 🟢 Ready to Outreach (50)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -96,6 +96,7 @@
 | [Gravity Co., Ltd. (NASDAQ: GRVY)](2-ready-to-outreach/gravity.md) | Online & mobile game developer/publisher — the Ragnarok franchise | 24/29 | Greenfield | 2026-09-20 |
 | [ANA (All Nippon Airways)](2-ready-to-outreach/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | Greenfield | 2026-09-18 |
 | [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | 23/29 | In-house orchestration | 2026-09-20 |
+| [Kling AI](2-ready-to-outreach/kling-ai.md) | AI video generation — consumer subscription + enterprise API | 23/29 | Greenfield | 2026-09-29 |
 | [MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100](2-ready-to-outreach/minimax-io.md) | AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) | 23/29 | 🛑 IN-HOUSE | 2026-09-24 |
 | [z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)](2-ready-to-outreach/z-ai.md) | AI / LLM model-as-a-service — prepaid API credits + auto-renewing developer subscriptions | 23/29 | 🛑 BLOCKED (compliance hold) | 2026-09-24 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
@@ -120,6 +121,7 @@
 | [Asphere Innovations (PlayPark) — *formerly Asiasoft*](2-ready-to-outreach/asiasoft-playpark.md) | Online game publisher/operator — PlayPark brand | 17/29 | In-house orchestration | 2026-09-20 |
 | [Japan Airlines (JAL)](2-ready-to-outreach/japan-airlines-jal.md) | Airlines (full-service, domestic + international, cargo, mileage commerce) | 17/29 | Greenfield | 2026-09-19 |
 | [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house | 2026-09-19 |
+| [Kuaishou Technology (HKEX: 1024)](2-ready-to-outreach/kuaishou.md) | Short-video, live-streaming & live-commerce | 17/29 | In-house | 2026-09-29 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport ownership) | 14/24 ⚠️ | Greenfield | 2026-09-15 |
 | [Viu](2-ready-to-outreach/viu.md) | OTT / subscription video streaming | 14/24 ⚠️ | Greenfield | 2026-09-17 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, classical, anime) + live streaming | 16/29 | Greenfield | 2026-09-18 |
