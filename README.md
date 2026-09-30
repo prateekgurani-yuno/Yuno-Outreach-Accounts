@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-30 02:49*
+*Last updated: 2026-09-30 12:59*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -87,7 +87,7 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (50)
+## 🟢 Ready to Outreach (51)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -102,6 +102,7 @@
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
 | [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | Greenfield | 2026-09-16 |
 | [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activities, attraction tickets) | 22/29 | ⚠️ DISPLACEMENT | 2026-09-19 |
+| [Moonshot AI (月之暗面) / Kimi](2-ready-to-outreach/moonshot-ai.md) | Frontier LLM — consumer subscription + developer API | 22/29 | In-house | 2026-09-30 |
 | [Peach Aviation](2-ready-to-outreach/peach-aviation.md) | Low-cost carrier (direct-to-consumer, >95% of sales through own website) | 22/29 | Greenfield | 2026-09-19 |
 | [SEA Gamer Mall (SEAGM)](2-ready-to-outreach/sea-gamer-mall.md) | Digital-goods marketplace — game top-ups, gift cards, credits | 22/29 | Greenfield | 2026-09-20 |
 | [Vietnam Airlines](2-ready-to-outreach/vietnam-airlines.md) | Airlines (state-owned flag carrier) | 18/24 ⚠️ | Competitive | 2026-09-15 |
