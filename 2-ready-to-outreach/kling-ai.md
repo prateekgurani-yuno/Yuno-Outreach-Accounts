@@ -28,6 +28,22 @@
 > **A failed renewal freezes the account and hands the recovery back to the customer.** There is no dunning ladder in this copy, no retry-window messaging, no alternate-method prompt — the product's answer to a declined renewal is "go top up your account."
 >
 > Now put that next to **India = 15.21% of their traffic**, card-on-file recurring, priced in USD, cross-border from Singapore. Involuntary churn there is almost certainly material and almost certainly unmeasured. This is observable and quotable — **not a projected pain.**
+>
+> **And it got sharper on 2026-09-30.** The three conflicting price sets turned out to be three
+> different things, and the middle one is the renewal price:
+>
+> | Tier | First month | **Renewal** | Step-up |
+> |---|---|---|---|
+> | Standard | $6.99 | **$8.80** | **+25.9%** |
+> | Pro | $25.99 | **$32.56** | **+25.3%** |
+> | Premier | $64.99 | **$80.96** | **+24.6%** |
+> | Ultra | $127.99 | **$159.99** | **+25.0%** |
+>
+> **Every tier steps up ~25% at the first renewal charge** — and their handling of a renewal
+> that fails is to freeze the account and tell the customer to go top up. A promotional first
+> month followed by a 25% increase is precisely the moment a card-on-file charge gets declined
+> or disputed, and it lands on an India-heavy, USD-priced, cross-border base. **The two findings
+> compound: the price rise creates the failure, the dunning design converts it into churn.**
 
 > ## 💥 THE SECOND HOOK — the whole app is priced in dollars, in three languages
 >
@@ -141,8 +157,8 @@ in the first version of this file. Corrected:
 | Everyone says | The filing actually says |
 |---|---|
 | "US$18bn post-money" | **No post-money valuation is stated anywhere.** The filing gives a **pre-transaction valuation of US$15.00bn**. The 18 is arithmetic press did (15 + 3), and press is itself inconsistent — The Information headlined it *"$15 Billion Valuation"*, and a US$20bn figure also circulates |
-| "raised US$3bn" | **US$3,000.00m (RMB 20,447.10m) is a contractual CEILING.** ~**RMB 19,047.10m (US$2.79bn)** was committed at signing, with RMB 1,400m left as *"Reserved interests for other Additional Investors"* and a 60-day joinder window |
-| "General Atlantic led it" | **GA appears nowhere in the filing** — zero occurrences across ~123,600 extracted characters — and **the filing designates no lead, cornerstone or anchor investor at all.** The GA framing traces to a Bloomberg report of *talks* on 17 June 2026, superseded by a larger, differently-composed closed round |
+| "raised US$3bn" | ✅ **Now true — but it was not at signing, and the route there matters.** US$3,000.00m was a *ceiling* on 2 July with ~RMB 19,047.10m (US$2.79bn) committed. A **follow-up HKEX filing dated 2026-08-31** records the Subscription Limit **fully utilized** — reached by two joinders **plus reallocation among existing investors** (Ningbo Zhichun Huayan and Monolith Kling down, Tianjin Lisi Xingque up), not by new money alone |
+| "General Atlantic led it" | **Neither filing names GA, and neither names any lead, cornerstone or anchor investor.** The GA framing traces to a Bloomberg report of *talks* on 17 June 2026. ⚠️ **But do not say GA is out.** A second verification pass (2026-09-30) knocked that inference down: the 31 August post-close table carries **three anonymised sub-0.1% parties** — Party A RMB 102.24m (0.08%), Party C RMB 102.24m (0.08%), Party D RMB 47.00m (0.04%) — any of which could be anyone. **GA's final status is genuinely unresolved.** Say "no lead investor is named", never "GA didn't invest" |
 | "IPO as early as Q1 2027" | **"2027" appears zero times. No venue is named.** The only dated IPO reference is an investor **redemption right: cost + 8% simple annual interest if Beijing Kling has not listed by 30 October 2031.** Q1 2027 is press-reported company intent (Jiemian), not a filed commitment |
 | "Tencent is in" | ✅ **True, and exact.** **US$200.00m** — RMB 681.57m each via **Shanghai Qishan Investment** (PRC) and **Parallel Mars Investment** (Cayman) = RMB 1,363.14m at the filing's own 6.8157 rate. **Alibaba ties it** (Hangzhou AliCloud Apsara, RMB 1,363.14m) and **Baidu** took RMB 340.79m |
 
@@ -152,6 +168,19 @@ the Singapore entity that bills customers. Kuaishou dilutes **100% → ~68.33%**
 RMB 1,690.00m. Others named: CPE Spruce RMB 850.79m · Beijing CAS Generation RMB 943.00m ·
 BlueFive (ADGM) RMB 545.26m · China Internet Investment Fund RMB 400.00m · Qiming's QM323
 RMB 204.47m · CITIC Securities Investment RMB 100.00m · Monolith Kling Fund RMB 136.31m.
+
+**Post-close, from the 2026-08-31 follow-up filing (second verification pass, 2026-09-30):**
+- **China Artificial Intelligence Industry Investment Fund Partnership — RMB 1,400.00m (~1.14%)**.
+  ⚠️ **A PRC state vehicle.** ~99.90% held as LP by China Integrated Circuit Industry Investment
+  Fund Phase III, **whose single largest shareholder is the PRC Ministry of Finance**; the GP is
+  ultimately controlled by the **Shanghai SASAC**.
+- **Charoen Pokphand Robot Limited — ~US$19.29m (~RMB 131.45m, ~0.11%)** — the CP Group orbit,
+  i.e. **Thai money on the register.** Worth noting for APAC relationship mapping.
+- Both new investors were granted **Redemption Rights** on the same terms.
+- ⚠️ Trade press (cls.cn) reports a **NEW pre-IPO round being explored at a US$18bn *pre-money*
+  valuation.** That post-dates and does not contradict the closed round — but it is where the
+  "$18bn" number may legitimately reappear, so do not treat every future mention of it as the
+  same error.
 
 > ### ⚠️⚠️ NEVER call their "ARR" annual recurring revenue
 > Kuaishou's own published definition is **`ARR = Monthly Operating Revenue × 12`** — the
@@ -164,7 +193,8 @@ RMB 204.47m · CITIC Securities Investment RMB 100.00m · Monolith Kling Fund RM
 > ### 💡 The finding that strengthens the pitch
 > The carve-out entity is **deeply loss-making**: net loss **RMB 0.5bn (FY2024) → RMB 1.9bn
 > (FY2025)**, RMB 2.4bn cumulative, and **negative net assets of −RMB 9m** at 2025-12-31.
-> It now has ~US$2.79bn of outside money on the register and a redemption clock. **Growth at
+> It now has the **full US$3,000.00m** of outside money on the register — including a PRC
+> state fund — and a redemption clock. **Growth at
 > any cost is over; unit economics are now somebody's job.** That is the real reason payments
 > gets looked at, and it is a better frame than the IPO date.
 
@@ -194,7 +224,7 @@ RMB 204.47m · CITIC Securities Investment RMB 100.00m · Monolith Kling Fund RM
 | Local rail or licensing gap in a top-3 market | **0** | ⬜ **Withheld deliberately.** Top 3 are India, US, Korea. Korean wallets and Indian UPI are "not found" in the bundle — but **Stripe renders dashboard-side methods invisibly**, so that is not sourced absence. Japan's konbini gap *is* sourced but Japan is #8. **No point awarded without a source for the absence.** |
 | Recent expansion | **+2** | ✅ Kling 3.0 (Feb 2026) and 3.0 Turbo; **Team Plan** launched Q1 2026; **Kling MCP + CLI**; #1 on the App Store across 42 countries; AWS Marketplace listing |
 | Payment issues | **+2** | ✅ Trustpilot **1.2/5, 398 reviews**; repeat charge attempts after confirmed cancellation, named reviewers, Aug–Sep 2026 |
-| Funding >$10M | **+2** | ✅ **Capital increase filed with HKEX 2026-07-02**, capped at US$3,000.00m, with **~US$2.79bn committed at signing**. Clears the threshold by three orders of magnitude |
+| Funding >$10M | **+2** | ✅ **US$3,000.00m capital increase, fully subscribed** — filed 2026-07-02, closed out per the 2026-08-31 follow-up filing. Clears the threshold by three orders of magnitude |
 | High traffic outside home | **+2** | ✅ China does not appear in the top 11 at all — the Chinese product is on a separate host (`klingai.kuaishou.com`). Home share is far below 60% |
 | Competitor using orchestration | **0** | ❌ **Runway and Luma both single-PSP Stripe** (their own ToS); HeyGen names none. No orchestration anywhere in the vertical |
 | Payment job postings | **0** | ❌ Searched twice, none found. No hiring signal exists to cite |
@@ -213,7 +243,12 @@ RMB 204.47m · CITIC Securities Investment RMB 100.00m · Monolith Kling Fund RM
 - ⚠️ **Pricing tiers** — third-party captures (Magic Hour, screenshot dated 2026-09-25; eesel; costbench), with some drift on Ultra ($128 → $180). Not read by me off their page
 - ✅ **The carve-out** — verified 2026-09-30 against the **HKEX filing itself** by a 104-agent deep-research pass with adversarial 3-vote verification. See the corrections block in §2
 - ⚠️ **Trustpilot and AWS Marketplace** — agent-verified, not re-fetched by me
-- ❌ **Pricing tiers, user numbers and the competitive comparison did NOT survive that verification pass** — no claim on any of the three was confirmed. The hedges already in this file stand, and should be treated as *less* certain rather than more: the third-party price captures in §12 remain the only evidence, and the "100m users" conflict is unresolved
+- ✅ **Second deep-research pass, 2026-09-30** — resolved consumer pricing (three price sets, all real, see §12), confirmed the round closed at its cap, established Kling's benchmark position, and found the Adobe Firefly distribution channel. It also **knocked down one of my own earlier corrections**: see the GA row in §2
+- ❌ **Still unanswered after two passes, and stated plainly rather than papered over:**
+  - **Regulatory and content-safety exposure — entirely unanswered.** Nothing survived on India's IT Rules, Korea's AI framework, Brazil's AI bill/ANPD, EU AI Act obligations, or app-store policy. **No ban, blocking order, investigation or takedown was established in any market, and no copyright or right-of-publicity litigation was identified.** That is a null result, not a clean bill of health
+  - **Named enterprise/studio customers** — nothing beyond Adobe Firefly and fal.ai survived verification. No case study, award, film credit or brand campaign
+  - **The user-number contradiction** — unresolved after two dedicated attempts. **No company-issued figure after December 2025 exists.** Keep hedging it
+  - **Regional price variation in INR, BRL, IDR or JPY** — no evidence either way. *(Enterprise-tier currency IS settled — see §12.)*
 - ⚠️ **"100m users June 2026"** — media only (36Kr); conflicts with 60m registered / 12m MAU for end-April 2026. **Hedge or avoid**
 - ⚠️ **FY2025 Kling revenue RMB 1.04bn / ~US$150m** — Caixin's figure, not a Kuaishou line. The FY2025 release gives only Q4 (RMB 340m)
 
@@ -381,6 +416,8 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 | 2 | 2026-05-12 | Kuaishou shares +11% on spin-off reports; board *"evaluating a restructuring of Kling AI's assets and business, which may involve introducing external financing"* | Corporate | ChinaBizInsider; [SCMP headline](https://www.scmp.com/tech/article/3353214/kuaishou-stock-surges-reports-kling-ai-unit-spin) (403, headline only) |
 | 3 | 2026-05-27 | **ARR ~US$500m as of March 2026**; Q1 2026 revenue >RMB 650m, +300%+ | Financial | [Q1 2026 release](https://www.prnewswire.com/apac/news-releases/kuaishou-technology-announces-first-quarter-2026-unaudited-financial-results-302782902.html) — read by me |
 | 4 | Q1–Q2 2026 | **Team Plan** (15 seats) — first seat-based SKU; **Kling MCP + CLI** *"enabling AI agents to orchestrate Kling AI for batch content creation"*; native 4K | Product / channel | Q1 & Q2 2026 releases |
+| 4b | **2026-09-28** | **Kling 4.0 Flash** released — ⚠️ **full Kling 4.0 had NOT shipped**; the company announced it as *"coming this October"* with a closed beta (内测). **4.0 Flash access was gated to "Ultra Yearly" — annual billing of the single highest-priced consumer tier** — not to all paying subscribers and not to the API. No credit cost or per-generation price published for either | Product / **monetisation lever** | ✅ verified 3-0 |
+| 4c | ongoing | **Adobe distributes Kling inside Adobe Firefly** as a switchable third-party model (Kling 3.0 and 3.0 Omni), alongside Adobe's own model, Google Veo 3.1 / 3.1 Fast, Luma Ray3 and Runway Gen-4.5. **fal.ai** resells Kling Video v3 via API | **Distribution** | ✅ verified; the only named non-app-store, non-Kuaishou channels established |
 | 5 | 2025-01-17 | **Kling AI Pte. Ltd. incorporated in Singapore** — seven months after launch | Corporate | ⚠️ ACRA mirror |
 
 **Public payment RFP:** **No public payment-related RFP found.**
@@ -454,7 +491,7 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 > **Suggested Subject Line:** India is 15% of Kling's traffic
 
 > **Insight #3: The carve-out is the moment payments stops being inherited**
-> **Evidence:** §6 — **capital increase filed with HKEX 2026-07-02**, ~US$2.79bn committed at signing, Kuaishou diluted to ~68.33%, and an investor **redemption right at cost + 8% simple annual interest if there is no IPO by 30 October 2031** + §2 — **Kling AI Pte. Ltd. incorporated 17 Jan 2025, seven months after monetisation began** + §12 — the carve-out entity carries **RMB 2.4bn of cumulative losses and negative net assets** + §3A — six billing channels and one PSP.
+> **Evidence:** §6 — **US$3,000.00m capital increase, fully subscribed** as of the 2026-08-31 filing, Kuaishou diluted to ~68.33%, and an investor **redemption right at cost + 8% simple annual interest if there is no IPO by 30 October 2031** + §2 — **Kling AI Pte. Ltd. incorporated 17 Jan 2025, seven months after monetisation began** + §12 — the carve-out entity carries **RMB 2.4bn of cumulative losses and negative net assets** + §3A — six billing channels and one PSP.
 > **Pain Point:** A separately-capitalised, IPO-track entity has to defend its own gross margin, its own approval rates and its own revenue recognition across six channels. The architecture it inherited was stood up after the revenue arrived and has never been designed.
 > **Yuno Value Proposition:** One integration above the channels they already run, with reconciliation and routing owned rather than inherited — before the reporting obligations harden.
 > **Best Success Case:** n/a — this is a timing argument, not a proof point.
@@ -496,6 +533,22 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 
 ⚠️ **All funding and valuation figures for this peer set are search-snippet level from aggregators. Re-verify before any of them go in an email.**
 
+> ### ⚠️ Reality check before you flatter them — Kling is mid-pack, not frontier
+> Verified against independent human-preference benchmarks, 2026-09-30:
+> - **Artificial Analysis T2V v2.0:** best Kling entry is **rank 14 of 27** (Kling 3.0 Omni 1080p Pro, Elo 1015, $8.40/min)
+> - **Artificial Analysis I2V v1.0:** best is **rank 19 of 35** (Kling 3.0 1080p Pro, Elo 1055±6)
+> - **LMArena:** **rank 19 of 48** on image-to-video, **rank 28 of 48** on text-to-video
+> - **No top-10 or top-25 position on any board checked.**
+> - It trails **Alibaba Wan 3.0 (1157)**, **ByteDance Dreamina Seedance 2.5 (1143)** and **MiniMax H3 (1138)** by **121–142 Elo**. MiniMax H3 is also *cheaper* at $4.80/min.
+>
+> **But it beats Google.** All three Veo 3.1 variants rank below both Kling entries on T2V, and
+> full Veo 3.1 costs **$24.00/min against Kling's $8.40**. 
+>
+> **Why this matters for outreach:** do not open by calling them the category leader — they
+> will know it is not true. The honest frame is a **fast-growing, well-priced challenger losing
+> ground to two domestic rivals**, which makes conversion and cost of acceptance *more*
+> important to them, not less.
+
 ### 11B. Industry Peers
 The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu, Bilibili, Likee) are covered in `2-ready-to-outreach/kuaishou.md`.
 
@@ -528,9 +581,11 @@ The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu,
 | Quarterly revenue | Q4 2025 RMB 340m · Q1 2026 **>RMB 650m (+300%)** · Q2 2026 **>RMB 850m (+200%)** · H1 2026 RMB 1.5bn | ✅ Kuaishou results releases |
 | FY2025 revenue | RMB 1.04bn ≈ US$150m | ⚠️ **Caixin's figure, not a Kuaishou line** |
 | GMV | N/A — subscription and API, not marketplace | — |
-| Average Transaction Value — consumer | Subscription tiers **$8.80 / $32.56 / $80.96 / $159.99** per month; annual $79.20 / $293.04 / $728.64 / $1,429.99; credit packs $5–$1,200 | ⚠️ **third-party captures; a dedicated verification pass could not confirm any of these.** The membership page is client-rendered and this environment cannot run a browser against it (see §2) |
+| **Consumer pricing — RESOLVED 2026-09-30** ✅ | The three conflicting price sets were **all real, and they are three different things**: <br>• **First month (promo):** $6.99 / $25.99 / $64.99 / $127.99 <br>• **Renewal:** **$8.80 / $32.56 / $80.96 / $159.99** <br>• **Nominal list:** $10 / $37 / $92 / $180 <br>Renewal sits *below* nominal list and *above* the promo | ✅ Verified 3-0 in the second deep-research pass |
+| **→ The step-up at first renewal** | **+25.9% · +25.3% · +24.6% · +25.0%.** A consistent **~25% price increase at the first renewal charge**, across every tier | Computed by me from the row above |
+| Credit allowances | 660 (Standard) · 3,000 (Pro) · 8,000 (Premier) · 26,000 (Ultra); free Basic has no monthly grant. Effective cost per credit falls monotonically as tiers rise | ✅ verified 3-0 |
 | **Average Transaction Value — enterprise** ✅ | **Starter $1,550** (100,000 credits, 5 seats) · **Basic $2,950** (200,000) · **Advanced $4,200** (300,000) · Custom = contact sales. Unit rate **$0.015/credit**. Seats $149/$49/$50 list, $10/$9.9 promo. **Every tier is `buttonType: consult` — no self-serve checkout at any enterprise price point** | ✅ **Read by me** from the live embedded config `kConf_ytech.klingWeb.devEnterpriseMembershipInfo_18n` on [kling.ai/dev/pricing](https://kling.ai/dev/pricing), 2026-09-30 |
-| API list rates | Per-second: $0.0035 · $0.014 · $0.028 · $0.056 · $0.07 · $0.084 · $0.112 · $0.126 · $0.14 · $0.168 · $0.182 · $0.238 · $0.28 · $0.42 | ✅ same config, read by me |
+| API list rates | **Video: 1 Unit = US$0.14.** Kling 3.0 bills per second on a resolution/audio matrix from **0.6 Units ($0.084)/s** (720P, no native audio) to **3.0 Units ($0.42)/s** (4K). Turbo is native-audio-only, no 4K tier, floor 0.8 Units ($0.112)/s. **Image: 1 Unit = US$0.0035**; Image 3.0 at 8 Units ($0.028)/image, 3.0-omni 4K at 16 Units ($0.056) | ✅ **Two independent reads agree** — my own extraction from their config, and a 3-0 verified pass |
 | **Monthly transaction count** | ✅ **DERIVED (bounded): >>100,000/month.** US$39.7m/month ÷ top-tier $159.99 = **248,000** as an absolute floor; at a realistic blended ~$30 ATV, ~1.3m. **Billing unit: subscription charges + credit-pack purchases.** API, marketplace and enterprise invoicing are separate and uncounted. ⚠️ Revenue sourced; ATV third-party — a bound, not a measurement | Band ≥100,000 → **+5** |
 | Active Users | **60m+ creators, 600m+ videos, 30,000+ enterprise clients** (Dec 2025, primary) | ⚠️ *"100m users, 224 countries" (June 2026) is media-only and conflicts with 60m registered / 12m MAU for April 2026* |
 | Paying subscribers | **Never disclosed anywhere** | — |
