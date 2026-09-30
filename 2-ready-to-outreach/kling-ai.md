@@ -42,6 +42,29 @@
 >
 > ⚠️ **Do not overstate this.** Stripe's `createCurrencySelectorElement` (Adaptive Pricing) *is* mounted at the Elements layer, below anything observable here — so a user in India may well be *presented* a local amount at the final step. What is sourced is that **the app itself is USD-only and unlocalised**. A Japanese walkthrough describes USD prices converted at card FX of 1.6–3.0% with *the billed amount varying month to month on the same plan* — consistent, but that is one third-party account.
 
+> **✅ Confirmed at the enterprise tier, 2026-09-30 — and this is the harder evidence.**
+> I read the live enterprise pricing config (`kConf_ytech.klingWeb.devEnterpriseMembershipInfo_18n`)
+> off `kling.ai/dev/pricing`. It ships four locales, and the currency split is unambiguous:
+>
+> | Tier | en · **ja** · **ko** | zh |
+> |---|---|---|
+> | Starter (100,000 credits, 5 seats) | **$1,550** | ¥10,330 |
+> | Basic (200,000 credits) | **$2,950** | ¥19,660 |
+> | Advanced (300,000 credits) | **$4,200** | ¥27,990 |
+> | unit rate | **`$0.015/credit`** · **`$0.015/個`** · **`$0.015/개`** | `¥0.1元/个` |
+> | seats | $149 / $49 / $50 list, $10 / $9.9 promo | ¥330 / ¥990, promo ¥66 |
+>
+> **The Japanese build renders `$0.015/個` and the Korean build `$0.015/개`** — a dollar sign
+> attached to a local counter word. **Only China gets its own currency.** So at the tier where
+> deals run $1,550–$4,200+ and FX actually bites, Japanese and Korean enterprise buyers are
+> quoted in US dollars. That is not an inference about what Stripe might present at checkout —
+> it is the list price on their own page.
+>
+> Also from that config: **every enterprise tier is `buttonType: "consult"` / `"contact"` —
+> there is no self-serve checkout at any enterprise price point** — and a feature line marked
+> `isNew: true` reads *"Supports centralized procurement, enterprise verification, and
+> **corporate payments**"*, which is what the `OFFLINE` payment channel in §3A is for.
+
 **SimilarWeb total visits:** shares only — no visit count in the supplied view. **Supplied by Prateek 2026-09-29**, Jun–Aug 2026, 121 countries. Full table and my domain-resolution work: `accounts/traffic/kling-ai.md`.
 
 ### Top 5 markets
@@ -505,11 +528,13 @@ The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu,
 | Quarterly revenue | Q4 2025 RMB 340m · Q1 2026 **>RMB 650m (+300%)** · Q2 2026 **>RMB 850m (+200%)** · H1 2026 RMB 1.5bn | ✅ Kuaishou results releases |
 | FY2025 revenue | RMB 1.04bn ≈ US$150m | ⚠️ **Caixin's figure, not a Kuaishou line** |
 | GMV | N/A — subscription and API, not marketplace | — |
-| Average Transaction Value | Subscription tiers **$8.80 / $32.56 / $80.96 / $159.99** per month; annual $79.20 / $293.04 / $728.64 / $1,429.99; credit packs $5–$1,200; API packages $9.80–$7,560 | ⚠️ third-party captures, not read by me off their page |
+| Average Transaction Value — consumer | Subscription tiers **$8.80 / $32.56 / $80.96 / $159.99** per month; annual $79.20 / $293.04 / $728.64 / $1,429.99; credit packs $5–$1,200 | ⚠️ **third-party captures; a dedicated verification pass could not confirm any of these.** The membership page is client-rendered and this environment cannot run a browser against it (see §2) |
+| **Average Transaction Value — enterprise** ✅ | **Starter $1,550** (100,000 credits, 5 seats) · **Basic $2,950** (200,000) · **Advanced $4,200** (300,000) · Custom = contact sales. Unit rate **$0.015/credit**. Seats $149/$49/$50 list, $10/$9.9 promo. **Every tier is `buttonType: consult` — no self-serve checkout at any enterprise price point** | ✅ **Read by me** from the live embedded config `kConf_ytech.klingWeb.devEnterpriseMembershipInfo_18n` on [kling.ai/dev/pricing](https://kling.ai/dev/pricing), 2026-09-30 |
+| API list rates | Per-second: $0.0035 · $0.014 · $0.028 · $0.056 · $0.07 · $0.084 · $0.112 · $0.126 · $0.14 · $0.168 · $0.182 · $0.238 · $0.28 · $0.42 | ✅ same config, read by me |
 | **Monthly transaction count** | ✅ **DERIVED (bounded): >>100,000/month.** US$39.7m/month ÷ top-tier $159.99 = **248,000** as an absolute floor; at a realistic blended ~$30 ATV, ~1.3m. **Billing unit: subscription charges + credit-pack purchases.** API, marketplace and enterprise invoicing are separate and uncounted. ⚠️ Revenue sourced; ATV third-party — a bound, not a measurement | Band ≥100,000 → **+5** |
 | Active Users | **60m+ creators, 600m+ videos, 30,000+ enterprise clients** (Dec 2025, primary) | ⚠️ *"100m users, 224 countries" (June 2026) is media-only and conflicts with 60m registered / 12m MAU for April 2026* |
 | Paying subscribers | **Never disclosed anywhere** | — |
-| Primary Currency | **USD** — `currency = "USD"`, `$` hardcoded in the price template. RMB on the China build and AWS Marketplace China | ✅ i18n manifest, read by me |
+| Primary Currency | **USD everywhere except China.** Consumer: `currency = "USD"`, `$` hardcoded in the price template. **Enterprise: the Japanese build quotes `$0.015/個` and the Korean build `$0.015/개` — a dollar sign with a local counter. Only the `zh` build switches to RMB** (¥10,330 / ¥19,660 / ¥27,990; `¥0.1元/个`; seats ¥330/¥990, promo ¥66) | ✅ i18n manifest + enterprise config, both read by me |
 | Top 3 Markets by traffic | India 15.21% · US 11.75% · Korea 5.08% | SimilarWeb (supplied) |
 | **Billing channel split (web vs app store)** | ⚠️ **NOT DISCLOSED — six channels: Stripe web, PayPal, App Store, Google Play, OFFLINE/invoice, AWS Marketplace.** The orchestrable share is unknown and this is the biggest hole in the business case | — |
 
@@ -548,9 +573,15 @@ The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu,
 > **Why it matters:** The app is USD-only, but Stripe Adaptive Pricing is mounted. If presentment is live, the FX hook weakens and the approval-rate hook stays. If not, both hold.
 > **Suggested action:** Same VPN test as above — check the amount shown at the final step.
 
-> **Area:** Current pricing, read off their own page
-> **Why it matters:** All tier prices here are third-party, with drift on Ultra ($128 → $180).
-> **Suggested action:** Open kling.ai/membership in a browser and screenshot it.
+> **Area:** Current **consumer** pricing, read off their own page
+> **Why it matters:** The consumer tiers here are still third-party captures with drift on the
+> top tier ($128 → $180), and a dedicated verification pass confirmed none of them. **Enterprise
+> pricing is now settled** (read first-hand from their embedded config — see §12), but the
+> membership page is client-rendered and **this environment cannot run a browser against it**:
+> Chromium is installed, but the session's TLS-interception proxy is not trusted by it, and
+> making it trusted is correctly blocked.
+> **Suggested action:** Open kling.ai/membership in your own browser and screenshot it. Two
+> minutes of your time closes the last pricing gap.
 
 ---
 
