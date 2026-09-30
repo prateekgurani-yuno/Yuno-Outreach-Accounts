@@ -81,7 +81,8 @@ REDEEM → Redeem
 **None detected — direct PSP integrations only. Greenfield.** No orchestrator string appears in any Kling bundle; no orchestrator is named in any Kling or Kuaishou material; and no AI-video peer uses one either (§11C). *Note the contrast with the parent: Kwai runs five acquirers behind an in-house layer — see `2-ready-to-outreach/kuaishou.md`.*
 
 ### Buying signals
-- 💰 **~US$3bn raise at ~US$18bn post-money, filed with HKEX 2 July 2026**, Tencent among the investors. **IPO targeted as early as Q1 2027** ⚠️ *(TechNode/SCMP; the General Atlantic lead and Tencent's ~$200m are search-synthesis only)*
+- 💰 **Carve-out raise filed with HKEX 2026-07-02** — a capital increase into **Beijing Kling (北京可灵)** capped at **RMB 20,447.10m / US$3,000.00m** for **~16.67%** of enlarged registered capital, diluting Kuaishou **100% → ~68.33%**. Filing-stated **pre-transaction valuation US$15.00bn**. **Tencent US$200.00m exactly** (RMB 681.57m each via Shanghai Qishan + Parallel Mars); **Alibaba ties it** (Hangzhou AliCloud Apsara, RMB 1,363.14m); **Baidu** RMB 340.79m — all three, which Chinese trade press calls 罕见 (rare)
+- ⚠️ **Three things everyone repeats about this deal are wrong — see §6.** There is no filed "US$18bn post-money", no lead investor, and no Q1 2027 IPO target.
 - 🚀 **ARR ~US$500m as of March 2026** — verbatim in the Q1 2026 results release; up from US$240m (Dec 2025) and US$100m (Mar 2025)
 - 🚀 Q2 2026 revenue **>RMB 850m, +200%+ YoY**; Q1 2026 **>RMB 650m, +300%+ YoY**; H1 2026 **RMB 1.5bn**
 - 🤝 **Live AWS Marketplace listing** — a fourth billing rail where **AWS collects and remits**, routing enterprise buyers into private offers
@@ -106,6 +107,54 @@ REDEEM → Redeem
 7. **Do not use the Kuaishou group revenue** (RMB 142.8bn) for this account. Kling is ~US$500m ARR.
 8. **Peer proof is strong here:** Runway and Luma both run single-PSP Stripe, verbatim from their own terms. Nobody in this vertical has orchestration. That cuts both ways — use it as "the category hasn't solved this yet," not as social proof.
 
+---
+
+### ⛔ Five things to get right about the carve-out — verified against the HKEX filing itself, 2026-09-30
+
+A deep-research pass (104 agents, adversarial 3-vote verification) went back to the filed
+document. **Four of the five most-repeated claims about this deal are wrong**, and they were
+in the first version of this file. Corrected:
+
+| Everyone says | The filing actually says |
+|---|---|
+| "US$18bn post-money" | **No post-money valuation is stated anywhere.** The filing gives a **pre-transaction valuation of US$15.00bn**. The 18 is arithmetic press did (15 + 3), and press is itself inconsistent — The Information headlined it *"$15 Billion Valuation"*, and a US$20bn figure also circulates |
+| "raised US$3bn" | **US$3,000.00m (RMB 20,447.10m) is a contractual CEILING.** ~**RMB 19,047.10m (US$2.79bn)** was committed at signing, with RMB 1,400m left as *"Reserved interests for other Additional Investors"* and a 60-day joinder window |
+| "General Atlantic led it" | **GA appears nowhere in the filing** — zero occurrences across ~123,600 extracted characters — and **the filing designates no lead, cornerstone or anchor investor at all.** The GA framing traces to a Bloomberg report of *talks* on 17 June 2026, superseded by a larger, differently-composed closed round |
+| "IPO as early as Q1 2027" | **"2027" appears zero times. No venue is named.** The only dated IPO reference is an investor **redemption right: cost + 8% simple annual interest if Beijing Kling has not listed by 30 October 2031.** Q1 2027 is press-reported company intent (Jiemian), not a filed commitment |
+| "Tencent is in" | ✅ **True, and exact.** **US$200.00m** — RMB 681.57m each via **Shanghai Qishan Investment** (PRC) and **Parallel Mars Investment** (Cayman) = RMB 1,363.14m at the filing's own 6.8157 rate. **Alibaba ties it** (Hangzhou AliCloud Apsara, RMB 1,363.14m) and **Baidu** took RMB 340.79m |
+
+**Structure:** the vehicle is **Beijing Kling (北京可灵), a PRC entity** — *not* Kling AI Pte. Ltd.,
+the Singapore entity that bills customers. Kuaishou dilutes **100% → ~68.33%** (16.67% investors
++ 15.00% incentive schemes). Largest single subscriber: Shanghai Guofang Digital Technology,
+RMB 1,690.00m. Others named: CPE Spruce RMB 850.79m · Beijing CAS Generation RMB 943.00m ·
+BlueFive (ADGM) RMB 545.26m · China Internet Investment Fund RMB 400.00m · Qiming's QM323
+RMB 204.47m · CITIC Securities Investment RMB 100.00m · Monolith Kling Fund RMB 136.31m.
+
+> ### ⚠️⚠️ NEVER call their "ARR" annual recurring revenue
+> Kuaishou's own published definition is **`ARR = Monthly Operating Revenue × 12`** — the
+> current month's revenue times twelve. It sits **~38% above annualised realised revenue**:
+> Q1 2026 annualises to about **US$360m** against the **~US$500m** March run rate.
+> **Actual FY2025 revenue was RMB 1.04–1.1bn (~US$150–162m).** If Prateek says "$500m ARR" to
+> a CFO who reads it as recurring revenue, the number will not survive the meeting.
+> Lead with **Q2 2026: >RMB 850m, +200% YoY** — it is a real quarterly figure.
+
+> ### 💡 The finding that strengthens the pitch
+> The carve-out entity is **deeply loss-making**: net loss **RMB 0.5bn (FY2024) → RMB 1.9bn
+> (FY2025)**, RMB 2.4bn cumulative, and **negative net assets of −RMB 9m** at 2025-12-31.
+> It now has ~US$2.79bn of outside money on the register and a redemption clock. **Growth at
+> any cost is over; unit economics are now somebody's job.** That is the real reason payments
+> gets looked at, and it is a better frame than the IPO date.
+
+**Additions to the never-use list:**
+- ❌ The **"enterprise API ~60% / consumer ~40%"** revenue split — traces solely to
+  **macrostream.ai, an AI-generated analyst-summary site**. Not in any transcript, filing or
+  Chinese coverage. **The split is genuinely undisclosed.**
+- ❌ **"100 million users"** — no company-issued source supporting it was found. Kuaishou's own
+  December 2025 wording was *"over 60 million **creators**"* — cumulative creators, not
+  registered users and not MAU. The 100m figure is asserted without attribution.
+- ❌ **"~75% of revenue from overseas"** — a geographic split attributed to the Q1 2026
+  earnings call, not a filing disclosure, and **not verified**.
+
 </details>
 
 <details>
@@ -122,7 +171,7 @@ REDEEM → Redeem
 | Local rail or licensing gap in a top-3 market | **0** | ⬜ **Withheld deliberately.** Top 3 are India, US, Korea. Korean wallets and Indian UPI are "not found" in the bundle — but **Stripe renders dashboard-side methods invisibly**, so that is not sourced absence. Japan's konbini gap *is* sourced but Japan is #8. **No point awarded without a source for the absence.** |
 | Recent expansion | **+2** | ✅ Kling 3.0 (Feb 2026) and 3.0 Turbo; **Team Plan** launched Q1 2026; **Kling MCP + CLI**; #1 on the App Store across 42 countries; AWS Marketplace listing |
 | Payment issues | **+2** | ✅ Trustpilot **1.2/5, 398 reviews**; repeat charge attempts after confirmed cancellation, named reviewers, Aug–Sep 2026 |
-| Funding >$10M | **+2** | ✅ **~US$3bn at ~US$18bn post-money, filed with HKEX 2 July 2026** |
+| Funding >$10M | **+2** | ✅ **Capital increase filed with HKEX 2026-07-02**, capped at US$3,000.00m, with **~US$2.79bn committed at signing**. Clears the threshold by three orders of magnitude |
 | High traffic outside home | **+2** | ✅ China does not appear in the top 11 at all — the Chinese product is on a separate host (`klingai.kuaishou.com`). Home share is far below 60% |
 | Competitor using orchestration | **0** | ❌ **Runway and Luma both single-PSP Stripe** (their own ToS); HeyGen names none. No orchestration anywhere in the vertical |
 | Payment job postings | **0** | ❌ Searched twice, none found. No hiring signal exists to cite |
@@ -139,7 +188,9 @@ REDEEM → Redeem
 - ✅ **Export-control screen clean** — BIS Entity List, OFAC SDN, OFAC Consolidated, all with passing controls ("Kling" hits were *"Sparkling Wine"*)
 - ⚠️ **ACRA UEN 202502609E** — third-party mirror, not BizFile. Address matches my own first-hand read of their ToS, which is good corroboration; the UEN itself is unverified
 - ⚠️ **Pricing tiers** — third-party captures (Magic Hour, screenshot dated 2026-09-25; eesel; costbench), with some drift on Ultra ($128 → $180). Not read by me off their page
-- ⚠️ **Trustpilot, AWS Marketplace, the $3bn round** — agent-verified, not re-fetched by me
+- ✅ **The carve-out** — verified 2026-09-30 against the **HKEX filing itself** by a 104-agent deep-research pass with adversarial 3-vote verification. See the corrections block in §2
+- ⚠️ **Trustpilot and AWS Marketplace** — agent-verified, not re-fetched by me
+- ❌ **Pricing tiers, user numbers and the competitive comparison did NOT survive that verification pass** — no claim on any of the three was confirmed. The hedges already in this file stand, and should be treated as *less* certain rather than more: the third-party price captures in §12 remain the only evidence, and the "100m users" conflict is unresolved
 - ⚠️ **"100m users June 2026"** — media only (36Kr); conflicts with 60m registered / 12m MAU for end-April 2026. **Hedge or avoid**
 - ⚠️ **FY2025 Kling revenue RMB 1.04bn / ~US$150m** — Caixin's figure, not a Kuaishou line. The FY2025 release gives only Q4 (RMB 340m)
 
@@ -303,7 +354,7 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 
 | # | Date | Development | Category | Source URL |
 |---|---|---|---|---|
-| 1 | **2026-07-02** | **~US$3bn capital raise at ~US$18bn post-money filed with HKEX**; Tencent among investors; **IPO targeted as early as Q1 2027** | **Funding / carve-out** | [TechNode](https://technode.com/2026/07/03/tencent-joins-reported-3-billion-funding-round-for-kuaishous-kling-ai/) ⚠️ GA lead + $200m Tencent = search-synthesis only |
+| 1 | **2026-07-02** | **Capital increase into Beijing Kling filed with HKEX** — capped RMB 20,447.10m / US$3,000.00m for ~16.67%; pre-transaction valuation **US$15.00bn**; Tencent **US$200.00m**, Alibaba equal, Baidu RMB 340.79m | **Funding / carve-out** | ✅ [HKEX filing, 2026-07-02](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0702/2026070204065.pdf) — **primary source** |
 | 2 | 2026-05-12 | Kuaishou shares +11% on spin-off reports; board *"evaluating a restructuring of Kling AI's assets and business, which may involve introducing external financing"* | Corporate | ChinaBizInsider; [SCMP headline](https://www.scmp.com/tech/article/3353214/kuaishou-stock-surges-reports-kling-ai-unit-spin) (403, headline only) |
 | 3 | 2026-05-27 | **ARR ~US$500m as of March 2026**; Q1 2026 revenue >RMB 650m, +300%+ | Financial | [Q1 2026 release](https://www.prnewswire.com/apac/news-releases/kuaishou-technology-announces-first-quarter-2026-unaudited-financial-results-302782902.html) — read by me |
 | 4 | Q1–Q2 2026 | **Team Plan** (15 seats) — first seat-based SKU; **Kling MCP + CLI** *"enabling AI agents to orchestrate Kling AI for batch content creation"*; native 4K | Product / channel | Q1 & Q2 2026 releases |
@@ -319,7 +370,7 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 
 | # | Date | Headline / Summary | Relevance | Source URL |
 |---|---|---|---|---|
-| 1 | 2026-07-02 | Kling AI $3bn raise filed with HKEX at ~$18bn | The carve-out makes payments an owned line item | [TechNode](https://technode.com/2026/07/03/tencent-joins-reported-3-billion-funding-round-for-kuaishous-kling-ai/) |
+| 1 | 2026-07-02 | Kling AI carve-out capital increase filed with HKEX | The carve-out makes payments an owned line item | ✅ [HKEX filing](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0702/2026070204065.pdf) |
 | 2 | 2026-01-13 | **"Kling AI, achieved monthly revenue exceeding USD20 Million in December 2025, corresponding to an ARR of USD240 Million… reached just 19 months after launch"** | The ARR ladder | PR Newswire ⚠️ agent-read via syndicated wire copy |
 | 3 | 2025-06-05 | US$100m ARR in month 10. *"Monthly subscription bookings include paid prosumer subscriptions and corporate client API fees"* | Their own billings-vs-revenue framing | PR Newswire ⚠️ agent-read |
 | 4 | **2024-08-07** | **"Payment System Upgrade"** — credit cards (Visa, Mastercard "and more options") added. **Cards were not available at launch** | Their card stack is barely 2 years old | [x.com/Kling_ai](https://x.com/Kling_ai/status/1821172427797516475) |
@@ -380,11 +431,11 @@ Verbatim (Анна Владимировна, 2026-09-14): *"Despite this confirm
 > **Suggested Subject Line:** India is 15% of Kling's traffic
 
 > **Insight #3: The carve-out is the moment payments stops being inherited**
-> **Evidence:** §6 — **~US$3bn at ~US$18bn filed with HKEX 2 July 2026**, IPO targeted Q1 2027 + §2 — **Kling AI Pte. Ltd. incorporated 17 Jan 2025, seven months after monetisation began** + §3A — six billing channels (Stripe, PayPal, Apple, Google, OFFLINE, AWS Marketplace) and one PSP.
+> **Evidence:** §6 — **capital increase filed with HKEX 2026-07-02**, ~US$2.79bn committed at signing, Kuaishou diluted to ~68.33%, and an investor **redemption right at cost + 8% simple annual interest if there is no IPO by 30 October 2031** + §2 — **Kling AI Pte. Ltd. incorporated 17 Jan 2025, seven months after monetisation began** + §12 — the carve-out entity carries **RMB 2.4bn of cumulative losses and negative net assets** + §3A — six billing channels and one PSP.
 > **Pain Point:** A separately-capitalised, IPO-track entity has to defend its own gross margin, its own approval rates and its own revenue recognition across six channels. The architecture it inherited was stood up after the revenue arrived and has never been designed.
 > **Yuno Value Proposition:** One integration above the channels they already run, with reconciliation and routing owned rather than inherited — before the reporting obligations harden.
 > **Best Success Case:** n/a — this is a timing argument, not a proof point.
-> **Outreach Angle:** *"You incorporated the Singapore entity seven months after Kling started billing. With a raise filed and an IPO in view, I'd guess the payments stack is one of the things now getting a second look."*
+> **Outreach Angle:** *"You incorporated the Singapore entity seven months after Kling started billing. With the carve-out filed and outside investors on the register, I'd guess the payments stack is one of the things now getting a second look."*
 > **Suggested Subject Line:** ⚠️ Keep the raise out of the subject line — it reads as surveillance. Use it once, in the body.
 
 > **Insight #4: The category has not solved this — nobody in it has orchestration**
@@ -447,7 +498,10 @@ The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu,
 
 | Metric | Value | Source / Methodology |
 |---|---|---|
-| **ARR** | **~US$500m (March 2026)** — from US$240m (Dec 2025) and US$100m (Mar 2025) | ✅ [Q1 2026 release](https://www.prnewswire.com/apac/news-releases/kuaishou-technology-announces-first-quarter-2026-unaudited-financial-results-302782902.html), verbatim, read by me |
+| **"ARR"** | **~US$500m (March 2026)** — from US$240m (Dec 2025) and US$100m (Mar 2025) | ✅ [Q1 2026 release](https://www.prnewswire.com/apac/news-releases/kuaishou-technology-announces-first-quarter-2026-unaudited-financial-results-302782902.html), verbatim, read by me. ⚠️ **See the warning below — this is not annual recurring revenue** |
+| ⚠️ **What their "ARR" actually means** | **Current month's revenue × 12.** That is Kuaishou's own published definition (*"Annualized Revenue Run Rate (ARR) = Monthly Operating Revenue * 12"*), **not** annual recurring revenue. It runs **~38% above annualised realised revenue** — Q1 2026 annualises to only ~US$360m against the ~US$500m March run rate | Kuaishou's own Note 1, 2026-01-13 release |
+| **Actual FY2025 revenue** | **RMB 1.04–1.1bn ≈ US$150–162m** | Corroborated. **Never present the US$240m December run rate as FY2025 revenue** |
+| Carve-out entity P&L | **Net loss RMB 0.5bn (FY2024) → RMB 1.9bn (FY2025)**, RMB 2.4bn cumulative. **Negative net assets −RMB 9m** at 2025-12-31 (assets RMB 244m vs liabilities RMB 253m) | ✅ [HKEX filing](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0702/2026070204065.pdf), unaudited |
 | Quarterly revenue | Q4 2025 RMB 340m · Q1 2026 **>RMB 650m (+300%)** · Q2 2026 **>RMB 850m (+200%)** · H1 2026 RMB 1.5bn | ✅ Kuaishou results releases |
 | FY2025 revenue | RMB 1.04bn ≈ US$150m | ⚠️ **Caixin's figure, not a Kuaishou line** |
 | GMV | N/A — subscription and API, not marketplace | — |
@@ -467,7 +521,9 @@ The parent group and its short-video competitors (ByteDance/TikTok, Xiaohongshu,
 
 - **Traffic — SUPPLIED, and therefore the strongest input in the file.** Prateek's SimilarWeb dataset (2026-09-29) is the primary source, and I separately resolved the domain question by curl so the country profile is not a redirect artefact. This is why the country analysis here is materially more reliable than in the Kuaishou file.
 - **Payment stack — HIGH.** The i18n manifest, Stripe component, policy documents and channel enum were all pulled and read by me, with 404-body checks. The Stripe finding is independently corroborated by a prior sweep in `minimax-io.md`.
-- **Financials — HIGH.** ARR and quarterly revenue read verbatim in Kuaishou's own releases.
+- **Financials — HIGH, with one definitional trap.** ARR and quarterly revenue read verbatim in Kuaishou's own releases, and the carve-out is now verified at the HKEX filing. ⚠️ **But "ARR" is Kuaishou's own formula (month × 12), not recurring revenue** — see the warning in §2.
+- **Carve-out terms — HIGH (primary filing).** Four widely-repeated claims about the deal were refuted against the document.
+- **User numbers and pricing — LOW, and deliberately so.** A dedicated verification pass failed to confirm any claim on either. Nothing here should be quoted to a prospect without a fresh check.
 - **Entity — MEDIUM.** The UEN comes from a third-party ACRA mirror; the address independently matches their own ToS.
 - **Pricing — MEDIUM.** Third-party captures with drift between sources.
 - **Per-market methods — LOW, structurally.** Stripe's dashboard configuration is invisible from outside. **Nothing in §4 marked "Not found" should be treated as disproved.**
