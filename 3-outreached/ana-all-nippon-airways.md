@@ -1,8 +1,8 @@
 # ANA (All Nippon Airways)
 
-**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 23 / 29 → ⭐ **High Priority**
-**Industry:** Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) · **HQ:** Tokyo, **Japan** — ANA Holdings Inc., **TSE 9202** · **Researched:** 2026-09-18 · **First email sent:** —
+**Industry:** Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) · **HQ:** Tokyo, **Japan** — ANA Holdings Inc., **TSE 9202** · **Researched:** 2026-09-18 · **First email sent:** 2026-10-01
 **Motion:** **Greenfield** — none detected. Unusually well-evidenced for a greenfield call: ANA's own payment pages show three *separate* point-to-point hand-offs rather than one routing layer (see 3B).
 
 > **Highest-scoring account in this repo to date.** The margin comes from three rows that are sourced rather than inferred: a first-party exhaustive method table, a first-party live defect list, and a first-party results release.

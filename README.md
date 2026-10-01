@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-09-30 12:59*
+*Last updated: 2026-10-01 00:01*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -87,20 +87,17 @@
 | [Zhejiang Geely Holding Group](1-to-outreach/zhejiang-geely-holding-group.md) | Automotive | China | P1 | 2026-09-18 |
 | [ZUS Coffee](1-to-outreach/zus-coffee.md) | Food & Beverage | Malaysia | P1 | 2026-09-18 |
 
-## 🟢 Ready to Outreach (51)
+## 🟢 Ready to Outreach (48)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
 | Company | Industry | ICP | Motion | Researched |
 |---------|----------|-----|--------|------------|
 | [Gravity Co., Ltd. (NASDAQ: GRVY)](2-ready-to-outreach/gravity.md) | Online & mobile game developer/publisher — the Ragnarok franchise | 24/29 | Greenfield | 2026-09-20 |
-| [ANA (All Nippon Airways)](2-ready-to-outreach/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | Greenfield | 2026-09-18 |
 | [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | 23/29 | In-house orchestration | 2026-09-20 |
 | [Kling AI](2-ready-to-outreach/kling-ai.md) | AI video generation — consumer subscription + enterprise API | 23/29 | Greenfield | 2026-09-29 |
-| [MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100](2-ready-to-outreach/minimax-io.md) | AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) | 23/29 | 🛑 IN-HOUSE | 2026-09-24 |
 | [z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)](2-ready-to-outreach/z-ai.md) | AI / LLM model-as-a-service — prepaid API credits + auto-renewing developer subscriptions | 23/29 | 🛑 BLOCKED (compliance hold) | 2026-09-24 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | 19/24 ⚠️ | Greenfield | 2026-09-15 |
-| [YesStyle](2-ready-to-outreach/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | Greenfield | 2026-09-16 |
 | [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activities, attraction tickets) | 22/29 | ⚠️ DISPLACEMENT | 2026-09-19 |
 | [Moonshot AI (月之暗面) / Kimi](2-ready-to-outreach/moonshot-ai.md) | Frontier LLM — consumer subscription + developer API | 22/29 | In-house | 2026-09-30 |
 | [Peach Aviation](2-ready-to-outreach/peach-aviation.md) | Low-cost carrier (direct-to-consumer, >95% of sales through own website) | 22/29 | Greenfield | 2026-09-19 |
@@ -145,15 +142,18 @@
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | 7/24 ⚠️ | Undetermined | 2026-09-16 |
 | [ThaiTicketMajor](2-ready-to-outreach/ticketnet-thailand.md) | Live event ticketing (concerts, theatre, sport), agent-of-promoter with heavy offline counter/cash distribution | — *(not scored)* | Not established | 2026-09-20 |
 
-## 🔵 Outreached (3)
+## 🔵 Outreached (6)
 
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
+| [ANA (All Nippon Airways)](3-outreached/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines consolidated FY2025) | 23/29 | 2026-10-01 |
+| [MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100](3-outreached/minimax-io.md) | AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) | 23/29 | 2026-10-01 |
+| [YesStyle](3-outreached/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashion) | 19/24 ⚠️ | 2026-10-01 |
 | [Azar](3-outreached/azar.md) | Social / random video chat (virtual-currency + subscription) | 16/29 | 2026-09-21 |
 | [Envato](3-outreached/envato.md) | Digital-goods marketplace + creative subscription (two-sided) | 20/29 | 2026-09-21 |
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | 16/24 ⚠️ | 2026-09-15 |
 
-## 🔴 Not ICP (12)
+## 🔴 Not ICP (13)
 
 See [not-icp/](not-icp/) for rejection rationale.
 
@@ -161,5 +161,5 @@ See [not-icp/](not-icp/) for rejection rationale.
 
 > ⚠️ **12 file(s) still scored on the retired /24 matrix** and are marked ⚠️ above. Their scores are NOT comparable to a /29 score and must be re-run before they are prioritised against anything else:
 >
-> `bangkok-airways` · `citilink` · `garuda-indonesia` · `great-learning` · `indodax` · `vietjet-air` · `vietnam-airlines` · `viu` · `watsons` · `yesstyle` · `yupptv` · `air-new-zealand`
+> `bangkok-airways` · `citilink` · `garuda-indonesia` · `great-learning` · `indodax` · `vietjet-air` · `vietnam-airlines` · `viu` · `watsons` · `yupptv` · `air-new-zealand` · `yesstyle`
 *Parse error: 2-ready-to-outreach/ticketnet-thailand.md (parse error)*

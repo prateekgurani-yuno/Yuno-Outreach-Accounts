@@ -1,8 +1,8 @@
 # YesStyle
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 19 / 24 → ⭐ High Priority — earned on arithmetic, no override needed
-**Industry:** Cross-border e-commerce (Asian beauty & fashion) · **HQ:** 5/F KC100, 100 Kwai Cheong Road, Kwai Chung, Hong Kong · **Researched:** 2026-09-16 · **First email sent:** —
+**Industry:** Cross-border e-commerce (Asian beauty & fashion) · **HQ:** 5/F KC100, 100 Kwai Cheong Road, Kwai Chung, Hong Kong · **Researched:** 2026-09-16 · **First email sent:** 2026-10-01
 **Motion:** **Greenfield** — multiple gateways, directly integrated, no routing layer. They pick the gateway; the gateway picks the acquirer.
 
 ---

@@ -1,8 +1,8 @@
 # MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 23 / 29 → ⭐ **High** — ties z.ai for the highest score in this pipeline, **and unlike z.ai it has no compliance blocker.** This is the actionable one.
-**Industry:** AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) · **HQ:** Shanghai, China · **Listco:** Cayman Islands · **Billing entity:** Nanonoble Pte. Ltd. (Singapore) · **Researched:** 2026-09-24 · **First email sent:** —
+**Industry:** AI / LLM — developer API platform + consumer subscription apps (Hailuo AI video, Talkie companion, MiniMax Audio) · **HQ:** Shanghai, China · **Listco:** Cayman Islands · **Billing entity:** Nanonoble Pte. Ltd. (Singapore) · **Researched:** 2026-09-24 · **First email sent:** 2026-10-01
 **Motion:** 🛑 IN-HOUSE · two live acquirers already
 **Motion detail:** ⚠️ **IN-HOUSE, and not a thin one.** Stripe **and** Airwallex both live in production, plus Alipay on the China build, plus Apple/Google IAP, plus offline bank transfer — all switched by hand-written build flags and a null-check. **Never say "you need orchestration." They built one. Twice.**
 
