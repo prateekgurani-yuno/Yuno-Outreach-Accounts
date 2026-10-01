@@ -1,0 +1,13 @@
+name,title,company,domain,email,email_valid,email_source,failure_reason
+Dohyung Kwon,Enterprise Product Lead,NOL Universe,nol-universe.com,,no,,no_email_found
+Seung-Hui Yoon,Manager of Products,NOL Universe,nol-universe.com,,no,,no_email_found
+Sang-Won Lee,Product Manager,NOL Universe,nol-universe.com,sangwon.lee@nol-universe.com,yes,findymail,
+Dongjo Yoon,Global Product Leader,NOL Universe,nol-universe.com,,no,,no_email_found
+Younjung Kim,Chief Product Officer,NOL Universe,nol-universe.com,,no,,no_email_found
+Haeyun Ko,Manager of Products,NOL Universe,nol-universe.com,,no,,no_email_found
+Ji Jongkeun,Head of Member Payments (Interpark Pay / PG),NOL Universe,nol-universe.com,,no,,no_email_found
+Hye-Jeong Yoon,Head of a Department,NOL Universe,nol-universe.com,,no,,no_email_found
+Jisook Lee,Head of Tour Product,NOL Universe,nol-universe.com,,no,,no_email_found
+Mi Song,Leader of User Product Design Team,NOL Universe,nol-universe.com,,no,,no_email_found
+Chanseok Choi,President / Board Member,NOL Universe,nol-universe.com,chanseok.choi@nol-universe.com,yes,leadmagic,
+Kwanghee Park,Leader of Platform and Infrastructure Engineering,NOL Universe,nol-universe.com,,no,,no_email_found
