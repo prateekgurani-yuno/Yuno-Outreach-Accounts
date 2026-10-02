@@ -1,9 +1,9 @@
 # Travelex Japan
 
 **Status:** 🟢 Ready to outreach — research complete, sequence not yet drafted
-**ICP Score:** 21 / 29 → ⭐ **High Priority**
+**ICP Score:** 18 / 29 → ⭐ **High Priority**
 **Industry:** Foreign-exchange retail + licensed funds transfer (remittance) + prepaid card issuing · **HQ:** Tokyo, Japan — トラベレックスジャパン株式会社, 法人番号 **3010401058641**; group parent UK · **Researched:** 2026-10-02 · **First email sent:** —
-**Motion:** **Greenfield** — no orchestrator detected. Direct, per-market, brand-by-brand integrations. **But read the counter-argument in Section 10 before drafting: the Mastercard skew may be contractual, not neglect.**
+**Motion:** 🛑 **IN-HOUSE — they built it, and it is called SALT.** `"sourceSystem":"SALT"`, `api.travelex.net/salt`, Jira refs `SALT-6850` / `SALT-6854` / `SALT-3759` in shipped code. **NEVER say they need orchestration.** Anchor on reach and opportunity cost. Also read the counter-argument in Section 10 — the Mastercard skew may be contractual, not neglect.
 
 ---
 
@@ -23,7 +23,18 @@
 > | Local methods | 銀行振込 (bank transfer), **代金引換 (cash on delivery, ¥330 fee)** | — |
 > | Order cap | ¥300,000/order · ¥600,000/day · ¥1.5m/30 days | not published |
 >
-> ### ⭐ And the tokenization layer is configured for cards the acquiring side does not accept
+> ### ⭐ Apple Pay and Google Pay are already built into their platform — and switched off in Japan
+> From the **live** Japanese payment page (`buy.travelex.co.jp/jajp/Payment`, HTTP 200, 151 KB), verbatim:
+> ```js
+> var Order_Default_PaymentTypes = "bankTransfer,card,cashOnDelivery";
+> var gatewayMerchantId = null;
+> var googlePaySettings = {};
+> var Config_Payment_ApplePayPaymentNetworks  = "";
+> var Config_Payment_GooglePayPaymentNetworks = "";
+> ```
+> **The capability ships. Japan's configuration is empty.** The platform also carries `ptDetails` blocks for `applePay`, `googlePay`, `bPay` (BPAY, Australia), `realtimeBankTransfer`, `billPayment` and `storePayment`, plus `isPoliPayment` — **Japan uses three of them.**
+>
+> ### And the tokenization layer is configured for cards the acquiring side does not accept
 > I decoded the Cybersource `captureContext` JWT that each checkout hands the browser. **`allowedCardNetworks` is byte-identical on the Japanese and UK checkouts:**
 > ```
 > VISA, MAESTRO, MASTERCARD, AMEX, DISCOVER, DINERSCLUB, JCB, CUP, CARTESBANCAIRES
@@ -56,18 +67,30 @@
 **Chain:** Barings **51.49%** (at 31 Dec 2025) + Vector / Corre / Mariner (>95% combined) → **Travelex International Limited** → **Travelex Acquisitionco Limited** → **Travelex Japan KK**
 ❌ **No entity in Indonesia, Korea, Philippines, Vietnam or Taiwan** — and Indonesia is the fastest-growing market in the traffic at ▲344.57%.
 
-### Known PSPs
-| Layer | Finding |
-|---|---|
-| **Card tokenization** | ✅ **Cybersource Flex Microform v2.0.2** — confirmed by me on **both** `buy.travelex.co.jp` and `checkout.travelex.co.uk`, by decoding the `captureContext` JWT each page serves (`iss: "Flex API"`, `clientLibrary: flex.cybersource.com/microform/bundle/v2.0.2/flex-microform.min.js`) |
-| **Hosts** | `flex.cybersource.com` · **`flex.cybersource-travelex.securedataplatform.co.uk`** — a Travelex-branded Cybersource endpoint on a **`.co.uk`** domain, present on the **Japanese** checkout · `api.travelex.net` · `prod.cpsmt.mhshosting.com` |
-| **Acquirer** | ❌ **NOT ESTABLISHED.** Cybersource is Visa-owned and is a gateway; who acquires is unknown. **Do not name an acquirer.** |
-| **Japan card arrangement** | **Mastercard (any issuer) + Lifecard-issued Visa/JCB.** A bilateral issuer deal, not a scheme-wide acceptance — first-party sourced |
-| **3DS** | ❌ Not established. No 3Dセキュア / 本人認証サービス reference found, but the live payment step was never reached |
-| **ATM estate** | **NCR Atleos** — 2024 network overhaul (separate from checkout) |
+### Known PSPs — from the LIVE payment page, not the shell
+| Layer | Provider | Evidence |
+|---|---|---|
+| **Commerce platform** | **SALT — Travelex's own** | `"sourceSystem":"SALT"` in order JSON · `api.travelex.net/salt` · Jira refs `SALT-6850`, `SALT-6854`, `SALT-3759` shipped as code comments |
+| **Card gateway** | ✅ **Cybersource (Visa Acceptance)** | Flex Microform v2.0.2; live capture-context JWTs decoded on **both** markets (`iss: "Flex API"`, per-domain `targetOrigins`) |
+| **PCI descoping / tokenization** | ✅ **Eckoh** | `Config_Eckoh_BaseUrl = "https://flex.cybersource-travelex.securedataplatform.co.uk/s2p-function"`, plus `_EckohCallGuard`, `EckohPanMasking()`, `#eckoh-cardnumber`, `__IsAudioTokenised` — i.e. **contact-centre phone payments are descoped too** |
+| **Token endpoints** | `prod.cpsmt.mhshosting.com/travelex/token/{paymentCard,prepaidCard}` | Operator **not identified** |
+| **Japan Mastercard acquirer** | ✅ **Life Card (ライフカード)** | Trade press on the acquiring contract. **Single acquirer, no failover visible** |
+| **3DS** | ✅ **Cybersource Payer Authentication** | `payerauthpage` in `/scripts/funnel`. JP T&Cs mandate it: 「クレジットカードは**3Dセキュアー対応**でかつご本人名義のカードのみご使用いただけます」 |
+| **Money Card — Japan** | **Travelex Japan KK is ITSELF the issuer**, under its 資金移動業 licence → **MPMS Japan KK** (processing) → Mastercard | 「トラベレックスジャパン株式会社…が**資金移動業登録（関東財務局長第00001号）のもとに発行・運営する**海外専用プリペイドカード…**Mastercard Prepaid Management Services Japan株式会社**にカードのプロセシング、カードサービス等について業務委託」 |
+| **Money Card — UK** | **PrePay Technologies (PPS)** issuer, FRN 900010 → MPMS Ltd programme manager → Mastercard | Nov-2020 T&C PDF |
+| **Not present anywhere** | ❌ No Adyen, Stripe, Worldpay, Checkout.com, Braintree, Nuvei, Paysafe. ❌ **No Japanese PSP at all** — no GMO-PG, SB Payment Service, Veritrans, KOMOJU, Sony Payment Services | Checked in page, headers, CSP and JS bundles |
+
+⚠️ **Travelex UK still publishes a stale T&C naming Wirecard Card Solutions as issuer** (Jan-2019 stamp) alongside the current PrePay version. **Wirecard collapsed in June 2020.** A live document naming a dead issuer.
 
 ### Orchestration status
-**None detected — direct, per-market, brand-by-brand integrations.** Evidence: (1) the Japan and UK checkouts share a front-end template and a Cybersource version yet expose materially different method sets; (2) Japan's card acceptance was built **one press release at a time** — JCB only until Dec 2018, then Mastercard and Lifecard added; (3) no orchestration vendor appears anywhere. **Greenfield.**
+🛑 **IN-HOUSE orchestration layer — "SALT".** Not greenfield.
+- **One shared codebase serves every market.** `buy.travelex.co.jp` and `checkout.travelex.co.uk` serve **byte-identical JS bundle versions** (`/scripts/funnel?v=naFm7hz…`, `/scripts/general?v=pCh7dB3…`) and identical `Config_Eckoh_*` / `Config_Token_Cps*` values.
+- **Payment-method availability is market config inside SALT**, not a vendor routing product — `Order_Default_PaymentTypes` is a per-market string with Travelex-issued GUID `paymentOptionId`s.
+- **Acquiring is contracted locally per market** (Life Card for Mastercard in Japan) while the gateway stays Cybersource. Direct integrations, orchestrated by their own code.
+- Market variation is handled with CSS overrides — `.country-JP .payment-page #payment-section { display: block !important; }` — bolted onto one template.
+- **Negative findings, all explicitly checked:** no Spreedly, Primer, Gr4vy, CellPoint, APEXX, Payrails, Juspay, Yuno, IXOPAY or BR-DGE anywhere in page, header, CSP or bundle.
+
+⚠️ **This is the hardest sell shape. Respect the build.** Per `/full-outreach` §6a: anchor on **reach and opportunity cost**, never on the build being wrong. The upside: **there is no incumbent orchestrator to displace** — only direct integrations to absorb.
 
 ### Buying signals
 - 🔴 **Q1 2026: revenue £93.8m, down £22.3m YoY; underlying EBITDA LOSS £2.9m**, £3.7m adverse. Company language: *"continues to focus on cost discipline and operational efficiency."* → **approval-rate and cost-of-acceptance framing. Growth framing will not land.**
@@ -88,7 +111,7 @@
 
 ⚠️ **Read before drafting.**
 1. **Lead with the Visa question, phrased as a question.** See the counter-argument in Section 10 — the Mastercard skew may be contractual. *"What would it take to add Visa, JCB and PayPay?"* lands; *"you're leaving money on the table"* ends the conversation if scheme exclusivity exists.
-2. **Never say they need orchestration** — actually here you may, motion is greenfield. But **do not** say the Japanese stack is bad; say it is *different from the UK's*, which is their own fact.
+2. 🛑 **NEVER say they need orchestration. The motion is IN-HOUSE — they built SALT.** This rule reversed after the PSP agent reached the live payment page; an earlier version of this file said greenfield and said the opposite. Anchor on **reach and opportunity cost**. Do not say the Japanese stack is bad — say it is *different from the UK's*, which is their own fact.
 3. **Do not use the Nuvei "4% authorisation uplift" or "5% multi-acquirer" figures.** Competing vendor, anonymous airline, not an FX reference.
 4. **Do not claim a competitor uses orchestration.** No FX, travel-money or remittance business has a public orchestration case study. Verified absent.
 5. **Do not use group loss figures as a taunt.** Q1 2026 cost discipline is context for *framing*, not a line in an email.
@@ -100,13 +123,13 @@
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 21 / 29
+### ICP Score breakdown — 18 / 29
 | Signal | Points | Status |
 |--------|--------|--------|
 | **Monthly transaction count** | **+5** | ⚠️ **NOT FOUND — ASSUMED ~100,000+/month.** `[ASSUMPTION — not researched.]` Basis: group ~15m retail transactions/year `[UNVERIFIED — press]` ÷ 12 ≈ 1.25m/month; Asia is 16.8% of group revenue (£80.2m / £477.2m, **audited**) → ~210k/month Asia; Japan is the largest Asia market by stores and traffic. **Only the revenue share is sourced; every later link is not.** An assumption never rejects, so the implied ≥100,000 band is scored and the row marked ⚠️. |
-| Orchestration status | **+4** | ✅ **None detected — greenfield.** Per-market brand-by-brand integrations; no orchestrator found |
+| Orchestration status | **+1** | 🛑 **In-house layer — "SALT".** Confirmed from shipped code, not inferred. Scored +1 per the matrix, not +4. **This cost 3 points and changed the motion.** |
 | 3+ countries | **+3** | ✅ Audited Asia segment = Japan, China, Malaysia, Singapore, Hong Kong; plus AU, NZ, India, Thailand entities |
-| Multiple PSPs | 0 | ⬜ Only Cybersource confirmed. The Japan Mastercard/Lifecard arrangement implies separate acquiring but is **not confirmed as a second PSP** |
+| Multiple PSPs | 0 | ❌ **Verified single-acquirer per market.** Cybersource (gateway), Eckoh (descoping) and Life Card (Japan Mastercard acquirer) are **layers of one stack, not parallel PSPs**. No failover visible. This absence is itself the pitch. |
 | **Local rail / licensing gap in a top-3 market** | **+3** | ✅ **Japan is the #2 market and the online checkout carries no konbini, no Pay-easy, no PayPay, no Rakuten Pay, no d払い, no au PAY, no LINE Pay, no merpay.** Sourced from Travelex Japan's own published method list, not inferred |
 | Recent expansion | **+2** | ✅ Sydney Airport FX partner (Jun 2026), Hobart (Jul 2026), Fukuoka (2025), INR/KHR/TRY added to JP online (Jan 2025) |
 | Payment issues reported | **+2** | ✅ Moderate. Visa-unavailability named as customer dissatisfaction on JP comparison sites; refund delays and declines-despite-balance recurring on Trustpilot/productreview AU+UK |
@@ -116,12 +139,16 @@
 | Payment job postings | 0 | ❌ Searched; ~84 open roles, all retail plus one generic engineering manager |
 
 **Tier:** ⭐ **High Priority (17+).**
-> **Score moved 12 → 21** once Phases 2–3 ran. The earlier 12/29 was depressed by unrun research, exactly as flagged.
+> **Score moved 12 → 21 → 18.** Phases 2–3 lifted it from 12; then the live-payment-page read **cut 3 points** by proving the orchestration layer is in-house rather than absent. Still ⭐ (17+). The direction of that last move matters more than the number: **the motion changed.**
 
 ### Source Notes — what I verified personally vs what came from agents
 - ✅ **Mine, first-hand:** the Japanese tender sentence (fetched `travelex.co.jp/travelex-online`); the Cybersource `captureContext` JWT decode on both checkouts; `allowedCardNetworks` identical JP vs UK; zero Japanese rails in the JP checkout shell; the FSA register PDF; the audited FY2025 regional revenue table; the group companies list
 - ⚠️ **Agent-sourced, page-fetched:** UK footer logo set; GPA cash-on-delivery-only; World Currency Shop no online channel
 - ⚠️ **Search-summary only — verify before quoting:** every individual complaint; the ¥50bn figure; store counts; Q1 2026 figures; Barings 51.49%
+
+### ⛔ Two of my own conclusions were overturned by the live payment page
+1. **I called `securedataplatform.co.uk` "a Travelex-branded Cybersource endpoint." It is Eckoh** — a PCI-descoping tokenization proxy. Proven by function names in their own bundle (`_EckohCallGuard`, `EckohPanMasking()`, `#eckoh-cardnumber`), not just the hostname. The Cybersource-flavoured hostname is misleading by design.
+2. **I classified the motion Greenfield. It is In-house.** I only had the session-expired shell; the shell carries the Cybersource config but not `sourceSystem":"SALT"`. **A shell is not a stack.**
 
 ### ⭐ Resolving the one conflict in this research
 My Cybersource decode showed the Japanese checkout configured for **nine card networks including Visa**. Travelex Japan's own page says **Mastercard + Lifecard-issued only**. These are not contradictory: **Flex Microform's `allowedCardNetworks` governs client-side tokenization and brand detection, not acquiring.** The tokenizer is permissive; the acquiring is narrow. **I did not reach the live payment step, so I cannot say what happens to a Visa entered there** — and the file must not claim otherwise. Stating both facts side by side is the strongest honest version.
@@ -134,13 +161,24 @@ My Cybersource decode showed the Japanese checkout configured for **nine card ne
 | Employee count (Japan) | 260 / 317 / 356. **Do not quote one** |
 | Japan minimum order value | ¥10,000 vs ¥30,000 from bank co-brand pages. Official FAQ gives maxima only |
 | JCB online | Was the *only* online brand pre-Dec-2018; now absent from the online list. **Dropped, or narrowed to Lifecard-issued?** Inference from two sources, not an announcement |
-| Nium (HK remittance, 2021) | **Silent since launch.** Neither confirmed live nor dead |
+| Nium (HK remittance, 2021) | **Silent since launch.** Neither confirmed live nor dead. `travelex.com.hk` was unreachable through the egress proxy |
+| **Visa in Japan** | **Platform `cardOptions` lists `visa`** (live page config) vs **the public acceptance page lists Mastercard + Life Card only**. Platform config ≠ customer-facing policy. **Unresolved — ask, do not assume** |
+| `prod.cpsmt.mhshosting.com` | Tokenizes both payment and prepaid cards globally. **Operator unidentified.** TLS inspection was useless — this environment's egress proxy re-signs certificates, so certificate ownership is unreadable from here |
+
+### ⭐ PCI DSS — a specific, sourced gap
+Travelex Japan's privacy policy (version 2025年4月1日) claims PCI-DSS and SOC 2 with external audit: 「当社は、定期的に監査を実施し、**SOC 2、PCI-DSS**などのセキュリティ認証を順守していることを確認します。」
+**But both checkouts send `script-src 'unsafe-inline' 'self' 'unsafe-eval' https:`** — any HTTPS host may load scripts on a payment page. That does not meet **PCI DSS v4.0 req 6.4.3 and 11.6.1** (payment-page script authorisation and change detection), **mandatory since 31 March 2025**. They demonstrably know how to allow-list — the UK `frame-ancestors` names specific hosts — they just have not locked `script-src`.
+⚠️ The header text is directly observed; **the compliance conclusion is `[INFERENCE, not confirmed]`.** Handle with care in outreach: this is a credibility-builder in a technical conversation, not an opening line.
 
 ### Environment notes
 - All Travelex domains fetch at HTTP 200. **`buy.travelex.co.jp` and `checkout.travelex.co.uk` both redirect to `/Error/SessionExpired`** — session-gated SPAs — but the app shell still carries the full payment config, which is where the Cybersource evidence came from.
 - Same error path with only a locale prefix (`/jajp/` vs `/gb/`), same `api.travelex.net`, same Cybersource version ⇒ **one platform, locale-prefixed**, not separate per-market builds. *(I speculated earlier that different checkout domains meant different stacks. That was wrong.)*
 - JP checkout shell: **zero** hits for コンビニ/ローソン/ファミリーマート/セブン/銀行振込/ペイジー/PayPay/楽天ペイ/d払い/au PAY/LINE Pay/メルペイ/代金引換/分割, control passing at 30 hits for 円/JPY/日本. ⚠️ **Shell, not the live payment step — phrase as "nothing in the checkout references a Japanese rail", never "they don't support konbini."**
-- **New false positive for the running list: `captureContext`** (a Cybersource Flex field) matches a grep for **`econtext`**, the Japanese PSP. It appears on both checkouts.
+- **New false positives for the running list**, all caught on these pages:
+  - **`captureContext` / `_flexContext`** (Cybersource Flex) → **econtext** / DG Financial Technology
+  - **`opacity` / `animate` / `captureContext`** → **ACI**
+  - **`stepBigMonths` / `stepMonths`** (a jQuery datepicker) → **GMO**
+  - **`プライバシーポリシー`** (the Japanese word for "privacy policy") → **POLi**. Only `isPoliPayment` is a genuine POLi reference.
 
 ### Section 11 — Competitors
 **Japanese retail FX has almost no card-acceptance stack to displace**, which makes Travelex's digital channel a genuine differentiator rather than a laggard:
