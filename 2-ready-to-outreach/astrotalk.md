@@ -1,7 +1,7 @@
 # Astrotalk
 
 **Status:** 🟡 Research complete — outreach not yet generated
-**ICP Score:** 16 / 29 → 🟢 **Medium** — **but read the scoring note; two signals are structurally inapplicable rather than absent**
+**ICP Score:** 19 / 29 → ⭐ **High Priority**
 **Industry:** Online astrology consultation marketplace — wallet recharge, per-minute chat/call · **HQ:** Noida, India — **Astrotalk Services Private Limited**, CIN **U72900PB2015PTC039357** (formerly Codeyeti Software Solutions) · **Researched:** 2026-10-03 · **First email sent:** —
 **Motion:** **Greenfield** — single gateway, **Razorpay direct**, confirmed from Razorpay's own published pages. No orchestrator anywhere.
 
@@ -21,8 +21,21 @@
 >
 > ⚠️ **Phrase it exactly.** "Over 80%" is a floor, not a measurement. **Never say "one in five of your international payments fails."** The defensible form: *"your gateway publishes 'over 80%' as the result on your international traffic."*
 >
+> ### ⭐⭐ And the sharpest fact in the file — they already have a US card rail. It serves gemstones, not consultations.
+> Probed directly from Shopify's own config endpoints:
+> ```
+> global.astrotalk.store/payments/config  → "shopifyPaymentsEnabled": true   countryCode US, USD
+>                                            PayPal merchantId L3DDADV8K2YZL
+>                                            Apple Pay (visa, mc, amex, discover, elo, jcb, 3DS)
+>                                            Google Pay PRODUCTION · Shop Pay
+> astrotalk.store/payments/config         → applePayConfig: null · shopifyPayConfig: null
+> gemstones.astrotalk.store/payments/config  googlePayConfig: null · paypalConfig: null   (INR)
+> ```
+> **Their US gemstone store acquires domestically in the US with Shopify Payments, PayPal, Apple Pay, Google Pay and Shop Pay.** Their **consultation** business — the actual revenue engine — acquires the same US customers **cross-border from India via Razorpay**, with no entity outside India.
+> **Their merchandise gets better acquiring than their core product.** Both halves from their own configuration.
+>
 > ### The structure underneath it
-> **~22.7% of traffic is outside India — and there is no Astrotalk entity anywhere outside India.** Every one of those is a cross-border authorisation from an Indian entity against a foreign issuer.
+> **~22.7% of traffic is outside India — and there is no Astrotalk entity anywhere outside India.** Every non-India consultation card payment is a cross-border authorisation from an Indian entity against a foreign issuer — the highest-decline configuration available.
 >
 > ### And the timing
 > **DRHP targeted mid-2026, listing late 2026 / early 2027.** A **first-ever CFO, Deepak Khetan** (ex-Edelweiss, GlobalBees, GLS Group), was hired specifically for *"financial strategy, risk management, regulatory processes, international expansion and IPO preparation."* **No payments hire exists** — so payment decisions almost certainly sit with that CFO. **Enter at CFO level on cost-of-payments and approval-rate leakage ahead of a prospectus**, not at payments-PM level. The window closes: pre-IPO companies freeze vendor changes.
@@ -50,8 +63,11 @@
 | Channel | Status |
 |---|---|
 | **Apple IAP** | ✅ **LIVE.** Verified by me on the US App Store — nine `Wallet Recharge` tiers: **$5 / $10 / $20 / $30 / $50 / $100 / $200 / $500 / $1,000**. India storefront ₹9,900. **Seller of record: Codeyeti Software Solutions Private Limited.** Apple takes 15–30% of every one |
-| **Google Play Billing** | ⬜ **NOT ESTABLISHED.** My own Play fetch returned price ranges that belonged to **neighbouring apps in the similar-apps carousel** (`com.vetrov.astromagic`, `com.meesho.supply`), not Astrotalk. **Do not assume parity with iOS** |
-| **Direct gateway** | ✅ **Razorpay**, including **Razorpay International Payments** |
+| **Google Play Billing** | ⬜ **Probably NOT used, but not positively confirmed.** The Play listing carries **no in-app-purchase badge** — which argues against it. Independently, my own Play fetch returned price ranges belonging to **neighbouring apps in the similar-apps carousel**, not Astrotalk; a second agent hit the same trap and caught it the same way. **Do not cite those ranges, and do not assume parity with iOS** |
+| **Direct gateway** | ✅ **Razorpay**, including **Razorpay International Payments** — "73 Countries", 160+ currencies, 92% chargeback win rate |
+| **US Shopify store** | ✅ **Shopify Payments (US domestic) + PayPal + Apple Pay + Google Pay + Shop Pay** — probed directly |
+| **Indian Shopify stores** | ✅ **GoKwik full suite** — KwikCheckout, KwikPass (phone/OTP login), KwikCart. `mid: "19pmjg24asf0"`, `environment: "production"`. **No Shopify-level wallet enabled at all.** The RBI-licensed aggregator settling behind GoKwik is **not publicly disclosed** |
+| **Astrologer payouts** | ⬜ **₹511 Cr paid out in FY2024-25** across 13,000+ astrologers, weekly/bi-weekly, min ₹1,000, TDS deducted. **Rail not disclosed anywhere.** A half-billion-rupee disbursement book with no named provider |
 | **Shopify estate** | ✅ Entirely outside app-store billing — ₹140 Cr CY2025 |
 
 ⇒ **This is NOT an app-store-trapped account.** Indian UPI/netbanking/cards cannot run through Apple or Google billing, and the e-commerce arm is wholly outside it. The unsized risk is the **iOS share**, which nobody discloses.
@@ -60,6 +76,7 @@
 - **Astrotalk Services Private Limited** — CIN **U72900PB2015PTC039357**, ROC Chandigarh, incorporated 01 Apr 2015, directors Puneet Gupta and Anmol Jain
 - **Astrotalk Online Private Limited** — ⚠️ a candidate CIN exists (U62010UP2025PTC233801, 27 Sep 2025) but **its listed directors do not match the founders — low confidence, do not cite**
 - Both named in the Terms of Usage at Flat No.713, Devika Tower 6, Nehru Place, New Delhi. Registered office is Bathinda, Punjab; **operating HQ is Noida — use Noida**
+- ⚠️ **The two app stores name different entities.** Google Play's developer is **ASTROTALK SERVICES PRIVATE LIMITED** at the Bathinda, Punjab address matching CIN U72900PB2015PTC039357; **Apple still carries the pre-rename "Codeyeti Software Solutions Private Limited."**
 - ❌ **No entity in the US, UK, Canada, Australia, UAE, Singapore or anywhere else.**
 
 ### Orchestration status
@@ -70,7 +87,8 @@
 - 📈 **DRHP targeted mid-2026; listing late 2026 / early 2027**
 - 💼 **First-ever CFO hired ahead of the IPO** — Deepak Khetan, brief explicitly includes regulatory processes and international expansion
 - 🌏 **International live in Sri Lanka, Australia, US and UK, localisation in progress**; Razorpay cites **70+ countries**
-- 🛍️ **E-commerce arm from zero to ₹140 Cr in CY2025** — a second payment estate built inside a year
+- 🛍️ **E-commerce arm from zero to ₹140 Cr in CY2025** — launched Nov 2024 off a ₹30 lakh investment, now **~₹1 Cr daily GMV and 1.6 million orders in 2025**. A second payment estate built inside a year
+- 📱 **Play Store: 100M+ downloads, 1.72M reviews, 4.8 stars**
 - 💰 **Unicorn at $1Bn via ESOP buyback**, funded from profit
 
 </details>
@@ -88,19 +106,21 @@
 5. **Do use the reconciliation evidence** (below) — it is a different, defensible failure class.
 6. **Do not mention Trustpilot's suppressed TrustScore or the removed fake reviews.** Context for us, never for a prospect.
 7. **Gulf is EMEA.** UAE has the best engagement on the site (6.94 pages/visit) — flag it to them, do not pitch it.
+8. ⛔ **Do NOT use the "40% higher than market success rates" figure.** It sits in Razorpay's generic product blurb, **not** in Astrotalk's results. Not attributable.
+9. ⛔ **Do NOT use the reported "2,000 CAD charged instead of ₹2,000" incident.** The cited Voxya complaint was fetched and is a **different, redacted complaint about astrologer refunds** with no payment or currency detail. **The story is unsupported.**
 
 </details>
 
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 16 / 29
+### ICP Score breakdown — 19 / 29
 | Signal | Points | Status |
 |--------|--------|--------|
 | **Monthly transaction count** | **+5** | ✅ **DERIVED: ~650,000–2,000,000 sessions/month.** FY25 operating revenue **₹1,176 Cr** (fetched, Outlook Business) ÷ **₹500–1,500 per user per session** (fetched, `astrotalk.com/pricing`: *"the range of transactions on our Android and iOS applications varies from INR 500 to 1500 per user per session"*) ÷ 12. **Both inputs sourced.** ⚠️ Payment count ≤ session count, since one recharge can fund several sessions — but even at a 5× discount this clears 100,000/month comfortably |
 | Orchestration status | **+4** | ✅ **None detected — greenfield.** Razorpay direct, from Razorpay's own pages |
 | 3+ countries | **+3** | ✅ India, US, UK, Canada all >1% traffic |
-| Multiple PSPs | 0 | ❌ **Single gateway confirmed.** That concentration is the pitch, not a gap in the research |
+| Multiple PSPs | **+3** | ✅ **Three, evidenced by direct probe of Shopify's own config endpoint:** **Razorpay** (consultations) · **Shopify Payments** (US store, `"shopifyPaymentsEnabled": true`) · **PayPal** (US store, `merchantId L3DDADV8K2YZL`). Plus Apple IAP as a fourth billing channel. **They are not single-gateway — they are multi-gateway with no layer across any of it.** |
 | Local rail / licensing gap in a top-3 market | 0 | ⬜ **Not established as a sourced absence.** The only granular India method list traces to a staging page that **503'd**, and `astrotalk.com/pricing` publishes no methods at all. UPI Autopay, e-mandate and RuPay are **NOT FOUND** — which for a recharge business is notable, but "not found" is not a source |
 | Recent expansion | **+2** | ✅ International live in LK/AU/US/UK with localisation in progress; e-commerce arm to ₹140 Cr in CY2025 |
 | Payment issues reported | **+2** | ✅ Moderate–high. See the reconciliation evidence below |
@@ -109,8 +129,8 @@
 | Competitor using orchestration | 0 | ❌ **Verified absent.** No astrology, spiritual or per-minute consultation marketplace has a public orchestration case study — and the one record we held (InstaAstro/Juspay) **has been refuted**, see below |
 | Payment job postings | 0 | ❌ None surfaced. ~11 open roles are Java, Android, UX and content |
 
-**Tier:** 🟢 Medium (10–16).
-> ⚠️ **Read the 16 carefully.** Two zeros are **structural, not weaknesses**: "traffic outside home" cannot fire because India-dominance *is* the business model, and "funding" cannot fire because they are profitable and do not need to raise. A third (local rail gap) is zero only because a staging page 503'd. **I have NOT applied an upward override** — the arithmetic is the arithmetic — but the qualitative case (published >80%, single gateway, no entity outside India, DRHP in months, CFO with no payments owner beneath him) is considerably stronger than 16/29 conveys.
+**Tier:** ⭐ High Priority (17+).
+> **Score moved 16 → 19** when the PSP agent probed Shopify's `/payments/config` directly and established three evidenced PSPs rather than one. Two remaining zeros are **structural, not weaknesses**: "traffic outside home" cannot fire because India-dominance *is* the business model, and "funding" cannot fire because they are profitable and do not raise. A third (local rail gap) is zero only because a staging page 503'd.
 
 ### ⭐ The reconciliation evidence — this is the usable complaint material
 Trustpilot, **fetched**, 2 Sep 2026:
@@ -142,6 +162,20 @@ Trustpilot, **fetched**, 2 Sep 2026:
 
 ### Regulatory note — flagged, not asserted
 Astrotalk's "Service Credits" are a closed-loop stored-value product, and closed-loop instruments generally need no RBI authorisation **provided there are no third-party payments**. But credits are spent on consultations delivered by ~20,000 independent astrologers on revenue share, whom Astrotalk pays out. **Whether the regulator treats Astrotalk as principal or as a marketplace settling to third parties is not resolvable from public sources.** No RBI communication, filing or reporting found on this point. **Do not assert either answer.** Their T&Cs do confirm a **two-tier ledger** — "Real Service Credits" vs "Virtual Service Credits" — and dual credit ledgers are where reconciliation and revenue-recognition pain lives, which matters more than usual in a DRHP year.
+
+### Four disconnected payment stacks — the structural picture
+1. **Razorpay** — consultations, web and Android, domestic and international
+2. **Apple IAP** — iOS consultations, nine USD tiers to $1,000, Apple's acquiring at 15–30%
+3. **GoKwik + an undisclosed Indian aggregator** — the two INR Shopify stores
+4. **Shopify Payments + PayPal + Apple/Google/Shop Pay** — the US Shopify store
+
+**No unifying layer across any of them.** Plus a fifth flow, astrologer payouts, with no disclosed rail at all.
+
+### Useful quotes from the Razorpay case study (fetched)
+- **Puneet Gupta, Founder & CEO:** *"It was one of the best onboarding experiences we had ever had with any third party provider. Just one line of code made us go live."*
+- **Anmol Jain, CBO:** *"Razorpay is one of the best when it comes to protecting merchants from fraudulent chargebacks. We see **significantly better win rates at Razorpay compared with other payment providers**."*
+  ⇒ **They benchmark providers against each other.** That is a buyer who will entertain a comparison — useful framing, and it reads retrospective rather than current.
+- Published headline: *"Business Expansion in over **73 Countries**"* (the blog says 70+; minor inconsistency in their own material).
 
 ### Section 12 — Business Case Data
 | Metric | Value | Source |
