@@ -105,9 +105,35 @@ The stub and the target list both say **$11.4B**. ✅ **I extracted the primary 
 - 🌏 **Region-gated storefronts with different method sets** — almost certainly different integrations per region
 - 💱 **MCP multi-currency with JAL's own FX conversion fee** — they are already in the FX business on their own checkout
 - 💳 **JAL Pay / JAL Payment Port (JAL × SBI)** — an active fintech build-out, and a banking-agency licence
-- 🔴 **23 Dec 2025: ANA *and* JAL simultaneously unable to take reservations or issue tickets** (Nikkei). **Both carriers, same day — points at a shared upstream.** `[UNVERIFIED — paywalled, not fetched]`
+- 🔴 **23 Dec 2025: ANA *and* JAL simultaneously lost reservations, ticketing AND payment.** ✅ **UPGRADED 2026-10-04 — partially verified, see the dedicated note below the buying signals.**
 - 🔴 **26 Dec 2024: JAL Pay transaction failures** — JAL's own notice, 「一部のお取引が成立していない事象」
 - ✈️ **Hawaiian Airlines partnership ENDS 21 Apr 2026**, transferring to Alaska after the HA/Alaska merger
+
+> ### ✅ The 23 Dec 2025 dual-carrier outage — VERIFIED 2026-10-04, with one limit
+>
+> **The event and the payment impact are now first-hand.** Fetched `news.livedoor.com/topics/detail/30254898/` (HTTP 200), dated 2025年12月23日 11:50, verbatim:
+> > 「日本航空と全日空は23日、予約システムの一部に障害が発生したと発表 **予約や決済などのサービスが利用できない場合も**あ[った]」
+> > — *"JAL and ANA announced on the 23rd that a failure had occurred in part of their reservation systems. There were cases where services such as **reservations and payment** could not be used."*
+>
+> **Timing and scope** (multiple outlets, search-summary level): JAL affected **05:01–10:12**, ANA recovered ~**10:09**; JAL both domestic and international; **ANA international plus the domestic flights from 19 May 2026 onwards — i.e. exactly the ones migrating to Amadeus.** No flight-operations impact. That scope detail is internally consistent with our own ANA research and is the strongest circumstantial corroboration of the Amadeus link.
+>
+> ⚠️ **The Amadeus attribution carries a hedge in its own source.** FNN Prime Online's headline is 「予約システム「アマデウス」の不具合が**原因か**」 — ***"appears to be"* the cause**, not "was". Carried by au Web Portal, docomo dメニュー and Yahoo. Shizuoka Shimbun covered the same event without naming Amadeus at all. **Nikkei and Bloomberg are both paywalled; Bloomberg returns 403 behind a bot wall; the Yahoo copy now 404s.**
+> ⇒ **Say "reported as an Amadeus issue", never "Amadeus failed."**
+>
+> ### 🛑 BUT — read this before pitching it. It is a PSS outage, not a payment-stack outage.
+> **Yuno orchestrates payment acceptance. It does not keep a reservation system up.** If the booking engine is down there is nothing to pay for, and orchestration would not have helped. Pitching this as *"your payments went down, we fix that"* is **wrong on the mechanism**, and JAL's payments team will know it instantly.
+>
+> **The framing that works** concedes that limit and uses the event as a dated reference point for single-path risk, then pivots to the layer Yuno actually touches:
+> > *"On 23 December you and ANA both lost booking and payment for about five hours on what was reported as a shared upstream issue. Orchestration wouldn't have helped with that — it's the PSS, not the payment layer. But it's a useful reference for the question I do care about: when your card path degrades, what's the second route?"*
+>
+> The concession is what makes it land. **Never imply Yuno would have prevented it, and never blame Amadeus to the customer that chose Amadeus.**
+
+> ⚠️ **Three separate incidents are easy to conflate here. They are not the same event:**
+> | Date | Event | Amadeus? |
+> |---|---|---|
+> | **28 Sep 2025** | Amadeus Altéa **global** outage — Heathrow, Gatwick, CDG, Zurich, Melbourne, Washington, Singapore; Amadeus attributed it to "a network issue" | ✅ confirmed, but **not Japan-specific and not December** |
+> | **26 Dec 2024** | JAL **cyberattack**, flights delayed, systems restored | ❌ unrelated |
+> | **23 Dec 2025** | ANA + JAL dual booking/ticketing/**payment** outage | ⚠️ reported as Amadeus, hedged 原因か |
 
 </details>
 
@@ -360,7 +386,7 @@ to your setup? Thursday 29th at 2pm your time is open.
 
 ### Touch 10 — Email 7 · Day 19 · **Thu 29 Oct 2026** · MANUAL
 *Placeholder — manual creative bridge. Anchor to something fresh.*
-**Suggested anchors:** the **Hawaiian Airlines partnership ending 21 Apr 2026** and transferring to Alaska after the HA/Alaska merger — a live commercial change with payment and settlement consequences. Or the FY2025 results: **¥2.01 trillion revenue, first time above ¥2 trillion since the 2012 relisting**. ⛔ Not the Dec 2025 dual-carrier outage — still paywalled and unverified.
+**Suggested anchors:** the **Hawaiian Airlines partnership ending 21 Apr 2026** and transferring to Alaska after the HA/Alaska merger — a live commercial change with payment and settlement consequences. Or the FY2025 results: **¥2.01 trillion revenue, first time above ¥2 trillion since the 2012 relisting**. ✅ **The Dec 2025 dual-carrier outage is now usable here** — this manual slot is the right home for it, because it needs the "orchestration wouldn't have helped with that" concession to land. See the note in Section 1 for the exact framing and the three incidents not to conflate.
 
 ---
 
@@ -404,7 +430,7 @@ Prateek
 - ✅ **Wingo: +14% approval, 1,000+ methods, 3DS and fraud tooling** — y.uno newsroom, verified live 2026-09-15. **E4 states it is Latin America**
 - ✅ **Qatar Airways, Copa Airlines, Avianca are Yuno customers** — Yuno's own site-wide list. **No number attached to any of them**, per the library rule
 - ⚠️ **Card acquirer is undisclosed** — LK4 asks about it rather than asserting anything. Nothing in the sequence names a gateway or acquirer, because none is established
-- ⛔ **Not used: the Dec 2025 dual-carrier outage.** Paywalled and unverified
+- ⚠️ **The Dec 2025 dual-carrier outage is now VERIFIED as an event with payment impact** (fetched livedoor page, 2026-10-04) but is **still not in the sequence**, and deliberately so. It is a **PSS outage, not a payment-stack outage** — see the dedicated note in Section 1. It belongs in a manual touch with the mechanism conceded, not in an auto-written email.
 - ⛔ **Not used: "your vendor won't let you carry code wallets."** Refuted — Peach Aviation is a Wellnet customer and carries five code wallets
 - ⛔ **Not used: the $11.4B revenue figure.** Refuted; the primary 決算短信 gives ¥2,012,515m
 - ⛔ **Not used: UnionPay or PayPal acceptance.** Search-summary only
@@ -434,7 +460,7 @@ Prateek
 | Multiple PSPs | **+2** | ✅ **Structurally proven:** Wellnet on the cash/bank rails is demonstrably not the card acquirer, and JAL's own JAL Pay descriptors show **separate international "サインレス"/"チケットレス" merchant descriptors** from domestic — implying distinct international CNP acquiring. ⚠️ Only **Wellnet** and **CAFIS Brain** can be named, and CAFIS Brain is fraud, not acquiring. |
 | Local rail or licensing gap in a top-3 market | **+3** | ✅ **Sourced absence on both flows, verified by me.** No PayPay, Rakuten Pay, LINE Pay, d払い, au PAY, Amazon Pay, Paidy or Google Pay, and no at-checkout instalments. ⚠️ **Read the nuance before pitching:** the Wellnet e-money ceiling was **retracted 2026-09-19** — Peach is a Wellnet customer with five code wallets, so the absence is a choice, not a constraint. JAL also runs its own competing prepaid wallet, which is the likelier explanation. **The gap is real; the framing must be competitive, not vendor-constraint.** |
 | Recent expansion | **0** | ⬜ Not awarded. The **Hawaiian → Alaska transition (21 Apr 2026)** is a partnership change, not expansion, and new routes could not be established. |
-| Payment issues reported | **0** | ⬜ **Not awarded — and this is the row most likely to move.** A strong corpus exists but **not one item was fetched**: the 23 Dec 2025 **dual-carrier ANA+JAL outage** (Nikkei, paywalled), a 26 Dec 2024 **JAL Pay transaction-failure notice** on JAL's own site, an open **JAL app v6.0.0 defect** from 15 Apr 2026, a standing FAQ where pressing the internet-transfer button 10+ times hard-errors and blocks purchase, and a standing FAQ where **Alipay payment succeeds but confirmation fails** — a textbook capture-succeeded-reconciliation-failed pattern. **I do not award points on unverified data.** Verifying any two of these likely makes this +2. |
+| Payment issues reported | **0** | ⬜ **Not awarded — and this is the row most likely to move.** A strong corpus exists but **not one item was fetched**: the 23 Dec 2025 **dual-carrier ANA+JAL outage** (Nikkei, paywalled), a 26 Dec 2024 **JAL Pay transaction-failure notice** on JAL's own site, an open **JAL app v6.0.0 defect** from 15 Apr 2026, a standing FAQ where pressing the internet-transfer button 10+ times hard-errors and blocks purchase, and a standing FAQ where **Alipay payment succeeds but confirmation fails** — a textbook capture-succeeded-reconciliation-failed pattern. **I do not award points on unverified data.** Verifying any two of these likely makes this +2. ✅ **One is now verified (2026-10-04): the 23 Dec 2025 outage, with payment impact confirmed from a fetched page. One more verification moves this row to +2 and the total to 19/29.** Score left at 17 pending that second item. |
 | Funding >$10M | **0** | ❌ TSE-listed (9201). No round. |
 | High traffic outside home | **0** | ⬜ No traffic data, and the domestic/international split could not be obtained. |
 | Competitor using orchestration | **0** | ❌ **JAL's closest competitor is ANA, and our own ANA file scores it greenfield with no orchestration.** The honest read for a Japanese carrier is that nobody in the peer set has adopted. |
