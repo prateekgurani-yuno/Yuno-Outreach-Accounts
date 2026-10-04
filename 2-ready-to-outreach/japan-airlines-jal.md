@@ -1,6 +1,6 @@
 # Japan Airlines (JAL)
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 17 / 29 → ⭐ **High Priority**
 **Industry:** Airlines (full-service, domestic + international, cargo, mileage commerce) · **HQ:** Tokyo, **Japan** — 日本航空株式会社, **TSE 9201** · **Researched:** 2026-09-19 · **First email sent:** —
 **Motion:** **Greenfield** — none detected. Same architectural shape as ANA: cash rails on a third-party vendor, fraud on a separate 2015-vintage engine, card acquirer undisclosed, region-gated storefronts with different method sets.
@@ -114,16 +114,311 @@ The stub and the target list both say **$11.4B**. ✅ **I extracted the primary 
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Japan Airlines (JAL)` to draft the 12-touch sequence.*
+### Pain Vector Extraction
 
-**Five instructions for whoever drafts it:**
-1. **The opener is the modernisation asymmetry**: the PSS was consolidated in 2017 and the payment layer underneath it wasn't. It is flattering about the hard thing they did and observational about the thing they didn't.
-2. **The Wellnet constraint is the second observation and it is the category insight** — the vendor behind the cash rails tops out at Rakuten Edy, Mobile Suica and JCB Premo. **Frame it as "the rail set looks vendor-bounded," never as "you don't take PayPay."**
-3. ⛔ **Do NOT reuse the ANA opener.** JAL finished its migration nine years ago. Claiming otherwise would be instantly wrong to anyone there.
-4. ⛔ **Do NOT say JAL refuses wallets.** Apple Pay is live on international. The accurate claim is **no Japanese code wallets**.
-5. **The Dec 2025 dual-carrier outage is potentially the best cold open in the batch — but it is paywalled and unverified. Verify before using it.**
+```
+=== PAIN VECTOR EXTRACTION ===
 
-**Never claim:** any card gateway or acquirer (none established), UnionPay or PayPal acceptance (search-summary only), that JAL redirects to Wellnet (implied, not observed), or the $11.4B revenue figure (refuted).
+Motion: GREENFIELD — none detected. Standard sequence; Phase 1 may note the
+        absence of a routing layer.
+
+⚠️ CONFLICT RESOLVED BEFORE DRAFTING. The five drafting instructions in this
+   file said to frame observation 2 as "the rail set looks vendor-bounded."
+   The CORRECTION dated 2026-09-19, further down the same file, REFUTES that
+   causal claim: Peach Aviation is a Wellnet customer AND carries five code
+   wallets. The correction is later and more specific, so it wins. Nothing in
+   this sequence says or implies "your vendor won't let you."
+
+Observable setup facts (all from the research file):
+- PSS consolidated domestic + international onto Amadeus Altéa, Nov 2017;
+  AXESS GDS wound down 31 Mar 2021  [Altéa dates search-summary corroborated]
+- Cash / Pay-easy / net-banking rails on Wellnet, a vendor live since May 2000
+  — verified via JAL's own outbound link to multiple-payment.biz
+- Fraud on NTT Data CAFIS Brain, in full operation since January 2015 — JAL's
+  own press release
+- Card acquirer UNDISCLOSED — the single biggest hole in the research
+- Region-gated POS storefronts with different method sets, proven by JAL's own
+  JAL Pay terms excluding 「海外地区でのご購入」 as a separate channel
+- Apple Pay present on international, ABSENT on domestic — verified by me on
+  both flows
+- No Japanese code wallet anywhere (PayPay, d払い, au PAY, Rakuten Pay, LINE Pay)
+- No at-checkout instalment on either flow; 分割/リボ is post-purchase, issuer-side
+- MCP multi-currency on international, with JAL's own FX conversion fee
+- FY2025 revenue ¥2,012,515m (+9.1%), EBIT ¥218,004m (+26.4%) — records
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Modernisation asymmetry -> "You consolidated both PSSs onto one platform in
+   2017. The payment layer under it still runs cash rails from a vendor live
+   since 2000 and a fraud engine in production since January 2015."
+   MATERIALITY: highest. Flattering about the hard thing they did, observational
+   about the thing they didn't. Entirely first-party.
+2. Apple Pay asymmetry -> "Apple Pay is on your international flow and not your
+   domestic one."
+   MATERIALITY: high, and it is the sample-set move — an asymmetry inside their
+   own stack. Both halves are theirs, so neither is disputable.
+3. Region-gated storefronts -> "Different method sets per region."
+
+   HELD BACK, DELIBERATELY: the code-wallet absence. It is real and
+   sourced-absent, but in Phase 1 it reads as "you don't take PayPay", which the
+   file forbids. It moves to E3 framed as what the LCCs do, never as a vendor
+   ceiling.
+
+Bridge variant: A — complexity
+Rationale: multi-region, fragmented. Region-gated storefronts with different
+method sets, a separate cash vendor, a separate fraud engine, and an undisclosed
+acquirer. That is complexity, not a single-provider limitation.
+
+Hypothesis for Phase 2 (E3):
+The 2017 consolidation stopped at the PSS. The payment layer underneath is still
+per-region, so every method and every market is its own integration, and the
+cost shows up as engineering time rather than as a line item.
+Backing logic: different method sets per region + a 2000-vintage cash vendor +
+a 2015 fraud engine + no at-checkout instalment in a market that converts
+high-ticket on instalments.
+
+Success case for Phase 3 (E4):
+Selected case: Wingo
+Tier: 1 — airline, and the only airline case in the library carrying numbers
+Match rationale: low-cost carrier, multi-market, approval-rate problem solved by
+automatic retries across multiple providers. Mechanism matches the hypothesis.
+⚠️ Wingo is LATAM. The sequence says so explicitly and never implies Asia.
+Numbers to lead with: +14% approval rate (initial implementation phase),
+1,000+ payment methods, 3DS and fraud tooling
+Optional benchmark: SKIP. The ~8% routing uplift is Yuno's own blog, not an
+independent benchmark, and the IATA/EDC $20.3bn airline acceptance-cost figure
+has only been seen via a vendor blog citing it — not traced to the primary
+source. Neither is used.
+
+Touch-by-touch angles:
+- E2 angle: different method sets per region -> one integration to add any
+  method or region, no per-region rebuild
+- LK1 angle: Apple Pay on international, not domestic
+- LK2 angle: the consolidation stopped at the PSS
+- LK3 angle: Wingo's +14%
+- LK4 angle: the undisclosed acquirer, unused until here
+- E8 angle: clean exit, no new observation
+```
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · **Mon 5 Oct 2026**
+
+**Subject:** Apple Pay on one JAL flow
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time looking at JAL's payment setup. Three things stood out:
+
+- You consolidated both PSSs onto one platform back in 2017. The payment layer under it still
+  runs cash and Pay-easy rails from a vendor live since 2000, and a fraud engine in production
+  since January 2015.
+- Apple Pay is on your international flow and not your domestic one.
+- Your region-gated storefronts carry different method sets.
+
+That kind of setup usually comes with some complexity.
+
+I work at Yuno, a top-100 fintech, a16z-backed. We consider ourselves the "everything payments"
+platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working
+through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · **Wed 7 Oct 2026** · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would address
+what I flagged.
+
+We sit above the providers you already run, so nothing gets ripped out. Routing happens per BIN,
+market and method, to whichever rail performs best at that moment. If a provider degrades, traffic
+fails over automatically. And adding a new method, rail or acquirer is a configuration change
+rather than a new integration.
+
+That last part is the one that maps to your setup. Right now a method added in one region looks
+like it has to be built again for the next. Through one layer, the method goes on once and every
+region can carry it.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say the
+word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · **Fri 9 Oct 2026**
+
+```text
+Hey {{recipient.first_name}} — figured I'd flag this here too in case it's more useful than email.
+Quick one: Apple Pay shows up on JAL's international payment flow but not the domestic one. Curious
+whether that's deliberate, and whether it maps to anything you're working through on the payments
+side.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · **Tue 13 Oct 2026** · NEW EMAIL
+*(Mon 12 Oct is スポーツの日 / Sports Day, a public holiday in Japan. Skipped.)*
+
+**Subject:** Where the 2017 consolidation stopped
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. Based on what I can see, my read is that the 2017 consolidation
+stopped at the PSS, and the payment layer underneath is still per-region.
+
+Different method sets per region usually means a separate integration behind each one. The cost of
+that tends not to appear as a line item. It appears as engineering time every time someone asks for
+a method in one market and it has to be built again for the next.
+
+The other thing I notice is instalments. Japan converts high-ticket purchases on them, and on both
+your flows the conversion is post-purchase and issuer-side. There's nothing at the point of sale.
+
+At Yuno, a16z-backed and top-100 fintech, we sit above your existing providers so you can add
+methods and regions without another build. Keep your stack, add what's missing.
+
+When you add a method in one region today, how much of that work carries over to the others?
+
+Thursday is open for me. Would 3pm your time work for 15 minutes, or would Friday 11am be easier?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · **Thu 15 Oct 2026**
+
+```text
+Hey {{recipient.first_name}} — sent a longer note over email this week. Short version: my read is
+the 2017 PSS consolidation never reached the payment layer, so each region still carries its own
+integration and its own method set. If that's anywhere on your radar, would Tuesday 20th at 4pm
+your time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · **Mon 19 Oct 2026** · NEW EMAIL
+
+**Subject:** How Wingo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, sharing a quick example of what solved looks like.
+
+Wingo, a low-cost carrier in Latin America, partnered with Yuno to stop losing bookings to failed
+payments across its markets. Their results, from their region rather than yours:
+
+- Approval rate up 14% in the initial implementation phase (you read that right)
+- Over 1,000 payment methods reachable through the one layer
+- 3DS and fraud tooling handled in the same place
+
+The mechanism is the part worth borrowing. Yuno retries a failed payment automatically through a
+different provider, rather than returning a decline to the passenger. Same orchestration layer above
+their existing stack, no rip-out.
+
+Qatar Airways, Copa Airlines and Avianca run on the same layer, though I don't have published
+numbers for those three.
+
+Would Thursday 22nd at 10am your time work for 15 minutes, or Friday 23rd at 3pm?
+
+Full case here if useful: https://y.uno/en/newsroom/wingo-improves-payment-efficiency-with-yuno-as-strategic-partner
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · **Wed 21 Oct 2026** · MANUAL
+*Placeholder — manual creative approach. Do not auto-write.*
+**Suggested angle:** the Cathay Pacific comparison. Adyen expanded **direct acquiring** with Cathay to **six markets including Japan** (Adyen newsroom, 23 Mar 2026), with a reported **10% authorisation-rate increase in India**. A direct competitor on JAL's own routes, publicly quantified. Name the airline and what it did; never imply Cathay is a Yuno customer.
+
+#### Touch 8 — Email 6 · Day 15 · **Fri 23 Oct 2026** · MANUAL
+*Placeholder — second manual approach, different format from E5.*
+**Suggested angle:** a short checkout teardown. The domestic and international flows side by side, screenshots of both method lists, with the Apple Pay line highlighted. Visual, first-party, and it proves the research in a way prose cannot.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · **Tue 27 Oct 2026**
+
+```text
+Hey {{recipient.first_name}} — Wingo lifted approval 14% by retrying failed payments through a
+second provider instead of handing the passenger a decline. Worth 15 minutes to see whether it maps
+to your setup? Thursday 29th at 2pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · **Thu 29 Oct 2026** · MANUAL
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+**Suggested anchors:** the **Hawaiian Airlines partnership ending 21 Apr 2026** and transferring to Alaska after the HA/Alaska merger — a live commercial change with payment and settlement consequences. Or the FY2025 results: **¥2.01 trillion revenue, first time above ¥2 trillion since the 2012 relisting**. ⛔ Not the Dec 2025 dual-carrier outage — still paywalled and unverified.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · **Mon 2 Nov 2026**
+*(Tue 3 Nov is 文化の日 / Culture Day, a public holiday in Japan. Avoided for the slot.)*
+
+```text
+Hey {{recipient.first_name}} — last ping from me here. One thing I never worked out from the
+outside: who actually acquires your card volume. If that question is interesting to whoever owns it,
+Thursday 5th at 11am your time is open for 15 minutes.
+```
+
+#### Touch 12 — Email 8 · Day 23 · **Wed 4 Nov 2026** · REPLY IN THREAD to Touch 4 or 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back after the new year. And if payments sit with someone
+else at JAL, I'd be glad to be pointed their way.
+
+If it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **PSS consolidated onto Amadeus Altéa, Nov 2017** — research file. ⚠️ Altéa dates are search-summary corroborated; the file's own guidance is to say *"has run Altéa since 2017"*, which E1 and E3 do
+- ✅ **Wellnet, cash / Pay-easy / net-banking rails, live since May 2000** — verified via JAL's own outbound link to `multiple-payment.biz`. **E1 says "a vendor", not "Wellnet"** — the file's precision caveat is that JAL links to Wellnet for the institution list, not that JAL redirects to it
+- ✅ **NTT Data CAFIS Brain, in full operation since January 2015** — JAL's own press release
+- ✅ **Apple Pay present on international, absent on domestic** — verified first-hand on both flows
+- ✅ **Region-gated storefronts with different method sets** — JAL's own JAL Pay terms exclude 「海外地区でのご購入」 as a separate channel
+- ✅ **No at-checkout instalment on either flow; 分割/リボ post-purchase and issuer-side** — sourced-absent from both flows
+- ✅ **Wingo: +14% approval, 1,000+ methods, 3DS and fraud tooling** — y.uno newsroom, verified live 2026-09-15. **E4 states it is Latin America**
+- ✅ **Qatar Airways, Copa Airlines, Avianca are Yuno customers** — Yuno's own site-wide list. **No number attached to any of them**, per the library rule
+- ⚠️ **Card acquirer is undisclosed** — LK4 asks about it rather than asserting anything. Nothing in the sequence names a gateway or acquirer, because none is established
+- ⛔ **Not used: the Dec 2025 dual-carrier outage.** Paywalled and unverified
+- ⛔ **Not used: "your vendor won't let you carry code wallets."** Refuted — Peach Aviation is a Wellnet customer and carries five code wallets
+- ⛔ **Not used: the $11.4B revenue figure.** Refuted; the primary 決算短信 gives ¥2,012,515m
+- ⛔ **Not used: UnionPay or PayPal acceptance.** Search-summary only
+- ⛔ **Not used: the ~8% routing uplift or the IATA/EDC $20.3bn figure.** The first is Yuno's own marketing; the second has not been traced to the primary source
+
+### Scheduling notes
+- **Mon 12 Oct 2026 is スポーツの日 (Sports Day)** and **Tue 3 Nov 2026 is 文化の日 (Culture Day)**, both Japanese public holidays. Neither carries a send or a proposed slot.
+- Five distinct meeting slots, all stated in the prospect's local time: Thu 15 Oct 3pm · Fri 16 Oct 11am · Tue 20 Oct 4pm · Thu 22 Oct 10am / Fri 23 Oct 3pm · Thu 29 Oct 2pm · Thu 5 Nov 11am. JST is IST+3.5, so a 3pm JST slot is 11:30 IST — comfortable for both.
+- No booking link anywhere. The reply is the booking.
+
+### Success Case Alternatives
+- **Qatar Airways / Copa / Avianca** — nameable airline credibility, but no published metrics, so none can carry E4
+- **Viva Aerobus** — airline, but its 75% is a **NOVA** result (AI voice callback after a failed payment), not routing. Right case only if JAL turns out to hand failed payments to a human
+- **inDrive** — Tier 2 if a multi-country scale argument is ever needed instead of the airline angle
 
 </details>
 
