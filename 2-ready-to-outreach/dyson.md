@@ -3,7 +3,7 @@
 **Status:** 🟡 Research complete — outreach not yet generated
 **ICP Score:** 15 / 29 → 🟢 **Medium** — ⚠️ **but read the access note below before accepting that number**
 **Industry:** Premium consumer appliances — floorcare, hair care, air treatment, lighting, audio. High-ticket D2C (~US$550–575 AOV) · **HQ:** Singapore — **Dyson Holdings Pte. Ltd., UEN 201903799Z**, inc. 31 Jan 2019, 3 Sentosa Gateway; global HQ at St James Power Station · **Researched:** 2026-10-05 · **First email sent:** —
-**Motion:** ⬜ **CANNOT CLASSIFY — and that is a finding, not a gap to paper over.** Every `dyson.*` domain is behind Cloudflare bot protection and returns HTTP 403 to every tool available. BuiltWith refuses the domain family outright (*"We cannot lookup results on this domain sorry"*); SimilarTech is unreachable; `web.archive.org` is egress-blocked. **The only route that detects an orchestrator — a tech profile of the live checkout — is exactly the route that failed.** Do not pitch this as greenfield. We would be acting on our inability to look.
+**Motion:** ⬜ **STILL CANNOT CLASSIFY at group level — but the picture moved on 2026-10-05.** **Türkiye is now confirmed as a direct, single-PSP hosted integration (iyzico), with no orchestration layer in the documented flow** — that one market reads greenfield. Across every other market, 104 research agents found **no orchestrator, no orchestrator logo-wall appearance, and no acquirer at all outside Türkiye**. That is much stronger than before, but an adversarial pass still refuted the architectural inference 0–3 on the grounds it is not observable, and the rendered checkout remains unreachable everywhere. **Do not pitch "you have no orchestration."** Open on the observable asymmetries, which hold either way.
 
 ---
 
@@ -13,10 +13,10 @@
 >
 > | Row | Scored | Why zero | If resolved |
 > |---|---|---|---|
-> | Orchestration status | **0** | Detection route blocked | +4 if greenfield |
+> | Orchestration status | **0** | Detection route blocked; architectural inference refuted 0–3 | **+4** — Türkiye alone now reads greenfield; confirm one more market and this moves |
 > | Monthly transactions | **+2** | Sourced figure covers `dyson.com` **only**, excluding every APAC ccTLD | +5 if the full estate confirms ≥100k |
 > | Local rail gap | **0** | Genuinely good coverage — this one IS a finding | — |
-> | Multiple PSPs | **+3** | Awarded on multi-provider evidence, not multi-acquirer | — |
+> | Multiple PSPs | **+3** | Now firm — **iyzico is acquirer-class**, read first-hand off Dyson Türkiye's own legal document | — |
 >
 > **Resolve the first two and this account scores 22/29 ⭐.** The honest position is that Dyson is probably a stronger account than 15/29 implies, and the way to find out is twenty minutes with a browser in Korea, not another research run. See Manual Research Recommendations.
 
@@ -62,7 +62,9 @@
 > | 🇦🇺 Australia | **BNPL**, 4 fortnightly instalments | Afterpay |
 > | 🇬🇧🇮🇪🇺🇸🇨🇦 | Klarna Pay in 3 / Affirm 0% | Klarna / Affirm |
 >
-> Six markets, six rails, each with its own issuer negotiations, promo calendars, exclusion rules, thresholds and reconciliation. **Japan's is not even a card instalment — it is a separate shopping loan from JACCS where the credit application appears *after* the customer completes the order**, then debits a bank account rather than their card. That is a post-purchase approval cliff sitting outside Dyson's checkout entirely.
+> Six markets, six different providers — and each programme carries its own issuer negotiations, promo calendars, exclusion rules and thresholds.
+>
+> ⚠️ **Scope discipline, added 2026-10-05.** That Dyson *names* this many different deferred-payment providers is verified fact. That they are **separately integrated rather than routed through something** is **NOT established** — an adversarial verification pass refuted that inference 0–3, on the grounds that the architecture is simply not observable from provider pages. **Pitch the provider sprawl, which is theirs and checkable. Do not assert "point-to-point rather than orchestrated."** **Japan's is not even a card instalment — it is a separate shopping loan from JACCS where the credit application appears *after* the customer completes the order**, then debits a bank account rather than their card. That is a post-purchase approval cliff sitting outside Dyson's checkout entirely.
 
 ---
 
@@ -77,6 +79,75 @@
 > **Pitch Dyson on "your Taiwan checkout" and you will be wrong in front of the prospect.** Drop Taiwan from the Dyson narrative. Separately: 恆隆行 is a large multi-brand Taiwanese distributor and is arguably a better-qualified target in its own right — **consider a stub.**
 >
 > **And the open question this forces:** which other APAC markets are Dyson-operated versus agent-operated? **Korea is verifiably Dyson's own** (own entity, ISMS scope covering 공식몰 + membership + app). **Taiwan is not.** Japan, India, Australia and China were **not established either way.** Resolve this before contacting anyone — it is the fastest way to be embarrassed on this account.
+
+---
+
+---
+
+> ## 🌍 GLOBAL PASS — added 2026-10-05 from a 104-agent deep-research run, non-APAC scope
+>
+> Prateek can pitch every region Dyson operates in, so the APAC-only scope of the first pass was lifted. The non-APAC markets are ~60% of traffic and had never been researched. **Three things changed materially, and one of my own claims was corrected.**
+>
+> ### ⭐ 1. The first acquirer-class PSP identified anywhere in the world — iyzico, in Türkiye
+> **Verified first-hand by me**, read off Dyson Türkiye's own legally-mandated **İşlem Rehberi** (an Article 7 disclosure under Turkey's e-commerce intermediary regulation, Resmî Gazete 32058). Clause **1.8** verbatim:
+> > 「Ödeme sayfasındaki "Ödeme Bilgileri" bölümünde **"iyzico ile Öde"** seçeneğini ile alışverişinizin toplam tutarını Türk lirası cinsinden ödeyebilirsiniz. **İyzi Ödeme ve Elektronik Para Hizmetleri Anonim Şirketi ("İyzico")** hesabı ile, İyzico sistemine kayıtlı kredi/banka kartları veya İyzico güvencesi kapsamında Havale/EFT yaparak, **İyzico tarafından sağlanan ödeme hizmeti arayüzünde ("İyzico Ekranı")** talep edilen bilgiler… veya **Tüketici Kredisi** kullanma yolu ile…」
+>
+> And clause **1.10**, which is what makes this acquiring rather than a consumer wallet:
+> > 「**İyzico Ekranı'nda kredi/banka kartı ile ödeme yapmak** istediğinizde kredi/banka kartı bilgilerinizi girdikten sonra varsa **3D Secure** (3 Boyutlu Güvenlik) **ve/veya taksit seçeneklerini seçebilirsiniz.**」
+>
+> **Raw card PAN entry, 3-D Secure step-up AND taksit selection all happen on iyzico's hosted screen.** The guide walks checkout end to end (1.5 address → 1.6 payment page → 1.7 consent → 1.8 payment → 1.10 3DS/taksit → 1.11 confirmation) and **names no other payment provider**.
+>
+> ⚠️ **Two limits, both enforced by adversarial verification.** First, "iyzico is the only counterparty *named in this document*" is **not** the same as "Türkiye has no other rails" — the claim that Masterpass, BKM Express, Papara, PayTR, Param, Craftgate, Sipay and MOKA are all absent was refuted **0–3**. Second, the implication that *instalment logic therefore sits outside Dyson's control* was refuted **1–2**, and Finding 3 below actively contradicts it.
+>
+> ✅ **False positive I caught:** "garanti" appears 5× in that document and **every occurrence is the Turkish word for *warranty*** (`garanti işlemleri`, `Garanti koşulları`, linking to `/destek/garanti-kosullari`). **Garanti Bank is not named.**
+>
+> ### 2. Türkiye is Dyson-operated, not a distributor — and taksit is presented by Dyson, not iyzico
+> Merchant of record is **Dyson Turkey Elektrikli Ürünler Ticaret Limited Şirketi**, İstanbul Trade Registry **146206/5**, MERSİS **0323087411500001**, Ataşehir, İstanbul. Dyson parted from its Turkish distributor and went direct in 2019; it runs branded stores (Akasya, İstinyePark, Buyaka, Marmara Forum) and employs retail staff directly.
+>
+> **Issuer campaigns put the instalment selection on Dyson's own page.** Akbank, 1–31 Jul 2025, verbatim from the issuer's live campaign page: *"peşin fiyatına **6 ve 9 taksit**"* on spend at Dyson.com.tr, and the load-bearing line —
+> > 「alışveriş tamamlanmadan önce **Dyson.com.tr ödeme sayfasında ilgili taksit seçeneği seçilmelidir. Taksit seçeneği Firma tarafından ödeme sırasında sunulmaktadır**」
+>
+> *The instalment option is presented **by the merchant** during payment.* Separately İş Bankası Maximum, 1–30 Sep 2026: *"Dyson'da Peşin Fiyatına 9 Taksit!"* Both cap at 9 months, which the BDDK instalment ceiling for electrical home appliances independently explains.
+> ⚠️ "Merchant-funded" is market-practice inference — *peşin fiyatına* establishes only zero extra cost to the cardholder. Both campaigns have expired.
+> 🔎 **Best open acquirer lead anywhere:** İş Bankası's terms exclude *"Maximum POS cihazından yapılmayan işlemler"*, implying **İş Bankası acts as virtual-POS/acquirer for Dyson Turkey**. Unconfirmed.
+>
+> ### 3. 🇮🇳 THE KOREA CONFLICT EXISTS IN INDIA TOO — and I read this one first-hand
+> From **Dyson India's own terms and conditions**, verbatim:
+> > *"**No Cost EMI** is available on payments made using certain Credit Cards issued by Banks / Financial Institutions and is **not available on Debit Cards, Cash on Delivery, through Net Banking, UPI, Wallets** Payment Methods or any other payment mode."*
+>
+> **In the largest UPI market on earth, a customer paying by UPI cannot have the No-Cost EMI offer.** This is structurally the same trade-off documented for Korea — the rail the customer actually uses is carved out of the financing benefit that makes a ₹45,000 basket affordable. **Korea is still `[SYNTH]`; India is now verified from Dyson's own document.** Two markets, two independent implementations, one pattern. **This is the strongest version of the hook and it should lead.**
+>
+> India's full method list, clause 8.1 verbatim: *"Mastercard, Visa, Maestro, American Express, Dinersclub, NetBanking, **UPI**, Wallets, card on delivery and cash on delivery."* ✅ **RuPay is confirmed still absent from the method list** — the RuPay strings on that page belong to an **HSBC credit-card promotion** ("HSBC RuPay Platinum" as an eligible card), not to accepted methods. A raw keyword count would have produced a false correction here.
+>
+> ### 4. 🇯🇵 Japan upgraded from `[SYNTH]` to verified
+> Dyson Japan's own payment page, verbatim:
+> > 「クレジットカード、代金引換、**分割払い（JACCSショッピングクレジット）**、銀行振込、**コンビニ支払い**、**楽天ペイ**、**PayPay**、**Amazon Pay**および**Apple Pay**がご利用いただけます。」
+>
+> ✅ And the absences are now first-hand rather than inferred: **Paidy, ボーナス払い, LINE Pay, Google Pay, au PAY and リボ払い are all absent from the official method list.** Paidy in particular was flagged as the most likely real gap in the first pass — that now stands on Dyson's own page.
+>
+> ### 5. The deferred-payment estate outside APAC
+> | Market | Products | Provider(s) |
+> |---|---|---|
+> | 🇬🇧 UK | **Klarna Pay in 3** (unregulated) · **Klarna Pay Over Time / Financing** 6–36 months, variable interest, Direct Debit, soft credit search, sometimes a deposit · **PayPal Credit** (0% to 12 months) · **PayPal Pay in 3** | Klarna + PayPal UK Ltd |
+> | 🇩🇪 Germany | **Kauf auf Rechnung** (invoice) · **Ratenkauf** (instalments) — *Klarna is payee and invoice issuer*; Dyson stays invoice issuer for Sofort, card and PayPal | **Klarna Bank AB (publ)** |
+> | 🇺🇸 US | **Affirm** 0–36% APR up to 24 months, real-time decision · **Afterpay** Pay-in-4 plus 6/12-month at 6.99–35.5% | Affirm + Afterpay |
+> | 🇨🇦 Canada | **Affirm Canada Holdings Ltd.** (formerly PayBright), $100–$15,000, 0–31.99% APR | Affirm Canada |
+> | 🇦🇺 Australia | **Afterpay** — confirmed live from Afterpay's own system of record (`merchantId=933803`, `online=true`, **`isSUP=False`** ruling out the single-use-card false positive) | Afterpay |
+>
+> **Dyson's own UK page draws the regulatory line itself:** *"Klarna's Pay in 3 is an unregulated credit agreement"*, while the longer plans are regulated with **Dyson Limited as credit intermediary**. Germany's Ratenkauf terms link the **SECCI** disclosure mandated by the EU Consumer Credit Directive — Dyson's own terms self-classify it as regulated EU consumer credit.
+>
+> ### 6. ⚖️ Regulatory exposure sits on a Dyson entity, not only on its partners
+> **Dyson Limited is FCA-authorised, FRN 716591**, self-disclosed on its own financing page as *"a credit intermediary and not a lender, offering credit products provided by a limited number of finance providers."* That puts **CONC and financial-promotion obligations on Dyson itself** — so any payments decision touching these programmes has a UK-regulated entity in the loop, not just the Singapore parent.
+> ⚠️ Medium confidence only: `register.fca.org.uk` returned 403, so the FRN's live status and permission scope could not be independently confirmed. This is Dyson's self-declaration.
+>
+> ### 7. ❌ Confirmed negative — Cybersource
+> A Cybersource PDF circulating as evidence of a Dyson relationship is a **merchant-agnostic template contract with zero occurrences of "Dyson"** — verified three ways (case-insensitive text search, a regex allowing arbitrary inter-letter whitespace to rule out kerning artefacts, and a raw-byte search of the full 146KB binary to rule out metadata and form fields). **Record as a confirmed negative.** Dyson also appears in no Adyen, Stripe, Checkout.com or Worldpay case study.
+>
+> ### 8. 🔧 METHOD — the Cloudflare block is *partially* bypassable, and I bounded it myself
+> The deep-research run claimed the 403 constraint is wrong because a text-extraction proxy retrieves `dyson.*` intact. **I tested that claim and it is overstated.** The proxy works for **`dyson.com.tr`, `dyson.co.uk`, `dyson.de`, `dyson.co.jp`, `dyson.in`, `dyson.com`, `dysoncanada.ca`** — but **`dyson.co.kr` still returns Cloudflare's "Just a moment…" interstitial through it**, which matches Korea sitting on a different Cloudflare IP cluster. My control (`example.com` through the same proxy → HTTP 200, real content) proves the proxy itself is fine.
+>
+> **So: Japan, India, Türkiye, UK, Germany, US and Canada are retrievable. Korea — the #2 market and the home of the headline hook — is not.** Separately, `/static/` asset paths respond on *every* domain with no proxy at all, which is how the Magento fingerprinting was done.
+> ⚠️ **Still blocked everywhere, by every route: authenticated and stateful paths** — `/checkout/cart`, `/customer/account/login`. **The rendered checkout payment selector remains unobserved in every market.** That is the one gap that would convert this whole picture from inferred to observed.
 
 ---
 
@@ -161,9 +232,9 @@ Ranked within territory. Globally the largest single market is the US at 14.93%;
 | Signal | Points | Status |
 |--------|--------|--------|
 | **Monthly transaction count** | **+2** | ✅ **DERIVED (floor): ≥46,307/month.** Grips Intelligence, **May 2026: US$25,556,983 from 46,307 transactions**, AOV US$550–575, conversion 1.00–1.50%. **Billing unit: a web order on `dyson.com`.** ⚠️ **This covers `dyson.com` ONLY** — it excludes `dyson.co.kr`, `dyson.co.jp`, `dyson.in`, `dyson.com.au` and every other ccTLD, which together carry ~25% of global traffic. The true own-site total is materially higher and **very likely in the ≥100,000 band (+5)**. Scored conservatively on the verified floor. **This is the single highest-value number to confirm.** |
-| Orchestration status | **0** | ⬜ **Cannot classify.** Tech-profiler route blocked at three independent providers. Deliberately not scored as greenfield. |
+| Orchestration status | **0** | ⬜ **Cannot classify at group level — but closer than before.** **Türkiye is a confirmed direct single-PSP hosted integration (iyzico)**, read first-hand: PAN entry, 3DS and taksit all on iyzico's screen, no other provider named in the checkout walkthrough. 104 agents found no orchestrator in any market and Dyson on no orchestrator's logo wall. **Still scored 0** because an adversarial pass refuted the "point-to-point rather than orchestrated" inference **0–3** — the architecture is not observable from provider pages, and `/checkout/cart` is blocked by every route. **I am not overriding a 0–3 refutation with my own judgement.** Confirm the pattern in one more market and this becomes +4, taking the account to 19/29. |
 | 3+ countries | **+3** | ✅ **61 domains, 114 countries** (supplied SimilarWeb). A **15-market commerce platform** verified by DNS, 10 of them APAC. **6+ legal entities confirmed** across SG/KR/JP/IN/AU/UK. |
-| Multiple PSPs | **+3** | ✅ Multiple payment providers evidenced across markets: **NHN KCP** (KR), **JACCS** (JP), **Afterpay** (AU), **Rakuten Ichiba** (JP marketplace), Klarna (UK/IE), Affirm (US/CA). ⚠️ **Honest qualification: this is multi-*provider*, not confirmed multi-*acquirer*.** No acquirer was identified in any market and no two acquirers were confirmed on one checkout. |
+| Multiple PSPs | **+3** | ✅ **Now firm, and one is acquirer-class.** **iyzico** (Türkiye — PAN + 3DS + taksit on its hosted screen; verified first-hand), **NHN KCP** (Korea, moderate), plus **JACCS** (JP), **Klarna** (UK/IE/DE), **Affirm** (US/CA), **Afterpay** (US/AU), **PayPal Credit / Pay in 3** (UK), **Rakuten Ichiba** (JP marketplace). Earlier caveat that no acquirer-class provider existed anywhere is now superseded for Türkiye. |
 | Local rail or licensing gap in a top-3 market | **0** | ⬜ **And this zero is a real finding, not an access artefact.** Korea has five wallets plus issuer instalments. Japan has konbini, PayPay, Rakuten Pay, Amazon Pay, d払い, COD and 36-month 0% credit. India has UPI, NetBanking, COD and no-cost EMI across six issuers. **Their APAC rail coverage is genuinely good.** The gaps that exist — PayTo/BPAY in Australia (#4 APAC, #10 global), ボーナス払い in Japan, RuPay not named in India — do not meet "dominant rail absent from a top-3 market." **Do not stretch this row to fit the wallet/instalment conflict; that belongs in Section 10.** |
 | Recent expansion | **+2** | ✅ India 23+ Demo stores with a tier-2 push (Lucknow, Pune, Ahmedabad); Korea pop-up May 2026. |
 | Payment issues | **+2** | ✅ **Moderate frequency across three APAC markets.** Korea: payment captured and confirmation email sent, **but the order does not exist in Dyson's system** — on Dyson's own mall. Japan: **four distinct refund-delay threads on `jp.community.dyson.com`, Dyson's own forum.** Australia: duplicate charges and a website error generating duplicate orders. |
@@ -323,7 +394,9 @@ Ranked within territory. Globally the largest single market is the US at 14.93%;
 
 **Card tokenization, vaulting, network tokens, 3DS approach: no evidence in any market.**
 
-**E-commerce platform:** `[Job Listing]` + DNS. Hiring requires *"deep product knowledge in **SAP Hybris, Adobe Commerce or Magento**"* plus MuleSoft, Salesforce, ERP/CRM/PIM/OMS integration and CIAM. Combined with the DNS-verified `{market}-{env}.commerce.dyson.com` estate, **SAP Commerce Cloud is the best-supported read for the 15-market platform, with Adobe Commerce carved out for China** — `[INFERENCE, not confirmed]`.
+**E-commerce platform:** ✅ **Magento 2 / Adobe Commerce — CORRECTED 2026-10-05.** An earlier inference in this file said SAP Commerce Cloud/Hybris; that was wrong. Static assets are served from Magento 2's canonical deployed-static-content path `/static/version<epoch>/frontend/Dyson/commerce/<locale>/`. **The discriminating test:** Magento 2's shipped nginx config carries `rewrite ^/static/(version\d*/)?(.*)$ /static/$2 last`, so a *numeric* version segment must be stripped and a *non-numeric* one must not — and that is exactly what the origin does: `version1790867174`, `version1`, `version999999999` and no-version all return 200, while **`versionFOO` returns 404**. That digit boundary is Magento's own regex and is not reproducible by a CDN rule. The theme path is literally `Dyson/commerce`, matching the `commerce.dyson.com` naming. ⚠️ Adobe Commerce vs Magento Open Source edition is indistinguishable from these signals. **China remains separately on Adobe Commerce/Magento 2** per third-party reporting.
+
+**Platform boundary, independently confirmed two ways.** 404-body fingerprinting: `dyson.com.tr`, `dyson.in`, `dyson.com.au` and `dyson.co.za` return the **same 8,029-byte page, md5 `08cd7d187d2098d6ddc269491d817e99`** — one shared application instance — while `dyson.co.uk` (md5 `ae2c5a01...`), `dyson.com` (md5 `83b0f3e2...`) and `dyson.co.jp` are each a different stack. That corroborates the DNS enumeration in this file from a completely independent angle.
 
 ### 3B. Payment Orchestrator
 
@@ -617,6 +690,18 @@ Ranked within territory. Globally the largest single market is the US at 14.93%;
 > **Area:** Named digital and payments leadership
 > **Why it matters:** **No CTO, CIO, Chief Digital or E-commerce officer is publicly identifiable**, and no "Head of Payments" title exists. The open Head of E-Commerce req is the only live signal.
 > **Suggested action:** **Run `/enrich` against LinkedIn** for Dyson Singapore e-commerce, digital and payments titles. Web search cannot do this and burned budget trying. ⚠️ **Never write "Mark Brown" — that is the Australian bus and coach operator's CIO.**
+
+> **Area:** ⭐ **The seven markets never reached — ~22% of global traffic**
+> **Why it matters:** France (7.82%), Italy (4.21%), Spain (3.59%), Netherlands (1.76%), Poland (1.52%), Belgium (1.28%) and Mexico (1.16%) have **no payment data at all**, in either pass. France alone is larger than Japan.
+> **Suggested action:** **Mexico is the cheapest next target** — `dyson.com.mx` is confirmed on the 15-market Magento platform, and the text proxy reaches the non-Korean domains. The EU country scope of the Klarna relationship is also unresolved (a DE/NL/AT three-market claim was refuted 0–3).
+
+> **Area:** ⭐ **Where payments decision authority actually sits**
+> **Why it matters:** This determines who the buyer is, and the answer is genuinely unclear. Türkiye's merchant of record is a Dyson entity, but contemporaneous reporting places the Turkey office under a **Middle East regional office in Dubai** — which would be EMEA, not APAC. The UK programmes run through FCA-authorised **Dyson Limited**. The parent is in **Singapore**. The formal parent of Dyson Turkey could not be determined (shareholder fields paywalled).
+> **Suggested action:** Resolve whether payments is owned globally from Singapore, regionally, or per-entity before picking a contact. If it is regional, Türkiye may not be yours to sell.
+
+> **Area:** The Korean checkout specifically
+> **Why it matters:** Korea is the #2 market and the home of the headline wallet-vs-instalment hook, and it is **the one domain the text proxy cannot reach** — it still returns a Cloudflare challenge. The Korea evidence remains `[SYNTH]` while India's equivalent is now verified.
+> **Suggested action:** A browser in Korea, or any route that renders `dyson.co.kr/card-promotion`. Verifying it would make the strongest hook in the file first-hand.
 
 > **Area:** Correct the TAL row
 > **Why it matters:** It records **"~$9B global"**. Actual is **£6.13bn (~US$7.7–8.0bn) and declining**. A merchant would catch it.
