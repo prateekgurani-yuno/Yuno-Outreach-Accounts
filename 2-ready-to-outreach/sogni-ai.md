@@ -1,6 +1,6 @@
 # Sogni AI
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 13 / 29 → 🟢 **Medium** — ⚠️ **scored under an explicit volume-gate exception granted by Prateek**
 **Industry:** Creative AI — image, video, music and language generation on a decentralized GPU network ("Supernet") · **HQ:** **we&robot PTE LTD**, 60 Paya Lebar Road, Paya Lebar Square #07-54, **Singapore 409051** · **Researched:** 2026-10-07 · **First email sent:** —
 **Motion:** 🛑 **IN-HOUSE — but only half of one.** They built a five-rail reconciliation and entitlement layer and **no routing layer at all**. No orchestrator incumbent to displace.
@@ -85,11 +85,356 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach Sogni AI` to draft the 12-touch sequence.*
-
-> **Motion is IN-HOUSE — but read Section 3 before drafting.** They built a five-rail reconciliation layer and deliberately chose Stripe-hosted checkout. **Respect the build decision.** The gap is not that they lack payment engineering — it is that they built the half that reconciles and skipped the half that recovers revenue. Anchor on **routing, retries and local rails**, never on "you need orchestration."
+> **Motion is IN-HOUSE.** They built a five-rail reconciliation and entitlement layer and deliberately chose Stripe-hosted checkout. **The build decision is respected throughout this sequence.** The angle is that they built the half that reconciles and skipped the half that recovers revenue. Every touch anchors on **routing, failover and retry**, never on "you need orchestration."
 >
-> ⚠️ **Do NOT claim their users are complaining.** Reddit, Trustpilot, Discord and X are genuinely empty of Sogni payment complaints. **The pain here is documented by Sogni itself** — use their own numbers and their own policy language.
+> ⚠️ **No touch claims their users are complaining.** Reddit, Trustpilot, Discord and X are genuinely empty of Sogni payment complaints. **Every pain statement in this sequence is sourced to Sogni's own public API or Sogni's own policy language.**
+>
+> ⚠️ **Read the app-store flag in Source Notes before sending.** The web-vs-IAP revenue split is not published anywhere. Everything here assumes web billing is material, which the evidence supports but does not prove.
+
+### Pain Vector Extraction
+
+```
+Motion: IN-HOUSE (reconciliation + entitlement layer built; routing layer absent)
+
+Observable setup facts (from research, with sources):
+- Exactly ONE card acquirer. Provider enum {stripe, apple, google, manual, crypto};
+  61 `stripe` hits and zero hits for any other acquirer
+  — source: dashboard.sogni.ai/assets/main-BH-30axC.js, verified first-hand
+- Their documented remedy for a declined trial authorization is customer action, verbatim:
+  "If the issuer declines the authorization, the trial may be ended automatically...
+  Trial eligibility remains available so the customer can retry with another eligible card"
+  — source: docs.sogni.ai/pricing/cancellation-and-refund-policy/, verified first-hand
+- Lifetime dunning counters, public and unauthenticated: subscriptionPastDue 2,204
+  vs subscriptionRecovered 643 = 29% recovery
+  — source: api.sogni.ai/v1/analytics/lifetime, verified first-hand
+- All 7 live Stripe prices are `usd`, all `tax_behavior: unspecified`; client formatter
+  hardcoded to en-US/USD. No currency switcher, no geo-pricing
+  — source: api.sogni.ai/v1/iap/stripe/products, verified first-hand
+- Their own FAQ states the asymmetry: Apple and Google "show localized subscription prices
+  that may differ from the advertised US $20/month web price"
+  — source: docs.sogni.ai, verified first-hand
+- India is #2 at 15.32% of traffic (highest audience share in the table, 19.99%),
+  card-only in USD. UPI with AutoPay is available to Stripe accounts in BOTH SG and US
+  business locations, so this is an unflipped toggle, not a structural block
+  — source: SimilarWeb (supplied 2026-10-07) + docs.stripe.com/payments/upi.md
+- Fastest-growing markets are the weakest card markets: Egypt +1,223%, Malaysia +749%,
+  Thailand +720%, India +108%. APAC 29.10% of traffic, above the US at 27.75%
+  — source: SimilarWeb (supplied 2026-10-07)
+- GPU operators accrue 51% of net subscription revenue, "calculated after payment fees,
+  taxes and refunds" — confirmed in their own API as workerSharePct: 51
+  — source: July 2026 launch release + api.sogni.ai/v1/leaderboard/subscription-workers
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. Single card acquirer + the documented remedy being "retry with another eligible card"
+   → "Stripe looks like your only card acquirer, and your refund policy's remedy for a
+      declined trial hold is for the customer to retry with another card."
+   MATERIALITY: highest. Touches every renewal and every trial in every market.
+2. The asymmetry inside their own stack: the stores localize price, their own checkout
+   does not — and they say so themselves
+   → "Your FAQ says Apple and Google show localized prices that differ from the advertised
+      US $20 web price. Your own Stripe prices are all USD."
+   MATERIALITY: high, and indisputable because both halves are theirs.
+3. India
+   → "India is your #2 market on traffic. Checkout there is card-only, in dollars."
+   MATERIALITY: 15.32% of traffic, and deliberately understated in Phase 1.
+
+Bridge variant: B — limitations
+Rationale: one visible card acquirer against a global footprint and a paid business that
+grew 9.2x in a single month. Not fragmentation (variant A), because there is nothing to
+fragment: there is exactly one card rail. "At your stage" also does real work here, since
+the paid business is three months old.
+
+Hypothesis for Phase 2 (E3):
+Most likely pain: a failed renewal or a declined trial hold has exactly one recovery path
+at Sogni, which is the customer coming back with a different card.
+Backing logic: their own lifetime counters put recovery at 643/2,204 = 29%; their own
+refund policy names customer re-entry as the entire remedy; and their fastest-growing
+markets are precisely the ones where a cross-border USD card is the weakest instrument to
+be retrying on. The in-house layer reconciles five rails into one ledger but has no second
+acquirer, no retry cascade and no failover anywhere in the bundle.
+
+Success case for Phase 3 (E4):
+Selected case: Livelo
+Tier: 2 — same payment pattern, different industry and different region
+Match rationale: Livelo is the decline-cascade case. Verbatim from the case study, "Smart
+Routing also helped Livelo recover customer transactions that initially declined by
+instantly routing them to a secondary acquirer." That is the exact capability Sogni cannot
+exercise today, because there is no second acquirer to route to. It quantifies what the
+second rail is worth against Sogni's own 29% recovery figure.
+Numbers to lead with: 50% of failed transactions recovered; +5% approval rate; millions of
+R$ saved.
+⚠️ Brazil, loyalty/rewards. E4 states both facts outright. No AI, creative-AI or
+generative-media case exists in the library — the category is unclaimed.
+Optional benchmark: SKIP. The "~8% authorisation uplift" figure traces to Yuno's own blog,
+not to independent evidence, and this reader will ask on what basis.
+
+Touch-by-touch angles:
+- E2 angle: single acquirer with one recovery path → smart routing across multiple
+  acquirers plus automatic failover. One mechanism only.
+- LK1 angle: the "retry with another eligible card" line from their own refund policy.
+- LK2 angle: 2,204 past due against 643 recovered, with one acquirer to retry on.
+- LK3 angle: Livelo recovered half of its outright-failing transactions via a secondary
+  acquirer. Reworded, not the E4 bullet verbatim.
+- LK4 angle: fresh and unused until here — the 51% operator pool is calculated after
+  payment fees and refunds, so acceptance performance lands on GPU supply as well as on
+  revenue.
+- E8 angle: clean exit, with an offer to revisit once the paid business has more months
+  behind it.
+```
+
+---
+
+**Send calendar.** Day 1 is anchored to **Monday 12 October 2026**. Any touch that lands on a weekend moves to the next business day, which is already applied below.
+
+| Touch | Day | Send date | Meeting slot proposed (Singapore time) | Prateek's time (IST) |
+|---|---|---|---|---|
+| E1 | 1 | Mon 12 Oct | none (Phase 1) | — |
+| E2 | 3 | Wed 14 Oct | none (Phase 1) | — |
+| LK1 | 5 | Fri 16 Oct | none (Phase 1) | — |
+| E3 | 7 | Mon 19 Oct | **Thu 22 Oct, 11am or 4pm** | 8:30am / 1:30pm |
+| LK2 | 9 | Tue 20 Oct | **Fri 23 or Mon 26 Oct, 3pm** | 12:30pm |
+| E4 | 11 | Thu 22 Oct | **Tue 27 Oct, 12pm or 5pm** | 9:30am / 2:30pm |
+| E5 | 13 | Mon 26 Oct | manual | — |
+| E6 | 15 | Tue 27 Oct | manual | — |
+| LK3 | 17 | Wed 28 Oct | **Mon 2 Nov, 4:30pm** | 2:00pm |
+| E7 | 19 | Fri 30 Oct | manual | — |
+| LK4 | 21 | Mon 2 Nov | **Thu 5 Nov, 11:30am** | 9:00am |
+| E8 | 23 | Tue 3 Nov | none (break-up) | — |
+
+⚠️ **Slots are in Singapore time** because the entity is Singapore-incorporated and the CEO is Singapore-resident. **The founding team is US-origin and distributed.** If the reply comes back on US hours, re-cut every slot before the second touch lands.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 12 Oct
+
+**Subject:** One card rail under every market
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on Sogni's payment setup. Three things stood out.
+
+Stripe looks like your only card acquirer, and your refund policy's remedy for a declined
+trial hold is the customer retrying with another card.
+
+Your FAQ says Apple and Google localize price. Your Stripe prices are USD only.
+
+India is your #2 market, card-only in dollars.
+
+At your stage, that usually comes with some limitations.
+
+I work at Yuno (top-100 fintech, a16z-backed). We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working
+through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 14 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would
+address what I flagged.
+
+We sit above the PSPs you already run, so Stripe stays where it is. Routing happens per BIN,
+market and method, so a charge goes to whichever rail performs best for that card and
+country. If a provider degrades, traffic moves across automatically. Adding another acquirer
+or method is configuration, not a new integration.
+
+Which matters on trial holds and renewals. Today a decline has one path, the customer
+finding another card. With a second acquirer behind the same call, the retry happens on your
+side before they see it.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just
+say the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 16 Oct
+
+```text
+Hey {{recipient.first_name}}, sent you a note over email this week, figured I'd flag one
+part here too. Your refund policy's remedy for a declined trial authorization is the
+customer retrying with another eligible card, and Stripe looks like the only card rail
+behind web checkout. Curious whether that maps to anything you're working through.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 19 Oct · NEW EMAIL
+
+**Subject:** Where your renewals are leaking
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that a failed renewal or a declined trial hold has
+one recovery path at Sogni, the customer coming back with a different card.
+
+Your subscription leaderboard feed is public. Its lifetime dunning counters read 2,204 past
+due against 643 recovered, so 29%. Not because anyone's doing it badly: you built the half
+that reconciles five rails, and the half that recovers a decline isn't there yet.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing PSPs, so a decline retries
+on a second acquirer or a local rail. Keep your stack, add what's missing.
+
+Is that 29% visible to you by market, or only in aggregate?
+
+Thursday the 22nd is open for me. Would 11am or 4pm Singapore time work for 15 minutes?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Tue 20 Oct
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email on Monday. Short version: your
+own public counters show 2,204 past-due subscriptions against 643 recovered, and with one
+card acquirer the only retry available is the customer finding another card. If that's
+anywhere on your radar, would Friday the 23rd or Monday the 26th at 3pm Singapore time work
+for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Thu 22 Oct · NEW EMAIL
+
+**Subject:** How Livelo solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's a quick example of what solved looks like.
+
+Livelo is Brazil's largest loyalty and rewards platform, so not your category at all. The
+pattern is the same one though: declines with nowhere to go. They put Yuno's routing layer
+above their acquirers, so a transaction that initially declined gets instantly routed to a
+secondary acquirer instead of ending there. The results came fast:
+
+- 50% of failed transactions recovered
+- +5% approval rate
+- millions of reais saved (you read that right)
+
+Those numbers are Brazilian, and Livelo sells loyalty points rather than GPU time. What
+transfers is the mechanism: a second acquirer behind the same API call turns a dead decline
+into a retry you control. Same orchestration layer sitting above their existing stack, no
+rip-out.
+
+Tuesday the 27th is open. Would 12pm or 5pm Singapore time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Mon 26 Oct · MANUAL
+
+*Placeholder. Do not auto-write.*
+
+**Strongest unused material for this touch, in order:**
+1. **The India teardown.** UPI with AutoPay is available to Stripe accounts in both SG and US business locations (`docs.stripe.com/payments/upi.md`, fetched 2026-10-07), presentment in INR, recurring supported up to 15,000 INR. India is 15.32% of their traffic with the highest audience share in the table. An annotated screenshot of their own checkout next to Stripe's own eligibility table is the whole argument. ⚠️ **Do not cite RBI e-mandate rules — the authoritative page was unreachable at research time.**
+2. **The Egypt arithmetic.** #3 market, +1,223% QoQ, 26:38 average session, the deepest engagement in their entire table, and Stripe offers no Egyptian method at any currency. ⚠️ The EG Bank international card caps that make a $498 annual hold arithmetically impossible are `[UNVERIFIED — undated search summaries]`. **Fetch a primary source before putting a number in writing.**
+3. **The card-gated free tier.** Their own words: *"Until a valid card is on file, free generations and free reward claims are paused."* Crypto bypasses it. That moves the payment problem from conversion to acquisition in exactly the markets growing fastest.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 27 Oct · MANUAL
+
+*Placeholder. Second manual approach, different format from E5.*
+
+Candidate angle, aimed at finance rather than growth: **no tax configuration anywhere.** Zero occurrences of VAT, GST, sales tax or merchant of record across nine fetched pages including the ToS and privacy policy; all seven live prices `tax_behavior: unspecified`; and the ToS pushes it to the customer, verbatim: *"You are responsible for accurate billing details and applicable taxes."* A Singapore entity selling USD digital subscriptions into Germany, Italy and the UK (8.11% of traffic combined). ⚠️ **This is not a finding of non-compliance** and must never be written as one. They may hold an unpublished OSS registration, and the Checkout Session tax config was not inspectable. Frame it as a question, not an accusation.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 28 Oct
+
+```text
+Hey {{recipient.first_name}}, one more from me. Livelo added a secondary acquirer underneath
+their declines through Yuno and got back half the transactions that had been failing
+outright. Worth 15 minutes to see whether the same thing maps to your setup? Monday the 2nd
+at 4:30pm Singapore time is open.
+```
+
+---
+
+#### Touch 10 — Email 7 · Day 19 · Fri 30 Oct · MANUAL
+
+*Placeholder. Manual creative bridge, anchored to something fresh.*
+
+Freshest available anchors: their **Ambassador Program**, which pays USDC for bringing in paying subscribers and was "coming this season" per their own leaderboard, so it is probably live by the end of October. Also the **revenue-funded SOGNI buybacks** and the staker revenue-share that is "in the works". Both put monetisation at board level. **Re-read `api.sogni.ai/v1/leaderboard/subscription-workers?month=2026-10` before sending** — October closes on the 31st and will be `finalized: true` by then, which gives a real, current, non-estimated revenue number to open with.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 2 Nov
+
+```text
+Hey {{recipient.first_name}}, last ping from me here. One thing I never got to: your
+operator pool is 51% of net subscription revenue, calculated after payment fees and refunds,
+so acceptance performance lands on GPU supply too. If the timing works, Thursday the 5th at
+11:30am Singapore time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Tue 3 Nov · REPLY IN THREAD to Touch 4
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to circle back in the new year, once the paid side has a
+few more months behind it. And if it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+**Every prospect-specific claim in the sequence, and where it comes from.**
+
+- ✅ **"Stripe looks like your only card acquirer"** (E1, E2, LK1, LK2) — provider enum `{stripe:"Stripe", apple:"App Store", google:"Google Play", manual:"Sogni", crypto:"Crypto (USDC)"}` in `dashboard.sogni.ai/assets/main-BH-30axC.js`; 61 `stripe` hits, zero for any other card acquirer. Verified first-hand 2026-10-07. Hedged as "looks like" in every touch, which is the honest register.
+- ✅ **"your refund policy's remedy for a declined trial hold is for the customer to retry with another card"** (E1, LK1) — `docs.sogni.ai/pricing/cancellation-and-refund-policy/`, verbatim: *"If the issuer declines the authorization, the trial may be ended automatically before any subscription payment is taken. Trial eligibility remains available so the customer can retry with another eligible card."* Verified first-hand.
+- ✅ **"Apple and Google show localized prices that differ from the advertised US $20 web price"** (E1) — their own FAQ, near-verbatim. Verified first-hand. **Their sentence, which is why this bullet cannot be argued with.**
+- ✅ **"Your own Stripe prices are all USD"** (E1) — `api.sogni.ai/v1/iap/stripe/products`, 7 live Price objects, distinct currencies `{usd}`. Verified first-hand. ⚠️ **These 7 are the one-time Spark packs.** The subscription prices are not in the endpoint; they come from page copy plus a client formatter hardcoded to `en-US`/`USD`. The bullet says "your Stripe prices", which is true of every price actually observed.
+- ✅ **"India is your second-largest market on traffic"** (E1) — SimilarWeb, supplied by Prateek 2026-10-07: 15.32%, ▲107.81%, highest audience share in the table at 19.99%.
+- ✅ **"2,204 past due against 643 recovered. That's 29%"** (E3, LK2) — `api.sogni.ai/v1/analytics/lifetime`, counters `subscriptionPastDue` and `subscriptionRecovered`. Verified first-hand, HTTP 200. **E3 says "lifetime" explicitly. These are not monthly figures and must never be presented as monthly.**
+- ✅ **"India, Egypt, Malaysia and Thailand" as fastest-growing** (E3) — SimilarWeb supplied 2026-10-07: Egypt ▲1,223%, Malaysia ▲749%, Thailand ▲720%, India ▲107.81%.
+- ✅ **"your operator pool is 51% of net subscription revenue, calculated after payment fees and refunds"** (LK4) — their July 2026 launch release, verbatim: *"participating GPU operators accrue 51% of net subscription revenue, calculated after payment fees, taxes and refunds."* Confirmed independently in their own API as `workerSharePct: 51`.
+- ✅ **Livelo's three numbers** (E4, LK3) — `https://y.uno/en/success-stories/livelo`, verified live 2026-09-14. Mechanism verbatim: *"Smart Routing also helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."* **E4 states outright that the numbers are Brazilian and the industry is different.** Tier 2 pattern match.
+
+**⚠️ Flags to clear before sending**
+
+- ⚠️ **The app-store split is not published anywhere, and the whole sequence assumes web billing is material.** Four pieces of evidence say it is: their own FAQ calls $20 "the advertised US web price"; the trial-hold authorization mechanics are Stripe's, not Apple's; `subscriptionPastDue` and `subscriptionRecovered` are dunning states Apple and Google handle inside their own billing and do not expose to a merchant this way; and the free tier is card-gated specifically for *"accounts created in the Sogni web app."* **None of that is a percentage.** If the reply reveals IAP dominates, orchestration cannot touch that revenue and the sequence does not survive. **Worth asking on the first call, before building anything further.**
+- ⚠️ **E3 and LK2 tell the prospect their billing telemetry is publicly readable.** That is accurate, they publish it themselves for their own leaderboard, and for two ex-CoinMarketCap engineers it will probably read as respect rather than intrusion. **It is still a judgment call that belongs to Prateek, not to this file.** If it reads wrong, the fallback is to drop the sourcing line and keep the hypothesis, which costs the sharpest credibility in the sequence but keeps the argument intact.
+- ⚠️ **Slots are Singapore time.** Entity is Singapore, CEO is Singapore-resident, and SEA overlaps most of the IST working day. **The founders are US-origin and the team is distributed.** Re-cut every slot if the reply comes back on US hours.
+- ⚠️ **No contact name has been identified.** `{{recipient.first_name}}` throughout. The likely targets are **Mauvis Ledford** (Co-founder/CEO, ex-CTO CoinMarketCap) or **Mark Ledford** (Co-founder/CTO). There are **no payments or billing hires at all** at roughly 10–14 staff, so there is no payments owner to route to. At this size the founder *is* the payments owner, which is unusually good for a cold sequence. **No multi-threading line is used anywhere, because there is nobody to be pointed to.**
+- ⚠️ **Nothing in this sequence cites an APAC regulatory rule.** Deliberate. The RBI e-mandate page was unreachable at research time, so e-mandate rules appear nowhere, including in the manual placeholders.
+- ⚠️ **One line was cut from E3 on integrity grounds, not length.** An earlier draft read *"your fastest-growing markets are also your weakest card markets."* It is almost certainly true, but the card-penetration context behind it is `[UNVERIFIED — undated search summaries, several from payment vendors]`, so it has no place in a sent email. The geographic argument lives in E1's India bullet and in the E5 placeholder instead, where it can be backed by a fetched source.
+- ⚠️ **E1, E2, E3 and E4 run over the skill's word budgets** (114 / 144 / 140 / 163 against 85–110 / 110–140 / 90–120 / 130–160). E3 is the one worth a second look: roughly 60 of its words are the prescribed Yuno re-state, discovery question and CTA, and the remaining argument does not compress further without losing either the diplomatic clause or the 29% figure. **If a tighter send is wanted, the sentence to drop is the one about building the half that reconciles** — but that sentence is the in-house motion override doing its job, so it is the last thing to cut, not the first.
+- ⚠️ **The volume exception still applies.** At roughly 8,500 to 15,600 transactions a month this account is about a third of the 40,000 minimum and sits in the pipeline only on Prateek's explicit exception. **Re-read the two public endpoints before the first call** so the number quoted on it is current.
+
+### Success Case Alternatives
+
+- **Vibra** — first-time-buyer approval lifted more than 30 percentage points, to 80%, plus Apple Pay, Nu Pay and Google Pay launched. `https://y.uno/en/success-stories/vibra`. **The strongest alternative**, and arguably better if the conversation turns to the trial funnel rather than renewals: Sogni's buyers are overwhelmingly first-time purchasers, with 15,972 trial starts against 306,659 registrations, and a free tier that cannot be used until a card clears. Same Tier 2 caveat, Brazil and retail.
+- **Open English** — multi-country consumer subscriptions, 30+ countries. The closest *business model* match in the library, but it carries **no published numbers at all**, so it cannot carry E4. Usable only as a one-line relevance signal on a call.
+- ❌ **No AI, creative-AI or generative-media case exists**, and research found **no AI image or video platform using any orchestrator anywhere.** The category is unclaimed, which is worth saying out loud on a call and is useless as written proof.
+- ❌ **Never use Viva Aerobus here.** Its 75% is a NOVA result, an AI voice callback placed after a payment fails. Sogni has no human or voice recovery step for it to replace, and citing it would misattribute the mechanism.
+
 
 </details>
 
