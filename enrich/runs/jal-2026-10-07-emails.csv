@@ -1,0 +1,12 @@
+name,title,company,domain,email,email_valid,email_source,failure_reason
+Taiki Arai,Digital CX Planning,Japan Airlines,jal.com,,no,,no_email_found
+Pradeep Kumar,"Accounting, HR & Administration",Japan Airlines,jal.com,,no,,no_email_found
+Zhongxiang Liu,Data Science & Digital Technology,Japan Airlines,jal.com,,no,,no_email_found
+Toshiro Saeki,Maintenance Corporate Planning & Finance,Japan Airlines,jal.com,,no,,no_email_found
+Hiromi Tsurui,Manager Revenue Accounting,Japan Airlines,jal.com,,no,,no_email_found
+Rafal Eichler,VP Digital Transformation,Japan Airlines,jal.com,,no,,no_email_found
+Kazuya Toyama,Group Manager Digital EX Planning,Japan Airlines,jal.com,,no,,no_email_found
+Yoshiaki Yabugami,VP Finance and Business Creation Loyalty Marketing,Japan Airlines,jal.com,,no,,no_email_found
+Rika Matsumoto,"Director, Airline Partnership, Loyalty Marketing",Japan Airlines,jal.com,rika.matsumoto@jal.com,no,leadmagic,
+Yuji Ota,VP Business Administration,Japan Airlines,jal.com,,no,,no_email_found
+Takamitsu Murakami,CFO,JAL Card,jalcard.co.jp,,no,,no_email_found
