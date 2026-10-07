@@ -44,6 +44,17 @@
 >
 > **So Brazil is WELL served: dLocal local acquiring, Pix, AND `DLOCAL_PIX_AUTOMATICO` — recurring Pix.** The Netherlands gets **Adyen iDEAL**. They invest in local rails, properly, when a market matters to them.
 >
+> **And they split it correctly by transaction type** — subscriptions take recurring Pix, one-off purchases take plain Pix:
+> ```js
+> pix_automatico: IS_PIX_PAYMENT_METHOD_FOR_BR_EXP && this.isSubscriptionAction ? 1 : 0,
+> pix:            IS_PIX_PAYMENT_METHOD_FOR_BR_EXP && !this.isSubscriptionAction ? 1 : 0
+> ```
+> That is a considered implementation, not a checkbox integration.
+>
+> ⚠️ **One precision point for outreach: Pix is gated behind a live A/B experiment, `web_pix_payment_method_for_br`** — it sits in the same experiment registry as their pricing and paywall tests. The capability is unambiguously built and shipped; **what share of Brazilian traffic is in the treatment group cannot be determined from outside.** Safe phrasing: *"you're running Pix and Pix Automático through dLocal in Brazil."* **Do NOT say "all your Brazilian customers can pay by Pix."**
+>
+> Note also the in-bundle default is `dLocal:{br:!1,mx:!1}` — **the live CDN config is what switches Brazil on.**
+>
 > ### And they have done nothing at all for APAC
 >
 > Grepped explicitly across every bundle: **zero hits for konbini, PayPay, LINE Pay, Rakuten Pay, Paidy, carrier billing, JCB, PayTo, BPAY, Afterpay, Zip, UPI, QRIS, PayNow, PromptPay, GCash, Alipay, WeChat Pay.** Their entire local-method investment is **Brazil and the Netherlands.**
@@ -290,8 +301,9 @@
 | 🇺🇸 US | **FSA/HSA cards** | Cards | ✅ **Active** | `form.hsa_fsa.plan_picker_highlight` = "We accept FSA & HSA cards" |
 | Global | Card vaulting / one-click | Recurring | ✅ **Active** | `form.one_click_payment`; `billing_errors.vault.title` |
 | 🇧🇷 Brazil | CPF/CNPJ capture | Local compliance | ✅ **Active** | `form.cpf_field`, `form.cpf_error` |
-| 🇧🇷 Brazil | **Pix** | A2A | ✅ **CONFIRMED** | `e.DLOCAL_PIX="pix"`; `PixForm`, `PixSelect`, `pixTabContent`; `IS_PIX_PAYMENT_METHOD_FOR_BR_EXP` |
-| 🇧🇷 Brazil | **Pix Automático (recurring Pix)** | A2A mandate | ✅ **CONFIRMED** | `e.DLOCAL_PIX_AUTOMATICO="pix"` |
+| 🇧🇷 Brazil | **Pix** (one-off purchases) | A2A | ✅ **BUILT & SHIPPED** ⚠️ **behind an A/B flag** | `e.DLOCAL_PIX="pix"`; `PixForm`, `PixSelect`, `pixTabContent`; `pix: IS_PIX_PAYMENT_METHOD_FOR_BR_EXP && !isSubscriptionAction` |
+| 🇧🇷 Brazil | **Pix Automático** (subscriptions) | A2A mandate | ✅ **BUILT & SHIPPED** ⚠️ **behind the same A/B flag** | `e.DLOCAL_PIX_AUTOMATICO="pix"`; `pix_automatico: IS_PIX_PAYMENT_METHOD_FOR_BR_EXP && isSubscriptionAction` |
+| 🇧🇷 Brazil | CPF/CNPJ tax ID | Local compliance | ✅ CONFIRMED, gated on dLocal | `FEAT_SHOW_TAX_ID(n){return n.dLocal?.br}`; `isShowTaxId(){return countryCode==="br" && FEAT_SHOW_TAX_ID}` |
 | 🇧🇷 Brazil | boleto · parcelamento · Elo · Hipercard · Mercado Pago | Cash / instalments / cards | ❌ NOT FOUND | 0 hits across bundles — but Brazil is otherwise well covered |
 | 🇯🇵 Japan | **konbini · PayPay · LINE Pay · Rakuten Pay · Paidy · carrier billing · JCB** | Cash / wallet / BNPL / carrier | ❌ **NOT FOUND** | 0 hits incl. コンビニ |
 | 🇦🇺 Australia | **PayTo · BPAY · Afterpay · Zip** | Mandate / BNPL | ❌ **NOT FOUND** | 0 hits |
