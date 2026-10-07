@@ -1,55 +1,135 @@
 # Sogni AI
 
-**Status:** 🔴 Not ICP — **under 40,000 monthly transactions (volume gate)**
-**ICP Score:** Not scored — the volume gate fires regardless of every other signal
+**Status:** 🟡 Research complete — outreach not yet generated
+**ICP Score:** 13 / 29 → 🟢 **Medium** — ⚠️ **scored under an explicit volume-gate exception granted by Prateek**
 **Industry:** Creative AI — image, video, music and language generation on a decentralized GPU network ("Supernet") · **HQ:** **we&robot PTE LTD**, 60 Paya Lebar Road, Paya Lebar Square #07-54, **Singapore 409051** · **Researched:** 2026-10-07 · **First email sent:** —
-**Motion:** N/A — rejected before outreach
-**⏰ REVISIT: Q2 2027.** See the rejection rationale — this is a timing call, not a quality call.
+**Motion:** 🛑 **IN-HOUSE — but only half of one.** They built a five-rail reconciliation and entitlement layer and **no routing layer at all**. No orchestrator incumbent to displace.
 
 ---
 
-## Rejection Rationale
+> ## 🛑 THE VOLUME EXCEPTION — read this first
+>
+> **This account does not clear the 40,000/month transaction gate, and is in the pipeline because Prateek explicitly granted an exception on 2026-10-07** (*"take this company as exception in terms of txn. count"*). The arithmetic is unchanged and is recorded here so nobody mistakes the exception for a passing score.
+>
+> ```
+> Oct 2026 net subscription revenue   $136,797.21   SOURCED — Sogni's own public API, verified first-hand
+> Cheapest monthly plan                    $20.00   SOURCED — sogni.ai/pricing, verified first-hand
+>                                      ----------
+> MAX possible subscription charges         6,840 / month
+>   grossed up ~12% (revenue is already net of fees/taxes)      ~ 7,661 / month
+> Spark top-ups: $597,772 lifetime card-paid ÷ ~15 months = ~$39,851/month
+>   at ASSUMED $50 / $15 / $5 avg top-up →  797 / 2,657 / 7,970 per month
+>                                      ----------
+> TOTAL                            ~8,458 – 15,631 / month     vs gate of 40,000
+> ```
+>
+> **Dividing revenue by the *cheapest* plan gives the maximum possible number of subscription charges** — every subscriber on Unlimited Pro ($50/mo) or on any annual plan pushes the real count lower. The only assumed input is average Spark top-up size, and even the most generous assumption leaves the total under half the gate.
+>
+> ⚠️ **A second method disagrees by 2.7× and I could not reconcile it:** 21,170 signups + 37,827 renewals = 58,997 lifetime billing events ÷ ~3.2 months ≈ **18,400/month**. Candidate causes: `subscriptionRenewal` may count period rollovers rather than captures; regional App Store prices may sit below $20; `subscriptionSignup` may predate the paid launch. **Both methods land below 40,000.**
+>
+> ### Why the exception is defensible on its own merits
+> **The paid business is three months old and grew 9.2× in a single month.** Their own API:
+>
+> | Month | Net subscription revenue | Status |
+> |---|---|---|
+> | 2026-07 | **$521.51** | `finalized: true` |
+> | 2026-08 | **$13,860.23** | estimated |
+> | 2026-09 | **$126,859.66** | estimated — **9.2× MoM** |
+> | 2026-10 | **$136,797.21** | estimated, 7 days elapsed |
+>
+> **MRR ≈ $137k → ~$1.64M ARR run-rate from a standing start in July 2026.** At even a fraction of that trajectory they cross 40,000 transactions/month within **2–4 quarters**. Sixteen of seventeen visible traffic markets are growing, most triple-digit.
+>
+> **🔑 Re-qualification is free and takes one minute** — both endpoints below are public and unauthenticated. Re-read them before any meeting to get a current number.
 
-**Derived monthly transaction count is ~8,500–15,600 against a 40,000/month gate.** The derivation rests on **two SOURCED inputs** and is a hard *ceiling*, not an estimate — so per the ICP rules it legitimately fires the gate.
+---
 
-```
-Oct 2026 net subscription revenue   $136,797.21   SOURCED — Sogni's own public API, verified first-hand
-Cheapest monthly plan                    $20.00   SOURCED — sogni.ai/pricing, verified first-hand
-                                     ----------
-MAX possible subscription charges         6,840 / month
-  grossed up ~12% (revenue is already net of fees/taxes)
-                                        ~ 7,661 / month
-Spark top-ups: $597,772 lifetime card-paid ÷ ~15 months = ~$39,851/month
-  at ASSUMED $50 avg top-up →   797 / month
-  at ASSUMED $15 avg top-up → 2,657 / month
-  at ASSUMED  $5 avg top-up → 7,970 / month
-                                     ----------
-TOTAL                            ~8,458 – 15,631 / month   vs gate of 40,000
-```
+<details open>
+<summary><h2>📊 Section 1 — Quick Look</h2></summary>
 
-**Why this is a sound derivation and not an assumption:** dividing revenue by the *cheapest* plan gives the **maximum possible** number of subscription charges. Every subscriber on Unlimited Pro ($50/mo), or on any annual plan (one charge covering twelve months of recognised revenue), pushes the real count **lower**. The only assumed input is average Spark top-up size, and **even the most generous assumption ($5) leaves the total at ~16k — under half the gate.**
+**Summary:** Creative AI platform — image, video, music and language generation across 200+ models — running on a decentralized GPU network ("Supernet") where community operators earn **51% of net subscription revenue**. Singapore-incorporated, ~10–14 staff, founded by two ex-CoinMarketCap executives. Monetises through **Sogni Unlimited** ($20/mo or $199/yr; Pro $50/mo or $498/yr) plus **Spark**, a prepaid credit currency, and an OpenAI-compatible developer API.
 
-⚠️ **One unresolved conflict, which does not change the verdict.** A second method — lifetime billing events ÷ elapsed months — gives a different answer: 21,170 signups + 37,827 renewals = 58,997 events ÷ ~3.2 months ≈ **18,400/month**. That is 2.7× Method A and I cannot reconcile them. Candidate explanations: `subscriptionRenewal` may count period rollovers rather than captures (crypto plans "never auto-renew" yet still roll); regional App Store prices may sit below $20; `subscriptionSignup` may predate the paid launch. **Both methods land below 40,000, so the conclusion is robust to the conflict.**
+**SimilarWeb (supplied 2026-10-07, Jul–Sep 2026, country-domains toggle OFF, 82 countries):** US 27.75% ▲144.75% · **India 15.32% ▲107.81%** · Egypt 5.65% **▲1,223%** · Indonesia 3.62% · UK 3.60% · Canada 3.14% · Brazil 3.04% ▲544.66% · **Australia 2.47%** · Germany 2.34% · Italy 2.17% · **Malaysia 2.08% ▲749%** · Philippines 1.58% ▼20.24% · Iraq 1.53% ▲848% · **Vietnam 1.49%** · Mexico 1.40% · **Thailand 1.34% ▲720%** · **Pakistan 1.20%**. Full table in `accounts/traffic/sogni-ai.md`.
 
-### ⏰ Why this is a REVISIT, not a kill
+**🔑 APAC is 29.10% of visible traffic and exceeds the US (27.75%).** Eight of seventeen visible markets are in territory.
 
-**The paid business is three months old and grew 9.2× in a single month.** Their own API, verified:
+### Top 5 markets
+| Rank | Country | Traffic | Accepted methods | Missing methods | Local entity |
+|---|---|---|---|---|---|
+| 1 | 🇺🇸 United States | 27.75% | Card (Stripe), Apple Pay, Google Pay, USDC/USDT | **PayPal · ACH · BNPL** (Affirm/Afterpay/Klarna) | ❌ none — SG entity |
+| 2 | 🇮🇳 **India** | **15.32%** | Card only (USD, cross-border) | **UPI · UPI Autopay · netbanking · RuPay · EMI · INR pricing** | ❌ none |
+| 3 | 🇪🇬 **Egypt** | **5.65%** | Card only (USD, cross-border) | **Fawry · Meeza · ValU · mobile wallets · EGP pricing** ❌🔒 **Stripe offers NONE of these** | ❌ none |
+| 4 | 🇮🇩 Indonesia | 3.62% | Card only (USD) | **QRIS · virtual account · GoPay/OVO/DANA · OTC cash · IDR** | ❌ none |
+| 5 | 🇬🇧 United Kingdom | 3.60% | Card, Apple Pay, Google Pay | **GBP pricing · BNPL** | ❌ none |
 
-| Month | Net subscription revenue | Status |
+### Legal entities
+- **we&robot PTE LTD** (Singapore) — 60 Paya Lebar Road, Paya Lebar Square #07-54, Singapore 409051. ⚠️ **ACRA/BizFile UEN not found.** No US, HK or Indian entity found.
+
+### Known PSPs
+- **Stripe** — `[Source Code]` + `[Terms]`. **The only card acquirer.** Hosted Checkout redirect, Billing Portal, SetupIntent for auto-top-up
+- **Apple App Store / Google Play** — platform rails, **not Sogni's**
+- **Self-built crypto rail** — USDC on Base/Etherlink/Ethereum, USDT on Ethereum. **No crypto PSP** — not Coinbase Commerce, not thirdweb
+- **"manual"** — a human-granted entitlement path, almost certainly the enterprise/comp route
+
+### Orchestration status
+🟡 **In-house reconciliation layer, NO routing layer.** Five rails normalised behind one provider enum and one Spark ledger, with a rail-agnostic subscription API — but **no second acquirer, no retry cascade, no failover, no BIN or geo routing anywhere.** **No orchestrator incumbent to displace.**
+
+### Buying signals
+- 🚀 **Paid subscriptions launched July 2026 and grew 9.2× in one month** — the single best timing signal
+- 💼 **Billing terms rewritten four times in ~two months** — the billing stack is actively being reworked
+- 📋 **Zero payments or billing hires** at ~10–14 staff, running four billing channels across two crypto flows
+- 🤝 **Ambassador Program paying USDC for bringing paying subscribers** — "coming this season", per their own leaderboard
+- 💰 **SOGNI buybacks funded by revenue** and a staker revenue-share "in the works" — monetisation is board-level
+
+</details>
+
+<details open>
+<summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
+
+*Not yet generated. Run `/full-outreach Sogni AI` to draft the 12-touch sequence.*
+
+> **Motion is IN-HOUSE — but read Section 3 before drafting.** They built a five-rail reconciliation layer and deliberately chose Stripe-hosted checkout. **Respect the build decision.** The gap is not that they lack payment engineering — it is that they built the half that reconciles and skipped the half that recovers revenue. Anchor on **routing, retries and local rails**, never on "you need orchestration."
+>
+> ⚠️ **Do NOT claim their users are complaining.** Reddit, Trustpilot, Discord and X are genuinely empty of Sogni payment complaints. **The pain here is documented by Sogni itself** — use their own numbers and their own policy language.
+
+</details>
+
+<details>
+<summary><h2>📚 Section 3 — Full Research</h2></summary>
+
+### ICP Score breakdown — 13 / 29
+
+| Signal | Points | Status |
 |---|---|---|
-| 2026-07 | **$521.51** | `finalized: true` |
-| 2026-08 | **$13,860.23** | estimated |
-| 2026-09 | **$126,859.66** | estimated — **9.2× MoM** |
-| 2026-10 | **$136,797.21** | estimated, 7 days elapsed |
-| 2026-11 | $9,161.50 | forward-booked |
+| **Monthly transaction count** | **0** | 🛑 **DERIVED: ~8,458–15,631/month — BELOW the 40,000 gate.** $136,797.21 Oct net subscription revenue **[SOURCED, their own API, verified]** ÷ $20 cheapest plan **[SOURCED, verified]** = 6,840 charges/month ceiling, plus 797–7,970 Spark top-ups on an ASSUMED average size. **Does not reach even the 40,000–49,999 band, so it scores 0.** **The gate is waived by Prateek's explicit exception, not met.** |
+| Orchestration status | **1** | 🟡 **In-house layer.** Five rails normalised (`{stripe, apple, google, manual, crypto}`), rail-agnostic `/v1/subscriptions/*`, own Spark ledger, own dunning UI and error taxonomy. ⚠️ **But it is reconciliation and entitlement, NOT routing** — no second acquirer, no retry cascade, no failover. **That makes it a far easier in-house sell than most**, but the row still scores 1 |
+| 3+ countries | **3** | ✅ 82 countries in the traffic data; sells globally from one Singapore entity |
+| Multiple PSPs | **0** | ⬜ **Deliberate zero — and it is the pitch.** There is exactly **ONE card acquirer (Stripe)**. Apple and Google are platform rails they neither control nor price; the crypto rail is self-built. `app-main.js` has 61 `stripe` hits and **zero** for any other acquirer. **Single-acquirer concentration is the argument, not a scoring row** |
+| Local rail or licensing gap in a top-3 market | **3** | ✅ **India (#2, 15.32%): zero UPI, UPI Autopay, netbanking, RuPay, EMI or INR pricing. Egypt (#3, 5.65%): zero local methods — and Stripe's catalog contains NONE for Egypt at any currency** (grepped `fawry\|meeza\|zaincash\|qi card\|egypt\|iraq` → 0 matches) |
+| Recent expansion | **2** | ✅ **Sogni Intelligence** (OpenAI-compatible API) introduced March 2026 · **Unlimited launched July 2026** · Windows and Android worker support shipped · video generation live (23.8M seconds) |
+| Payment issues reported | **2** | ✅ **From their own API: 2,204 past-due vs 643 recovered = 29% dunning recovery, ~1,561 subscriptions lost to failed payments (7.4% leakage).** Plus their own policy: an issuer decline on the trial hold *"may end the trial automatically"* |
+| Funding >$10M | **0** | ⬜ **~$3.5M total** across a pre-seed and a Tezos-Foundation-led seed. Well below the threshold |
+| High traffic outside home | **2** | ✅ **Singapore does not appear in the top 17 markets at all.** US 27.75%, India 15.32% — home-market share is effectively nil |
+| Competitor using orchestration | **0** | ⬜ **No AI image/video platform found using any orchestrator.** The category is genuinely unclaimed |
+| Payment job postings | **0** | ⬜ **None found — no careers page, no LinkedIn postings, no payments role of any kind** at ~10–14 staff |
 
-**MRR ≈ $137k → ~$1.64M ARR run-rate, from a standing start in July 2026.** At even a fraction of that trajectory they cross 40,000 transactions/month within **2–4 quarters**. Traffic agrees: sixteen of seventeen visible markets are growing, most triple-digit.
+**Tier:** 🟢 **Medium (10–16)**
 
-**Recommended action: dated nurture, revisit Q2 2027.** Re-run the same two API endpoints then — they are public and unauthenticated, so re-qualifying costs one minute.
+### 🛑 Analyst note on the score
+**13/29 is an honest reflection of a small, young, single-acquirer business — and it understates the opportunity.** Three of the four zeros are *the argument rather than its absence*: a single PSP, no competitor on orchestration, and no payments hire all describe a company that has outgrown its payment setup and has nobody internally to fix it. **The matrix has no row for "grew 9.2× in a month" or "publishes its own dunning failure rate."**
+
+**Equally, the exception must not be forgotten.** At ~8.5k–15.6k transactions/month this is roughly a third of the minimum. **If the volume exception is ever withdrawn, this account rejects immediately.** Re-read the two public endpoints before any meeting.
+
+### Source Notes
+- ✅ **Verified first-hand by me:** `api.sogni.ai/v1/analytics/lifetime` (HTTP 200, **350 counters**, returns everything when called with no `keys` parameter) · the full `subscription-workers` monthly revenue series with `workerSharePct: 51` · `api.sogni.ai/v1/iap/stripe/products` (**7 live Stripe Price objects, all `usd`, all `tax_behavior: unspecified`, all `livemode: true`**) · the provider enum in `dashboard.sogni.ai/assets/main-BH-30axC.js` (2.83 MB) · the USD-only currency census · the decline-ends-trial and failure-to-deliver-Spark quotes · the trial-hold wording and its contradiction between properties · `docs.stripe.com/payments/upi.md` confirming SG **and** US eligibility and the 15,000 INR recurring cap
+- ⚠️ **Could not verify:** ACRA UEN · which funding account is correct · the 2.7× conflict between the two transaction-count methods · Spark top-up *count* (not exposed in any of the 350 counters) · whether Oct's $136,797 is actual or projected (`finalized: false`) · payment-method split by rail · the live authenticated checkout from a non-US IP · Apple IAP implementation · **RBI e-mandate specifics — the authoritative page served a JS shell, so do not cite e-mandate rules from memory**
+
+### Success Case Alternatives
+- **A consumer subscription business that added local rails and recovered involuntary churn** — closest profile match. ⚠️ **Only cite a Yuno customer with a published metric** (standing rule).
+- ❌ **Do NOT cite competitor case studies here** — no AI image/video platform uses an orchestrator, so there is no category proof point to point at.
 
 ---
 
-## ⭐ Why this account is worth keeping warm — the research is the value
+## The findings
 
 ### 1. They publish their own payment telemetry, unauthenticated
 
@@ -242,7 +322,7 @@ From their July 2026 launch release: *"participating GPU operators accrue **51% 
 
 ---
 
-## Company facts for the revisit
+## Company facts
 
 **Entity:** **we&robot PTE LTD**, Singapore 409051 — first-hand from `sogni.ai/terms` (which serves the privacy policy; `/privacy` 404s). Data-protection contact **Cecilia Tan**. ⚠️ **ACRA/BizFile UEN not found.**
 
@@ -297,4 +377,7 @@ From their July 2026 launch release: *"participating GPU operators accrue **51% 
 - ✅ **Verified first-hand by me:** `api.sogni.ai/v1/analytics/lifetime` (HTTP 200, 350 counters) · the full `subscription-workers` monthly revenue series with `workerSharePct: 51` · the provider enum in `dashboard.sogni.ai/assets/main-BH-30axC.js` (2.83 MB) · the USD-only currency census · the decline-ends-trial and failure-to-deliver-Spark quotes in the refund policy · the trial-hold wording on the pricing page and its contradiction with the docs · plan tiers and the $41-vs-$50 correction · `docs.stripe.com/payments/upi.md` confirming SG and US eligibility and the 15,000 INR recurring cap.
 - ⚠️ **Could not verify:** ACRA UEN · which funding account is correct · the 2.7× conflict between the two transaction-count methods · Spark top-up *count* (not exposed in any of the 350 counters) · whether October's $136,797 is actual or projected (`finalized: false`, 7 days elapsed) · payment-method split by rail (no per-rail counters exist) · the live authenticated checkout from a non-US IP · Apple IAP implementation (lives in the native app, not decompiled) · RBI e-mandate specifics.
 
-*Marked not-ICP: 2026-10-07 — volume gate, ~8.5k–15.6k vs 40k. **Revisit Q2 2027** by re-reading the two public API endpoints above.*
+*Researched 2026-10-07. Volume gate overridden by Prateek on 2026-10-07 — see the ICP breakdown.*
+
+
+</details>

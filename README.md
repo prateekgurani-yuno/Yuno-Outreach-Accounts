@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-07 23:09*
+*Last updated: 2026-10-07 23:36*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -82,7 +82,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | Travel — leisure OTA + corporate travel mana… | Australia | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | Social casino / sweepstakes gaming | Australia | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (62)
+## 🟢 Ready to Outreach (63)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -133,6 +133,7 @@
 | [China Airlines](2-ready-to-outreach/china-airlines.md) | Airlines (passenger + unusually cargo-heavy) | 14/29 | Greenfield | 2026-09-18 |
 | [Oztix](2-ready-to-outreach/oztix.md) | Live-music, festival and venue ticketing (ag… | 13/29 | Greenfield | 2026-09-19 |
 | [Sociolla](2-ready-to-outreach/sociolla.md) | Beauty retail, omnichannel (e-commerce + 150… | 13/29 | In-house layer | 2026-09-18 |
+| [Sogni AI](2-ready-to-outreach/sogni-ai.md) | Creative AI — image, video, music and langua… | 13/29 | IN-HOUSE | 2026-10-07 |
 | [Stylevana](2-ready-to-outreach/stylevana.md) | Cross-border e-commerce (Korean & Japanese b… | 13/29 | Greenfield | 2026-09-18 |
 | [Moshtix](2-ready-to-outreach/moshtix.md) | Live-music and festival ticketing (agent-of-… | 12/29 | In-house | 2026-09-19 |
 | [Cebu Pacific](2-ready-to-outreach/cebu-pacific.md) | Airlines (low-cost carrier) | 11/29 | Competitive | 2026-09-18 |
@@ -162,6 +163,6 @@
 | [Envato](3-outreached/envato.md) | Digital-goods marketplace + creative subscri… | 20/29 | 2026-09-21 |
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | —/29 | 2026-09-15 |
 
-## 🔴 Not ICP (14)
+## 🔴 Not ICP (13)
 
 See [not-icp/](not-icp/) for rejection rationale.
