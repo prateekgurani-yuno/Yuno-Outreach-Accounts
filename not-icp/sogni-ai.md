@@ -125,7 +125,94 @@ Plus their own Spark ledger reconciling card, store and chain funding into one c
 
 **Classification: in-house reconciliation and entitlement layer — NOT a routing layer.** No second acquirer, no retry cascade, no failover, no BIN or geo routing anywhere. `app-main.js` has 61 `stripe` hits and **zero** hits for any other card acquirer. **No orchestrator incumbent to displace.** They proved the appetite and the engineering; what's missing is exactly the revenue-recovery half.
 
-### 5. USD-only, zero local rails, across 29% APAC traffic
+### 5. Their live Stripe catalog is public too — USD-only, tax disabled
+
+**A second unauthenticated endpoint exposes their real Stripe Price objects.** `https://api.sogni.ai/v1/iap/stripe/products` — HTTP 200, 3,667 bytes, verified first-hand:
+
+| nickname | currency | amount | type | tax_behavior | livemode |
+|---|---|---|---|---|---|
+| Premium Spark Points • 20K | **usd** | 10599 | one_time | **unspecified** | true |
+| Premium Spark Points • 10K | **usd** | 5599 | one_time | **unspecified** | true |
+| Premium Spark Points • 4.5K | **usd** | 2699 | one_time | **unspecified** | true |
+| Premium Spark Points • 2K | **usd** | 1299 | one_time | **unspecified** | true |
+| Premium Spark Points • 1K | **usd** | 699 | one_time | **unspecified** | true |
+| Premium Spark Points • 550 | **usd** | 399 | one_time | **unspecified** | true |
+| Premium Spark Points • 250 | **usd** | 199 | one_time | **unspecified** | true |
+
+**Distinct currencies across all 7 live prices: `{usd}`. Distinct `tax_behavior`: `{unspecified}`. `currency_options` absent.**
+
+In Stripe a price must be `inclusive` or `exclusive` for Stripe Tax to compute on it — **`unspecified` is incompatible with Stripe Tax calculating on these prices.** ⚠️ Caveat: `automatic_tax` is set at the Checkout Session level, which needs authentication to inspect, so this is strong evidence but not categorical. Likewise `currency_options` is only returned when explicitly expanded, so its absence is suggestive, not conclusive.
+
+**🔑 And their own docs contradict this.** Verbatim from `docs.sogni.ai/pricing/unlimited-plan-details/`:
+> *"Stripe (web checkout): The prices above are the Stripe list prices billed in USD. **Taxes and local currency conversion are applied by Stripe at checkout according to your billing address.**"*
+
+**That does not survive contact with the catalog** — USD-only prices, tax not configured, and a client renderer hardcoded to USD:
+```js
+c = e => Number(e||0).toLocaleString("en-US",{style:"currency",currency:"USD",minimumFractionDigits:2})
+```
+**This reads as an assumption that Stripe localizes by default. It does not.** The adjacent sentence shows they know the difference — *"Subscription plans purchased through the App Store or Play Store are **priced by the platform in local currency**."* Localization exists only on Apple's and Google's rails.
+
+⚠️ **Note:** the 7 public prices are the one-time Spark packs only. **The subscription prices ($20/$199/$50/$498) are NOT in this endpoint** — those are confirmed from page copy and the hardcoded USD formatter, not from a price object.
+
+### 5b. 🔑 Even the FREE tier is card-gated
+
+> *"Collecting and spending free Spark **requires a verified payment method** on accounts created in the Sogni web app."*
+> *"**Until a valid card is on file, free generations and free reward claims are paused.**"*
+> *"Free monthly Spark 400 — **Needs a verified payment method**."*
+
+Their stated reason: *"free Spark was being farmed at scale by throwaway accounts… while we fight bots and fraudulent signups"* — consistent with **140,514 banned accounts, 46% of all signups.**
+
+**Carve-out:** *"Premium Spark, SOGNI token, and Unlimited rendering are never gated by this"* — **so a crypto purchase bypasses the card gate entirely. Crypto is the only no-card path into the product.**
+
+**This moves the payment problem from conversion to acquisition.** A user in Cairo or Jakarta without an international-enabled card cannot use the free tier at all — which fits the Egypt/Iraq pattern below: enormous engagement, no obvious way to pay.
+
+### 5c. Stripe's own matrix locks them out structurally
+
+From `docs.stripe.com/payments/payment-methods/payment-method-support`, local methods are **currency-locked and business-location-locked**:
+
+| Method | Currency required | Stripe business location |
+|---|---|---|
+| Pix / Boleto | **BRL** | BR (Pix invite-only), US |
+| OXXO | **MXN** | MX |
+| SEPA Direct Debit · iDEAL · Bancontact | **EUR** | EU, AU, CA, HK, JP, MX, NZ, **SG**, US |
+| Klarna · Affirm · Afterpay | incl. USD | **no SG** |
+| PayPal | incl. USD | EU/CH/GB only — **no SG, no US** |
+| ACH Direct Debit | USD | EU/UK/CH + US — **no SG** |
+| Cards · Apple Pay · Google Pay · Link | most | most, incl. SG |
+
+**Two independent locks.** (1) **Currency:** a USD-only catalog mechanically excludes Pix, Boleto, OXXO, SEPA DD, iDEAL and Bancontact — Stripe requires BRL/MXN/EUR prices. (2) **Entity:** if their Stripe account is Singapore-domiciled (inferred from we&robot PTE LTD, **not confirmed**), then Klarna, Affirm, Afterpay, PayPal, ACH, Pix, Boleto and OXXO are **unavailable to them on Stripe at any currency.**
+
+**→ So "no BNPL" is not a configuration choice — on a Singapore Stripe entity that lever is closed. For a $199–$498 annual ticket that is an orchestration argument, not a settings argument.**
+
+⚠️ **This is the one thing most worth confirming at revisit:** if they actually hold a **US** Stripe entity, Klarna/Affirm/Afterpay/ACH/Pix become enablable and this argument weakens considerably.
+
+**🔑 And Stripe has nothing at all for their #3 market.** Grepping Stripe's full support page for `fawry|meeza|valu|vodafone cash|zaincash|fastpay|qi card|instapay|egypt|iraq` returns **0 matches.** **Sogni could not enable a single Egyptian or Iraqi local method on Stripe even if they priced in EGP/IQD.** Reaching Egypt requires a PSP Stripe does not provide.
+
+### 5d. Egypt and Iraq — the most engaged markets with the least viable checkout
+
+Egypt is **#3 at 5.65%, ▲1,223% QoQ, with a 26:38 average session — the deepest engagement in their entire table.** Iraq: 1.53%, ▲848%, 24:03 sessions. **These are not bounce-and-leave markets.**
+
+Their options in Cairo or Baghdad are exactly three: an international-enabled card, Apple/Google store billing, or crypto.
+
+⚠️ **All market context below is `[UNVERIFIED — search summaries, several from payment vendors with a commercial interest, several undated]`. Do not quote any figure without fetching the source.** Egypt: card penetration reported ~3%; cards under a third of online purchases; COD 40–45%; **Meeza — a domestic-only scheme that generally cannot complete a USD cross-border subscription — now reported as more than half of all cards issued.** Published (undated) EG Bank monthly international caps: **Classic $500, Titanium $1,000, Platinum $2,000**, plus a 3% FX markup.
+
+**🔑 The mechanical collision, if those caps are right: a $498 annual Pro authorization hold consumes ~100% of a Classic cardholder's entire monthly international allowance; the $199 hold consumes ~40%.** For most Egyptian cardholders the annual plan is not a hard sell — it is arithmetically impossible.
+
+**And crypto — the one rail that works there — has no trial:** *"Crypto plans are prepaid one-time purchases: they never auto-renew, there is nothing to cancel, and **there is no free trial**."* **Egypt and Iraq get the worst of both: no local rail, a card gate on the free tier, and no trial on the only rail available to them.**
+
+### 5e. No tax configuration anywhere
+
+| Question | Finding |
+|---|---|
+| "VAT" mentioned? | **Zero occurrences** across 9 fetched pages incl. ToS and Privacy |
+| "GST" / "sales tax"? | **Zero** |
+| "merchant of record"? | **Zero** |
+| Tax-inclusive or exclusive? | **Never stated.** All live prices `tax_behavior: unspecified` |
+| What the ToS says | Tax pushed to the customer: *"**You are responsible for accurate billing details and applicable taxes**"* (§5, v2026-08-26) |
+
+A **Singapore** entity selling USD-priced digital subscriptions to German, Italian and UK consumers (**8.11% of traffic**), with no VAT registration referenced anywhere and prices not configured for tax calculation. ⚠️ **This is not a finding of non-compliance** — they may hold an unpublished OSS registration, and the Session-level tax config was not visible. But it is the textbook trigger for a merchant-of-record or tax layer, and a credible non-salesy opening with finance rather than growth at revisit.
+
+### 6. USD-only, zero local rails, across 29% APAC traffic
 
 **Currency census, verified in `dash.js`: `"USD"` 4, `"usd"` 7 — and ZERO INR, IDR, EUR, GBP, AUD, PHP, VND, THB, MYR, BRL, EGP.** Formatters hardcoded `en-US`. No currency switcher, no geo-pricing.
 
@@ -133,7 +220,7 @@ Their own FAQ: *"Apple and Google show **localized** subscription prices that ma
 
 **Across eight APAC markets making up 29.10% of traffic — India, Indonesia, Malaysia, Philippines, Vietnam, Thailand, Australia, Pakistan — the local-rail count is ZERO.** Basis: three large fetched pages plus the complete **210-URL `docs.sogni.ai` sitemap**, whose entire `/pricing/` branch is `apple-subscription-refunds`, `cancel-unlimited-subscription`, `cancellation-and-refund-policy`, `fair-use-queue`, `google-play-subscriptions`, `pay-with-crypto`, `unlimited-plan-details`. **Four rails, no fifth.**
 
-### 6. India is a toggle they have not flipped — resolved definitively
+### 7. India is a toggle they have not flipped — resolved definitively
 
 India is **15.32% of traffic, their #2 market, highest audience share in the table at 19.99%**. No UPI, no UPI Autopay, no netbanking, no RuPay, no EMI, no INR price.
 
@@ -147,7 +234,7 @@ India is **15.32% of traffic, their #2 market, highest audience share in the tab
 
 ⚠️ **The RBI e-mandate specifics could NOT be sourced** — `support.stripe.com/questions/rbi-e-mandate-regulations-faqs` served a JavaScript shell. **Do not cite e-mandate rules, thresholds or deadlines from memory in any future outreach.** Pull a current primary source first.
 
-### 7. The 51% formula — payment costs are indexed to supply-side payouts
+### 8. The 51% formula — payment costs are indexed to supply-side payouts
 
 From their July 2026 launch release: *"participating GPU operators accrue **51% of net subscription revenue — calculated after payment fees, taxes and refunds**."* **Confirmed in their own API: `workerSharePct: 51`.** October's operator pool is **$69,766.58**.
 
