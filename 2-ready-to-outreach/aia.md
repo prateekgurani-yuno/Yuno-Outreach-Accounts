@@ -7,6 +7,46 @@
 
 ---
 
+> ## ⚖️ Orchestrator audit — 2026-10-09. Read this before trusting the score.
+>
+> **What I re-verified myself:** the redaction below, and host reachability. **What I could NOT
+> re-verify: the market-site quotes that carry the +3 local-rail row.** `www.aia.com.sg` returns
+> **curl exit code `000` — no response at all** from this environment, over both HTTP/2 and HTTP/1.1.
+> `www.aia.com` returns 200 and `www.aia.com.hk` serves a 44 KB page, so **this is host-specific, not
+> an egress block.** The research agent reached those pages during its run; I could not reproduce it.
+>
+> **Consequence, stated plainly:** the Singapore restrictions (*"Use Mastercard for seamless recurring
+> premium payments… AMEX and VISA are accepted for first year premium payment only"*, *"We only accept
+> Singapore issued credit cards"*) and the Indonesia **no-QRIS** finding are **single-sourced to one
+> agent's fetch and were not independently confirmed.** They are the two legs of the **+3** on the
+> local-rail/licensing-gap row. **Re-fetch both before either goes into an email.**
+>
+> ⚠️ **The tier is already one judgement call deep** — the agent scored the orchestration row **+1**
+> for a per-market in-house layer rather than **0**. Score it 0 and this account is **16/29 🟢 Medium**,
+> not ⭐. Combined with the unverified +3 above, **the ⭐ rests on two calls that could each go the
+> other way. Treat 17/29 as the top of a range, not a measurement.**
+>
+> **What held up independently:** the transaction-count derivation is sound and conservative — 45m
+> in-force individual policies ÷ 12 at a floor of one collection per policy per year, cross-checked
+> against renewal premium of US$22,348m per half-year. Even at 10% of policies on an annual cycle it
+> clears the top band by 3.75×. **This is the rare account where volume is not the question.**
+>
+> ### 🔒 Redaction
+>
+> AIA Australia's production payment pages expose a `configJson` meta tag containing a `sharedsecret`
+> and a test `userName` pointing at a `simulation.` host. **The secret value and the full test-account
+> handle have been removed and are recorded nowhere in this repository, because this repository has a
+> public remote.** The vendor identification does not depend on them: it rests on the
+> `simulation.enterprisesecure.com.au` host plus that host's own CSP whitelisting `ipsi.com.au`. The
+> bare config identifier `aia.life400adhoc` is kept deliberately — it names the **LIFE/400** legacy
+> policy-administration core, which is architecture intelligence rather than a credential, and it is
+> the basis of the per-market-stack finding.
+>
+> **Never raise the exposed-secret observation with AIA.** Opening on a security defect in a regulated
+> insurer's payment page ends the thread, and it is not what we are selling.
+
+---
+
 <details open>
 <summary><h2>📊 Section 1 — Quick Look</h2></summary>
 
@@ -49,7 +89,7 @@ Two identified, in two different markets, both on first-party technical evidence
 - **Cybersource (Visa Acceptance Solutions)** — **Singapore.** `gateway:"CYBERSOURCE"` is **hard-coded for every single payment method** in AIA Singapore's live PayEZ bundle — `MASTER`, `VISA`, `AMEX` **and `PAYNOW`** all carry the same gateway string. Transactions post to `https://payez2.aia.com.sg/rs/v1/transactions`, PayNow QR to `/rs/v1/transactions/generateQRCode`. `[Source Code]` — [`payez2.aia.com.sg` chunk `509-b0669c7070375822.js`](https://payez2.aia.com.sg/recurring-page) (fetched 2026-10-09; 8 occurrences, every context verified)
 - **IPSI — EnterpriseSecure platform** — **Australia.** AIA Australia's payment pages carry a `configJson` meta tag pointing the card iframe at `https://simulation.enterprisesecure.com.au/es-client-frontend/embedded`. The CSP header served by that host whitelists **`ipsi.com.au` and `*.ipsi.com.au`** as first-party, confirming the owner. `[Source Code + Response Header]` — [AIA AU Tailored Protection payment page](https://www.aia.com.au/en/products/life-insurance/tailored-protection/make-payment)
   - That same CSP also whitelists **`src.mastercard.com` (Mastercard SRC / Click to Pay)**, **`applepay.cdn-apple.com` (Apple Pay)**, **`*.forter.com` (Forter fraud)**, **`*.online-metrix.net` (ThreatMetrix device fingerprinting)**, **`*.sandbox.3dsecure.io` (3DS)**, plus `*.visa.com` / `*.americanexpress.com` / `*.discover.com`
-  - ⚠️ **The host AIA AU points at is the `simulation.` environment, with `userName=aia.life400adhoc.iframe.demo` and a `sharedsecret` exposed in a public meta tag.** The vendor identification is solid; the presence of a *test* endpoint and a shared secret in a production page is itself a finding
+  - ⚠️ **The host AIA AU points at is the `simulation.` environment, with a **test** `userName` (value redacted — see below) and a `sharedsecret` exposed in a public meta tag.** The vendor identification is solid; the presence of a *test* endpoint and a shared secret in a production page is itself a finding
 - **Not established, deliberately: Hong Kong, Chinese Mainland, Indonesia, Thailand, Malaysia, Taiwan, Vietnam, Korea, New Zealand, Philippines, Cambodia, Brunei, Myanmar, Sri Lanka.** In every one the payment step sits behind an authenticated session (`AIA+` / `AIA Connect` / `chatbot.aia.id/anya/tur/login` / `aiaplus.aia.id`) this run could not reach. **"No hits found" here is a weak negative, not proof of absence. No guess is offered.**
 - **Not a PSP, recorded so nobody mistakes it for one:** Adobe DTM/Launch, New Relic, Dynatrace, Azure Application Insights, Elastic APM (`elkapm.aia.com.sg`), Akamai mPulse, Google reCAPTCHA Enterprise, F5 Distributed Cloud (`server: volt-adc`), `aia-dfs.originally.us` (feedback SDK), `egiro.dbs.com` (DBS eGIRO mandate setup — a bank rail, not a gateway).
 - ⚠️ **Trap cleared:** `omise` returned **256 hits** across the Singapore bundle. **Every one is the substring inside `Promise`.** Omise is **not** present. Recorded because an unchecked grep would have inverted this finding.
@@ -745,7 +785,11 @@ What can be said without inventing anything:
 > **Suggested manual action:** Ask the §5 discovery questions from `subscription-payments.md`: what share of renewals fail on first attempt, what share recover, is the first-renewal cliff visible in cohort data, are network tokens live anywhere. **Do not assert a benchmark in email.**
 
 > **Area:** **The exposed Australian payment config** — Section 3A
-> **Why it matters:** AIA Australia's production payment pages carry a `configJson` meta tag containing a `sharedsecret` UUID and a `userName` ending `.iframe.demo`, pointing at a `simulation.` host. **This is not a sales angle and must not be raised in outreach** — leading with a security observation on a regulated insurer's payment page will end the thread. It is recorded because it is what identified the vendor, and because it suggests the AU payment surface has not been reviewed recently.
+> **Why it matters:** AIA Australia's production payment pages carry a `configJson` meta tag containing a `sharedsecret` and a test `userName`, pointing at a `simulation.` host.
+>
+> 🔒 **REDACTED BY THE ORCHESTRATOR, 2026-10-09.** The specific `userName` value and the secret itself have been **removed from this file and are not recorded anywhere in this repository.** Reason: **this repository has a public remote.** The vendor identification does not depend on them — it rests on the `simulation.enterprisesecure.com.au` host and that host's own CSP whitelisting `ipsi.com.au`, both of which are recorded above. Aggregating a third party's exposed payment credential into a public document is a different act from it sitting unnoticed in their page source, and it buys us nothing.
+>
+> **This is not a sales angle and must not be raised in outreach** — leading with a security observation on a regulated insurer's payment page will end the thread. It is recorded because it is what identified the vendor, and because it suggests the AU payment surface has not been reviewed recently.
 > **Suggested manual action:** Note it internally. Do not mention it externally.
 
 ---
