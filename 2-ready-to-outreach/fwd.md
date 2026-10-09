@@ -433,3 +433,409 @@ Note carefully: **the only PayNow usage I could verify from a fetched FWD page i
 > **MANUAL:** Use a VPN and a real policy to verify checkout APMs in Hong Kong, Thailand and the Philippines. Hong Kong first — confirming there is genuinely no card checkout, and no Octopus, AlipayHK or WeChat Pay HK, is the highest-value single verification in this report.
 
 ---
+### Section 5: Payment Issues & Customer Complaints
+
+**Source: public Apple App Store review RSS feeds for FWD Omne** (track id 1621673678, seller *FWD Group Management Holdings Limited*), 8 storefronts (ph, th, id, vn, my, jp, sg, hk), 310 most-recent reviews scanned. **24 mention payment**; ~10 describe an actual payment failure. Date range Jan 2024 – Aug 2026. Frequency assessed **moderate**.
+
+| Issue Type | Platform | Frequency | Date Range | Source URL |
+|---|---|---|---|---|
+| **Card charged by bank but recorded as failed by FWD** — *"i tried to pay my premium using this app with my card it was unsuccessful due to system error but my bank acknowledge that my payment was successfully push through. It so hassle to coordinate between my bank and FWD."* (1★, v64.0.0) | App Store PH | Isolated but severe | 2026-06-23 | https://itunes.apple.com/ph/rss/customerreviews/id=1621673678/sortby=mostrecent/json |
+| **Card-on-file update silently ignored** — *"Change of Payment Doesn't Take Effect. I already change the payment method of my policy. I change the card to be use for recurring payment but the payment was still charge to the previous card. I don't know what happen but they should have message me or email me if the card change was not accepted"* (3★, v63.0.5) | App Store PH | Moderate (recurs in JP too) | 2026-04-21 | Same |
+| **Cannot pay at all near the due date** — *"Blank white screen. After entering verification code, it leads nowhere. My policy is almost due, i cant pay because i cant proceed with the app"* (1★, v19.0.1) | App Store PH | Isolated | 2023-08-17 | Same |
+| **Amount paid ≠ amount applied to the policy** — *"เงินหาย: สมัครครั้งแรกจ่าย 2 พัน แต่ตัดเข้ากรรมธรรม 1 พัน จบยกเลิก"* ("Money gone: paid 2,000 on first signup but only 1,000 was applied to the policy — cancelled") (1★, v64.4.0) | App Store TH | Moderate | 2026-08-24 | https://itunes.apple.com/th/rss/customerreviews/id=1621673678/sortby=mostrecent/json |
+| **Premium paid doesn't match the app** — *"ค่าเบี้ยทึ่จ่ายไปจริงกับที่ขึ้นในแอปไม่ตรงกัน"* ("the premium I actually paid doesn't match what shows in the app") (2★, v64.2.0) | App Store TH | Moderate | 2026-07-26 | Same |
+| **False "success" on a card charge** — *"หักบัตรเครดิตงวดสุดท้ายไปแล้ว ใน omne ขึ้นสำเร็จ แต่ในแอปบัตรเครดิตไม่มียอดตัดบัตร สรุปคือจ่ายยัง? ถ้ายังอยู่ในขั้นดำเนินการก็ไม่ควรขึ้นว่าสำเร็จ"* ("The final credit-card deduction went through, Omne shows success, but there's no charge in my credit-card app. So did it pay or not? If it's still processing it shouldn't say success") (1★, v62.1.1) | App Store TH | Moderate | 2025-11-17 | Same |
+| **Card-expiry / card-change flow unusable** — four separate 1★ Japanese reviews. *"クレジットカード変更しようとして、アプリダウンロードしたけど反応遅いし、結局開かないし、クレジットカード変更出来ない。webから出来るようにしてほしい"* ("Downloaded the app to change my credit card — slow, never opens, can't change the card. Please let us do it from the web"). *"クレジットカードの期限変更のためだけに、非常に手間がかかりました"* ("Enormous hassle just to change my card expiry date"). *"カードの支払い変更したいのにできない、という事は、いざ保険請求したいときなんて、できないという事？"* ("I want to change my card payment and can't — so when I actually need to claim, will that fail too?"). *"ウェブでできなくなってるわ、アプリもポンコツだわ... 他の保険会社はウェブで簡単にできた"* ("You can't do it on the web any more, and the app is junk... other insurers let me do it easily on the web") | App Store JP | **High within the Japanese cohort** | 2024-01-14 → 2024-11-30 | https://itunes.apple.com/jp/rss/customerreviews/id=1621673678/sortby=mostrecent/json |
+| **FWD confirmed and then suspended its own card-change flow for a defect** — *"その後WEBページのほうを確認したら、一部の手続きで変更がされない不具合があったためアプリの手続きを停止してる旨のアナウンスがありました"* ("Checking the web page afterwards, there was an announcement that app procedures had been suspended because of a defect where some changes weren't being applied") (3★, later amended) | App Store JP | — | 2024 | Same |
+| **Cannot reach the payment function** — *"ไม่สามารถกดเข้าฟังก์ชัน FWD Insurance เพื่อตรวจสอบข้อมูลกรมธรรม์ หรือชำระเบี้ยได้ค่ะ กดแล้วแอพพลิเคชั่นเด้งออกทุกครั้ง"* ("Can't open the FWD Insurance function to check policy details or pay premium — the app crashes every time") (1★) | App Store TH | Isolated | 2026 | Same |
+| **Positive counter-evidence, included for balance** — *"I was ready to cry and spend hours to change my payment method, but I was able to do it in a minute instead. Never happened in all my years in Japan."* (5★, JP). *"It's convenient to change the payment method and quick."* (5★, TH). One Japanese 1★ was amended to 5★ after FWD support resolved an install-time defect. | App Store JP, TH | — | — | Same |
+
+Overall app ratings are good — 4.68 stars on 40,824 ratings in the Thai storefront. The payment complaints are a **minority of a well-liked app**, and the report should say so. But they cluster with unusual precision:
+
+> *"Pattern: three distinct and repeatedly-reported failure modes, each mapping to a named orchestration capability.* **(1) Authorisation-result ambiguity** *— the bank charges the card but FWD records a failure, or FWD shows 'success' with no corresponding card charge (PH 2026-06, TH 2025-11, TH 2026-08). This is what a missing single source of payment truth across providers looks like, and the subscription reference §2 names the fix — a unified view of failed and succeeded transactions across providers rather than per-PSP dashboards.* **(2) Stored-credential update failure** *— a customer changes the card on file and FWD keeps charging the old one, with no notification (PH 2026-04); and in Japan changing an expiring card is reported as near-impossible, with the web route removed and the app route once suspended for a defect. This is precisely the account-updater and network-token gap, and it is the direct upstream cause of the Japanese paper-slip dunning cascade documented in Section 4.* **(3) Reconciliation latency** *— amount-paid/amount-applied mismatches in Thailand, and FWD Singapore maintaining standing help-centre articles titled 'I have already made payment. Why is my policy still showing as unpaid?', 'Why hasn't my insurance payment been updated yet?' and 'How long does it take for my payment to be reflected in my insurance policy?' — the existence of three such articles is itself the finding (`[UNVERIFIED — search summary only, pages not fetched]`, help.fwd.com.sg returns 403)."*
+
+One datapoint FWD publishes that is worth holding against all of the above: its stated **complaint ratio — complaints received per transaction — has been "consistently low at around 0.2 per cent for each year between 2022 and 2025"** ([HKEX FY2025 p.47](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf)). On a collection base of the size implied in Section 12, 0.2% is a large absolute number, and it is a *complaint* ratio rather than a *failure* ratio. Use it as a discovery question — "what does the payments slice of that 0.2% look like?" — not as a stick.
+
+---
+
+### Section 6: Corporate & Payment Strategy Developments
+
+| # | Date | Development | Category | Source URL |
+|---|---|---|---|---|
+| 1 | 2026-09-11 | FWD Group publishes its 2026 interim report for the six months ended 30 June 2026 | Tech Blog / Conference Signal (financial reporting) | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-publishes-2026-interim-report |
+| 2 | 2026-08-26 | **Record H1 2026** — new business sales **US$1.35bn APE (+7%)**, NB CSM **US$996m (+25%)**, OPAT **US$298m (+20%)**, positive contribution from all four reportable segments; **"over 40 million customers across 10 markets"** | Funding / Financial Results | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-reports-record-profit-amid-continued-growth |
+| 3 | 2026-06-02 | **Jeffrey Woo appointed President Director of PT FWD Insurance Indonesia**, following approval from the Financial Services Authority (OJK) | Leadership Change | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-appoints-Jeffrey-Woo-as-President-Director-of-FWD-Indonesia |
+| 4 | 2026-05-18 | **Mark Bensman appointed Chief Officer, FWD High Net Worth**, effective 25 May 2026 — 25+ years in life insurance, previously Chief Distribution Officer at **Manulife** for 18 years building their HNW business | Leadership Change | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-makes-key-hire-for-its-high-net-worth-business-Mark-Bensman-to-join-as-Chief-Officer-FWD-High-Net-Worth |
+| 5 | 2026-04-30 | **Q1 2026** — new business sales **US$720m APE (+4%)**, NB CSM **US$556m (+18%)**, **11 new products** introduced around the region | Financial Results | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-reports-strong-first-quarter-new-business-update-adding-to-its-consistent-track-record-of-financial-performance |
+
+Also material, slightly older:
+- **2025-07-07 — HKEX main board listing, stock code 1828.** ~91.34m shares at HK$38.00, gross proceeds ~HK$3.5bn (~US$445m), ~7.19% of post-offering share capital. Cornerstone investors included Mubadala Capital and a T&D Holdings subsidiary. Confirmed in the FY2025 results narrative: *"we began trading as a publicly listed company, following our July 2025 initial public offering."* ([HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+- **2025-12 / 2026-02 — index inclusions.** Added to the **Hang Seng Composite Index** and the Stock Connect eligible-securities list (Dec 2025), and the **MSCI Hong Kong Small Cap Index** (Feb 2026). ([HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+- **2025-12 — FWD Omne embedded inside SCB Easy**, the banking app serving 15m+ SCB customers in Thailand, delivered in a six-month window, with *"similar integration models... being deployed across other bank and ecosystem partners."* ([HKEX FY2025 pp.41, 46](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+- **2025 — FWD Cambodia × True Money (Cambodia) Plc** premium-payment and distribution partnership. ([HKEX FY2025 p.34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+- **2025 — over 30 ecosystem partners** for digital commerce, *"including but not limited to HKT, Traveloka, yuu and GCash."* ([HKEX FY2025 p.43](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+- **2025-12-01 — PT FWD Insurance Indonesia Syariah incorporated.** A new licensed Indonesian entity, which in Malaysia's precedent (Takaful vs conventional) means a **separate portal and separate biller codes**. ([HKEX FY2025, note 34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+
+**Public payment-related RFP:** *No public payment-related RFP found.*
+
+**Payment-related hiring:** 9 roles mention "payment" in FWD's Workday careers site; **none is a payment-infrastructure role**, and a search for "payment gateway" returns 0 results. The closest is *Senior Manager, Backend Technology Delivery* (Hong Kong – Taikoo Shing Group Office, posted 2025-09-02), which is **claims**-platform modernisation: *"supporting the modernization of claims platforms... Conduct end-to-end assessments of the system lifecycle—from notification to payment."* That is claims payout, not premium collection. Note also the stale boilerplate in that posting — *"approximately 34 million customers"* — against the ~40m in the August 2026 release.
+
+**Licence applications:** none found. **Deliberate negative worth stating explicitly:** searches of the 249-page FY2025 results for `payment service`, `e-money`, `payment gateway`, `autopay`, `direct debit`, `credit card` and `payment method` returned **zero** hits for every payment-licensing term. The only licence language in the whole document concerns insurance and takaful licences. This is the primary evidence for the Phase 0 verdict recorded in the ICP breakdown.
+
+**Market expansion:** none in the last 12 months. Still 10 markets. The HNW build-out (FWD Private across Hong Kong, Singapore, Bermuda, with broker distribution into Dubai and Switzerland) extends collection geography without adding insurance entities.
+
+---
+
+### Section 7: Payment-Specific News
+
+| # | Date | Headline/Summary | Relevance | Source URL |
+|---|------|------------------|-----------|------------|
+| 1 | Effective **2026-07-01** | **REMOVAL — FWD Thailand discontinues premium payment via Advance mPAY Company Limited** | A live provider removal in a market generating US$2,621m TWPI. Site-wide notice: *"We would like to inform you that the premium payment service via Advance mPAY Company Limited will be discontinued effective 1 July 2026. You may continue paying your insurance premiums through the alternative payment."* A rail migration already in flight is the cleanest possible opening. | https://www.fwd.co.th/en/support/premium-payment/cc/ |
+| 2 | View date **2026-07-27** | **FWD Singapore "Important Payout Update" — PayNow becomes the preferred claim and policy-benefit payout method**, *"with immediate effect"*; customers told to ensure PayNow is linked to their NRIC/FIN | Disbursement-side modernisation in a top-3 traffic market, in the same year collection remains on GIRO and bank transfer. Shows appetite for rail change; shows it happening payout-first. | https://www.fwd.com.sg/travel-insurance/ |
+| 3 | **2025-12** | **FWD Omne integrated inside SCB Easy** (15m+ SCB customers) in a six-month build; *"similar integration models are being deployed across other bank and ecosystem partners"* | Embedding servicing — and therefore collection prompts — inside third-party banking apps multiplies the number of contexts a payment has to succeed in. Each new host is a new integration under the current model. | https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf |
+| 4 | **2025** | **FWD Cambodia × True Money (Cambodia) Plc** — premium payment via the TrueMoney Wallet app and at TrueMoney agent locations nationwide | A wallet rail signed market-by-market in the one market with no web payment page at all. The pattern this report documents, in miniature. | https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf |
+| 5 | **As at 2026-04-15** | **FWD Japan maintains a seven-app barcode slip-payment list** — PayPay, d払い, au PAY, 楽天ペイ, ゆうちょPay, PayB, FamiPay, with per-app caps (≤¥300,000; FamiPay <¥50,000) | Seven wallet integrations maintained **as a failure-recovery channel**, not as a primary rail. The dated list implies ongoing maintenance of each. | https://www.fwdlife.co.jp/support/cashless-payment/ |
+
+> **REMOVAL: FWD Thailand reportedly discontinued the premium payment service via Advance mPAY Company Limited as of 1 July 2026. Source: https://www.fwd.co.th/en/support/premium-payment/cc/**
+
+Also noted, and older: **FWD Singapore launched electronic claims payouts via PayNow with DBS Bank in June 2018**, replacing claims cheques, capped at S$200,000 per transaction ([source](https://hnworth.com/article/invest/insurance/fwd-insurance-launches-electronic-claims-payments-via-paynow/)). Eight years of PayNow on the payout side is useful context for the July 2026 payout update — and a reminder that FWD's payout rails have modernised faster than its collection rails.
+
+---
+
+### Section 8: Checkout Experience Audit
+
+**Scope note.** FWD sells insurance; "checkout" here means the **premium-payment surface** available to a policyholder, which in eight of ten markets sits behind an authenticated policy-servicing login or inside the FWD Omne mobile app. `eservices.fwd.com.hk` returns HTTP 403; `help.fwd.com.sg` returns 403 behind Cloudflare; the FWD Omne in-app payment flows cannot be reached without a live policy. **Full checkout flow not accessible. Findings below are limited to publicly observable elements** — the published payment pages, their embedded CMS payloads, the shipped JavaScript of the two reachable payment portals, and HTTP response headers.
+
+| Dimension | Finding | Quality | Notes |
+|-----------|---------|---------|-------|
+| Checkout type | **Custom-built, per market, no common component.** Six+ distinct surfaces on five hostnames across three web stacks (Contentstack+Next.js ×9 markets, bare static Next.js for Cambodia, WordPress for Singapore). | **Poor** (as a group), Fair per market | The clearest observable signal of the absent orchestration layer |
+| Guest checkout | **Policy number + date of birth only** in the Indonesia FWD Pay Portal — no account creation needed. Philippines portal similar. Hong Kong and Japan require full eServices/app login for most actions. | Good (ID, PH) / Fair (HK, JP) | Low-friction where it exists |
+| Steps to complete payment | Indonesia autodebit registration: portal login → add card → **redirect to AyoConnect** → bank-dependent confirmation → *"your next renewal premium payment will be debited using the related card"* — i.e. **the mandate is not live for the current cycle**. Hong Kong autopay: **~2 months to process**. Macau autopay: **2 months plus two months' premium prepaid**. Thailand card autopay: **apply ≥10 working days before the due date**. | **Poor** | A policyholder in payment trouble cannot fix it in the current cycle in HK, MO or ID |
+| Card input experience | **Indonesia: card fields post to FWD's own domain** (`form-action 'self'`, `connect-src 'self'`) — no PSP iframe, no hosted field. Philippines: server-fetched gateway URL then redirect (`GET_EPF_PAYMENT_URL`). Hong Kong, Macau, Japan: **no web card entry at all** — card is registered by form, by post, by app QR code, or not at all. | Poor (ID, on PCI grounds) / Not applicable (HK, MO, JP) | See Section 9 |
+| Payment methods visible | 3 (Indonesia) to 9 (Thailand). **Hong Kong: 8 methods, none of them a one-off card.** | Fair, highly uneven | The variance *is* the finding |
+| Location-based method display | **None.** Methods are hard-coded per market domain; there is no geo-adaptive method list anywhere. A Mainland Chinese visitor on `fwd.com.hk` — 13.47% of combined traffic — sees the Hong Kong method set, full stop. | **Poor** | Direct consequence of the per-market architecture |
+| Instalment / EMI options | **Not found in any market.** Malaysia offers the reverse — "Future Premium Payment", paying *in advance*, by phone call. Thailand and Japan, both instalment-heavy card markets, show no premium instalment option. | Poor | Low relevance for life premium, but a real gap in Japan's bonus-payment culture |
+| 3DS implementation | **Not detected.** No 3DS, ThreeDS, Cardinal or equivalent signature in any reachable bundle. **Japan is the one market with an explicitly documented authorisation step** — a validity check ("オーソリ") before each recurring charge since June 2022. | Not established | Any claim about Japan's EC 3DS requirements must be sourced live; none is made here |
+| PCI indicator | **Indonesia: self-hosted card fields on FWD's own origin** (`form-action 'self'`). Philippines: server-side gateway handoff. Elsewhere: no card entry surface. **No PSP iframe or hosted-field pattern observed in any market.** | Poor (ID) | See Section 9 |
+| Mobile responsiveness | **`fwd.com.hk` is 77.17% mobile web** and FWD's strategy is explicitly mobile-first (FWD Omne, 91% digital new-business submission). Yet Japanese reviewers report the **web** card-change route was *removed*, forcing app-only, and the app route was itself suspended for a defect. | Fair, with a documented regression | Mobile-first that removed the web fallback and then broke the app path |
+| Multi-currency / local pricing | **Hong Kong supports eight policy currencies** — HKD, AUD, CAD, EUR, GBP, RMB, SGD, USD — with FWD-published exchange rates; HKD policies take HKD only, the rest take policy currency or HKD. Macau takes cash in USD/HKD/MOP/RMB, RMB only at LUSO Bank. | Good coverage, manual execution | FX is handled by rate tables and branch rules, not at the payment layer |
+| Saved payment methods | Yes, as mandates: HK "Register default payment method" / "Change of payment option" (cash/cheque, bank direct debit, credit-card autopay); ID card-on-file via AyoConnect; MY card in myPortal; JP card registered by QR code on a posted letter. | Fair | **Three app-store reviews report the saved method not updating** (Section 5) |
+| Error message clarity | **Documented as poor by FWD's own customers.** Omne showing "success" with no corresponding card charge (TH); a bank charge recorded as a system-error failure (PH); a card-on-file change that silently didn't apply, with the customer explicitly asking *"they should have message me or email me if the card change was not accepted"* (PH). Japan's failure messaging is a **postcard, arriving weeks later**. | **Poor** | Section 5 |
+
+---
+
+### Section 9: PCI DSS Compliance
+
+| Dimension | Finding | Source |
+|-----------|---------|--------|
+| PCI DSS Level | **Not found.** No PCI DSS level, AoC or SAQ type is published by FWD in any market. The 249-page FY2025 results announcement contains **zero** occurrences of "PCI". | https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf |
+| Card data handling | **Mixed, and at least one market is not SAQ A.** Indonesia's FWD Pay Portal serves `script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'` — **card data is entered into and submitted to FWD's own origin**, with no third-party iframe and no permitted cross-origin XHR. That is the signature of **SAQ A-EP or wider scope**, not SAQ A. The Philippines portal fetches a gateway URL server-side (`GET_EPF_PAYMENT_URL`) and redirects, which is more consistent with a redirect model. Hong Kong, Macau and Japan have no web card-entry surface at all, so their scope sits in back-office and mandate-file handling rather than on the web. | https://www.fwd.co.id/FWDPayPortal/login (response headers) · https://payment.fwd.com.ph/static/js/main.b6800dfd.chunk.js |
+| Recommended Yuno integration | **Hosted SDK / drop-in, market by market, prioritising Indonesia.** Replacing self-hosted card fields with a hosted tokenised component would move the Indonesia portal from SAQ A-EP toward SAQ A and remove FWD's own origin from the card-data path. **Back-to-back API** is the right fit where the collection event is a mandate debit rather than a cardholder-present payment — Hong Kong autopay, Macau autopay, Thailand's two auto-recurring rails, Japan's 口座振替/card modes, and the Philippines' ACA/ADA. | — |
+
+> `[INFERENCE, not confirmed]`: Indonesia's `form-action 'self'` and `connect-src 'self'` directives indicate card data is posted to FWD's own domain rather than to a PSP, which implies FWD carries card-data scope on that flow. This is read off the live CSP header, not from any FWD statement about its PCI posture. **Confirm with FWD before using it in a conversation** — a CSP can be stricter than the actual data path if the card fields are, for example, a PSP script already inlined under `'self'`.
+
+Also relevant: FWD Japan states it changed its card payment system in June 2022 to perform a validity authorisation before each charge *"at the request of the card companies and in line with strengthened security measures"* — evidence of card-scheme-driven change being absorbed market-by-market, at FWD's own cost, in one market at a time ([source](https://www.fwdlife.co.jp/support/credit_payment/)).
+
+---
+### Section 10: Strategic Insights & Outreach Angles
+
+Cross-reference pass performed: traffic (S1) × entities (S2) for the China gate and the Taiwan anomaly; traffic (S1) × methods (S4) for the Hong Kong card absence; methods (S4) × complaints (S5) for the Japan/Philippines credential-update failure; developments (S6/S7) × stack (S3) for the mPAY migration window; competitors (S11) × orchestrator check (S3B) for competitive urgency; billing-channel check (S6, APE mix) for the app-store trap — **not applicable**, FWD bills insurance premium, not IAP.
+
+---
+
+> **Insight #1: Japan's card-failure recovery runs on the postal service, and FWD documented it themselves**
+>
+> **Evidence:** **Section 4 (Japan)** — FWD's own support pages describe a three-stage postal dunning cascade: a postcard after the first decline, an envelope containing a paper payment slip plus a QR code for re-registering a card after the second, and a third letter if the card company reports the card invalid. Arrears are then settled at a convenience store, a post office, or by barcode in one of seven wallet apps, and *"if not paid by the deadline, the policy lapses (失効) or an automatic premium loan is applied"* ([fwdlife.co.jp/support/credit_payment/](https://www.fwdlife.co.jp/support/credit_payment/) · [fwdlife.co.jp/support/cashless-payment/](https://www.fwdlife.co.jp/support/cashless-payment/)). FWD also states it runs a card-validity authorisation before every charge, since June 2022, *"at the request of the card companies"* — so an expired or reissued card fails deterministically. **+ Section 5 (complaints)** — four separate 1★ Japanese App Store reviews, Jan–Nov 2024, describe being unable to change an expiring card: *"Enormous hassle just to change my card expiry date"*; *"You can't do it on the web any more, and the app is junk... other insurers let me do it easily on the web"*; and FWD itself posted a notice suspending the app's change flow for a defect where some changes weren't applied ([itunes.apple.com/jp/rss/customerreviews/id=1621673678](https://itunes.apple.com/jp/rss/customerreviews/id=1621673678/sortby=mostrecent/json)). **+ Section 12** — Japan contributes **US$1,112m of renewal premium a year**, the group's third largest renewal pool, against only US$114m of first-year premium: Japan is almost entirely a renewal book, which is exactly the book this failure mode attacks ([HKEX FY2025 p.106](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf)).
+>
+> **Pain Point:** A routine card reissue — an event with no customer intent behind it whatsoever — starts a recovery process measured in months, costed in printing and postage, dependent on the customer successfully completing two separate actions, and ending in lapse or a policy loan. FWD has engineered a careful, humane, expensive paper process around a gap that is normally closed at the credential layer. Every lapse here is a customer who still wanted the cover.
+>
+> **Yuno Value Proposition:** Network tokens and account updater inside the routing layer, so a reissued or re-expired card refreshes without the customer touching anything and without a per-PSP project — exactly the mechanism the recurring-payments reference names for this cause. Retry sequencing informed by decline code and issuer rather than FWD's fixed next-month re-request. And a single view of failed renewals, so the Japan team sees the failure the day it happens rather than at the next monthly cycle. Nothing here changes FWD's distribution, its bank partners or its product — it operates purely on the credential and the retry.
+>
+> **Best Success Case:** **Garena.** The match is not vertical, it is mechanism: a multi-market consumer business where credentials and local rails have to keep working across many countries under one integration, rather than per-market. *(Publicly referenceable Yuno customer; no published metrics, and none implied.)*
+>
+> **Outreach Angle:** Your own support pages lay out the Japan path when a card declines — postcard, then an envelope with a 払込取扱票 and a QR code for a new card, then konbini or Japan Post or one of seven barcode apps, and lapse if the deadline passes. Given you've been running a pre-charge authorisation since June 2022, I'd guess most of what triggers that is just cards being reissued.
+>
+> **Suggested Subject Line:** The 払込取扱票 path for an expired card
+
+---
+
+> **Insight #2: Hong Kong is 64% of your visible traffic, 77% mobile, and has no card payment**
+>
+> **Evidence:** **Section 1** — Hong Kong is **64.24%** of combined visible traffic (507,296 of 789,646 visits) and `fwd.com.hk` runs **77.17% mobile web** (SimilarWeb, supplied 2026-10-09). **+ Section 4 (Hong Kong)** — FWD's own premiums-and-payments page lists **eight** methods and **not one is a one-off card payment**: FPS by QR scan only and capped at HK$400,000, online-banking bill payment under merchant "FWD LIFE INSUR CO(BERMUDA) LTD" with five bill-type codes, JETCO/HSBC/Hang Seng ATM, PPS merchant code 9130, physical cheques with post-dated cheques refused, cash/cheque/EPS at a branch, Hongkong Post cash under HK$120,000, and autopay — where autopay takes *"approximately 2 months after autopay application"* to process, and card exists only inside it ([fwd.com.hk/en/support/premiums-payments/](https://www.fwd.com.hk/en/support/premiums-payments/)). No Octopus, no AlipayHK, no WeChat Pay HK, no Apple or Google Pay. **+ Section 8** — there is no geo-adaptive method list anywhere in the group, so the method set is fixed by which domain you landed on.
+>
+> **Pain Point:** A policyholder on a phone, at the moment of a premium notice, is offered bank QR codes, merchant and bill-type codes to copy, an ATM, a cheque, a post office, or a two-month mandate application. On the largest market, the highest-mobile market, the one carrying eight policy currencies and the Mainland-visitor book. There is no instant path to pay, and no instant path to cure a failed mandate within the cycle.
+>
+> **Yuno Value Proposition:** One integration that adds the instant rails Hong Kong consumers already hold — card, local wallets, Apple and Google Pay — alongside the bank rails FWD already runs, without rebuilding eServices and without touching the eight-currency policy logic. Hong Kong is also where mandate failure is most expensive to cure, so instant one-off payment is worth more here than anywhere else in the group.
+>
+> **Best Success Case:** **Qatar Airways.** A multi-market, multi-currency collection business operating against a single home entity — the same shape as FWD Hong Kong accepting eight policy currencies from local, Mainland and overseas policyholders. *(Publicly referenceable; no published metrics.)*
+>
+> **Outreach Angle:** Your Hong Kong premiums page lists eight ways to pay — FPS QR, bill payment, ATM, PPS, cheque, branch, Hongkong Post, autopay — and no card. With `fwd.com.hk` running close to 77% mobile web, I'm curious whether that's a deliberate cost position or just the order things got built in.
+>
+> **Suggested Subject Line:** Eight payment methods in Hong Kong, no card
+
+---
+
+> **Insight #3: Two vendors, six portals, five JomPAY codes — and a rail switching off in July**
+>
+> **Evidence:** **Section 3A/3B** — iPay88 named on FWD Malaysia's own payments page, AyoConnect named on FWD Indonesia's page *and* inside the FWD Pay Portal's shipped JavaScript; six+ separate payment surfaces across five hostnames and three web stacks; hand-maintained per-entity biller codes — PPS 9130 (HK), JETCO 105 (MO), seven Thai bank Com Codes, **five JomPAY biller codes split across FWD Insurance Berhad and FWD Takaful Berhad in one country**. All eleven domains, meanwhile, sit behind one standardised CloudFront + volt-adc edge, consistent with FWD's own claim of 99% cloud migration under OneMod ([HKEX FY2025 p.45](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf)). **The edge is unified. The payment layer is not.** **+ Section 7** — FWD Thailand is **retiring Advance mPAY effective 1 July 2026** ([fwd.co.th](https://www.fwd.co.th/en/support/premium-payment/cc/)), in a market generating US$2,621m of TWPI; FWD Omne went live inside SCB Easy in Dec 2025 with *"similar integration models... being deployed across other bank and ecosystem partners"*; FWD Cambodia signed TrueMoney in 2025; and **PT FWD Insurance Indonesia Syariah was incorporated on 1 December 2025** — which, on Malaysia's precedent, means another portal and another biller-code set. **+ Section 6** — Q1 2026 alone introduced 11 new products across the region.
+>
+> **Pain Point:** Every new rail, new ecosystem host, new product and new licensed entity is a fresh point-to-point integration, a fresh biller code, a fresh portal, and a fresh thing to decommission later — which is precisely what the mPAY retirement is right now. FWD has already proved it can standardise infrastructure at group level with OneMod and the cloud migration; payments is the layer that did not get that treatment, and the cost shows up as the marginal cost of every single market initiative.
+>
+> **Yuno Value Proposition:** One integration, one dashboard, provider changes as configuration rather than engineering. The mPAY removal is the concrete case: adding or retiring a rail becomes a switch rather than a release, in each of ten markets, for each of two Malaysian entities and now a third Indonesian one. This is the same argument OneMod already won internally for policy administration — applied one layer down.
+>
+> **Best Success Case:** **Garena.** Many markets, many local rails, one integration — chosen on the fragmentation profile, not on vertical. *(Publicly referenceable; no published metrics.)*
+>
+> **Outreach Angle:** Noticed FWD Thailand is retiring the mPAY premium rail on 1 July. With iPay88 in Malaysia, AyoConnect in Indonesia, five JomPAY biller codes across your two Malaysian entities and a new Syariah entity incorporated in December, I'd expect switching a rail off to be a release rather than a setting.
+>
+> **Suggested Subject Line:** mPAY off on 1 July — how many releases?
+
+---
+
+> **Insight #4: China is your #2 traffic market, the majority of your HK offshore VNB, and you have a representative office**
+>
+> **Evidence:** **Section 1** — China is **13.47%** of combined visible traffic (106,369 visits), and **15.92%** of `fwd.com.hk` specifically (SimilarWeb, supplied 2026-10-09). **+ Section 2** — the audited principal-subsidiaries list contains **no PRC entity**, and FWD's own country selector labels `fwd.cn` a **"China representative office"**. **+ Section 1 / HKEX FY2025 p.31** — *"More than half of FWD Hong Kong & Macau's VNB was achieved domestically"* and *"approximately 44 per cent of offshore VNB from outside of Mainland China"* — so the majority of FWD Hong Kong's offshore new-business value comes from Mainland China. **+ Section 4 (Hong Kong)** — FWD Hong Kong issues policies in **RMB** among its eight policy currencies, and accepts cash in **HKD, USD or Renminbi** at its Insurance Solutions Centres, capped at US$50,000 per customer per year ([fwd.com.hk](https://www.fwd.com.hk/en/support/premiums-payments/)).
+>
+> **Pain Point:** A large and strategically important cohort of policyholders lives in Mainland China, holds policies issued by a Hong Kong entity, often denominated in RMB, and must pay premium **every year for the life of the policy** using Hong Kong rails: an FPS QR code, a Hong Kong bill payment, a Hong Kong cheque, or cash handed over in person at a Hong Kong branch. Acquisition happens once, at a branch visit. Collection happens every year, from a thousand kilometres away, on rails designed for Hong Kong residents.
+>
+> **Yuno Value Proposition:** **Careful positioning required, and this is the honest version.** FWD holds no PRC insurance licence — orchestration cannot and will not create a domestic China collection path for a business with no domestic entity, and anyone who pitches that will be corrected in the first sixty seconds. What orchestration *can* address is the recurring collection experience for Mainland-resident holders of Hong Kong-issued policies: routing, retry and credential handling for cross-border card renewals, and broader instant-rail acceptance against the Hong Kong entity. **Argue the corridor, not the region**, and treat approval rate and completion rate as the metric, not fee.
+>
+> **Best Success Case:** **Qatar Airways** — collection against one home entity from customers spread across many geographies. *(Publicly referenceable; no published metrics.)*
+>
+> **Outreach Angle:** Your FY2025 disclosure puts the majority of FWD Hong Kong's offshore VNB with Mainland customers, and `fwd.com.hk` runs about 16% Mainland traffic. Since FWD's China presence is a representative office, those renewals must be coming back through Hong Kong rails every year — FPS QR, bill payment, or cash at a Solutions Centre.
+>
+> **Suggested Subject Line:** Mainland renewals on Hong Kong rails
+
+---
+
+### Quick Hits: Ready-to-Use Sales Ammunition
+
+**Email hooks (one sentence each):**
+1. Your Hong Kong premiums page lists eight ways to pay — FPS QR, bill payment, ATM, PPS, cheque, branch, Hongkong Post, autopay — and no one-off card, on a domain running close to 77% mobile web.
+2. Your own Japan support pages describe the path when a card declines: a postcard, then an envelope with a 払込取扱票 and a QR code for a new card, then konbini or Japan Post or one of seven barcode apps, and lapse if the deadline passes.
+3. FWD Thailand is retiring the Advance mPAY premium rail on 1 July 2026 — with iPay88 in Malaysia, AyoConnect in Indonesia and five JomPAY biller codes across your two Malaysian entities, I'd guess switching a rail off is a release rather than a setting.
+4. Your FY2025 results put the majority of FWD Hong Kong's offshore VNB with Mainland customers, and FWD's China presence is a representative office — so those renewals come back through Hong Kong rails every year, for the life of the policy.
+5. Hong Kong autopay takes about two months to process and Macau's needs two months' premium prepaid, which means a policyholder whose mandate just failed can't fix it inside the current cycle.
+
+**Cold call openers (conversational, one sentence each):**
+1. "I was reading your Japan support pages — when a card charge fails you post a physical payment slip and the customer settles it at a konbini; is that mostly cards being reissued, or genuinely insufficient funds?"
+2. "Your Hong Kong premiums page has eight payment methods and none of them is a one-off card payment — was that a deliberate cost decision, or just the order things got built in?"
+3. "You're switching off the mPAY rail in Thailand in July — how many releases does retiring a payment rail actually cost you, across ten markets?"
+4. "Malaysia has five JomPAY biller codes across FWD Insurance Berhad and FWD Takaful Berhad, and you've just incorporated a Syariah entity in Indonesia — does that mean a third portal?"
+5. "You got 99% of applications onto the cloud under OneMod — did payments ever get that treatment, or is it still per-market?"
+
+---
+
+### Section 11: Similar Companies & Prospecting Pipeline
+
+#### 11A. Direct Competitors (5–8 companies)
+
+| Company | Website | HQ Country | Est. Size | Overlap Markets | Known PSP/Orchestrator | Source |
+|---|---|---|---|---|---|---|
+| AIA Group | aia.com | Hong Kong | ~$20B revenue (per `apac-tal.csv`, **unverified**) | HK, MO, TH, PH, ID, SG, VN, MY, CN (licensed), + more | **Not established.** AIA Vietnam ran an API-based claims payout with **DBS** — disbursement, not collection. `[UNVERIFIED — search summary only, page not fetched]` | https://www.dbs.com.sg/corporate/insights/case-studies/api-based-insurance-claim-payment-solution |
+| Prudential plc | prudentialplc.com | Hong Kong | Not found | HK, TH, PH, ID, SG, VN, MY, + more | **Not established** | `accounts/apac-tal.csv` (lead list, no source) |
+| Manulife (Asia) | manulife.com | Toronto / Asia HQ Hong Kong | ~$20B Asia segment (per `apac-tal.csv`, **unverified**) | HK, JP, PH, ID, SG, VN, MY, KH | **Not established.** Direct talent link: FWD hired Manulife's Chief Distribution Officer as Chief Officer, FWD HNW, May 2026. | https://www.fwd.com/en/newsroom/press-releases/FWD-Group-makes-key-hire-for-its-high-net-worth-business-Mark-Bensman-to-join-as-Chief-Officer-FWD-High-Net-Worth |
+| Great Eastern | greateasternlife.com | Singapore | Not found | SG, MY, ID | **Not established** | No source found |
+| **MSIG Insurance** | msig.com | Singapore (regional) | Not found | TH, SG, MY, HK, PH, ID, VN | **2C2P — CONFIRMED.** "MSIG Insurance streamlines payments across 20+ branches with 2C2P"; needed *"comprehensive payment channel coverage, secure mobile integration, and the ability to provide installment plans"*; 2C2P became *"the payment backbone for the insurer"* (Thailand). **Gateway, not an orchestrator.** | https://www.casestudies.com/company/2c2p/case-study/msig-insurance-streamlines-payments-across-20-branches-with-2c2p |
+| **Singlife** | singlife.com | Singapore | Not found | SG | **2C2P — CONFIRMED.** Lacked preferred payment methods, had integration difficulties, needed multi-bank instalments; integrated 2C2P's Payment Gateway starting with Amex, later interested in digital wallets. `[UNVERIFIED — search summary only, page not fetched]` | 2c2p.com (via search; page not fetched) |
+| Sun Life Asia | sunlife.com | Toronto / Asia HQ Hong Kong | Not found | HK, PH, ID, VN, MY | **Not established** | No source found |
+| Dai-ichi Life | dai-ichi-life.co.jp | Japan | Not found | JP, TH, VN, ID, KH, MY, AU | **Not established** | No source found |
+
+#### 11B. Industry Peers / Same Vertical (5–8 companies)
+
+| Company | Website | Vertical | Key Markets | Why Similar (Payment Context) | Source |
+|---|---|---|---|---|---|
+| bolttech | bolttech.io | Embedded insurance | 30+ markets, SG HQ | Multi-market premium collection with an explicitly digital-first model; ~$300M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+| Cover Genius | covergenius.com | Embedded insurance | AU HQ, global | Multi-market, API-first collection. ⚠️ **I checked Adyen's own insurance page and Cover Genius is NOT named there — only Clearcover is.** Do not repeat the Adyen–Cover Genius link. | https://www.adyen.com/en_SG/industries/financial-services/insurance |
+| Igloo | iglooinsure.com | Insurtech | SG HQ, SEA | Wallet and telco-partner collection in exactly FWD's SEA markets | `accounts/apac-tal.csv` (**unverified**) |
+| Roojai | roojai.com | Direct insurtech | TH, ID | Direct-to-consumer card and instalment collection in two FWD markets; ~$40M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+| Sunday Insurance | easysunday.com | Insurtech | TH, ID | Same two markets, digital collection; ~$50M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+| Qoala | qoala.app | Insurtech | ID, TH, MY | QRIS / wallet-era collection in three FWD markets; ~$50M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+| PasarPolis | pasarpolis.io | Insurtech | ID, VN, TH | Ecosystem-embedded collection; ~$40M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+| OneDegree | onedegree.hk | Digital insurer | HK | FWD's only digital-native competitor in its largest market; ~$30M est. revenue | `accounts/apac-tal.csv` (**unverified**) |
+
+#### 11C. Companies Recently Adopting Payment Orchestration
+
+| Company | Orchestrator Adopted | Date | Vertical | Source URL |
+|---------|---------------------|------|----------|------------|
+| Star Health Insurance (India) | **Juspay / Hyperswitch** — vendor case study claims multiple PSPs unified, routing on success rate/cost/network conditions, real-time acceptance monitoring, automated reconciliation, mandate support, instalments, and reduced renewal drop-off. **No before/after figures published.** `[UNVERIFIED — search summary only, page not fetched: HTTP 403]` | Not stated | Health insurance | https://hyperswitch.io/case-studies/star-health-insurance |
+| Zurich Insurance | **Juspay Hyperswitch** — a promotional LinkedIn post by a Juspay representative claims Zurich is live across 200+ countries and multiple entities and providers. **Promotional, not a case study.** `[UNVERIFIED — search summary only, page not fetched]` | Not stated | Insurance (global) | LinkedIn (vendor post; page not fetched) |
+| 11 Indian insurers on `apac-tal.csv` | **Juspay** per the TAL's orchestrator column — ACKO, Digit, Galaxy Health, ICICI Lombard, ICICI Prudential Life, IFFCO Tokio, Kotak General, Niva Bupa, Onsurity, Star Health, Tata AIA Life, Zuno | Not stated | Insurance | `accounts/apac-tal.csv` — **a lead list, not a source.** Only Star Health is independently corroborated, and that corroboration is itself unfetched. |
+
+> **No public case study found of a direct competitor in FWD's own ten markets adopting payment orchestration.** Two of FWD's regional competitors (MSIG, Singlife) are on **2C2P**, which is a gateway rather than an orchestrator. The insurance vertical in APAC *is* orchestration-aware — but that awareness is concentrated in **India**, which is not an FWD market. This is why the ICP matrix scores the "competitor using orchestration" row **0**. One genuinely useful consequence: FWD is **early**, not late, among pan-Asian life insurers. That is a better story than catch-up, and it is the honest one.
+
+#### 11D. Prospect Scoring
+
+Applying the same 29-point matrix to the peers above, on **verified signals only**. Most of these rows are sparse because `apac-tal.csv` estimates carry no source.
+
+| Signal | Points | Status | Evidence Source |
+|---|---|---|---|
+| **MSIG Insurance** — multiple PSPs/gateway confirmed | +3 | ✅ 2C2P confirmed as "the payment backbone", Thailand, 20+ branches | https://www.casestudies.com/company/2c2p/case-study/msig-insurance-streamlines-payments-across-20-branches-with-2c2p |
+| MSIG — 3+ countries | +3 | ✅ Regional (SG-HQ'd, multi-market APAC operations) | Same + `apac-tal.csv` |
+| MSIG — orchestration status | +4 | ✅ None detected; 2C2P is a gateway, not an orchestrator → greenfield | Same |
+| MSIG — all other rows | 0 | ⬜ Not researched in this run | — |
+| **Singlife** — multiple PSPs/gateway | +3 | ✅ 2C2P Payment Gateway, started with Amex, wallets of interest. `[UNVERIFIED — search summary only]` | 2c2p.com (not fetched) |
+| Singlife — 3+ countries | 0 | ❌ Singapore only per `apac-tal.csv` | `apac-tal.csv` |
+| Singlife — orchestration status | +4 | ✅ None detected → greenfield | Same |
+| **bolttech / Igloo / Qoala / Roojai / Sunday / PasarPolis / OneDegree** | — | ⬜ **Not scored.** Only unsourced `apac-tal.csv` revenue estimates are available; scoring them would be inventing signals. | `apac-tal.csv` |
+
+#### Top 10 Prospect Pipeline
+
+| Rank | Company | Type | Key Markets | Score | Priority | Top Signal | In TAL? |
+|---|---|---|---|---|---|---|---|
+| 1 | **MSIG Insurance** | Direct competitor | TH, SG, MY, HK, PH, ID, VN | 10+ (partial) | 🟢 Medium+ | **2C2P confirmed as "the payment backbone"** — gateway, not orchestrator; greenfield, and already proven willing to buy payments | ✅ Yes |
+| 2 | **Singlife** | Direct competitor | SG | 7+ (partial) | 🟢 Medium | **2C2P gateway confirmed**; publicly wanted more methods and multi-bank instalments | ✅ Yes |
+| 3 | AIA Group | Direct competitor | HK, MO, TH, PH, ID, SG, VN, MY, CN | Not scored | ⬜ | Same recurring-premium hook at larger scale; stack not established | ✅ Yes |
+| 4 | Prudential plc | Direct competitor | HK, TH, PH, ID, SG, VN, MY | Not scored | ⬜ | Same hook; stack not established | ✅ Yes |
+| 5 | Manulife (Asia) | Direct competitor | HK, JP, PH, ID, SG, VN, MY, KH | Not scored | ⬜ | FWD just hired their HNW distribution lead — a live relationship signal | ✅ Yes |
+| 6 | bolttech | Peer | 30+ markets | Not scored | ⬜ | Embedded, multi-market collection by design | ✅ Yes |
+| 7 | Igloo | Peer | SEA | Not scored | ⬜ | Wallet/telco collection across FWD's SEA markets | ✅ Yes |
+| 8 | Qoala | Peer | ID, TH, MY | Not scored | ⬜ | QRIS-era collection in three FWD markets | ✅ Yes |
+| 9 | Roojai | Peer | TH, ID | Not scored | ⬜ | D2C card + instalment collection | ✅ Yes |
+| 10 | **Great Eastern** | Direct competitor | SG, MY, ID | Not scored | ⬜ | **NOT on `apac-tal.csv`** — a top-3 Singapore/Malaysia life insurer with direct FWD overlap, genuinely missing from the list | ❌ **No — genuine find** |
+
+**Strong prospects not on the list:** **Great Eastern** (Singapore/Malaysia/Indonesia life, direct FWD overlap, absent from `apac-tal.csv`) and, with weaker justification, **Sun Life Asia** (HK, PH, ID, VN, MY — also absent). Both are worth adding.
+
+---
+
+### Section 12: Business Case Data
+
+| Metric | Value | Source / Methodology |
+|--------|-------|---------------------|
+| Annual Revenue (USD) | **Insurance revenue US$2,911m (FY2025)**, up from US$2,724m (FY2024). Note that under IFRS 17 insurance revenue is **not** the premium collected. | [HKEX FY2025, note 6](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) — **fills the blank revenue cell in `apac-tal.csv`** |
+| **Premium cash received (the collection number that matters)** | **US$12,907m (FY2025)**, vs US$9,017m (FY2024) — **+43% year on year** | [HKEX FY2025, note 17 p.125](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| GMV / Gross Transaction Volume | **TWPI US$7,783m (FY2025)**, vs US$6,632m (FY2024). By segment: Hong Kong & Macau 2,903 · Thailand & Cambodia 2,621 · Japan 1,232 · Emerging Markets 1,027. TWPI = 100% renewal + 100% first-year + 10% single premiums, before reinsurance ceded. | [HKEX FY2025, note 5.5 p.106](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| **Renewal premiums — the recurring collection base** | **US$5,431m (FY2025)**, vs US$4,826m (FY2024). Hong Kong & Macau **1,695** · Thailand & Cambodia **2,062** · Japan **1,112** · Emerging Markets **562**. | Same |
+| First-year premiums | **US$1,875m.** HK & MO 854 · TH & KH 549 · JP 114 · EM 358 | Same |
+| Single premiums | **US$4,761m.** HK & MO 3,540 · TH & KH 99 · JP 56 · EM 1,066 | Same |
+| New business sales (APE) | **US$2,446m (FY2025, +25%)**; H1 2026 **US$1.35bn (+7%)**; Q1 2026 **US$720m (+4%)** | [HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) · [FWD newsroom](https://www.fwd.com/en/newsroom/) |
+| Average Transaction Value (USD) | **Not found.** FWD publishes no average premium per policy and no policy count in any document I could reach. | — |
+| Est. Annual Transactions | **Cannot be calculated without an ATV.** See the row below. | — |
+| **Monthly transaction count** | ⚠️ **NOT FOUND — ASSUMED ≥100,000/month. `[ASSUMPTION — not researched.]`** **Basis:** FY2025 renewal premiums of **US$5,431m** and premium cash received of **US$12,907m** are both sourced, but **no average premium and no policy count are published**, so this cannot be derived — it is an assumption. For the renewal pool alone to fall below 100,000 collections per month, the average annual renewal premium would have to exceed **~US$4,526** (5,431m ÷ 1.2m), which is implausible for a book that includes micro-insurance distributed through Bank Simpanan Nasional's rural network in Malaysia and mass-market protection across the Philippines, Indonesia, Vietnam and Cambodia. First-year (US$1,875m) and single (US$4,761m) premium collections sit on top of that. **Billing unit counted: premium collection events, not policies and not customers.** **Premium frequency drives the entire calculation and is not disclosed** — an annual-mode policy bills once a year, a monthly-mode policy twelve times, and the mode mix is unpublished; FWD Philippines states that monthly billing is only available via ACA/ADA bank mandate, which hints that monthly-mode penetration is constrained by mandate enrolment. **Per the disclosure rule, this assumed figure cannot and does not trigger the under-40,000 rejection.** | Sourced inputs: [HKEX FY2025, notes 5.5 and 17](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf). The assumption is mine and is labelled. |
+| **Orchestration-addressable share** | **A minority of the above, and this must be stated in any business case.** FY2025 APE by channel: **bancassurance 37%, brokerage/IFA 37%, agency 19%, others 8%** — where "others" *includes but is not limited to* D2C digital commerce, affinity, employee benefits, direct marketing and telemarketing. Where a bank partner owns the relationship (SCB, VCB, BRI, Security Bank, HSBC Amanah, Alliance Bank, BSN), it frequently owns the debit mandate. The addressable surface is the **renewal-collection and self-service layer**: six market payment portals, FWD Omne in-app payment, card-autopay mandate registration and re-registration, and the wallet/convenience rails. **Sizing this properly requires a discovery call. Do not present US$12.9bn as addressable.** | [HKEX FY2025 p.40](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Active Customers / Users | **Over 40 million across 10 markets (Aug 2026)**, including BRI Life. Progression: ~34m (Workday boilerplate, Sep 2025) → **38m** (FY2025, Mar 2026) → ~40m (May/Jun/Aug 2026). **Discrepancy flagged, not resolved** — see Source Notes. | [FWD newsroom, 26 Aug 2026](https://www.fwd.com/en/newsroom/press-releases/FWD-Group-reports-record-profit-amid-continued-growth) · [HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Distribution scale | **40,000+ agents**; **33 bancassurance partnerships** (7 exclusive in SEA) reaching a partner customer base of **over 350 million**; **~2,800 IFA and brokerage partners**; **30+ ecosystem partners** incl. HKT, Traveloka, yuu and GCash | [HKEX FY2025 pp.40–43](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Primary Currency | **USD reporting.** Collection currencies: HKD, MOP, THB, KHR, JPY, PHP, IDR, SGD, MYR, VND, plus RMB, USD, AUD, CAD, EUR, GBP, SGD as Hong Kong policy currencies. **At least 16 collection currencies.** | [HKEX FY2025, note 34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) · [fwd.com.hk](https://www.fwd.com.hk/en/support/premiums-payments/) |
+| Top 3 Markets by Revenue (TWPI) | **1. Hong Kong & Macau US$2,903m · 2. Thailand & Cambodia US$2,621m · 3. Japan US$1,232m** (Emerging Markets US$1,027m). **Note how badly this diverges from the traffic ranking** — Thailand is 0.32% and Japan 0.35% of visible traffic while together generating US$3,853m of TWPI, because their domains were not in the supplied sample. | [HKEX FY2025, note 5.5](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Billing channel split (web vs app store) | **Not applicable — and checked deliberately.** FWD bills insurance premium through bank rails, mandates, wallets, agents and branches. There is no Apple/Google in-app-purchase billing. The subscription reference §4 app-store trap does not apply, and this account is not at risk from it. | Sections 4 and 6 |
+| Other operating metrics | Operating profit after tax US$499m (+5%); net profit US$166m; CTE US$8.72bn (+18%); group EV US$6.85bn (+19%); solvency ratio 265%; leverage 21.3%; **91% of new business applications submitted digitally** (up from 86%); 73% e-submission rate; end-to-end STP 47% (up from 40%); digital-commerce STU 79% in Hong Kong; **complaint ratio ~0.2% of transactions each year 2022–2025**; 320+ active AI models; 99% of applications on cloud | [HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+
+---
+### Overall Research Confidence
+
+**High** — with two specific, named exclusions.
+
+**Traffic data was SUPPLIED**, not API-sourced and not estimated: `accounts/traffic/fwd.md`, SimilarWeb PRO, Sep 2026, captured 2026-10-09, used verbatim and cited as "SimilarWeb (supplied 2026-10-09)". **But it covers 2 of 11 FWD domains**, and that is the single largest structural limitation in this report. It distorts the country profile badly in a knowable direction: Thailand appears at 0.32% of traffic while generating US$2,621m of TWPI, and Japan at 0.35% while generating US$1,232m. Any conclusion in this report that rests on traffic share — the top-5 markets table, the China gate's position as "#2", the "high traffic outside home" ICP row — carries that caveat. The conclusions that rest on FWD's own payment pages and audited filings do not.
+
+**Strong coverage:**
+- **Section 4 (payment methods) — the strongest section, and the one the brief cared most about.** Nine of ten markets enumerated method-by-method from FWD's own payment pages, fetched and parsed out of the client-side CMS payloads. Cambodia established as having no web payment surface at all, from its own route manifest.
+- **Sections 2 and 12 (entities and financials).** The 249-page HKEX FY2025 annual results announcement is a primary source and was read directly: audited principal-subsidiaries list, TWPI and renewal premiums by geography, premium cash received, APE by distribution channel, customer and distribution counts, the Hong Kong offshore-VNB split.
+- **Section 5 (complaints).** 310 Apple App Store reviews across 8 storefronts, pulled from the public RSS feeds with per-review ratings, dates and app versions. Far better than the thin web-review coverage typical of APAC accounts.
+- **Sections 6 and 7 (developments and payment news).** FWD's own newsroom payload, parsed for dated press releases, plus the Thailand mPAY removal notice read off the live site.
+- **Section 3B (orchestrator classification).** Positive evidence of fragmentation, not merely absence of evidence.
+
+**Limited coverage, and why:**
+- **Singapore premium collection.** `help.fwd.com.sg` returns HTTP 403 behind a Cloudflare challenge in **both** WebFetch and curl. Per the environment protocol I did not retry and did not route around it. SG methods are labelled `[UNVERIFIED — search summary only, page not fetched]`.
+- **Section 8 (checkout audit) is partial by nature,** not by environment: the payment step genuinely sits behind authenticated policy-servicing logins (`eservices.fwd.com.hk` 403) or inside the FWD Omne mobile app in eight of ten markets. This is a property of FWD's architecture, not a gap in the research.
+- **PSP identity in eight of ten markets.** Stated as "not established" rather than guessed. The two that could be named — iPay88 and AyoConnect — were named by FWD itself.
+- **The IPO prospectus could not be retrieved** (English variant 404s, HKEX title-search API 403). This is the biggest single remaining gap, because a prospectus would likely carry policy counts, premium-frequency mix and collection-channel detail — which would convert the monthly transaction count from ASSUMED to DERIVED.
+- **Hong Kong Insurance Authority per-insurer statistics: HTTP 403 in both tools.** Not used as a derivation input.
+
+**No confidence downgrade applied for fetch access** — WebFetch and curl both worked against FWD's own domains and HKEX, and the two 403s (Cloudflare on `help.fwd.com.sg`, Akamai on `ia.org.hk` / HKEX search) are site-specific bot protection rather than an egress-proxy block. Both are disclosed above rather than papered over.
+
+**Trap discipline applied.** `grep -P` was never used. All assets were fetched fresh in this session (scratchpad verified empty of prior-run material; mtimes checked). Client-side-rendered pages were parsed out of `__NEXT_DATA__` rather than from stripped HTML, because a plain text extraction of `fwd.com.hk/en/support/premiums-payments/` returns only the page title — a naive extraction would have reported "no payment methods found" on the single most important page in the report. Every vendor-name substring hit was context-checked before reporting: `omise` → *LifePromise*, `payu` → *payudara*, `stripe` → Chakra `hasStripe`, `doku` → *dokumen*, `bri` → Chakra `brightness` (with one genuine `bankCode==="BRI"`), and the Indonesian GoPay hit → a marketing **voucher**, not a payment rail. Five false vendor attributions avoided.
+
+---
+
+### Manual Research Recommendations
+
+> **Area:** **Monthly transaction count — the only ASSUMED figure in the report.**
+> **Why it matters:** It is the single ICP signal that can reject an account, it drives every business-case number, and it is currently an assumption resting on sourced premium totals rather than a measurement.
+> **Suggested manual action:** Ask on the first call: *how many premium collection events do you process a month, group-wide, and what's the split between annual, semi-annual, quarterly and monthly billing modes?* If a document is preferred, the **IPO prospectus** is the likely source and could not be retrieved here — the Chinese version is at `hkexnews.hk/listedco/listconews/sehk/2025/0626/2025062600018_c.pdf`; locate the English listing document via the HKEX website's own search UI (its API is bot-blocked).
+
+> **Area:** Singapore premium-payment methods.
+> **Why it matters:** Singapore is the #3 traffic market at 8.95%, the fastest-growing domain in the batch is weighted to it, FWD Singapore uniquely holds a **life *and general*** licence, and it is the only market whose collection methods I could not verify from a fetched page.
+> **Suggested manual action:** Open `help.fwd.com.sg/hc/en-us/sections/4409128406937-Payment-methods` in a normal browser — it blocks automated fetches but will load for a person. Confirm whether PayNow is accepted for premium *collection* or only for *payouts*; a July 2026 FWD notice confirms the payout use, and the two are being conflated in search results.
+
+> **Area:** Hong Kong — the absence of a card checkout.
+> **Why it matters:** It is Insight #2 and the second-strongest hook in the report. It rests on the published page, but the actual eServices payment step is behind a login I could not reach.
+> **Suggested manual action:** Get a Hong Kong policyholder — or FWD themselves, in the meeting — to walk the eServices "My Policy → Policy Payment" step. Confirm there is genuinely no card option, and that Octopus, AlipayHK and WeChat Pay HK are genuinely absent. Also capture the acquirer behind "Pay with FPS" while you are in there.
+
+> **Area:** The orchestration-addressable share of premium.
+> **Why it matters:** FWD collects US$12.9bn of premium cash a year and **most of it is not orchestration-addressable** — bancassurance and brokerage/IFA are 74% of APE and bank partners often own the mandate. Overstating this is the fastest way to lose credibility on this account.
+> **Suggested manual action:** Ask directly: *for your bancassurance book, who holds the direct-debit mandate — FWD or the bank?* And: *what share of renewal premium is collected through FWD's own portals and the Omne app, versus through a bank partner or an agent?* Those two answers size the deal.
+
+> **Area:** Japan renewal failure rates.
+> **Why it matters:** Japan is US$1,112m of renewal premium against only US$114m of first-year premium — almost purely a renewal book — and FWD's documented recovery path is postal. This is the strongest insight in the report and it currently has a mechanism but no magnitude.
+> **Suggested manual action:** Ask what share of Japanese recurring charges fail on first presentment, how many end in a posted 払込取扱票, and what share of those recover before lapse. Do not assert a number; earn it. The subscription reference §5 has the full discovery set.
+
+> **Area:** Entity registration numbers, and which entity would hold the relationship.
+> **Why it matters:** Needed for contracting. FWD Group Management Holdings Limited owns the Omne app, while FWD Life Insurance Company (Bermuda) Limited is the merchant of record on the Hong Kong bill-payment and PPS rails, and FWD Financial Limited operates the HK premium-payment page as a licensed agent. Those are three different entities.
+> **Suggested manual action:** Hong Kong Companies Registry, Singapore ACRA/BizFile, Malaysia SSM, Philippine SEC — one lookup each. Then ask FWD which entity would sign.
+
+> **Area:** Great Eastern — missing from the target account list.
+> **Why it matters:** A top-tier Singapore/Malaysia/Indonesia life insurer with direct FWD market overlap, absent from `accounts/apac-tal.csv`. Sun Life Asia (HK, PH, ID, VN, MY) is also absent.
+> **Suggested manual action:** Add both to the TAL and queue Great Eastern for research. Also worth noting: MSIG and Singlife are already on the list and now have **confirmed 2C2P gateway relationships with no orchestration layer** — two warm, well-evidenced greenfield prospects in the same vertical.
+
+---
+
+### Appendix: All Source URLs
+
+**Primary filings and corporate**
+- HKEX FY2025 annual results, FWD Group Holdings Limited, stock code 1828 (249 pp, published 16 Mar 2026): https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf
+- FWD Group newsroom (press-release index): https://www.fwd.com/en/newsroom/
+- H1 2026 record results, 26 Aug 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-reports-record-profit-amid-continued-growth
+- 2026 interim report published, 11 Sep 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-publishes-2026-interim-report
+- Q1 2026 new business update, 30 Apr 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-reports-strong-first-quarter-new-business-update-adding-to-its-consistent-track-record-of-financial-performance
+- Mark Bensman appointed Chief Officer, FWD HNW, 18 May 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-makes-key-hire-for-its-high-net-worth-business-Mark-Bensman-to-join-as-Chief-Officer-FWD-High-Net-Worth
+- Jeffrey Woo appointed President Director, FWD Indonesia, 2 Jun 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-appoints-Jeffrey-Woo-as-President-Director-of-FWD-Indonesia
+- Martin Zingg appointed to the Board, 29 May 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-appoints-Martin-Zingg-to-Board-of-Directors
+- 13th anniversary charitable grants, 14 Aug 2026: https://www.fwd.com/en/newsroom/press-releases/FWD-Group-marks-13-years-with-charitable-grants-benefitting-over-13,000-people-across-Asia
+- ACN Newswire mirror of the FY2025 release, 16 Mar 2026: https://www.acnnewswire.com/press-release/english/105622/
+- IPO prospectus, Chinese version (English variant not retrievable; 26 Jun 2025): https://www.hkexnews.hk/listedco/listconews/sehk/2025/0626/2025062600018_c.pdf
+
+**FWD market domains (country selector source)**
+- Group site, country_link_list payload: https://www.fwd.com/en/
+- Hong Kong: https://www.fwd.com.hk/ · Macau: https://www.fwd.com.mo/ · Thailand: https://www.fwd.co.th/ · Cambodia: https://www.fwd.com.kh/ · Japan: https://www.fwdlife.co.jp/ · Philippines: https://www.fwd.com.ph/ · Indonesia: https://www.fwd.co.id/ · Singapore: https://www.fwd.com.sg/ · Vietnam: https://www.fwd.com.vn/ · Malaysia: https://www.fwd.com.my/ · China representative office: https://www.fwd.cn/ · Bermuda/HNW: https://www.fwdprivate.com.hk/
+
+**Premium payment pages (Section 4 — the core sources)**
+- Hong Kong: https://www.fwd.com.hk/en/support/premiums-payments/ (and the redirecting https://www.fwd.com.hk/en/support/premium-payment/)
+- Macau: https://www.fwd.com.mo/en/support-claims/premium-payment/
+- Thailand: https://www.fwd.co.th/en/support/premium-payment/ · card failure: https://www.fwd.co.th/en/support/premium-payment/cc/ · savings-account failure: https://www.fwd.co.th/en/support/premium-payment/dd/
+- Japan: https://www.fwdlife.co.jp/support/procedure/payment/ · https://www.fwdlife.co.jp/support/cashless-payment/ · https://www.fwdlife.co.jp/support/credit_payment/
+- Philippines: https://www.fwd.com.ph/support/premium-payment/ · portal: https://payment.fwd.com.ph/
+- Indonesia: https://www.fwd.co.id/en/support/premium-payment/ · portal: https://www.fwd.co.id/FWDPayPortal/login · portal bundle: https://www.fwd.co.id/FWDPayPortal/assets/index-Bg68bk3R.js
+- Malaysia: https://www.fwd.com.my/support/payments/
+- Vietnam: https://www.fwd.com.vn/en/support/premium-payment/
+- Cambodia route manifest (no payment routes): https://www.fwd.com.kh/_next/static/wfkH8t8gmtnq7fFBK2Ek72/_buildManifest.js
+- Singapore (403, Cloudflare — unverified): https://help.fwd.com.sg/hc/en-us/sections/4409128406937-Payment-methods
+- Singapore payout update (fetched): https://www.fwd.com.sg/travel-insurance/
+- Singapore advisor portal: https://www.fwd.com.sg/iSmartWeb/ · bundle: https://www.fwd.com.sg/iSmartWeb/main.635392807373b0891aa6.js
+
+**Complaints**
+- FWD Omne App Store review RSS feeds (track id 1621673678), by storefront: https://itunes.apple.com/ph/rss/customerreviews/id=1621673678/sortby=mostrecent/json · and the same path for `th`, `id`, `vn`, `my`, `jp`, `sg`, `hk`
+
+**Careers / hiring**
+- FWD Workday jobs API: https://fwd.wd3.myworkdayjobs.com/wday/cxs/fwd/FWDcareersite/jobs
+- Senior Manager, Backend Technology Delivery (HK, posted 2025-09-02): https://fwd.wd3.myworkdayjobs.com/FWDcareersite/job/Hong-Kong---Taikoo-Shing-Group-Office/Senior-Manager--Backend-Technical-Lead_JR-0024009
+
+**Competitors and vertical**
+- MSIG Insurance × 2C2P: https://www.casestudies.com/company/2c2p/case-study/msig-insurance-streamlines-payments-across-20-branches-with-2c2p
+- Star Health × Juspay/Hyperswitch (403, unverified): https://hyperswitch.io/case-studies/star-health-insurance
+- Adyen insurance page (checked — names Clearcover, **not** Cover Genius): https://www.adyen.com/en_SG/industries/financial-services/insurance
+- AIA Vietnam × DBS API claims payout (unverified): https://www.dbs.com.sg/corporate/insights/case-studies/api-based-insurance-claim-payment-solution
+- FWD Singapore × DBS PayNow claims payouts, June 2018: https://hnworth.com/article/invest/insurance/fwd-insurance-launches-electronic-claims-payments-via-paynow/
+
+**Internal (repository)**
+- `accounts/traffic/fwd.md` — supplied SimilarWeb traffic, 2026-10-09
+- `accounts/apac-tal.csv` — target account list (lead data, unverified)
+- `1-to-outreach/fwd.md` — stub and Prateek's starting hypotheses
+- `.claude/reference/apac-payments.md` · `.claude/reference/subscription-payments.md` — checklists, **not sources**
+
+**Not accessible in this environment (disclosed, not worked around)**
+- `help.fwd.com.sg` — HTTP 403, Cloudflare challenge, in both WebFetch and curl
+- `www.ia.org.hk` per-insurer statistics tables (L5–L11, 2024 and 2025) — HTTP 403 in both tools
+- `www1.hkexnews.hk/search/titlesearchservlet` — HTTP 403, Akamai bot protection
+- English-language IPO prospectus — HTTP 404 at every URL pattern tried
+- `eservices.fwd.com.hk` — HTTP 403, authenticated portal
+
+</details>
