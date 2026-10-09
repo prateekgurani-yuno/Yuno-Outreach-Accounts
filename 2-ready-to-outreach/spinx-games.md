@@ -7,6 +7,56 @@
 
 ---
 
+> ## ✅ Orchestrator audit — independently re-verified 2026-10-09
+>
+> I re-ran the load-bearing checks myself rather than accept them. **All held.**
+>
+> **The storefront discovery method is real and reproducible.** `tpp.spinxbi.com/payment/appcharge`
+> returns a `Content-Security-Policy: frame-ancestors` header enumerating **exactly 21 permitted
+> hosts**. I fetched it and read them off:
+>
+> ```
+> shop.cash-frenzy.com · webtest.cash-frenzy.com · jackpot-world.com · www.jackpot-world.com
+> jackpotworld.spinxvip.com · www.lotsa-slots.com · lotsa.spinxbi.com · dafu.spinxbi.com
+> cash-rally.com · cr.spinxbi.com · cashclubcasino.com · cc.spinxbi.com
+> jackpot-wins.com · jackpotwinscasino.com · jackpotwinscasinoslots.com · www.jackpotwinsslots.com
+> prime.jackpot-crush.com · jc.spinxbi.com · vf.spinxbi.com · http://myfile.bolevpn.com
+> ```
+>
+> 🔑 **The CSP header is the asset map.** Worth reusing as a technique on any merchant that frames a
+> payment page: the `frame-ancestors` list is the merchant's own enumeration of every storefront it
+> owns, and it is served to anyone who asks.
+>
+> **The Cash Frenzy domain correction is confirmed.** `cashfrenzy.com` fails outright (curl exit code
+> `000`, no response). **`shop.cash-frenzy.com` returns HTTP 200.** Earlier attempts reset because the
+> domain is hyphenated.
+>
+> **The split-motion finding is confirmed.** `shop.cash-frenzy.com` is a Nuxt SPA served from
+> `d1cse7lsiayene.cloudfront.net/cash-frenzy/production/`. Its entry bundle scores **`appcharge` ×2
+> and ZERO for `airwallex`, `gash`, `mycard`, `paypal` and `xsolla`.** So the newer storefronts really
+> do bypass the in-house gateway and run Appcharge alone, while the flagship keeps the five-processor
+> stack. **Two different payment architectures inside one company.**
+>
+> ⚠️ **One of my own checks was initially wrong and is recorded here as a method note.** My first
+> Appcharge scan returned zero — because I had grepped `www.cash-frenzy.com` (a 5,191-byte marketing
+> page) rather than the shop's 979-byte SPA shell and its CloudFront bundle. **A zero against the
+> wrong asset is not a negative finding.** Same family of error as the Brotli and stale-scratchpad
+> traps already logged in this repo.
+>
+> ### 🚩 Phase 0 conflict worth acting on, found while cross-checking
+>
+> **`Gamania Digital Entertainment` is on `accounts/apac-tal.csv`** (Gaming, Taiwan, Not Contacted) —
+> and **Gamania owns GASH**, the Taiwanese payment rail SpinX uses. Under the standing ICP rule a
+> company selling payment infrastructure to third parties routes to **Partnerships**, not outreach.
+> **Resolve which Gamania entity is the target before anyone touches that account.** Precedent in this
+> repo: PDAX was rejected on exactly this test while CoinSpot was kept, the question being what a
+> third party can actually buy.
+>
+> **Peer scores the report cites were also checked against the repo and match exactly:** Com2uS
+> **21/29**, Cygames **19/29**, Asiasoft PlayPark **17/29**.
+
+---
+
 <details open>
 <summary><h2>📊 Section 1 — Quick Look</h2></summary>
 
