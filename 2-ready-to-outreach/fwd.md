@@ -7,6 +7,47 @@
 
 ---
 
+> ## ✅ Orchestrator audit — independently re-verified 2026-10-09. **The central claim holds.**
+>
+> I re-fetched `fwd.com.hk/en/support/premiums-payments/` myself (HTTP 200, 103,462 bytes) and
+> confirmed the finding this account rests on.
+>
+> **Hong Kong has no one-off card rail.** The only occurrence of "credit card" in the entire page
+> source is inside the string **`credit card autopay)`**. Card exists *only* as an autopay mandate,
+> which their own page says takes **~2 months to set up**. Rail counts from the full source:
+>
+> | Present | Hits | Absent | Hits |
+> |---|---|---|---|
+> | cheque | 42 | **Octopus** | **0** |
+> | FPS | 22 | **AlipayHK** | **0** |
+> | PPS · autopay | 12 · 12 | **Apple Pay** | **0** |
+> | EPS | 10 | **Google Pay** | **0** |
+> | Hongkong Post | 8 | **WeChat Pay** | **0** |
+> | JETCO | 2 | | |
+>
+> ⚠️ **One hit needed disambiguating and I checked it:** `wechat` returns 8 hits, but all eight are
+> **"Wechat FWD HK official account"** — a social-media link, not a payment rail. **WeChat Pay is
+> genuinely absent.** Recorded because an uninspected count of 8 would have looked like a wallet.
+>
+> ### 🚩 The method note is the most reusable thing in this file
+>
+> **Every FWD market site renders client-side.** Stripping `<script>` and `<style>` from that page
+> leaves **61 characters** — just the page title *"FWD customer support for personal insurance
+> products | FWD HK"*. **All eight payment methods live inside `__NEXT_DATA__`.**
+>
+> 🔑 **A naive text extraction would have reported "no payment methods found" on the single most
+> important page in this report, and the whole account would have read as a greenfield with no rails
+> at all.** This belongs with the repo's other silent-failure traps: `grep -P` returning 0, CloudFront
+> serving Brotli, and stale scratchpad assets. **On a client-rendered site, grep the raw source, never
+> the extracted text.**
+>
+> **What I did NOT re-verify:** the nine other market tables, the Japan postal dunning cascade, and
+> the iPay88/AyoConnect attributions. Those remain as the research agent sourced them. Singapore was
+> already marked `[UNVERIFIED]` by the agent — `help.fwd.com.sg` returns HTTP 403 to both tools — and
+> that label stands.
+
+---
+
 <details open>
 <summary><h2>📊 Section 1 — Quick Look</h2></summary>
 
