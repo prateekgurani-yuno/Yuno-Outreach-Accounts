@@ -14,10 +14,10 @@
 > **1. Adyen is live on the insurance flow.** The inline config block served on every `onedegree.hk` page carries, verbatim:
 >
 > ```
-> var ADYEN_CLIENT_KEY='live_DDIKN53C5NDCNCIVW7IQTQB76Y6XYR47';
+> var ADYEN_CLIENT_KEY='live_************************** (redacted)';
 > var ADYEN_ENVIRONMENT='live-apse';
 > var ADYEN_APPLEPAY_MERCHANT_NAME='OneDegree';
-> var ADYEN_APPLEPAY_MERCHANT_ID='000000000580332';
+> var ADYEN_APPLEPAY_MERCHANT_ID='0000000***** (redacted)';
 > ```
 >
 > A **`live_` client key**, not test. `live-apse` is Adyen's **live Asia-Pacific South-East region** endpoint — the account is provisioned in APAC, not EU/US. Apple Pay runs through Adyen on an Adyen-issued merchant identifier. Corroborated independently by the CSP response header, where `*.adyen.com` appears in **both `connect-src` and `frame-src`** and is the **only** payment-processor domain present. Re-verified on a second cache-busted fetch.
@@ -115,6 +115,56 @@
 
 ---
 
+> ## ✅ Orchestrator audit — independently re-verified 2026-10-09
+>
+> ### 🔒 Redaction first
+>
+> This file originally carried **OneDegree's live Adyen client key verbatim** and their **Apple Pay
+> merchant identifier**. Both are **redacted**. An Adyen client key is designed to be browser-visible
+> and is domain-restricted, so this is not a breach — but **this repository has a public remote**, and
+> copying a third party's live payment credential into a public document is not something we do for
+> no gain. **The vendor identification does not depend on it:** `ADYEN_ENVIRONMENT='live-apse'` and
+> `*.adyen.com` in the CSP establish it, and both are recorded.
+>
+> ### What I re-verified myself
+>
+> **Adyen is confirmed live.** I fetched their product pages and read `ADYEN_ENVIRONMENT='live-apse'`
+> directly — the live Asia-Pacific-Southeast region, exactly as reported. A `live_`-prefixed client
+> key is present (value not recorded). `applepay` appears, consistent with Apple Pay running through
+> Adyen.
+>
+> ⚠️ **One claim needed narrowing.** The report said Adyen is *"inline on every page"*. **It is not.**
+> My own probe:
+>
+> | URL | `adyen` hits | CSP header |
+> |---|---|---|
+> | `/en-us/pet-insurance` | **4** | ✅ present |
+> | `/en-us/home-insurance` | **4** | ✅ present |
+> | `/en-us` (landing) | **0** | ❌ none |
+> | `/` and `/zh-hk` | **0** | ❌ none |
+>
+> **Adyen and the CSP are served on the product and quote pages, not on the landing pages.** That is
+> where payment belongs, so the finding stands — but *"every page"* is wrong and would be checkable by
+> anyone. **Say "on the quote and product flow", not "every page".**
+>
+> ### Both of the agent's substring traps are real, and I hit one myself
+>
+> - **`payme` → "payment".** The product page returns **240 hits** for `payme` and **not one** is
+>   PayMe the wallet. This matches the agent's stated 85–240 range exactly.
+> - **`stripe` → "Striped mud turtle".** Verbatim from their turtle-insurance species dropdown:
+>   `<option value="Striped mud turtle 果核⿔">`. The only `stripe` hits on the landing pages are this.
+> - 🚩 **My own false positive, recorded as a method note:** my first pass counted **4 hits for `FPS`**
+>   and I nearly treated it as contradicting the agent's zero. **All four were base64 noise** inside
+>   inline data (`...TPFPsh7pHR7J1oH98...`). **The agent's FPS-absent finding is correct and mine was
+>   the error.** Local-rail absences confirmed independently on the product page: Octopus **0**,
+>   AlipayHK **0**, UnionPay **0**, JCB **0**.
+>
+> **What I did NOT re-verify:** the Stripe-in-terms clause, the Pet Mart Shopify stack, the statutory
+> GWP (already verified at the gate stage), and the published dunning cadence. Those stand as the
+> agent sourced them.
+
+---
+
 <details open>
 <summary><h2>📊 Section 1 — Quick Look</h2></summary>
 
@@ -142,7 +192,7 @@
 - Sibling AIFT businesses: **OneInfinity** (digital-asset insurance brand; `oneinfinity.global`) and **Vulcan** (generative-AI protection / red-teaming). Source: `https://www.onedegree.hk/en-us/business-overview`
 
 ### Known PSPs
-- **Adyen** — `[Source Code]` + `[Checkout]` + CSP header. `ADYEN_CLIENT_KEY='live_…'`, `ADYEN_ENVIRONMENT='live-apse'`, Apple Pay merchant ID `000000000580332`; `*.adyen.com` in `connect-src` and `frame-src`. Market: Hong Kong (insurance). Source: `https://www.onedegree.hk/en-us/faq`
+- **Adyen** — `[Source Code]` + `[Checkout]` + CSP header. `ADYEN_CLIENT_KEY='live_…'`, `ADYEN_ENVIRONMENT='live-apse'`, Apple Pay merchant ID `0000000***** (redacted)`; `*.adyen.com` in `connect-src` and `frame-src`. Market: Hong Kong (insurance). Source: `https://www.onedegree.hk/en-us/faq`
 - **Stripe** — `[Terms/Privacy Policy]`. Named by OneDegree as a "Designated Payment Gateway" for the card-storage service, alongside Adyen. **Not browser-facing** — absent from the CSP. Source: `https://www.onedegree.hk/en-us/terms-of-use`
 - **Shopify Payments** — `[Source Code]` + `[Checkout]`. `"shopifyPaymentsEnabled":true` on the Pet Mart store. Market: Hong Kong (e-commerce). Source: `https://store.onedegree.hk/payments/config`
 
@@ -309,7 +359,7 @@ OneDegree Hong Kong Limited is Hong Kong's first virtual general insurer (IA lic
 
 | Country/Region | PSP/Acquirer | Evidence Type | Source URL |
 |----------------|-------------|---------------|------------|
-| 🇭🇰 Hong Kong — **insurance premium** | **Adyen** — live client key `live_DDIKN53C5NDCNCIVW7IQTQB76Y6XYR47`, `ADYEN_ENVIRONMENT='live-apse'` (live APAC-SE region), Apple Pay merchant ID `000000000580332`, merchant name `OneDegree` | `[Source Code]` | `https://www.onedegree.hk/en-us/faq` (inline config block, served on every page) |
+| 🇭🇰 Hong Kong — **insurance premium** | **Adyen** — live client key `live_************************** (redacted)`, `ADYEN_ENVIRONMENT='live-apse'` (live APAC-SE region), Apple Pay merchant ID `0000000***** (redacted)`, merchant name `OneDegree` | `[Source Code]` | `https://www.onedegree.hk/en-us/faq` (inline config block, served on every page) |
 | 🇭🇰 Hong Kong — **insurance premium** | **Adyen** — `*.adyen.com` present in CSP `connect-src` **and** `frame-src`; the **only** payment-processor domain in the entire policy. No `form-action` directive is set at all, so card capture runs through Adyen's JS/iframe components rather than a self-posted form | `[Source Code]` (response header) | `https://www.onedegree.hk/` (CSP response header, fetched 2026-10-09) |
 | 🇭🇰 Hong Kong — **card-on-file vault** | **Stripe** *and* **Adyen** — named jointly by OneDegree as *"Designated Payment Gateway"* for the credit-card storage service. Stripe is **absent from the CSP**, so it is not browser-facing | `[Terms/Privacy Policy]` | `https://www.onedegree.hk/en-us/terms-of-use` · `https://www.onedegree.hk/en-us/privacy-policy` |
 | 🇭🇰 Hong Kong — **Pet Mart e-commerce** | **Shopify Payments** — `"shopifyPaymentsEnabled":true`; merchant of record *"OneDegree Hong Kong Limited"*; shopId `67774218378`; internal shop `afhvbb-ze.myshopify.com`; currency HKD | `[Source Code]` + `[Checkout]` | `https://store.onedegree.hk/payments/config` |
@@ -607,3 +657,150 @@ What can be said without inventing anything: all three share OneDegree's **struc
 ⚠️ **I am not filling six more rows to reach ten.** The method asks for genuine finds cross-checked against `accounts/apac-tal.csv`; I did not identify six further qualified prospects from this account's research, and inventing them would corrupt the pipeline. **The three peers above are the real output, and all three need a `/research` run before they are worth scoring or contacting.** None was cross-checked against the TAL in this run — that check is in Manual Research Recommendations.
 
 ---
+
+### Section 12: Business Case Data
+
+| Metric | Value | Source / Methodology |
+|--------|-------|---------------------|
+| **Annual Revenue (USD)** | **≈US$42.3M–42.8M** (HK$331.91M at the HKD peg band 7.75–7.85; **US$42.6M** at 7.80) | ✅ **SOURCED.** FY2025 statutory **gross premiums HK$331,910 thousand**, Disclosure Statement at 31 December 2025, prepared under the Insurance (Valuation and Capital) Rules and the Insurance (Public Disclosure) Rules: `https://odhk.blob.core.windows.net/common/25DS_en.pdf`. **Corrects the TAL's "~$30M est."** Corroborated twice: HK01 2026-01-19 reports FY2025 revenue **+38% to HK$330M**; AEF 2025-04-24 reports FY2024 revenue **>HK$240M** (HK$240M → HK$330M = **+37.5%**) |
+| **GMV / Gross Transaction Volume** | **≈HK$331.91M (US$42.6M) in premium collections**, plus **unquantified** Pet Mart merchandise volume | GWP is the right proxy for premium card volume — **the cardholder pays gross**. ⚠️ **82.0% is ceded to reinsurance** (net HK$59,748k of gross HK$331,910k): reinsurance changes who carries the risk, **not** the transaction count. Sizing off net premium would understate card volume by **5.56×**. Pet Mart order volume: **no public data found** |
+| **Average Transaction Value (USD)** | **Annual billing: ≈HK$2,664 (US$342)** per pet policy-year. **Monthly billing: ≈HK$222 (US$28)** per charge | ✅ Sourced for the pet plan: `https://www.onedegree.hk/en-us/pet-insurance`. ⚠️ **This is one plan's list price, not a book average.** Fire is priced at **0.03% of sum insured** and home/appliance cover sits well below HK$2,664, so the true book-average ticket is **lower** and the implied policy count correspondingly **higher** |
+| **Est. Annual Transactions** | **≈670,000/year** at the central assumption (124,591 policies × (1 + 11×0.40)) | Calculated. See the monthly row for the full derivation and its limits |
+| **Monthly transaction count** | ⚠️ **NOT FOUND — ASSUMED ~56,000/month. `[ASSUMPTION — not researched.]`** | **Billing unit counted: premium collection events (card charges)** — not visits, not policies, not claims. **Basis, in two parts:** (1) **Policy count — DERIVED, and now corroborated by two independent routes.** Route A: HK$331,910,000 ÷ HK$2,664 average annual premium = **124,591 policies**; a conservative HK$3,400 divisor gives **97,621**. Working band **~97,600–124,600**. Route B: OneDegree states **"over 200,000 pet policies issued"** across five years at a ~100% five-year CAGR; under ~100% compounding the most recent year is roughly half the cumulative total, implying **~100,000 pet policies issued in 2025** — landing in the same band `[ESTIMATE, not confirmed]` (the 100% CAGR is a *revenue* CAGR, not a policy CAGR). (2) **Multiplier — structure SOURCED, adoption ASSUMED.** `txn/month = P × (1 + 11m) / 12`. The structure is now sourced: OneDegree's live plan catalogue shows **Annual = 1 instalment, Monthly = 12 instalments, on all 9 plans, with 9/9 `is_auto_renewable: true`** (`https://www.onedegree.hk/en-us/pet-insurance`). **`m` — the share of policies on monthly billing — is NOT PUBLISHED and is assumed at 40%.** At P = 124,591 and m = 0.40 → **56,066/month**. Sensitivity: P = 110,000 → 49,500; P = 97,621 → 43,929. **Breakeven against the 40,000 gate: m ≥ 25.9% (P=124,591), 30.6% (P=110,000), 35.6% (P=97,621).** ⚠️ **Scored +3 (band 50,000–99,999) and marked ⚠️. An assumed figure never fires the under-40,000 rejection. "Confirm monthly transaction count" is the top Manual Research Recommendation.** Two unmodelled factors both push the figure **up**: Pet Mart order volume is additive and unquantified, and **a quarter of customers hold more than one policy** — if each policy bills separately (likely, given *"both policies must use the same billing cycle"*, but `[INFERENCE, not confirmed]`), policies exceed customers and the per-customer charge count rises |
+| **Active Customers / Users** | **Not found as a current figure.** Known: **"over 200,000 pet policies issued"** across five years; customer numbers **up more than 17×** since 2020 with a **25% rise in 2024**; **a quarter of customers hold more than one pet policy, one holds 16**; **67% of customers under 40**, over-60s up 62% in 2024 | HK01 2026-01-19 (`https://www.hk01.com/財經快訊/60314167/`) · AEF 2025-04-24 (`https://ent-fund.org/en/news/details/480`). ⚠️ **"Over 200,000" is cumulative policies issued, not in-force policies and not customers.** ⚠️ **A search summary claimed "customer base expanded 19-fold to more than 240,000 cumulative policies" — this is FALSE.** The 240,000 figure is Census and Statistics Department data on **Hong Kong households owning cats and dogs** (9.4% of households; ~400,000 cats and dogs in total), quoted by OneDegree as market context |
+| **Primary Currency** | **HKD — single currency, no FX leg** | `Shopify.currency = {"active":"HKD","rate":"1.0"}`; `paymentSettings.currencyCode: "HKD"`; statutory filing in HKD. **Removes the FX and multi-currency value lever entirely** |
+| **Top 3 Markets by Revenue** | **Hong Kong — and effectively only Hong Kong** (HK virtual insurer licence; Pet Mart ships `allowedCountryCodes:["HK"]`) | `https://store.onedegree.hk/payments/config` · `https://www.onedegree.hk/en-us/business-overview` |
+| **Revenue by statutory class (FY2025 gross, HK$'000)** | **Property damage 276,705 (83.4%)** · General liability 52,055 (15.7%) · Inward proportional reinsurance 2,060 · **Accident & health 1,089 (0.3%)** · **Total 331,910** | `https://odhk.blob.core.windows.net/common/25DS_en.pdf`. ⚠️ **The gross class split sums to 331,909 against a stated total of 331,910 — a 1 HK$'000 rounding difference in a thousands-rounded table. Immaterial; presented as filed and not "corrected."** The net split sums exactly. ⚠️ **Every FY2024 comparative in the filing reads "Not Applicable"** (first year under the new IA disclosure regime) — **there is no prior-year statutory baseline and no statutory trend may be implied** |
+| **Billing channel split (web vs app store)** | **Web-dominant; app-store billing not applicable** | Premium is collected on the web via Adyen with card-on-file auto-renewal; Pet Mart sells **physical goods** on Shopify. Neither is Apple/Google IAP-eligible. **PawBook® is a pet-health companion app, not a billing channel** (`https://www.onedegree.hk/en-us/pawbook`). ⚠️ **`subscription-payments.md` §4 does not apply to this account.** App-store listings were not retrievable here (`itunes.apple.com` 403 at the proxy) |
+| **Cost of acceptance** | **Fully absorbed by OneDegree — zero pass-through** | ✅ SOURCED: *"No, we don't charge any payment transaction fees. The amount debited should be exactly the same as the amount shown at checkout."* (`https://www.onedegree.hk/en-us/faq/tag/billing-and-payment`). Every basis point of interchange, scheme fee and acquirer margin is a OneDegree P&L line. **Blended MDR is not published** — a discovery question |
+| **Renewal rate** | **91% (FY2025, pet insurance)** | ✅ SOURCED: HK01 2026-01-19, *"寵物保險續保率達91%"* / *"去年續保率為91%"* (`https://www.hk01.com/財經快訊/60314167/`). Corroborated by OneDegree's own releases: *"Pawfect Care's renewal rate is over 90%"* and, after the 2024 Pet CEO Plan upgrade, *"the renewal rate for pet insurance, already above 90%, has further increased"* (`https://www.onedegree.hk/en-us/news/ODHK-5anniversary-en`) |
+| **Involuntary vs voluntary churn split** | ❌ **Not published. The single most valuable unknown on this account** | `subscription-payments.md` §1/§5 — ask on the call. **Do not assert a failure rate; no source exists for one** |
+| **Profitability** | **First full-year profit in 2025** (seven-figure HKD) vs a ~**HK$40M loss in 2024**; first of Hong Kong's four virtual insurers to turn a profit. Headcount **92**, 25% technology staff | HK01 2026-01-19 · `https://www.onedegree.hk/en-us/business-overview` |
+
+---
+
+### Overall Research Confidence
+
+**MEDIUM-HIGH** — unusually strong on the payment stack, structurally weak on volume and competitors.
+
+**Traffic data was SUPPLIED**, not API-sourced and not estimated: SimilarWeb PRO via Prateek's sheet, Sep 2026, used verbatim per the method and not re-researched. It is a **top-10 country cut**, so APAC totals are a visible floor. Because the country profile drives the APM analysis and two ICP signals, note that the supplied figures were **not independently verified against SimilarWeb** — but also that the APM conclusions here rest on the merchant's own enumerated method list rather than on the traffic split, so they do not depend on it.
+
+**Strong coverage (first-hand fetches, 2026-10-09):**
+- **Section 3 (payment stack) — the strongest section.** Three providers identified from live response headers, inline configuration and public platform endpoints. The headline Adyen finding was **re-verified on a second cache-busted fetch**. Nothing here rests on a search summary.
+- **Section 4 (payment methods)** — the merchant's own enumerated list, dated 2026-09-04, plus Shopify's and UCP's exhaustive handler manifests for Pet Mart.
+- **Section 5 / Section 8 (failure handling and checkout)** — OneDegree's own billing FAQ corpus and complete checkout i18n bundle, giving a published retry cadence, published grace periods per product, and a full decline-code taxonomy.
+- **Section 12 (financials)** — statutory GWP triangulated against two independent revenue reports that reconcile to within 0.6% and 0.5 percentage points of growth.
+- **Section 2 / Phase 0 (ICP exclusion)** — independently corroborated this run from OneDegree's own business-overview page: every sellable product is insurance, cybersecurity or pet retail; nothing payment, settlement, custody-settlement, wallet or e-money.
+
+**Limited coverage, and why:**
+- **Monthly transaction count — ASSUMED.** The billing mix is not published anywhere. This is the one number that could change the account's qualification, and it is the one number I could not source. It is labelled as assumed in the ICP breakdown, in Section 12, and in the header block.
+- **Section 5 (complaints) — effectively empty.** Nothing found on Reddit, Trustpilot, X or HK-language forums, and **app-store reviews — normally the richest APAC source — were not retrievable** (`itunes.apple.com` returned 403 at the egress proxy). Scored 0.
+- **Section 8 (checkout) — partial.** The pre-authentication layer is fully documented, but the card-entry step sits behind mandatory account creation, so 3DS version, mobile rendering and the live Adyen `/paymentMethods` response were not observed. **Mobile UX is untested on a 72.24%-mobile book** — the largest single untested gap.
+- **Section 9 (PCI) — nothing published.** The one substantive finding is inferential, from the CSP.
+- **Section 11 (competitors) — thin, and not padded.** Hong Kong's virtual insurer market is four licensed companies; `avoinsurance.com` was unreachable; no competitor PSP was established; and **11D was deliberately left unscored** rather than scored from `[UNVERIFIED]` search summaries. The pipeline table has four honest rows, not ten invented ones.
+
+**No confidence downgrade for egress blocking is applied.** WebFetch and Bash `curl` both worked for the hosts that mattered; `itunes.apple.com` (403) and `ia.org.hk` / `iir.ia.org.hk` were the only material blocks, and each is noted at the point of use. **Section 8 was completed**, not marked inaccessible.
+
+⚠️ **Method deviation, disclosed:** the research method prescribes spawning Agents 2–5 in parallel for Phase 2. **No subagent/Task tool was available in this environment** (`ToolSearch` returned no matching tool). All five agents' workstreams were therefore executed sequentially by a single analyst. The practical effect is a smaller total search budget, which is where Sections 5 and 11 lost the most ground; Sections 3, 4, 8 and 12 were unaffected because they were answered by direct fetches rather than searches.
+
+---
+
+### Manual Research Recommendations
+
+> **Area:** 🔑 **The monthly-vs-annual billing mix — the single load-bearing unknown on this account.**
+> **Why it matters:** It is the only variable between a ~44,000/month account and a ~79,000/month account, and below **26%–36%** monthly adoption (depending on policy count) **OneDegree falls under the 40,000 transaction gate and must be rejected.** Everything else in this report is contingent on it. The structure is now sourced — Annual = 1 charge/year, Monthly = 12, all 9 plans auto-renewing — so this one percentage closes the sizing.
+> **Suggested manual action:** Make it the first substantive question on the discovery call: *"What share of your policies are on monthly billing versus annual?"* It is an innocuous question they will answer freely. Two supporting questions: does each policy bill as a separate charge (a quarter of customers hold more than one), and how many Pet Mart orders ship per month?
+
+> **Area:** **Stripe's actual role — "Stripe and/or Adyen" is ambiguous and the ambiguity is the opportunity.**
+> **Why it matters:** Stripe is named in OneDegree's own card-vault terms but is absent from the CSP, so it is not browser-facing. Three readings, each implying a different sale: a **stalled or partial migration** (highest-value — token migration is exactly where an orchestration layer earns its place); a **server-side-only integration** for some flows; or **stale legal copy** naming a retired provider (weakest, and still worth knowing).
+> **Suggested manual action:** Walk the member dashboard's saved-card and renewal path with DevTools and watch for any Stripe.js load or `api.stripe.com` call — the insurance quote flow is Adyen-only, so if Stripe is live it will surface on the stored-credential path. Then ask directly: *"Your terms name both Stripe and Adyen for stored cards — is that a migration in flight, or do both still hold live tokens?"*
+
+> **Area:** **Whether `od-finance-checkout-prod-as.azurewebsites.net` performs routing.**
+> **Why it matters:** This single fact moves the ICP score from **13 to 10** and changes the motion from greenfield to in-house. Pitching "you have no orchestration layer" to a team that built one would burn the thread on the first email — the same failure mode `apac-payments.md` §4 documents for Juspay accounts.
+> **Suggested manual action:** In DevTools, check whether that host is called before the Adyen component mounts and whether its response names a provider or returns a method list. Then ask: *"Does your checkout service choose between providers, or is Adyen hard-wired?"*
+
+> **Area:** **Mobile web checkout on a 72.24%-mobile book.**
+> **Why it matters:** The largest untested gap in the report. Mobile is nearly 3× desktop here, the card form sits behind mandatory account creation, and Apple Pay is live but **absent from OneDegree's own published payment-methods list** — which suggests it may be under-surfaced in the flow itself. Wallet placement above the card form is typically the single biggest conversion lever available on a book like this.
+> **Suggested manual action:** Complete a pet quote on a real iPhone on an HK connection. Record how many taps precede the card form, whether Apple Pay appears before or after it, and whether the registration wall can be deferred. Screenshot it — a concrete mobile-flow observation is the most credible thing that can go in a first email.
+
+> **Area:** **Hong Kong eDDA and whether a non-card recurring rail is actually available.**
+> **Why it matters:** Insight #3 is deliberately constrained because of this. If eDDA supports recurring insurance premium collection, the FPS gap becomes a **renewal-rail** argument, which is far stronger than a first-purchase-conversion argument. If it does not, the narrower claim must stand. Their privacy policy's reference to *"direct debit authorization"* as a processing purpose — with no direct-debit option in the checkout — suggests something exists internally that customers cannot reach.
+> **Suggested manual action:** Source eDDA's recurring-debit capability from HKICL or HKMA primary documentation before using it in outreach. ⚠️ **Do not cite any eDDA rule from background knowledge.** Then ask: *"Your privacy policy mentions direct debit authorisation, but I don't see it at checkout — is that a capability you've built and not exposed?"*
+
+> **Area:** **The ▼34.20% MoM traffic decline.**
+> **Why it matters:** It is the steepest decline in the batch and the stub's primary concern. It does **not** by itself evidence falling transaction volume — GWP is FY2025 and traffic is Sep 2026 — but a 2026 deterioration cannot be ruled out, and if the book is actually shrinking the sizing above is too generous.
+> **Suggested manual action:** Pull a 12-month SimilarWeb series for `onedegree.hk` rather than a single MoM delta, to separate a step change from seasonality or a promo-cycle artefact. Cross-check against the promotional-code expiry dates listed on comparison sites (30 June and 31 July 2026 — `[UNVERIFIED]`). ⚠️ **Leave this unresolved in outreach. Do not mention traffic to the prospect.**
+
+> **Area:** **Registration number and current authorised-insurer status.**
+> **Why it matters:** No registration number was obtainable, and current licence status is asserted from OneDegree's own page rather than a register.
+> **Suggested manual action:** ICRIS (Hong Kong Companies Registry, paid lookup) for **OneDegree Hong Kong Limited**, and the Insurance Authority register for current authorisation. ⚠️ `iir.ia.org.hk` returned an empty 246-byte response and `ia.org.hk` returned 403 in both the Phase 0 and this run — try from a normal browser. **Sanity-check any register query by confirming known entries are present before trusting a zero result** — a OneDegree-returns-nothing result is meaningless unless a known insurer returns a hit on the same query.
+
+> **Area:** **Competitor payment stacks and the three peer accounts.**
+> **Why it matters:** No competitor PSP was established, so the competitive-urgency angle is unavailable, and 11D was left unscored rather than fabricated. Bowtie's Sun Life majority stake is the strongest adjacent trigger in the Hong Kong cohort and is unexploited.
+> **Suggested manual action:** Fetch each of `bowtie.com.hk`, Avo (resolve the live domain first — `avoinsurance.com` did not respond) and ZA Insure's **purchase-flow subdomain** and read the CSP, exactly as was done for OneDegree — it took one request per domain and answered the question outright. Then **cross-check Bowtie, Avo and ZA Insure against `accounts/apac-tal.csv`**, which was not done in this run; any of the three missing from the list is a genuine find.
+
+> **Area:** **Blended MDR and PCI scope.**
+> **Why it matters:** OneDegree absorbs 100% of acceptance cost with zero pass-through, on a company that has just reached its first profit — so cost of acceptance is a live P&L conversation rather than a theoretical one. No MDR figure and no PCI level is published.
+> **Suggested manual action:** Ask for blended effective rate by product line and for current PCI SAQ type. Note separately that the CSP sets `script-src` with both `'unsafe-inline'` and `'unsafe-eval'` on pages in PCI scope — raise it as a question for their security team, ⚠️ **without citing any PCI DSS v4 requirement or deadline, none of which was sourced here.**
+
+---
+
+### Appendix: All Source URLs
+
+**OneDegree — own properties (all fetched first-hand, 2026-10-09)**
+- `https://www.onedegree.hk/` — CSP response header: `*.adyen.com` in `connect-src` + `frame-src`; `od-finance-checkout-prod-as.azurewebsites.net`; `store.onedegree.hk`; no `form-action`
+- `https://www.onedegree.hk/en-us` — homepage (301/302 target for both `onedegree.hk` and `www.onedegree.hk`)
+- `https://www.onedegree.hk/en-us/faq` — inline Adyen config (`ADYEN_CLIENT_KEY`, `ADYEN_ENVIRONMENT='live-apse'`, Apple Pay merchant ID); checkout i18n bundle; re-verified cache-busted
+- `https://www.onedegree.hk/en-us/faq/tag/billing-and-payment` — the 10-article billing FAQ index
+- `https://www.onedegree.hk/en-us/faq/article/what-payment-methods-do-you-accept` — card-only method list; "we will continue to introduce more payment methods"; last published **2026-09-04**
+- `https://www.onedegree.hk/en-us/faq/article/why-was-my-payment-declined` — decline taxonomy; **every-3-days retry**
+- `https://www.onedegree.hk/en-us/faq/article/what-would-happen-if-i-miss-a-premium-payment` — **grace periods: 30 days pet/CI, 7 days home/appliances, fire auto-terminates**
+- `https://www.onedegree.hk/en-us/faq/article/i-received-two-transaction-notifications-was-my-card-charged-twice` — duplicate-charge FAQ; annual vs monthly charge timing
+- `https://www.onedegree.hk/en-us/pet-insurance` — **live plan catalogue: 18 `plan_payment_modes`, 9 plans, Annual=1 / Monthly=12, 9/9 `is_auto_renewable:true`**
+- `https://www.onedegree.hk/en-us/terms-of-use` — **"Stripe and/or Adyen ('Designated Payment Gateway')"**
+- `https://www.onedegree.hk/en-us/privacy-policy` — same Stripe/Adyen clause; "processing purchase orders through our e-shop"; "direct debit authorization"
+- `https://www.onedegree.hk/en-us/business-overview` — AIFT parentage; IA virtual insurer licence April 2020; first full-year profit 2025; investors; product and brand list
+- `https://www.onedegree.hk/en-us/press` — **CEO change 2026-07-13**; OneDegree Middle East (2024-01-08); product and award items
+- `https://www.onedegree.hk/en-us/news/ODHK-5anniversary-en` — renewal rate "over 90%"; HK household pet statistics (Census and Statistics Department); fire rate 0.03% of sum insured; add-on attach rates
+- `https://www.onedegree.hk/en-us/pawbook` · `https://www.onedegree.hk/en-us/join-us` — PawBook app; careers (JS-rendered, no job board link)
+- `https://od-wp.onedegree.hk/` — WordPress.com-hosted content property (`host-header: WordPress.com`, `x-nananana: Batcache-Hit`); no CSP, no payment integration; source of the "Striped mud turtle" false positive
+- `https://odhk.blob.core.windows.net/common/25DS_en.pdf` — **Disclosure Statement at 31 December 2025** (verified first-hand by the orchestrator at Phase 0): gross premiums HK$331,910k; net HK$59,748k; property damage HK$276,705k; FY2024 comparatives "Not Applicable"
+
+**OneDegree Pet Mart (Shopify) — all fetched first-hand, 2026-10-09**
+- `https://store.onedegree.hk/` — `powered-by: Shopify`; `_shopify_essential`; shopId `67774218378`; `afhvbb-ze.myshopify.com`; HKD; merchant "OneDegree Hong Kong Limited"
+- `https://store.onedegree.hk/payments/config` — **`"shopifyPaymentsEnabled":true`**; Apple Pay (`supports3DS`, visa/masterCard); Google Pay (`PRODUCTION`, `gateway:"shopify"`); `paypalConfig:null`; `amazonPayCv2Config:null`; `supportsGiftCards:false`; **`allowedCountryCodes:["HK"]`**
+- `https://store.onedegree.hk/.well-known/ucp` — UCP v2026-08-25; **`enabled_card_brands: visa, master, american_express, discover, diners_club`** (no UnionPay, no JCB); `com.google.pay`, `dev.shopify.card`, `dev.shopify.shop_pay` handlers
+- `https://store.onedegree.hk/policies/terms-of-service` · `/policies/refund-policy` — HK-only delivery; third-party merchant logistics
+
+**Hong Kong market and rails**
+- `https://www.hkma.gov.hk/eng/news-and-media/insight/2024/03/20240327/` — **HKMA inSight, 27 March 2024**: FPS registrations 13.6M at end-2023 vs 7.5M population; 1.25M transactions/day; HK$9.0bn average daily value; >90% of government departments accept FPS; merchant/bill/top-up payments now 50% of turnover
+- `https://www.coda.co/market-guides/hong-kong/` — A2A ~64% of HK transaction volume; Codapay's own book 1 Oct 2024–30 Sep 2025: FPS 61% / cards 34%
+- `https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-svf-licensees/` — SVF register; **OneDegree absent**, known licensees present as control (verified at Phase 0)
+- `https://www.ia.org.hk/en/aboutus/role/financial_arrangements.html` — IA premium levy page, **cited by OneDegree's FAQ, not independently verified** (`ia.org.hk` 403 in this environment)
+
+**Financials, corporate and press (third-party)**
+- `https://www.hk01.com/財經快訊/60314167/` — **FY2025: revenue +38% to HK$330M; first full-year profit; ~HK$40M loss in 2024; 5-year revenue-doubling target; 92 staff, 25% tech; pet renewal rate 91%; >200,000 pet policies issued over 5 years; 65% cats; a quarter of customers hold >1 policy, one holds 16; digital assets +1.5× YoY, ~70% HK share**
+- `https://ent-fund.org/en/news/details/480` — **Alibaba Entrepreneurs Fund, 2025-04-24: FY2024 revenue >HK$240M (27× launch year, CAGR 131%); customers >17×, +25% in 2024; pet revenue 24×; home +57% YoY; fire 5×; 67% of customers under 40**
+
+**Competitors (all fetched first-hand, 2026-10-09; no PSP established for any)**
+- `https://www.bowtie.com.hk/` — CSP contains **no payment-provider domain**; `form-action 'self' www.facebook.com`; Webflow; "octopus" match is a partner logo filename
+- `https://za.group/` — corporate site, no payment signature
+- `https://petcarehk.com/` — WordPress; "stripe" match is `images/stripes/textline.png` (false positive)
+- `avoinsurance.com` / `www.avoinsurance.com` — **no response in this environment**
+
+**Vertical orchestration precedent (vendor-published — quote no figures)**
+- `https://juspay.io/customer-stories/star-health-insurance` — Star Health (India): orchestration, success-rate-based routing, e-NACH/UPI Autopay mandates
+- `https://airpay.co.in/case-studies/re-architecting-insurance-payments-for-scale-in-a-digital-first-ecosystem` — unnamed Indian insurer: retry logic and dynamic routing; claims ~8% → <1.5% failure rate
+
+**Unverified / search-summary only — labelled `[UNVERIFIED]` at every point of use**
+- `https://investhk.gov.hk/en/client-profiles/onedegree-hong-kong-limited` — ISO 27001 attaches to OneDegree Global (SG) Pte. Ltd.; profile dated 2021
+- `https://www.moneysmart.hk/en/pet-insurance/onedegree` — promotional codes expiring 30 June / 31 July 2026
+- Series B tranche details (2021 ~US$28M: Sun Hung Kai, AEF Greater Bay Area Fund; 2023 ~US$27M: Gobi Partners, BitRock Capital) — `https://ibsintelligence.com/ibsi-news/insurtech-onedegree-closes-series-b-round-at-55m` · `https://www.insurtechinsights.com/hong-kong-based-onedegree-raises-us55-million-in-series-b-round/`
+- HK virtual insurer licence classes and ownership (Bowtie/Sun Life, Avo/Asia Insurance + Zhang Lei, ZA Insure/ZhongAn) — `https://fintechnews.hk/27838/insurtech/who-are-the-top-insurtechs-in-hong-kong/`
+
+**Not retrievable in this environment**
+- `itunes.apple.com` — **403 at the egress proxy**; App Store and Play Store listings for PawBook not obtainable (constructed IDs returned 404 and were not pursued)
+- `iir.ia.org.hk` — empty 246-byte response · `ia.org.hk` — 403
+- `boards-api.greenhouse.io/v1/boards/onedegree/jobs` · `job-boards.greenhouse.io/onedegree` — 404 (board token not resolved)
+
+</details>
