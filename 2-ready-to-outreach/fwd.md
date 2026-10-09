@@ -171,3 +171,265 @@ Combined total: **789,646 visits**. Visits per country summed across both domain
 **(b) `fwd.com.hk` with China at 15.92%.** This one is real and structural, and the research sharpens it considerably. FWD's FY2025 disclosure states that for Hong Kong & Macau, *"More than half of FWD Hong Kong & Macau's VNB was achieved domestically"* and *"approximately 44 per cent of offshore VNB [was] from outside of Mainland China"* — which means **the majority of FWD Hong Kong's offshore new-business value comes from Mainland China** ([HKEX FY2025 p.31](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf)). This is the Mainland-visitor (MCV) pattern: policies written in Hong Kong, by FWD's Hong Kong entity, to Mainland-resident customers. **The stub's framing needs correcting in one specific way:** the issue is *not* that FWD is trying to acquire card payments inside Mainland China. It is that an entity with no PRC presence must collect **recurring premium, for years, from policyholders resident in Mainland China**, and it must do so through Hong Kong rails — FPS QR, PPS, HK online-banking bill payment, a Hong Kong cheque, or cash at a Hong Kong branch. FWD's own page confirms the shape of this: its Hong Kong Insurance Solutions Centres accept cash in **HKD, USD or Renminbi**, and its policies are denominated in eight currencies including **RMB** ([source](https://www.fwd.com.hk/en/support/premiums-payments/)). That is a structural collection problem, not a fee problem — and it is the correct version of the argument.
 
 ---
+### Section 2: Legal Entities & Local Presence
+
+**Headquarters:** Hong Kong SAR (group office at Taikoo Shing). Parent incorporated in the **Cayman Islands**. Established **2013**. Listed on the HKEX main board, **stock code 1828**, July 2025. Group supervisor: **Hong Kong Insurance Authority**. ([HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf))
+
+| Country | Entity Name | Registration # | Source |
+|---------|-------------|----------------|--------|
+| Cayman Islands | FWD Group Holdings Limited (listed parent) | Not found | [HKEX FY2025, note 34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Cayman Islands | FWD Limited · FWD Group Limited · FWD Reinsurance SPC, Ltd. | Not found | Same |
+| Hong Kong | FWD Group Management Holdings Limited · FWD Management Holdings Limited | Not found | Same |
+| Bermuda / Hong Kong / Singapore | **FWD Life Insurance Company (Bermuda) Limited** (+ Singapore branch) | Not found | Same |
+| Hong Kong | FWD Life (Hong Kong) Limited | Not found | Same |
+| Hong Kong | FWD Life Assurance Company (Hong Kong) Limited | Not found | Same |
+| Hong Kong | FWD Financial Limited (licensed insurance agent) · FWD General Insurance Company Limited | Not found | [fwd.com.hk premium-payment page](https://www.fwd.com.hk/en/support/premium-payment/) |
+| Macau | FWD Life Insurance Company (Macau) Limited | Not found | [HKEX FY2025, note 34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Thailand | FWD Life Insurance Public Company Limited (87%) | Not found | Same |
+| Cambodia | FWD Life Insurance (Cambodia) Plc. | Not found | Same |
+| Japan | FWD Life Insurance Company, Limited | Not found | Same |
+| Philippines | FWD Life Insurance Corporation | Not found | Same |
+| Indonesia | PT FWD Insurance Indonesia (79%) | Not found | Same |
+| Indonesia | PT FWD Insurance Indonesia Syariah (inc. 1 Dec 2025) | Not found | Same |
+| Singapore | FWD Singapore Pte. Ltd. (life **and general** insurance) | Not found | Same |
+| Malaysia | FWD Takaful Berhad (70%) | Not found | Same |
+| Malaysia | FWD Insurance Berhad (14%) | Not found | Same |
+| Vietnam | FWD Vietnam Life Insurance Company Limited | Not found | Same |
+| Indonesia | BRI Life (associate, ~44%, **not consolidated**) | Not found | [HKEX FY2025 p.36](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| **Mainland China** | **None — representative office only** | n/a | FWD's own country selector labels `fwd.cn` *"China representative office"*; no PRC entity in the audited list |
+
+Registration numbers are **not found** — FWD's results announcement gives issued share capital rather than registry numbers, and corporate-registry pages were not reachable from this environment. This is a genuine gap, not an omission.
+
+**Cross-Border Gap Analysis:**
+
+| Country | In Top 10 Traffic? | Has Local Entity? | Domestic acquiring gated? | Cross-Border Risk? |
+|---------|-------------------|-------------------|---------------------------|---------------------|
+| Hong Kong | ✅ #1 (64.24%) | ✅ three HK life entities + the Bermuda entity | No | Low for HK residents. **High for the Mainland-resident cohort paying HK-issued policies.** |
+| China (Mainland) | ✅ #2 (13.47%) | ❌🔒 **representative office only** | **Verify current rules and cite a source before asserting — not asserted here.** What *is* sourced: FWD itself has no PRC policy-issuing entity. | **Highest in the book.** Multi-year renewal collection from Mainland residents against a Hong Kong entity. |
+| Singapore | ✅ #3 (8.95%) | ✅ FWD Singapore Pte. Ltd. + Bermuda-entity branch | No | Low |
+| Taiwan | ✅ #4 (2.65%) | ❌ **no entity, no domain** | Not assessed — no FWD Taiwan business to gate | n/a — informational traffic only `[INFERENCE, not confirmed]` |
+| Malaysia | ✅ #5 (1.78%) | ✅ two entities (Takaful 70%, Insurance Berhad 14%) | No | Low |
+| United States | ✅ #6 (1.52%) | ❌ | Out of territory | Diaspora/informational `[INFERENCE, not confirmed]` |
+| Philippines | ✅ #7 (1.15%) | ✅ FWD Life Insurance Corporation | No | Low |
+| Canada / Australia / UK | ✅ #8/#9/#10 | ❌ (Australia: none) | Out of territory (CA, UK) | Diaspora/informational `[INFERENCE, not confirmed]` |
+| Japan | ✅ #11 (0.35%) | ✅ FWD Life Insurance Company, Limited | No | Low |
+| Thailand | ✅ #12 (0.32%) | ✅ FWD Life Insurance PCL (87%) | No | Low |
+| Vietnam | ✅ #13 (0.28%) | ✅ FWD Vietnam Life Insurance Co. Ltd | No | Low |
+| Macau | not in sample (own domain not pulled) | ✅ FWD Life Insurance Company (Macau) Ltd | No | Low |
+| Indonesia | not in sample | ✅ two entities + BRI Life associate | No | Low |
+| Cambodia | not in sample | ✅ FWD Life Insurance (Cambodia) Plc. | No | Low |
+
+> *"Warning: Potential cross-border operation in China (Mainland). No local entity found — FWD's own site describes `fwd.cn` as a China representative office, and the audited principal-subsidiaries list contains no PRC entity. Mainland-resident policyholders of Hong Kong-issued policies are therefore paying premium cross-border into a Hong Kong entity, for the full multi-year life of the policy, with FX exposure and no domestic collection rail available to them."*
+
+> *"Regulatory gate: Mainland China. FWD holds no PRC insurance licence, only a representative office. This is a gate on the insurance business, upstream of the payment question — orchestration cannot create a domestic collection path for a business that has no domestic entity. **Do not pitch a China acquiring solution.** The available and honest angle is improving collection from Mainland-resident customers against the existing Hong Kong entity. Any claim about current PRC acquiring or payment-licensing rules must be sourced live before use; none is asserted here."*
+
+Taiwan deserves one line: it is the **#4 traffic market and FWD has no Taiwan entity, no Taiwan domain and no Taiwan product**. Taiwan's 20,913 visits land entirely on `fwd.com.hk`. `[INFERENCE, not confirmed]` The most likely explanations are Taiwanese interest in Hong Kong-issued policies, Chinese-language search spillover from the `/zh/` Hong Kong site, or diaspora policyholders. Worth one discovery question; not worth an outreach claim.
+
+> **MANUAL:** Registry numbers for each entity are unverified. Hong Kong Companies Registry, Singapore ACRA/BizFile, Malaysia SSM and the Philippine SEC would each confirm one. Lower priority than the collection questions below.
+
+---
+
+### Section 3: Payment Providers & Payment Stack
+
+#### 3A. PSPs & Acquirers
+
+| Country/Region | PSP/Acquirer | Evidence Type | Source URL |
+|----------------|-------------|---------------|------------|
+| Malaysia | **iPay88** | `[Source Code]` + merchant's own payment page — "You'll be directed to the iPay88 page where you can select your preferred bank" (FPX) / "...where you can select eWallet as your payment option" | https://www.fwd.com.my/support/payments/ |
+| Indonesia | **AyoConnect** | Merchant's own payment page + `[Source Code]` in the FWD Pay Portal bundle | https://www.fwd.co.id/en/support/premium-payment/ · https://www.fwd.co.id/FWDPayPortal/assets/index-Bg68bk3R.js |
+| Hong Kong | **Not established** | Payment step sits behind `eservices.fwd.com.hk` (HTTP 403). The published page lists bank rails, cheque, cash and PPS only — no card checkout to inspect. | https://www.fwd.com.hk/en/support/premiums-payments/ |
+| Macau | **Not established** | JETCO merchant code 105 and bank over-the-counter only; no card checkout published | https://www.fwd.com.mo/en/support-claims/premium-payment/ |
+| Thailand | **Not established** | Card and QR payment both live inside the FWD Omne mobile app; no inspectable web checkout | https://www.fwd.co.th/en/support/premium-payment/ |
+| Japan | **Not established** | Direct debit and card mandates handled by post, form and app; no web card checkout | https://www.fwdlife.co.jp/support/procedure/payment/ |
+| Philippines | **Not established** | `payment.fwd.com.ph` is a React SPA whose every call goes to its own `/polapi/` endpoints; the gateway is fetched server-side via a `GET_EPF_PAYMENT_URL` action and redirected to. No vendor identifiable client-side. | https://payment.fwd.com.ph/ |
+| Singapore | **Not established** | Help centre HTTP 403 (Cloudflare). `iSmartWeb` bundle (Angular/Ionic/Cordova, 2.8MB) scanned — contains no PSP signature; it is an advisor tool, not a consumer checkout. Customer SSO is **Auth0** (`cusso.fwd.com.sg`) — identity, not payments. | https://www.fwd.com.sg/iSmartWeb/ |
+| Vietnam | **Not established** | FWD describes "our safe and secure online payment gateway" accepting ATM cards, Visa/Mastercard/JCB, MoMo and VNPAY-QR — but does not name the gateway | https://www.fwd.com.vn/en/support/premium-payment/ |
+| Cambodia | **Not established** | `fwd.com.kh` is a single-page static Next.js export — its route manifest contains only `/`, `/_app` and `/_error`. **There is no web payment surface in Cambodia at all.** | https://www.fwd.com.kh/_next/static/wfkH8t8gmtnq7fFBK2Ek72/_buildManifest.js |
+
+**Infrastructure note (uniform, and therefore interesting).** All eleven domains sit behind **AWS CloudFront** with `server: volt-adc` (F5/Volterra Distributed Cloud ADC) — a single group-standardised edge, consistent with FWD's claim that "99 per cent of utilised applications were migrated to cloud as at 31 December 2025" under its OneMod architecture. **The edge is unified; the payment layer is not.** That contrast is the whole pitch in one sentence.
+
+**CSP analysis.** `connect-src`, `script-src` and `form-action` are absent from all eleven marketing domains (they carry only `frame-ancestors` or `object-src`), so headers yielded no vendor discovery there. **One exception, and it is a significant one.** The Indonesia FWD Pay Portal returns:
+
+```
+content-security-policy: script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:;
+  connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'
+```
+
+`form-action 'self'` and `connect-src 'self'` together mean **card data entered in the Indonesia portal posts to FWD's own domain**, with no third-party iframe and no cross-origin XHR. The acquirer relationship is terminated server-side and handed to AyoConnect behind FWD's own perimeter. See Section 9 — this has direct PCI-scope consequences.
+
+#### 3B. Payment Orchestrator
+
+**Classification: None detected — direct PSP integrations only. Greenfield.**
+
+Evidence type: `[Source Code]` + `[Checkout]` + absence across 2 targeted searches.
+
+> *"No public evidence found of a payment orchestration platform. The company appears to integrate directly with PSP(s) on a market-by-market basis, which limits routing optimization, failover capabilities, and multi-acquirer strategies."*
+
+This is a stronger finding than a simple absence, because the fragmentation is positively documented rather than merely unobserved:
+
+1. **Two different vendors in two adjacent markets** — iPay88 in Malaysia, AyoConnect in Indonesia. An orchestrated group would not need either name to surface in market copy.
+2. **At least six separate customer payment surfaces**, on five different hostnames and three different web stacks: `fwd.co.id/FWDPayPortal` (React/Chakra), `payment.fwd.com.ph` (React, nginx, own `/polapi/`), `fwd.com.my/myPortal` **plus** a second Malaysian "Customer Portal", `eservices.fwd.com.hk`, `fwd.com.sg/iSmartWeb` (Angular/Ionic) behind Auth0, and the FWD Omne app.
+3. **Biller codes maintained by hand, per entity, per market** — PPS merchant 9130 (HK), JETCO merchant 105 (Macau), seven Thai bank Com Codes (KBank 50026, SCB 0216, Bangkok Bank 14230/FWDLIFE, Krungsri 47769, Krung Thai 6880, GSB FWDL, CIMB Thai FWD01, TMBThanachart 2950/0143), and **five Malaysian JomPAY biller codes split across two legal entities** (1917, 5769, 820647 for FWD Insurance Berhad; 42564, 94201 for FWD Takaful Berhad).
+4. **Malaysia alone runs two portals and two biller-code sets for one country**, because Takaful and conventional sit in separate licensed entities.
+5. Searches for Juspay, Spreedly, Primer, Gr4vy, CellPoint, APEXX, Payrails and Yuno against FWD returned no evidence of any kind. The `Payment Orchestrator` column for FWD in `accounts/apac-tal.csv` is blank, and nothing was found to populate it.
+
+> **MANUAL:** Walk the FWD Omne app payment flow in Thailand and the Philippines with a proxy, and the HK eServices "Policy Payment → Pay with FPS" step with DevTools. Those are the two places where a named acquirer will appear, and both need an authenticated policy to reach.
+
+---
+
+### Section 4: Alternative & Local Payment Methods
+
+**This section is the core of the report.** Every row was read off FWD's own per-market premium-payment page. Where a dominant local rail is absent, the source cited is **FWD's own page** — i.e. a source for the *absence*. It is **not** a source for the rail's market prominence, and the APAC reference file is explicitly a checklist rather than a citation. **Any outreach line claiming a rail is dominant in a market needs its own live source found at the time of writing.**
+
+#### Hong Kong — 8 methods, zero one-off card
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Hong Kong | **FPS** (QR scan only, premiums ≤ HK$400,000) | Bank transfer / A2A | Active in checkout | [fwd.com.hk](https://www.fwd.com.hk/en/support/premiums-payments/) |
+| Hong Kong | Online-banking **Bill Payment**, merchant "FWD LIFE INSUR CO(BERMUDA) LTD", bill types 01–05 | Bank transfer / A2A | Active | Same |
+| Hong Kong | **ATM** bill payment via JETCO / HSBC / Hang Seng | Bank transfer / A2A | Active | Same |
+| Hong Kong | **PPS** (merchant code 9130) by phone, internet or app | Bank transfer / A2A | Active | Same |
+| Hong Kong | **Cheque** — physical only, crossed, post-dated not accepted; HSBC & BOC(HK) deposit machines | Cheque | Active | Same |
+| Hong Kong | **In person** at FWD Insurance Solutions Centres — cash (HKD/USD/RMB, max US$50,000 p.a. per customer), cheque, or **EPS** | Cash / debit at POS | Active | Same |
+| Hong Kong | **Hongkong Post** — HKD cash against the QR code on the premium notice, < HK$120,000 per bill | Cash/voucher | Active | Same |
+| Hong Kong | **Autopay** — bank direct debit **or credit-card autopay**, set up via eServices, **~2 months to process** | Direct debit / mandate | Active | Same |
+| Hong Kong | **One-off credit-card payment on the web** | Cards | **Not found** — card appears only as an autopay mandate | Same |
+| Hong Kong | Octopus · AlipayHK · WeChat Pay HK · Apple Pay · Google Pay | Digital wallet | **Not found** on the premium-payment page | Same |
+
+Two further HK details that matter commercially: **eight policy currencies** are supported — *"HKD policies can accept payments paid in HKD only. AUD, CAD, EUR, GBP, RMB, SGD and USD policies can accept payments paid in corresponding policy currency or HKD only"* — and a hard operational limit, *"A single payment transaction covering more than three policies will not be accepted."*
+
+> *"Warning: In Hong Kong — FWD's single largest market at 64.24% of visible traffic and a 77.17% mobile-web share — there is **no one-off card payment** on the published web surface, and autopay enrolment takes approximately two months. A policyholder whose mandate fails has no instant card path to cure it; they must use a bank QR, a bill payment, an ATM, PPS, a post office or a branch."*
+
+#### Thailand — 9 methods, including one being switched off
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Thailand | **FWD Omne app — QR Code** ("scan... using your bank's app or other payment channels that use the QR Code system") | Bank transfer / A2A | Active | [fwd.co.th](https://www.fwd.co.th/en/support/premium-payment/) |
+| Thailand | **FWD Omne app — credit card: VISA, Mastercard, JCB** | Cards | Active | Same |
+| Thailand | Head office / branch — cash, credit card, QR Code (QR at Bangkok HQ & Ratchada only); cash caps THB 100,000 (SCB/former agency) or THB 500,000 (FWD agents) per invoice | Cash / Cards | Active | Same |
+| Thailand | **Through agents** — cheque or credit card, temporary receipt issued | Cards / Cheque | Active | Same |
+| Thailand | **Bank counter / online banking** — KBank 50026, SCB 0216, Bangkok Bank 14230 (FWDLIFE), Krungsri 47769, Krung Thai 6880, GSB FWDL, CIMB Thai FWD01. SCB Easy to a/c 001-349917-5 "FWD Life" | Bank transfer / A2A | Active | Same |
+| Thailand | **ATM** — TMBThanachart 2950/0143, KBank, SCB, Bangkok Bank, Krungsri, Krung Thai | Bank transfer / A2A | Active | Same |
+| Thailand | **Internet banking** — ttb, KBank, Bangkok Bank, Krungsri (renewal premiums only) | Bank transfer / A2A | Active | Same |
+| Thailand | **Counter services: Lotus and 7-Eleven**, cash, ≤ THB 49,000 per invoice, no fee. **Barcode payment on the FWD Card and policyholder card has been cancelled.** | Cash/voucher | Active (with one deprecation) | Same |
+| Thailand | **Auto-recurring credit card** (VISA/Mastercard/JCB), apply ≥10 working days before due date, via FWD Omne or a signed authorisation form emailed to `OP_POS_Admin.th@fwd.com` | Direct debit / mandate | Active | Same |
+| Thailand | **Auto-recurring savings-account debit** — applied for at an ATM or in SCB Easy / Krungsri Mobile / Krungthai NEXT / Bangkok Bank app, or by signed form | Direct debit / mandate | Active | Same |
+| Thailand | **Advance mPAY** | Carrier/wallet | **BEING REMOVED — see Section 7** | [fwd.co.th](https://www.fwd.co.th/en/support/premium-payment/cc/) |
+| Thailand | PromptPay (by name) · TrueMoney · Rabbit LINE Pay · instalment plans | Wallet / BNPL | **Not found** by name. The QR flow is described generically as a bank-app QR scan; PromptPay is not named, and I am not going to assert it. | [fwd.co.th](https://www.fwd.co.th/en/support/premium-payment/) |
+
+Note the explicit anti-duplicate rule: *"To prevent duplicate premium payment, the online premium payment service is not available for policies that already applied for automatic premium payment through credit card or bank account"*, and *"The Online premium payment is not available for Unit linked policies bought through SCB."* These are product-level exclusions enforced by switching the rail off, not by routing around it.
+
+#### Japan — the involuntary-churn case study, written by FWD itself
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Japan | **口座振替 — bank account direct debit** | Direct debit / mandate | Active (one of only two primary modes) | [fwdlife.co.jp](https://www.fwdlife.co.jp/support/procedure/payment/) |
+| Japan | **クレジットカード払 — credit card** | Cards (mandate) | Active (the other primary mode) | Same |
+| Japan | **払込取扱票 (paper payment slip), posted when a debit or card charge fails** — payable at **convenience stores**, **Japan Post Bank / post offices**, or by scanning its barcode in a smartphone app | Cash/voucher | Active | [fwdlife.co.jp/support/cashless-payment/](https://www.fwdlife.co.jp/support/cashless-payment/) |
+| Japan | Slip-payment apps **as at 2026-04-15**: **PayPay 請求書払い** (≤¥300,000, PayPay Money balance only, requires in-app identity verification), **d払い**, **au PAY**, **楽天ペイ**, **ゆうちょPay**, **PayB**, **FamiPay** (< ¥50,000) | Digital wallet | Active | Same |
+| Japan | Amounts **over ¥300,000** must be paid at Japan Post Bank or a post office | Cash | Active | Same |
+| Japan | Konbini (direct, without the slip) · carrier billing · Paidy · card instalment / bonus-payment modes | Cash / Carrier / BNPL | **Not found** on these pages | Same |
+
+**This is the single most valuable finding in the report, because FWD documents its own dunning cascade, step by step** ([source](https://www.fwdlife.co.jp/support/credit_payment/)):
+
+- **Step 1 — postcard.** When the card declines, FWD mails a **はがき** (postcard) saying the charge failed and that it will be re-requested next month. Causes given: *"the credit card registered with us has exceeded its available limit, has passed its expiry date, or for various other reasons the card company has advised that the charge cannot be processed."*
+- **Step 2 — envelope with a paper slip.** If the following month also fails, FWD mails a **封筒** containing the 払込取扱票 **and** a QR code to register a new card. The customer must do both: register a new card, *and* pay the arrears by slip.
+- **Step 3 — card invalid.** If the card company reports the card is invalid, FWD mails a further envelope asking the customer to change card or switch to direct debit.
+- **The consequence, in FWD's own words:** *"期限内にお払込みいただけなかった場合は、ご契約が失効または自動振替貸付制度の適用（対象契約のみ）となります"* — **if not paid by the deadline, the policy lapses (失効) or an automatic premium loan is applied.**
+- **And the mechanism that produces the declines:** *"当社では、クレジットカード会社からの要請およびセキュリティ対策の強化に伴い、2022年6月よりクレジットカードの決済時に、カードの有効性確認のためオーソリゼーション（以降「オーソリ」）を行うよう、クレジットカード決済システムを変更いたしました。それに伴い、クレジットカードの有効期限が経過している場合など、オーソリの結果、クレジットカード会社からカードの利用承認がされなかった場合は保険料の決済ができません"* — **since June 2022 FWD Japan runs a validity authorisation before each charge, at the card companies' request, and an expired card fails that check.**
+
+An expired or reissued card therefore triggers a **multi-month, postal, customer-action-dependent recovery loop that ends in lapse**. The subscription reference §1 names the fix for exactly this cause — *"Card expired or reissued → network tokens / account updater: credentials refresh without customer action"*. FWD has built an elaborate, expensive paper process around the absence of that capability. **Do not assert a recovery-rate or churn number; this is a mechanism argument and it is strong enough without one.**
+
+#### Philippines — 7 methods, wallets live
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Philippines | **GCash** — "Look for 'FWD Life Insurance Corporation' in the Pay Bills/Insurance section", up to **PHP 100,000** | Digital wallet | **Active** | [fwd.com.ph](https://www.fwd.com.ph/support/premium-payment/) |
+| Philippines | **PayMaya (Maya)** — same Pay Bills/Insurance route | Digital wallet | **Active** | Same |
+| Philippines | **FWD Payment Portal** — credit or debit card (excludes top-ups, reinstatements >90 days past due, single-pay products, and policies on a monthly plan) | Cards | Active | Same · https://payment.fwd.com.ph/ |
+| Philippines | **FWD Omne app** — *"monthly payment option is only available on Omne via ACA/ADA"* | Direct debit / mandate | Active | Same |
+| Philippines | **Online banking** — Security Bank BancNet, BDO, BPI, Land Bank, Metrobank, RCBC, UnionBank (prefix 01+ initial, 03+ subsequent) | Bank transfer / A2A | Active | Same |
+| Philippines | **Cards accepted**: credit — Visa, Mastercard, American Express, China UnionPay, JCB; debit — Visa, Mastercard; ATM — **BancNet, Expressnet**. POS terminals at all FWD business hubs. | Cards | Active | Same |
+| Philippines | **ADA / ACA mandates** via Security Bank, BPI, BDO, Metrobank | Direct debit / mandate | Active | Same |
+| Philippines | **Over-the-counter** cash & cheque at Security Bank (Peso & Dollar), BDO, BPI, Metrobank, UnionBank, RCBC; **cash at all LBC branches nationwide** | Cash/voucher | Active | Same |
+| Philippines | InstaPay / PESONet (by name) · Shopee/Lazada wallets | Bank transfer / Wallet | **Not found** by name | Same |
+
+The Philippines is FWD's **best-covered market** and the proof that the group *can* run wallet rails when it chooses to. It is also the market with the clearest structural tell: **monthly billing requires a bank mandate (ACA/ADA)** — card-on-file is not offered as a monthly billing rail at all.
+
+#### Malaysia — iPay88, two entities, two portals
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Malaysia | **Customer Portal** — credit/debit card, **FPX**, **e-wallet: Touch 'n Go, Boost, ShopeePay, GrabPay**; plus auto-debit via card or bank account | Cards / A2A / Wallet | Active | [fwd.com.my](https://www.fwd.com.my/support/payments/) |
+| Malaysia | **myPortal one-off FPX / eWallet → routed to iPay88**, OTP + bank TAC | Bank transfer / A2A / Wallet | Active | Same |
+| Malaysia | **Boost** bill payment — "look for FWD Insurance Berhad under the Insurance category"; policy prefixes IL, RP, UR | Digital wallet | Active | Same |
+| Malaysia | **Maybank2u** — Maybank account holders, policy prefixes IL, GL, RP | Bank transfer / A2A | Active | Same |
+| Malaysia | **JomPAY** — biller 1917 (IL/GL), 5769 (RP), 820647 (2XX) for FWD Insurance Berhad; 42564 "FWD Takaful Berhad-2", 94201 "FWD Takaful Berhad-1". **Not available for the first payment on a new certificate.** | Bank transfer / A2A | Active | Same |
+| Malaysia | **Monthly recurring card** — Visa or Mastercard added once via myPortal. *"For debit cards: contact your bank for an auto-debit facility activation... please ensure it's activated with your bank for e-commerce transactions. If your card hasn't been activated, we'll be unable to collect your contribution."* | Cards (mandate) | Active | Same |
+| Malaysia | **Over-the-counter at Bank Simpanan Nasional** — counter **interbank GIRO** transfer to a/c 14100-29-86450015-5 | Bank transfer / A2A | Active | Same |
+| Malaysia | **Future Premium Payment** — pay in advance, traditional life only, by phone (1 300 22 6262) | Prepayment | Active | Same |
+| Malaysia | **DuitNow QR** | Bank transfer / A2A | **Not found** on the payments page | Same |
+
+Malaysia also carries a **Public Advisory: Important Payment Safety Notice** — *"Our agents are not allowed to collect payments on behalf of the company. Always make sure your payment receipt is issued directly by FWD. If you notice any unauthorised payment requests or suspicious activity, please contact our Customer Service Hotline right away."* A fraud-control signal, and a contrast worth noting: Thailand and Vietnam both *do* permit agent collection.
+
+#### Indonesia — three methods only, and the thinnest coverage in the group
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Indonesia | **Autodebit (debit or credit card)** via **FWD Pay Portal → redirected to AyoConnect**; supports Mastercard and **GPN** domestic debit (incl. "Classic (RGLR)") with per-bank, per-card-type limits fetched at runtime; **BRI** is special-cased in the limits table | Direct debit / mandate · Cards | Active | [fwd.co.id](https://www.fwd.co.id/en/support/premium-payment/) · [portal bundle](https://www.fwd.co.id/FWDPayPortal/assets/index-Bg68bk3R.js) |
+| Indonesia | **Virtual Account** — BCA VA, Permata VA; plus Mandiri and BCA bank accounts | Bank transfer / A2A | Active | [fwd.co.id](https://www.fwd.co.id/en/support/premium-payment/) |
+| Indonesia | **BCA Mobile M-payment** — "Asuransi" → "FWD Insurance" | Bank transfer / A2A | Active | Same |
+| Indonesia | **QRIS** | Bank transfer / A2A | **Not found** on the premium-payment page | Same |
+| Indonesia | **GoPay · OVO · DANA · ShopeePay** | Digital wallet | **Not found** on the premium-payment page | Same |
+| Indonesia | **Alfamart / Indomaret convenience-store cash** | Cash/voucher | **Not found** on the premium-payment page | Same |
+
+⚠️ **Trap check, performed deliberately.** `fwd.co.id` does carry a `/id/promo-produk-online/voucher-gopay-rp1-juta/` page — **that is a GoPay voucher offered as a marketing prize, not GoPay as a premium-payment rail.** I also confirmed that `payu` matches on this site resolve to *payudara* (breast, in breast-cancer blog URLs), `doku` to *dokumen*, and `stripe` to Chakra UI's `hasStripe`/`striped` table props. Reporting any of those as vendors would have been wrong.
+
+> *"Warning: In Indonesia, FWD's published premium-payment page lists **three** methods — card autodebit, virtual account, and BCA mobile banking — and does not list QRIS, any e-wallet, or convenience-store cash. FWD operates two licensed Indonesian entities plus a ~44% stake in BRI Life, the country's number-one bancassurer by APE. Cite a current source for QRIS and wallet share before using this in outreach; the absence is sourced from FWD's own page, the prominence is not."*
+
+#### Vietnam — 6 methods, wallets live
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Vietnam | **"Our safe and secure online payment gateway" — ATM cards, international cards (Visa, Mastercard, JCB), MoMo, VNPAY-QR** | Cards / Wallet / A2A | Active | [fwd.com.vn](https://www.fwd.com.vn/en/support/premium-payment/) |
+| Vietnam | **Bank bill payment** — VCB Digibank ("Pay bills" → "Insurance premium" → "FWD Vietnam"), Agribank E-mobile, Nam A Bank Open Banking; or in person at any VCB/Agribank/Nam A branch | Bank transfer / A2A | Active | Same |
+| Vietnam | **Bank transfer** to one of four FWD accounts — VCB Tan Dinh 1212393939, Agribank Sai Gon 1900201453488, Nam A Bank HO 100036505800001, BIDV HCMC 13310000334567 | Bank transfer / A2A | Active | Same |
+| Vietnam | **MoMo** — QR scan or deep link straight to the FWD payment page | Digital wallet | Active | Same |
+| Vietnam | **Viettel Money** — Finance → Insurance → FWD logo; daily limit VND 100 million | Digital wallet | Active | Same |
+| Vietnam | **Payoo** convenience stores | Cash/voucher | Active | Same |
+| Vietnam | **FWD office / agent** — "we can only accept payment by ATM, debit or credit cards" | Cards | Active | Same |
+| Vietnam | **ZaloPay** | Digital wallet | **Not found** | Same |
+
+#### Macau — 6 methods
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Macau | **BOCNET (Personal)** online banking transfer | Bank transfer / A2A | Active | [fwd.com.mo](https://www.fwd.com.mo/en/support-claims/premium-payment/) |
+| Macau | **Bank over-the-counter at BNU or LUSO** — cash in **USD/HKD/MOP/RMB**, cheque or transfer. *"Payment in RMB only accepted at LUSO Bank."* | Cash / Bank transfer | Active | Same |
+| Macau | **Cheque** by mail or dropped at the Customer Service Centre | Cheque | Active | Same |
+| Macau | **JETCO ATM "JET PAYMENT"** — merchant code **105**; plus online banking "FWD LIFE" under bill payments | Bank transfer / A2A | Active | Same |
+| Macau | **Customer Service Centre** cash/cheque — annual cap USD 50,000 / MOP 400,000 per policyholder, USD 15,000 / MOP 120,000 per policy; signed Cash Premium Payment Declaration Form required | Cash | Active | Same |
+| Macau | **Autopay** — "Direct Debit / Credit Card Authorisation Form"; **two months to process, two months' premium prepayment required** | Direct debit / mandate | Active | Same |
+
+#### Cambodia — no web payment surface
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Cambodia | **TrueMoney Wallet app and TrueMoney agent locations nationwide** — 2025 partnership with True Money (Cambodia) Plc, *"to allow customers to pay their FWD insurance premiums through the TrueMoney Wallet app or at any of the nationwide TrueMoney agent locations, and to increase sales opportunity both through True Money agents and online via the app"* | Digital wallet / Cash agent | Mentioned in filing | [HKEX FY2025 p.34](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0316/2026031600101.pdf) |
+| Cambodia | Any FWD-hosted web payment page | — | **Does not exist.** `fwd.com.kh` is a single-page static export; its Next.js route manifest contains only `/`, `/_app`, `/_error`. | https://www.fwd.com.kh/_next/static/wfkH8t8gmtnq7fFBK2Ek72/_buildManifest.js |
+
+#### Singapore — not verifiable in this environment
+| Country/Region | Method | Category | Status | Source |
+|---|---|---|---|---|
+| Singapore | GIRO / eGIRO; direct bank transfer; **PayNow to a company UEN**; credit & debit card (Visa/Mastercard) on some products; telegraphic transfer for AUD/GBP/USD policies; cheque | Mixed | **`Unknown, checkout not accessible`** — `[UNVERIFIED — search summary only, page not fetched]` | help.fwd.com.sg — **HTTP 403 (Cloudflare) in both WebFetch and curl** |
+| Singapore | **PayNow for claim and policy-benefit PAYOUTS** — "Important Payout Update", *"To ensure timely receipt of claim and policy benefit payouts, please ensure that your PayNow is linked to your NRIC/FIN"*, view date **27 July 2026** | Disbursement | Active — **this one IS sourced from a fetched page** | [fwd.com.sg](https://www.fwd.com.sg/travel-insurance/) |
+
+Note carefully: **the only PayNow usage I could verify from a fetched FWD page is an outbound payout, not premium collection.** Do not conflate the two.
+
+**Group-level pattern across all nine markets with a published payment page:**
+
+| Rail family | Markets where published | Markets where absent from the page |
+|---|---|---|
+| **Bank transfer / A2A / bill payment** | **All 9** | — |
+| **Bank direct-debit mandate** | HK, MO, TH, JP, PH, MY, ID, (SG per unverified) | VN, KH |
+| **Card as a recurring mandate** | HK, MO, TH, JP, PH, MY, ID | VN, KH |
+| **One-off card payment** | TH (in-app), PH (portal + POS), MY (portal), VN (gateway) | **HK**, **MO**, **JP**, ID (mandate only), KH |
+| **Cash / convenience store / agent** | HK, MO, TH, PH, VN, MY, KH | JP (post office + konbini via slip), ID |
+| **Local digital wallet** | PH (GCash, Maya), VN (MoMo, Viettel Money), MY (TnG, Boost, ShopeePay, GrabPay), JP (7 slip apps), KH (TrueMoney) | **HK**, **MO**, **TH**, **ID** |
+
+**The answer to the central question, stated plainly:** FWD collects premium **primarily through bank rails and mandates, not card-on-file**. Bank bill payment or A2A transfer is the only rail present in every single market. Card is a *mandate* rail more often than a *checkout* rail, and in Hong Kong — 64% of visible traffic — there is **no web card checkout at all**. The stub's hypothesis that FWD's digital-first positioning implies a larger web collection surface than a traditional insurer's is **partly true and partly false, and the distinction matters**: FWD has genuinely built digital *acquisition* and *servicing* (91% of new business applications submitted digitally, 73% e-submission rate, FWD Omne, FWD Cube, OneMod, 99% cloud migration) — but its *collection* surface is as bank-rail-dependent as any incumbent's, and in Hong Kong it is **more** so than markets like the Philippines. Digital-first front end, traditional collection back end. That gap is the opportunity.
+
+> **MANUAL:** Use a VPN and a real policy to verify checkout APMs in Hong Kong, Thailand and the Philippines. Hong Kong first — confirming there is genuinely no card checkout, and no Octopus, AlipayHK or WeChat Pay HK, is the highest-value single verification in this report.
+
+---
