@@ -472,7 +472,17 @@ Applied to **Minor Hotels** (Bangkok, Thailand) — the strongest APAC prospect 
 | 9 | Swire Hotels | Direct competitor | HK, China, UK, US | Not scored | 🔴 Low | Adyen incumbent; small portfolio | ❌ Not on the list |
 | 10 | Four Seasons Hotels and Resorts | Direct competitor | Global incl. all APAC | Not scored | 🔴 Low | Canada-HQ'd — would route to the Americas team, not APAC | ❌ Not on the list |
 
-**Cross-check against `accounts/apac-tal.csv`:** **none** of the ten appear on the target account list. The list currently carries The Peninsula Hotels as the only luxury hotel group of this type in the Hong Kong batch. **Mandarin Oriental, Shangri-La and Rosewood are all Hong Kong-headquartered luxury hotel groups with larger APAC footprints than Peninsula and no disclosed payment stack — they are the most obvious additions, and they are missing.**
+**Cross-check against `accounts/apac-tal.csv`** — ⚠️ **CORRECTED BY THE ORCHESTRATOR, 2026-10-09. An earlier draft of this file claimed none of these appear on the target account list. That is wrong on four of five.** Checked directly:
+
+| Peer | On the TAL? | Note |
+|---|---|---|
+| **Mandarin Oriental Hotel Group** | ✅ **YES** — Hospitality & Lodging | **Researched in this very batch** |
+| **Rosewood Hotel Group** | ✅ **YES** — Hospitality & Lodging | **Researched in this very batch** |
+| **Minor Hotels** | ✅ **YES** — Hospitality & Lodging | Already a target |
+| **Shangri-La** | ✅ **YES** — but **miscategorised as "Travel & Online Agencies (OTAs)"** | 🔑 It is a hotel operator, not an OTA. **Fix the industry column.** Independently flagged by the Langham run too |
+| **Okura Nikko** | ❌ genuinely absent | Worth adding |
+
+**So the real TAL gaps from this run are `Okura Nikko` plus `Swire Hotels` and `Regal Hotels International` (the latter two surfaced by the Langham run), and one miscategorisation to fix on Shangri-La.** The reusable finding stands regardless: per-property CRS currency config, a Shiji/Opera PMS estate and a Sabre dependency apply directly to the peers already on the list.
 
 ---
 
@@ -554,7 +564,7 @@ Applied to **Minor Hotels** (Bangkok, Thailand) — the strongest APAC prospect 
 > **Suggested manual action:** Three named starting points, all public: **Benjamin Vuchot**, CEO since 3 March 2025 and author of the PERFORM/TRANSFORM agenda ([HKEX FY2025](https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0318/2026031800251.pdf)); **Michael Garcia**, Group General Manager, Technology, quoted in the Shiji announcement and the most likely owner of the CRS and PMS estate ([Shiji](https://www.shijigroup.com/press-news/shijis-enterprise-platform-powers-peninsula-hotels-into-the-future-of-luxury-hospitality)); and the Hong Kong head-office **Director, Digital Marketing** role, whose own posting says it owns global digital strategy with a focus on direct booking revenue ([careers.hshgroup.com](https://careers.hshgroup.com/Corporate/job/Hong-Kong-Director%2C-Digital-Marketing-HK/1055162766)).
 
 > **Area:** **Three missing TAL additions.**
-> **Why it matters:** Mandarin Oriental, Shangri-La and Rosewood are all Hong Kong-headquartered luxury hotel groups with larger APAC footprints than Peninsula and no publicly disclosed payment stack. None is on `accounts/apac-tal.csv`. Minor Hotels and Okura Nikko are also absent.
+> **Why it matters:** Mandarin Oriental, Shangri-La and Rosewood are all Hong Kong-headquartered luxury hotel groups with larger APAC footprints than Peninsula and no publicly disclosed payment stack. ⚠️ **CORRECTED 2026-10-09: all three ARE already on `accounts/apac-tal.csv`, and Mandarin Oriental and Rosewood were researched in this same batch. Minor Hotels is on it too.** Only **Okura Nikko** is genuinely missing. Shangri-La is on the list but **miscategorised as "Travel & Online Agencies (OTAs)"** and needs its industry column fixed. The segment read — per-property CRS currency config, Shiji/Opera PMS, Sabre dependency — transfers to the peers already on the list, which is the more useful version of this point.
 > **Suggested manual action:** Add all five. The Peninsula discovery — per-property CRS currency configuration, Shiji/Opera PMS estate, Sabre dependency — is directly reusable against every one of them.
 
 ---
