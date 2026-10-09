@@ -1,0 +1,3 @@
+name,title,company,domain,email,email_valid,email_source,failure_reason
+Gugan N,VP of Product,Zig (ComfortDelGro),comfortdelgro.com,,no,,no_email_found
+Gugan N,VP of Product,Zig (ComfortDelGro),zig.live,,no,,no_email_found
