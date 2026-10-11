@@ -1,6 +1,6 @@
 # ELSA Speak
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 15 / 29 → 🟢 **Medium**
 **Industry:** AI English-pronunciation coaching — consumer subscription app, B2B/schools arm · **HQ:** ELSA, Corp. (US — state of incorporation **unverified**); operations rooted in Vietnam (CÔNG TY TNHH ELSA, HCMC); offices Portugal, Vietnam, India, Indonesia, Japan · **Researched:** 2026-10-06 · **First email sent:** —
 **Motion:** 🛑 **IN-HOUSE — they built their own payment SDK.** Verified first-hand: `elsa-config.elsanow.io/elsa-payment-sdk/html.umd.js` (HTTP 200, 143,547 bytes) is a merchant-built abstraction unifying **seven payment providers**, fronted by their own `payment.elsanow.io` service. **Never say they need orchestration.** Anchor on reach and the markets the SDK does not cover.
@@ -115,17 +115,347 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach ELSA Speak`, or call from `/prepare_batch`.*
+> ⚠️ **Sizing constraint, carried forward from the research and not resolved.** The web-vs-IAP
+> revenue split is **not disclosed anywhere**. The app-store override was considered and
+> deliberately **not** applied, because the web channel is demonstrably real: a full Vietnamese
+> storefront, seven providers, e-invoicing, BNPL, and **lifetime and prepaid SKUs that cannot be
+> sold through auto-renewing IAP at all**. But the only listed comparable, **Duolingo, books ~82%
+> of revenue through Apple and Google**. **Anyone sizing this account off total revenue or total
+> users will be wrong by close to an order of magnitude. The addressable base is web checkout plus
+> B2B.** Nothing in this sequence claims otherwise, and nothing in it should.
 
-**Constraints for whoever drafts this:**
-1. **Motion is IN-HOUSE.** They built `elsa-payment-sdk`. Never imply they need orchestration or lack sophistication — they demonstrably have both. Anchor on **reach**: the SDK they built for Vietnam doesn't reach Thailand, India, Taiwan, Japan or Indonesia.
-2. **Do NOT claim they lack MoMo.** They have it. That error was in the raw research and is corrected here.
-3. **Do NOT pitch failed renewals, dunning or involuntary churn.** Two agents searched specifically; **zero** evidence of declined cards, retry failures or double charges exists. Every documented complaint is an *unwanted successful* payment, not a failed one.
-4. **Do NOT claim their checkout is failing customers.** The Trustpilot billing complaints are real and continuous (May 2025 → Sep 2026, 12 of ~32 reviews) but the **majority are Apple App Store charges**, which are not ELSA's stack. Only one is confirmed against ELSA's own web billing.
-5. **Do NOT lead with Epic v. Apple.** That ruling covers **only the US App Store**, and the US is **4.70%** of ELSA's traffic. It is not a Vietnam or Thailand argument.
-6. **Vietnam leads on approval rate, not retry economics** — a 6,800,000₫ (~US$265) lifetime SKU is a high-ticket single authorisation, not a dunning problem.
-7. **No booking link.** Plain time proposals in the prospect's local zone.
-8. **Never write "Speak"** when you mean ELSA — Speak (speak.com) is a *different, directly competing* app with a $78M Series C at $1bn valuation. Its help pages rank alongside ELSA's and contaminated the raw research.
+### Pain Vector Extraction
+
+```
+=== PAIN VECTOR EXTRACTION ===
+
+Motion: IN-HOUSE — they built `elsa-payment-sdk`, a merchant-owned layer over seven providers.
+        Step 6a override applies. The build decision is respected throughout. Nothing in this
+        sequence says they need orchestration, lack sophistication, or should rip anything out.
+        The entire argument is REACH.
+
+Observable setup facts (from research, all first-hand in the file):
+- `elsa-config.elsanow.io/elsa-payment-sdk/html.umd.js` — HTTP 200, 143,547 bytes. A
+  merchant-built SDK unifying SEVEN providers: Stripe, PayPal, Payoo, MoMo, ShopeePay,
+  Fundiin, 2C2P — source: research file, verified first-hand
+- The SDK ships exactly TWO locales: `en` and `vi` — source: SDK enumeration
+- Vietnam (32.28% of traffic) has four local rails plus Vietnamese e-invoicing
+  (`taxInvoiceTitle = "Tax invoice information (Vietnam)"`) and Fundiin BNPL
+  ("two interest-free instalments") — source: SDK strings
+- Thailand #2 (8.09%): PromptPay and TrueMoney ABSENT, with controls run — source: SDK
+- India #3 (5.78%): UPI ABSENT, zero alphabetic-bounded matches — source: SDK
+- Taiwan 5.61%, Japan 3.28%, Indonesia 2.53%: no local rail present for any
+- Those five markets together = 25.3% of traffic, against Vietnam's 32.28%
+- 8 of the top 10 traffic markets have no confirmed local billing entity
+- Lifetime SKU is 6,800,000₫ (~US$265) — a high-ticket single authorisation
+
+Selected observations for Phase 1 (E1 bullets, ranked by materiality):
+1. THE ASYMMETRY INSIDE THEIR OWN STACK — Vietnam has Payoo, MoMo, ShopeePay, Fundiin and
+   tax invoicing; Thailand, the #2 market, gets a card form.
+   → "Your own payment SDK carries Payoo, MoMo, ShopeePay and Fundiin for Vietnam, with tax
+      invoicing built in. Thailand, your second-biggest market, gets a card form."
+   MATERIALITY: highest. Both halves are theirs, so neither can be disputed. This is exactly
+   the move the voice samples call the strongest available.
+2. The SDK ships two locales against ten markets above 1% traffic.
+   → "The SDK ships two locales, en and vi. The business runs in ten markets above 1%."
+   MATERIALITY: high, and it is a count from their own code rather than a judgement.
+3. India at #3 with no UPI.
+   → "India is your number three market. No UPI in the bundle."
+   MATERIALITY: real, and deliberately stated flat without projecting consequence.
+
+Bridge variant: B — limitations
+Rationale: NOT variant A (complexity), because they are not fragmented — they unified seven
+providers themselves, which is the opposite of the A pattern. NOT single-PSP either, so the
+usual B trigger does not apply literally. The limitation here is REACH: a seven-provider
+layer whose every local rail serves one market. "At your stage, that usually comes with some
+limitations" fits precisely and claims nothing about the quality of the build.
+
+Hypothesis for Phase 2 (E3):
+Every local rail they add is its own engineering project, so markets queue — and the queue
+now holds more traffic than the one market that was served.
+Backing logic: the SDK carries two locales; Vietnam received four rails, a BNPL partner and
+e-invoicing while no other market received any; and Thailand, India, Taiwan, Japan and
+Indonesia together are 25.3% of traffic against Vietnam's 32.28%. The cost of the next rail,
+not the absence of a layer, is the constraint.
+
+Embedded discovery question (E3): "when you added Fundiin, roughly how long did that take end
+to end?" — easy to answer, asks about work they are proud of rather than work they skipped,
+and the answer is the whole business case.
+
+Success case for Phase 3 (E4):
+Selected case: inDrive
+Tier: 2 — same payment pattern (multi-market local-rail expansion), different industry and
+different region. ⚠️ NO Tier 1 exists: Open English is the only edtech logo in the library and
+it carries NO published numbers, so it cannot carry an E4. Verified live on y.uno 2026-10-11.
+Match rationale: ELSA's problem is reach — how long and how costly each new market is. That is
+precisely what the inDrive case measures. It is NOT a decline-recovery case, which matters,
+because the research found ZERO evidence of failed renewals or dunning failures at ELSA.
+Numbers to lead with: 10 new countries live in under eight months · 90% payment approval rate ·
+over 50 countries on one integration.
+⚠️ E4 states outright that inDrive is mobility, not edtech, and that the expansion was across
+LATIN AMERICA, not Asia. The case page says so verbatim: "integrating payment routes in several
+Latin American countries in less than 8 months."
+Optional benchmark: SKIP. The "~8% authorisation uplift" figure traces to Yuno's own blog, not
+to independent evidence.
+
+Touch-by-touch angles:
+- E2 angle: the asymmetry → "one integration to add any method, no per-rail rebuild". One
+  mechanism only, framed as the cost of the NEXT rail rather than the absence of a layer.
+- LK1 angle: the Vietnam-versus-Thailand contrast.
+- LK2 angle: the five waiting markets are a quarter of traffic between them.
+- LK3 angle: inDrive's ten markets in eight months, reworded, not the E4 bullet verbatim.
+- LK4 angle: fresh and unused until here — Fundiin gives Vietnamese buyers two interest-free
+  instalments on a ~6.8m₫ lifetime plan, and no other market gets that option.
+- E8 angle: clean exit, offering to return when the next market is actually on the roadmap.
+```
+
+---
+
+**Send calendar.** Day 1 anchored to **Monday 12 October 2026**. Weekend touches move to the next business day, already applied. **Slots are in Vietnam time (ICT, UTC+7)** — operations are rooted in Ho Chi Minh City and the monetisation role is sited India, Singapore or Vietnam. ICT is IST + 1.5h, so the overlap is comfortable all day.
+
+| Touch | Day | Send date | Meeting slot proposed (Vietnam time) | Prateek's time (IST) |
+|---|---|---|---|---|
+| E1 | 1 | Mon 12 Oct | none (Phase 1) | — |
+| E2 | 3 | Wed 14 Oct | none (Phase 1) | — |
+| LK1 | 5 | Fri 16 Oct | none (Phase 1) | — |
+| E3 | 7 | Mon 19 Oct | **Thu 22 Oct, 10am or 3pm** | 8:30am / 1:30pm |
+| LK2 | 9 | Tue 20 Oct | **Fri 23 or Mon 26 Oct, 4pm** | 2:30pm |
+| E4 | 11 | Thu 22 Oct | **Tue 27 Oct, 11am or 4:30pm** | 9:30am / 3:00pm |
+| E5 | 13 | Mon 26 Oct | manual | — |
+| E6 | 15 | Tue 27 Oct | manual | — |
+| LK3 | 17 | Wed 28 Oct | **Mon 2 Nov, 2pm** | 12:30pm |
+| E7 | 19 | Fri 30 Oct | manual | — |
+| LK4 | 21 | Mon 2 Nov | **Thu 5 Nov, 10:30am** | 9:00am |
+| E8 | 23 | Tue 3 Nov | none (break-up) | — |
+
+Five distinct day/time combinations, all named in Vietnam time. No Vietnamese public holiday falls in this window.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 12 Oct
+
+**Subject:** Four local rails, Vietnam only
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on ELSA's payment setup. Three things stood out.
+
+Your payment SDK carries Payoo, MoMo, ShopeePay and Fundiin for Vietnam, with tax invoicing
+built in. Thailand, your second market, gets a card form.
+
+The SDK ships two locales, en and vi. You're in ten markets above 1%.
+
+India is your #3 market. No UPI in the bundle.
+
+At your stage, that usually comes with some limitations.
+
+I work at Yuno (top-100 fintech, a16z-backed). We consider ourselves the "everything
+payments" platform: one integration, every PSP, every method, every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related you're working
+through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 14 Oct · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and how it would
+address what I flagged.
+
+We sit above the providers you already run, so your SDK and all seven stay where they are.
+Nothing gets ripped out. What changes is the cost of the eighth, and the fifteenth. Adding
+PromptPay, UPI or LINE Pay becomes configuration against one integration instead of a build
+against each provider's own API, settlement file and edge cases.
+
+Which is the part that matters here. You've already shown you can do local acquiring
+properly, in Vietnam. The open question is what the next market costs you.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you want it, just say
+the word and I'll back off. Otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 16 Oct
+
+```text
+Hey {{recipient.first_name}}, sent you a note over email this week, figured I'd flag one part
+here too. Your payment SDK carries four local rails and tax invoicing for Vietnam, and
+Thailand, your second-biggest market, gets a card form. Curious whether that maps to anything
+you're working through.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 · Mon 19 Oct · NEW EMAIL
+
+**Subject:** Your SDK stops at Vietnam
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that every local rail is its own engineering
+project, so markets queue, and the queue now holds more traffic than the one that got served.
+
+Vietnam got Payoo, MoMo, ShopeePay, Fundiin and e-invoicing. Not because anyone's doing it
+badly: you built that properly. But Thailand, India, Taiwan, Japan and Indonesia are a
+quarter of your traffic between them, with no local rail for any of them.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing providers, so a new rail is
+configuration rather than a build. Keep your stack, add what's missing.
+
+When you added Fundiin, roughly how long did that take end to end?
+
+Thursday the 22nd is open for me. Would 10am or 3pm Vietnam time work for 15 minutes?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Tue 20 Oct
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email on Monday. Short version:
+Thailand, India, Taiwan, Japan and Indonesia are about a quarter of your traffic between
+them, and your payment SDK carries no local rail for any of them. If that's on your radar,
+would Friday the 23rd or Monday the 26th at 4pm Vietnam time work for a quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Thu 22 Oct · NEW EMAIL
+
+**Subject:** How inDrive solved this
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, here's a quick example of what solved looks like.
+
+inDrive is a mobility app rather than edtech, and the expansion below happened across Latin
+America, not Asia. The pattern is the same one though: a lot of markets, each with its own
+payment preferences. They put Yuno's layer above their providers and, in their own words,
+integrated payment routes "in several Latin American countries in less than 8 months":
+
+- 10 new countries live in under eight months
+- 90% payment approval rate
+- over 50 countries running on one integration (you read that right)
+
+The mechanism was routing across partners so they could compare cost and approval rate per
+provider and move volume accordingly. Same layer above the stack they already had, no
+rip-out.
+
+Tuesday the 27th is open. Would 11am or 4:30pm Vietnam time work for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/indrive
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 · Mon 26 Oct · MANUAL
+
+*Placeholder. Do not auto-write.*
+
+**Strongest unused material, in order:**
+1. ⭐ **A Thailand teardown.** Their #2 market at 8.09%, and the SDK carries neither PromptPay nor TrueMoney — verified by enumeration with controls run. An annotated screenshot of their own Thai checkout beside the Vietnamese one is the entire argument in one image, and it is their own product on both sides.
+2. **The India question.** 5.78% of traffic, no UPI, and the SDK has no Hindi locale. ⚠️ **Do NOT cite RBI e-mandate rules** — nothing in the research file sources them, and the standing instruction is to pull a current primary source or say nothing.
+3. **ZaloPay is missing even in Vietnam**, the one market they solved, at roughly 23% of Vietnamese wallet share. Sharp, but it critiques their best work, so use it only if the thread is already warm.
+
+#### Touch 8 — Email 6 · Day 15 · Tue 27 Oct · MANUAL
+
+*Placeholder. Second manual approach, different format from E5.*
+
+Candidate angle: **the high-ticket instalment gap.** The lifetime plan runs to **6,800,000₫ (~US$265)**, and Fundiin gives Vietnamese buyers two interest-free instalments on it. Nobody in Taiwan, Japan, Thailand or India gets an instalment option on the same SKU, and those are markets where high-ticket purchases convert on instalments. This is the EdTech industry override applied literally, and it is a revenue argument rather than a plumbing one.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 28 Oct
+
+```text
+Hey {{recipient.first_name}}, one more from me. inDrive went live in ten new markets in under
+eight months on a single integration, at a 90% approval rate. Worth 15 minutes to see whether
+the same shape maps to your next five? Monday the 2nd at 2pm Vietnam time is open.
+```
+
+---
+
+#### Touch 10 — Email 7 · Day 19 · Fri 30 Oct · MANUAL
+
+*Placeholder. Manual creative bridge, anchored to something fresh.*
+
+Freshest available anchors: the **"Business Growth & Monetization Lead"** role, sited **India, Singapore or Vietnam** — the closest thing to a monetisation owner and squarely in territory, so a good multi-threading target. **Akshaya Aradhya joined as CTO in 2025.** And the **January 2026 next-generation app launch** plus Korean as a ninth interface language, which is a localisation push that stops short of the payment layer. ⚠️ All three are tagged `[UNVERIFIED — search summary]` in the research. **Re-verify before putting any of them in writing.**
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 · Mon 2 Nov
+
+```text
+Hey {{recipient.first_name}}, last ping from me here. One thing I never got to: Fundiin gives
+your Vietnamese buyers two interest-free instalments on a lifetime plan that runs to about
+6.8 million dong. No other market gets that option. If timing works, Thursday the 5th at
+10:30am Vietnam time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Tue 3 Nov · REPLY IN THREAD to Touch 4
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing is just off, happy to come back when the next market is actually on the
+roadmap. And if it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+- ✅ **The seven providers, and the four Vietnamese rails** (E1, E2, LK1, E3) — `elsa-config.elsanow.io/elsa-payment-sdk/html.umd.js`, HTTP 200, 143,547 bytes, verified first-hand in the research run. Strings include `defaultPayooDescription`, `defaultMomoDescription`, `defaultShopeeDescription`, `defaultFundiinDescription`.
+- ✅ **Vietnamese tax invoicing** (E1, LK1, E3) — `taxInvoiceTitle = "Tax invoice information (Vietnam)"`, same SDK.
+- ✅ **Two locales, `en` and `vi`** (E1) — SDK enumeration.
+- ✅ **PromptPay and TrueMoney absent for Thailand; UPI absent for India** (E1, LK2, E3) — SDK enumeration **with controls run**, which is what makes these sourced absences rather than assumptions.
+- ✅ **Traffic shares** (E1, LK2, E3) — SimilarWeb supplied by Prateek: Vietnam 32.28%, Thailand 8.09%, India 5.78%, Taiwan 5.61%, Japan 3.28%, Indonesia 2.53%. **The five non-Vietnam markets sum to 25.29%**, which is where "about a quarter" comes from. **Deliberately rounded in the copy** rather than quoted to two decimals.
+- ✅ **Fundiin is two interest-free instalments** (LK4) — SDK Vietnamese string, *"Trả sau 2 kỳ miễn lãi qua Fundiin"*.
+- ✅ **The 6,800,000₫ lifetime SKU** (LK4) — research file.
+- ✅ **inDrive's three numbers and the mechanism** (E4, LK3) — `https://y.uno/en/success-stories/indrive`, **re-fetched and verified live 2026-10-11**. Page title: *"inDrive achieves 90% payment approval rate with Yuno"*. Verbatim: *"expand into 10 new countries in under eight months"*, *"integrating payment routes in several Latin American countries in less than 8 months"*, *"inDrive has grown to operate in over 50 countries"*.
+
+**⚠️ Flags to clear before sending**
+
+- ⚠️ **The sizing constraint at the top of this section is the biggest one.** The web-vs-IAP split is undisclosed and the addressable base is web plus B2B only. Nothing here claims a share, and nothing should.
+- ⚠️ **No contact name.** `{{recipient.first_name}}` throughout. The likely targets are the **Business Growth & Monetization Lead** (sited India, Singapore or Vietnam, and in territory) or **Vu Van**, co-founder and CEO. ⚠️ **There is no payments or billing engineering role anywhere** — two agents searched independently — so there may be no single payments owner to route to. **No multi-threading line is used**, because there is no identified second person to be pointed at.
+- ⚠️ **Slots are Vietnam time.** Operations are rooted in HCMC and the monetisation role is sited in-region. **But `ELSA, Corp.` is US-incorporated** (state unverified) and there is an ELSA Japan entity. If the reply comes back on US Pacific hours, re-cut every slot.
+- 🛑 **Four things this sequence deliberately never says**, each one a documented trap in the research file: it never suggests they lack MoMo (**they have it**); it never pitches failed renewals, dunning or involuntary churn (**zero evidence exists** — every documented complaint is an *unwanted successful* charge, not a failed one); it never claims their checkout is failing customers (**the majority of those Trustpilot complaints are Apple App Store charges, which are not ELSA's stack**); and it never mentions Epic v. Apple (**that ruling covers only the US App Store, and the US is 4.70% of their traffic**).
+- 🛑 **Never write "Speak" when you mean ELSA.** Speak (speak.com) is a **different, directly competing app** with a $78M Series C at a $1bn valuation, and its pages contaminated the raw research.
+- ⚠️ **No APAC regulatory rule appears anywhere in this sequence.** Deliberate. In particular there is no RBI e-mandate claim, because none is sourced in the research file.
+- ⚠️ **E1, E2, E3 and E4 run over the skill's word budgets** (116 / 140 / 139 / 160 against 85–110 / 110–140 / 90–120 / 130–160). E3 is the one worth a second look: roughly 60 of its words are the prescribed Yuno re-state, discovery question and CTA. **If a tighter send is wanted, cut the India bullet from E1 and the "not because anyone's doing it badly" clause from E3** — though that clause is the diplomatic hedge doing real work on an in-house account, so it is the last thing to go, not the first.
+
+### Success Case Alternatives
+
+- **Rappi** — *"zero implementation delays, hundreds of methods, 80% less analyst work"*. The closest alternative, and arguably better if the conversation turns to **provider breadth and operational load** rather than market entry. Same Tier 2 caveat: super-app, LATAM.
+- **Vibra** — new-user approval lifted **more than 30 percentage points, to 80%**, alongside launching Apple Pay, Nu Pay and Google Pay. Use if the thread moves to **first-time-buyer conversion**, which fits a consumer app with a large free-to-paid funnel. Tier 2, Brazil, retail.
+- ❌ **Open English is the only edtech logo in the library and it carries NO published numbers**, so it cannot carry an E4. Usable as a one-line relevance signal on a call only.
+- ❌ **Do NOT use Livelo here.** It is the decline-cascade case, and ELSA has **no evidenced decline problem** — citing it would invent a pain the research explicitly failed to find.
+- ❌ **Do NOT use Viva Aerobus.** Its 75% is a NOVA result (AI voice callback after a failed payment), which would misattribute the mechanism.
+- ⚠️ **No competitor in this category uses any orchestrator** — Duolingo, Babbel, Busuu, Speak, Cake, Red Kiwi, Topica, Prep and Monkey Junior were all checked. **That cuts both ways: there is no category proof point to show them either.**
+
 
 </details>
 
