@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-09 01:51*
+*Last updated: 2026-10-11 20:10*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -82,7 +82,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (72)
+## 🟢 Ready to Outreach (73)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -149,6 +149,7 @@
 | [TRAC (Astra)](2-ready-to-outreach/trac.md) | Vehicle rental & mobility — corporate fleet le | 11/29 | ✅ GREENFIELD — a single PSP (Xe… | 2026-10-06 |
 | [Interpark Ticket (NOL 티켓)](2-ready-to-outreach/interpark-ticket.md) | Event ticketing (concerts, musicals, theatre,  | 10/29 | In-house — self-licensed PG, ow… | 2026-09-18 |
 | [Neocraft](2-ready-to-outreach/neocraft.md) | Gaming — mobile free-to-play MMORPG developer  | 10/29 | In-house | 2026-10-09 |
+| [Salmon Group](2-ready-to-outreach/salmon-group-philippines.md) | Consumer Finance — in-store POS lending, perso | 8/29 | In-house | 2026-10-11 |
 | [Bangkok Airways](2-ready-to-outreach/bangkok-airways.md) | Airlines (regional full-service, plus airport  | —/29 | Greenfield — no orchestration l… | 2026-09-15 |
 | [Citilink](2-ready-to-outreach/citilink.md) | Airlines (low-cost carrier) | —/29 | Greenfield — no orchestration l… | 2026-09-15 |
 | [Garuda Indonesia](2-ready-to-outreach/garuda-indonesia.md) | Airlines (state-owned flag carrier) | —/29 | In-house — they built their own… | 2026-09-15 |
