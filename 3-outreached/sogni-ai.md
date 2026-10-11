@@ -1,8 +1,8 @@
 # Sogni AI
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 13 / 29 → 🟢 **Medium** — ⚠️ **scored under an explicit volume-gate exception granted by Prateek**
-**Industry:** Creative AI — image, video, music and language generation on a decentralized GPU network ("Supernet") · **HQ:** **we&robot PTE LTD**, 60 Paya Lebar Road, Paya Lebar Square #07-54, **Singapore 409051** · **Researched:** 2026-10-07 · **First email sent:** —
+**Industry:** Creative AI — image, video, music and language generation on a decentralized GPU network ("Supernet") · **HQ:** **we&robot PTE LTD**, 60 Paya Lebar Road, Paya Lebar Square #07-54, **Singapore 409051** · **Researched:** 2026-10-07 · **First email sent:** 2026-10-11
 **Motion:** 🛑 **IN-HOUSE — but only half of one.** They built a five-rail reconciliation and entitlement layer and **no routing layer at all**. No orchestrator incumbent to displace.
 
 ---

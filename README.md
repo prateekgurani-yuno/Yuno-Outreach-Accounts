@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-11 20:10*
+*Last updated: 2026-10-11 21:38*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -82,7 +82,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (73)
+## 🟢 Ready to Outreach (69)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -109,14 +109,12 @@
 | [Simple.life](2-ready-to-outreach/simple-life.md) | AI intermittent-fasting / weight-loss consumer | 19/29 | 🔴 COMPETITIVE — Primer is the l… | 2026-10-06 |
 | [Webzen Inc.](2-ready-to-outreach/webzen.md) | Online & mobile game developer/publisher + IP  | 19/29 | In-house orchestration on the a… | 2026-09-20 |
 | [Cathay Pacific](2-ready-to-outreach/cathay-pacific.md) | Airlines (full-service + wholly-owned LCC) | 18/29 | Coverage play, not displacement… | 2026-09-18 |
-| [HK Express](2-ready-to-outreach/hk-express.md) | Airlines (low-cost carrier, short-haul) | 18/29 | In-house — and it is the best-e… | 2026-09-18 |
 | [Jetstar Airways](2-ready-to-outreach/jetstar-airways.md) | Airlines (low-cost carrier) | 18/29 | In-house (partial) — a purpose… | 2026-09-19 |
 | [Jubilant FoodWorks](2-ready-to-outreach/jubilant-foodworks.md) | Quick-service restaurants / food delivery — Do | 18/29 | 🛑 IN-HOUSE — they built it, and… | 2026-10-05 |
 | [Travelex Japan](2-ready-to-outreach/travelex-japan.md) | Foreign-exchange retail + licensed funds trans | 18/29 | 🛑 IN-HOUSE — they built it, and… | 2026-10-02 |
 | [AIA](2-ready-to-outreach/aia.md) | Insurance — life and health (pan-Asian) | 17/29 | In-house (per-market), not grou… | 2026-10-09 |
 | [Amorepacific](2-ready-to-outreach/amorepacific.md) | Cosmetics manufacturer and brand owner (Sulwha | 17/29 | Greenfield — and unusually so:… | 2026-09-18 |
 | [Asphere Innovations (PlayPark) — *formerly Asiasoft*](2-ready-to-outreach/asiasoft-playpark.md) | Online game publisher/operator — PlayPark bran | 17/29 | In-house orchestration. They bu… | 2026-09-20 |
-| [Japan Airlines (JAL)](2-ready-to-outreach/japan-airlines-jal.md) | Airlines (full-service, domestic + internation | 17/29 | Greenfield — none detected. Sam… | 2026-09-19 |
 | [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house — direct-to-VAN, gatew… | 2026-09-19 |
 | [Kuaishou Technology (HKEX: 1024)](2-ready-to-outreach/kuaishou.md) | Short-video, live-streaming & live-commerce | 17/29 | In-house. Confirmed, not assume… | 2026-09-29 |
 | [Mandarin Oriental Hotel Group](2-ready-to-outreach/mandarin-oriental-hotel-group.md) | Ultra-luxury hotel management, branded residen | 17/29 | 🛠️ IN-HOUSE — Mandarin Oriental… | 2026-10-09 |
@@ -132,7 +130,6 @@
 | [CoinSpot](2-ready-to-outreach/coinspot.md) | Crypto & Digital Assets — Australian retail ex | 15/29 | ✅ GREENFIELD — no orchestrator… | 2026-10-06 |
 | [Dyson](2-ready-to-outreach/dyson.md) | Premium consumer appliances — floorcare, hair  | 15/29 | ⬜ STILL CANNOT CLASSIFY at grou… | 2026-10-05 |
 | [ELSA Speak](2-ready-to-outreach/elsa-speak.md) | AI English-pronunciation coaching — consumer s | 15/29 | 🛑 IN-HOUSE — they built their o… | 2026-10-06 |
-| [EVA Air](2-ready-to-outreach/eva-air.md) | Airlines (long-haul international, cargo-heavy | 15/29 | Greenfield — none detected. ⚠️… | 2026-09-18 |
 | [Virgin Australia](2-ready-to-outreach/virgin-australia.md) | Aviation — domestic and short-haul internation | 15/29 | ⬜ UNCERTAIN — deliberately not… | 2026-10-06 |
 | [China Airlines](2-ready-to-outreach/china-airlines.md) | Airlines (passenger + unusually cargo-heavy) | 14/29 | Greenfield — none detected. ⚠️… | 2026-09-18 |
 | [Langham Hospitality Group](2-ready-to-outreach/langham-hospitality-group.md) | Hospitality & Lodging (luxury hotel operator) | 14/29 | Greenfield — direct, per-proper… | 2026-10-09 |
@@ -141,7 +138,6 @@
 | [OneDegree](2-ready-to-outreach/onedegree.md) | Insurance — Hong Kong virtual (digital) genera | 13/29 | ✅ GREENFIELD — three payment pr… | 2026-10-09 |
 | [Oztix](2-ready-to-outreach/oztix.md) | Live-music, festival and venue ticketing (agen | 13/29 | Greenfield — a single gateway… | 2026-09-19 |
 | [Sociolla](2-ready-to-outreach/sociolla.md) | Beauty retail, omnichannel (e-commerce + 150 p | 13/29 | In-house layer — a dedicated fi… | 2026-09-18 |
-| [Sogni AI](2-ready-to-outreach/sogni-ai.md) | Creative AI — image, video, music and language | 13/29 | 🛑 IN-HOUSE — but only half of o… | 2026-10-07 |
 | [Stylevana](2-ready-to-outreach/stylevana.md) | Cross-border e-commerce (Korean & Japanese bea | 13/29 | Greenfield — three payment inte… | 2026-09-18 |
 | [Moshtix](2-ready-to-outreach/moshtix.md) | Live-music and festival ticketing (agent-of-pr | 12/29 | In-house — Moshtix has built it… | 2026-09-19 |
 | [Cebu Pacific](2-ready-to-outreach/cebu-pacific.md) | Airlines (low-cost carrier) | 11/29 | Competitive — CellPoint Digital… | 2026-09-18 |
@@ -162,10 +158,14 @@
 | [Watsons](2-ready-to-outreach/watsons.md) | Health & beauty retail (omnichannel) | —/29 | Undetermined — in-house is the… | 2026-09-16 |
 | [YuppTV](2-ready-to-outreach/yupptv.md) | OTT / Video streaming (South Asian diaspora) | —/29 | Displacement — Juspay confirmed… | 2026-09-14 |
 
-## 🔵 Outreached (6)
+## 🔵 Outreached (10)
 
 | Company | Industry | ICP | First Sent |
 |---------|----------|-----|------------|
+| [EVA Air](3-outreached/eva-air.md) | Airlines (long-haul international, cargo-heavy | 15/29 | 2026-10-11 |
+| [HK Express](3-outreached/hk-express.md) | Airlines (low-cost carrier, short-haul) | 18/29 | 2026-10-11 |
+| [Japan Airlines (JAL)](3-outreached/japan-airlines-jal.md) | Airlines (full-service, domestic + internation | 17/29 | 2026-10-11 |
+| [Sogni AI](3-outreached/sogni-ai.md) | Creative AI — image, video, music and language | 13/29 | 2026-10-11 |
 | [ANA (All Nippon Airways)](3-outreached/ana-all-nippon-airways.md) | Airlines (passenger, + Nippon Cargo Airlines c | 23/29 | 2026-10-01 |
 | [MiniMax (minimax.io) — MiniMax Group Inc., HKEX: 0100](3-outreached/minimax-io.md) | AI / LLM — developer API platform + consumer s | 23/29 | 2026-10-01 |
 | [YesStyle](3-outreached/yesstyle.md) | Cross-border e-commerce (Asian beauty & fashio | —/29 | 2026-10-01 |

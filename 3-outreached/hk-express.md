@@ -1,8 +1,8 @@
 # HK Express
 
-**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 18 / 29 → ⭐ **High Priority**
-**Industry:** Airlines (low-cost carrier, short-haul) · **HQ:** Hong Kong — wholly owned by **Cathay Pacific** · **Researched:** 2026-09-18 · **First email sent:** —
+**Industry:** Airlines (low-cost carrier, short-haul) · **HQ:** Hong Kong — wholly owned by **Cathay Pacific** · **Researched:** 2026-09-18 · **First email sent:** 2026-10-11
 **Motion:** **In-house** — and it is the best-evidenced in-house call in this repo, on live architecture rather than absent search hits (see 3B). **Respect the build decision. Never argue they need orchestration.**
 
 ---

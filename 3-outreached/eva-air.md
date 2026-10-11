@@ -1,8 +1,8 @@
 # EVA Air
 
-**Status:** 🟢 Ready to outreach — 12-touch sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 15 / 29 → 🟢 **Medium**
-**Industry:** Airlines (long-haul international, cargo-heavy) · **HQ:** Taoyuan/Taipei, **Taiwan** — EVA Airways Corp, Evergreen Group, **TWSE 2618** · **Researched:** 2026-09-18 · **First email sent:** —
+**Industry:** Airlines (long-haul international, cargo-heavy) · **HQ:** Taoyuan/Taipei, **Taiwan** — EVA Airways Corp, Evergreen Group, **TWSE 2618** · **Researched:** 2026-09-18 · **First email sent:** 2026-10-11
 **Motion:** **Greenfield** — none detected. ⚠️ The "no orchestrator" half rests largely on absent search hits, but there is affirmative counter-evidence of **in-house payment engineering** (see 3B).
 
 > ⚠️ **DISAMBIGUATION — get this right.** EVA Air is Taiwanese (TWSE **2618**), and is **not** China Airlines (also Taiwanese, TWSE **2610**), nor any mainland Chinese carrier. Its regional subsidiary is **UNI Air 立榮航空**.

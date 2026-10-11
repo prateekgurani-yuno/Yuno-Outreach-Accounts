@@ -1,8 +1,8 @@
 # Japan Airlines (JAL)
 
-**Status:** 🟢 Ready to outreach — sequence drafted
+**Status:** 🔵 Outreached — sequence active
 **ICP Score:** 17 / 29 → ⭐ **High Priority**
-**Industry:** Airlines (full-service, domestic + international, cargo, mileage commerce) · **HQ:** Tokyo, **Japan** — 日本航空株式会社, **TSE 9201** · **Researched:** 2026-09-19 · **First email sent:** —
+**Industry:** Airlines (full-service, domestic + international, cargo, mileage commerce) · **HQ:** Tokyo, **Japan** — 日本航空株式会社, **TSE 9201** · **Researched:** 2026-09-19 · **First email sent:** 2026-10-11
 **Motion:** **Greenfield** — none detected. Same architectural shape as ANA: cash rails on a third-party vendor, fraud on a separate 2015-vintage engine, card acquirer undisclosed, region-gated storefronts with different method sets.
 
 ---
