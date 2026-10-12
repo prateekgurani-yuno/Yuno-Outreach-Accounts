@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-12 00:08*
+*Last updated: 2026-10-12 05:37*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (70)
+## 🟢 Ready to Outreach (71)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -106,6 +106,7 @@
 | [Lion Air Group](2-ready-to-outreach/lion-air.md) | Airlines (LCC group — Lion Air, Batik Air, Win | 19/29 | Greenfield — no group-level orc… | 2026-09-19 |
 | [Qantas Airways Limited](2-ready-to-outreach/qantas.md) | Aviation — full-service and low-cost airlines, | 19/29 | 🛑 IN-HOUSE / PSS-EMBEDDED — the… | 2026-10-06 |
 | [Simple.life](2-ready-to-outreach/simple-life.md) | AI intermittent-fasting / weight-loss consumer | 19/29 | 🔴 COMPETITIVE — Primer is the l… | 2026-10-06 |
+| [TADA Mobility](2-ready-to-outreach/tada-mobility.md) | Mobility & Ridesharing — zero-commission ride- | 19/29 | GREENFIELD (qualified) — Stripe… | 2026-10-12 |
 | [Webzen Inc.](2-ready-to-outreach/webzen.md) | Online & mobile game developer/publisher + IP  | 19/29 | In-house orchestration on the a… | 2026-09-20 |
 | [Cathay Pacific](2-ready-to-outreach/cathay-pacific.md) | Airlines (full-service + wholly-owned LCC) | 18/29 | Coverage play, not displacement… | 2026-09-18 |
 | [Jetstar Airways](2-ready-to-outreach/jetstar-airways.md) | Airlines (low-cost carrier) | 18/29 | In-house (partial) — a purpose… | 2026-09-19 |
