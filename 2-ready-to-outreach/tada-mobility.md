@@ -1,6 +1,6 @@
 # TADA Mobility
 
-**Status:** 🟡 Research complete — outreach not yet generated
+**Status:** 🟢 Ready to outreach — sequence drafted
 **ICP Score:** 19 / 29 → ⭐ **High Priority**
 **Industry:** Mobility & Ridesharing — zero-commission ride-hailing (MVL / Mass Vehicle Ledger group; brands TADA, Throo, COOP) · **HQ:** Singapore — **TADA Mobility (Singapore) Pte. Ltd.**, 63 Ubi Road 1 #01-48, Oxley Bizhub, Singapore 408728; group parent **MVL Foundation Pte. Ltd.** (Singapore) · **Researched:** 2026-10-12 · **First email sent:** —
 **Motion:** **GREENFIELD (qualified)** — Stripe confirmed as the sole named PSP via Stripe's own customer story; no orchestrator detected anywhere. But they already *buy* acceptance optimisation from Stripe (Adaptive Acceptance), so skip the "you need orchestration" education layer and lead on the markets and rails Stripe does not acquire in.
@@ -132,7 +132,291 @@
 <details open>
 <summary><h2>✉️ Section 2 — Full Outreach</h2></summary>
 
-*Not yet generated. Run `/full-outreach TADA Mobility` to draft the 12-touch sequence, or call this from `/prepare_batch`.*
+### Pain Vector Extraction
+
+**Motion:** **GREENFIELD (qualified)** — Stripe is the sole named PSP, no orchestrator anywhere, but they already buy acceptance optimisation *inside* Stripe (Adaptive Acceptance, network tokens, account updater). Per Step 6a the standard greenfield sequence applies, with one hard override of my own: **TADA publishes a 98% authorisation rate, so no touch in this sequence leads on approval rates.** Every touch attacks the denominator instead.
+
+**Observable setup facts (all verified, with sources):**
+- Their HK rider terms put TADA in the money flow as the driver's *"payment collection agent"*, **"unless paid in cash"** — [tada_terms_en_HK.md](https://policy.tada.global/policies/tada_terms_en_HK.md)
+- Same terms: on a card that cannot be charged, the rider may *"settle the Fares and Platform Fees in full"* in cash *"directly with the Driver"* — same source
+- Stripe is the only named PSP. Cards *"processed in Singapore dollars (SGD)"*, one stored card works *"across all the countries that TADA operates in"* — [stripe.com/customers/tada](https://stripe.com/customers/tada)
+- 98% authorisation rate, +2.8% from Adaptive Acceptance, 0% disputes — same source, self-reported, ~Nov 2024
+- Four separate Cambodian wallet integrations (ABA Pay, Wing Pay, Pi Pay, Chip Mong Pay). **Bakong and KHQR absent** — their own production catalogue
+- **PayNow absent** in Singapore; NETS QR and OCBC Digital present — same catalogue
+- **PromptPay** named in Stripe's Nov-2024 case study as planned alongside Apple Pay. Apple Pay shipped; PromptPay is still absent — Stripe page + catalogue
+- No local entity found in Cambodia, Vietnam or Hong Kong; Vietnamese rider terms contract riders to a Singapore company — policy docs
+- Zero commission, with a carve-out in their own copy: *"Except for platform and transaction fees for debit/credit cards, the full amount of the fare is for a driver"*
+- Flat **~US$0.78–0.92** per-ride software fee charged to the driver — [Fortune](https://fortune.com/2025/12/25/the-worlds-leading-blockchain-based-taxi-app-is-setting-its-sights-on-new-york-city/)
+- Throo launched in NYC 29 Jun 2026 (TLC-licensed); **agentic payments API** shipped Jul 2026
+
+**Selected observations for Phase 1 (E1 bullets, ranked by materiality):**
+1. **The cash carve-out in their own HK terms** → *"Your HK rider terms put TADA in the flow as the driver's payment collection agent, unless the fare is paid in cash."* ⭐ The spine. Purely factual and quoted, so Phase 1 stays observational; the receivable consequence is held back for E3.
+2. **Four Cambodian wallets, no national rail** → *"Cambodia runs four separate wallet integrations. KHQR isn't one of them."*
+3. **PromptPay unshipped against their own stated roadmap** → *"Your November 2024 Stripe case study named Apple Pay and PromptPay as next. Apple Pay shipped."*
+
+**Bridge variant:** **B — limitations.**
+**Rationale:** One visible PSP (Stripe) across five APAC markets plus a live US expansion and a new agentic payment modality. That is the textbook single-PSP-plus-growth-signals shape, not a fragmented multi-PSP stack, so Variant A would misdescribe them and Variant C is vaguer than the evidence warrants.
+
+**Hypothesis for Phase 2 (E3):**
+Their card book self-collects and their cash book does not, so every rail they do not carry in a market quietly converts a ride into a fee they have to recover from their own driver.
+**Backing logic:** At a flat ~US$0.80 per ride and ~1.5–2.1M rides/month, TADA has no margin cushion. Their own terms remove TADA from the money flow on any cash-settled fare, including every declined card, and send the rider to settle TADA's *own* platform fee with the driver. Unlike a normal merchant a decline costs them the whole transaction rather than a basket, because the service is still delivered and the driver is still paid. Missing rails (KHQR, PayNow, PromptPay) each push riders toward the one settlement path that cuts TADA out.
+
+**Success case for Phase 3 (E4):**
+**Selected case: Livelo.** **Tier 2** — same payment pattern (decline recovery through a secondary acquirer), different industry and region.
+**Match rationale:** The spine is about declines leaving the system. Livelo is the only case in the library whose headline *is* recovered declines, and its mechanism is exactly the one being proposed: *"Yuno's Smart Routing also helped Livelo recover customer transactions that initially declined by instantly routing them to a secondary acquirer."* Verified live 2026-10-12.
+**Numbers to lead with:** 5% increase in payment approval rates · 50% recovery of failed transactions · millions of R$ in savings.
+**⛔ Why NOT inDrive for the numbers:** inDrive is the Tier 1 industry match (multi-country ride-hailing, and a direct competitor), but its published figure is a **90% payment approval rate** against TADA's self-reported **98%**. Putting those side by side invites the one comparison we lose. inDrive is therefore used for **expansion velocity only** (*"expand into 10 new countries in under eight months"*) and never as an approval benchmark.
+**Optional benchmark:** **SKIP.** No independently sourced third-party benchmark is available, and Yuno's own ~8% routing-uplift figure is our marketing, not evidence.
+
+**Touch-by-touch angles:**
+- **E2 angle:** the cash carve-out → *one integration to add any method, no per-rail rebuild* (per the E2 mapping table, missing-local-rail row). One mechanism only.
+- **LK1 angle:** the **four Cambodian wallet integrations**. ⚠️ **Deliberate deviation from the template**, which says LK1 echoes an observation from the E1 set. E1 had to drop to two bullets to hold its 85–110 word budget (the prescribed Yuno line plus the soft CTA alone consume ~79 words), so Cambodia moved out of E1 and into LK1. Net effect is better than the template: every touch now carries a distinct observation and nothing is repeated across channels.
+- **LK2 angle:** the card-book / cash-book asymmetry as a single sentence.
+- **LK3 angle:** inDrive's expansion velocity, deliberately *not* Livelo's 50% (that would repeat E4 verbatim).
+- **LK4 angle:** fresh and unused in every prior touch, the agentic payments API with no cash fallback available.
+- **E8 angle:** clean exit, no new observation.
+
+> ⚠️ **E3 runs 139 words against a 90–120 budget. Logged, not hidden.** I trimmed it three times; the remaining text is only the skill's own mandatory components: the hypothesis, two to three lines of backing, the Yuno additive restate (*"keep your stack, add what's missing"*), the embedded discovery question, and a two-time CTA. Those sum past 120 once the observation is this specific. **If Prateek wants it inside budget, the two cheapest cuts are the diplomatic clause** (*"Not because anyone's doing it badly, it's the zero-commission model working as designed"*, 14 words) **and moving the discovery question to E4**, which the skill permits. I left both in because the clause is what stops the asymmetry reading as criticism, and E3 is where the skill says Sample 1's density belongs. Every other touch is inside budget.
+>
+> ⚠️ **Three weekend send-dates were shifted.** On a Day-1 start of Mon 12 Oct 2026, Day 7 falls on a Sunday, Day 13 on a Saturday and Day 21 on a Sunday. E3 moves to **Mon 19 Oct**, E5 to **Fri 23 Oct** (Day 15 already occupies Mon 26) and LK4 to **Mon 2 Nov**. All intervals otherwise preserved.
+>
+> ⚠️ **Public holidays not verified.** The research run surfaced no Singapore or Hong Kong holiday calendar, so the five proposed slots are checked against weekends only. Deepavali 2026 falls outside the window on my reading, but **confirm before sending** rather than trusting that.
+
+---
+
+### Phase 1 — Curiosity (Days 1–5)
+
+#### Touch 1 — Email 1 · Day 1 · Mon 12 Oct 2026
+
+**Subject:** Cash fallback in your HK terms
+
+```text
+Hey {{recipient.first_name}},
+
+Spent some time on TADA's payment setup. Two things stood out.
+
+Your HK rider terms put TADA in the money flow as the driver's "payment
+collection agent", unless the fare's paid in cash.
+
+Your Stripe case study named Apple Pay and PromptPay as next. Apple Pay
+shipped.
+
+At your stage, that kind of setup usually comes with some limitations.
+
+I work at Yuno (top-100 fintech, a16z-backed). We consider ourselves the
+"everything payments" platform: one integration, every PSP, every method,
+every market.
+
+Rather than pitch you based on assumptions, is there anything payment-related
+you're working through that we might be able to help with?
+
+Best,
+Prateek
+```
+
+#### Touch 2 — Email 2 · Day 3 · Wed 14 Oct 2026 · REPLY IN THREAD
+
+```text
+Hey {{recipient.first_name}},
+
+Following up. Wanted to put a bit more behind what Yuno actually does, and
+how it would address what I flagged.
+
+We sit above the PSPs you already run, so nothing gets ripped out. Stripe
+stays where it is. We route each transaction per BIN, market and method to
+whichever rail performs best, fail over when a provider degrades, and add any
+new method or rail through the one integration you've already done.
+
+That last part is what matters for the KHQR and PromptPay gaps. Adding a rail
+stops being a per-market build, which is usually what keeps a named roadmap
+item sitting unshipped for two years.
+
+I'll keep sharing what I'm seeing every few days. If your stack's where you
+want it, just say the word and I'll back off, otherwise happy to go deeper.
+
+Cheers,
+Prateek
+```
+
+#### Touch 3 — LinkedIn message 1 · Day 5 · Fri 16 Oct 2026
+
+```text
+Hey {{recipient.first_name}}, figured I'd flag this here too in case it's
+more useful than email. Quick one: Cambodia runs four separate wallet
+integrations, ABA Pay, Wing Pay, Pi Pay and Chip Mong Pay, and KHQR isn't one
+of them. Curious if that maps to anything you're working through on payments.
+```
+
+---
+
+### Phase 2 — Diagnosis (Days 7–9)
+
+#### Touch 4 — Email 3 · Day 7 → **Mon 19 Oct 2026** (Day 7 fell on a Sunday) · NEW EMAIL
+
+**Subject:** Your card book vs your cash book
+
+```text
+Hey {{recipient.first_name}},
+
+Going to take a swing at this. My read is that your card book self-collects
+and your cash book doesn't.
+
+It's in your own terms. On a card, TADA collects as the driver's agent and the
+fee nets itself. When a card can't be charged, the rider settles the fare and
+your platform fee with the driver, so your fee is the only thing that leaves.
+Not because anyone's doing it badly, it's the zero-commission model working as
+designed.
+
+At Yuno (a16z-backed, top-100 fintech) we sit above your existing PSPs, so the
+rider's preferred rail is on the screen and the fare stays in your flow. Keep
+your stack, add what's missing.
+
+Do you track cash-fallback rate separately by market?
+
+Thursday is open. Would 3pm or 4:30pm your time work for 15 minutes?
+
+All the best,
+Prateek
+```
+
+#### Touch 5 — LinkedIn message 2 · Day 9 · Tue 20 Oct 2026
+
+```text
+Hey {{recipient.first_name}}, sent a longer note over email this week. Short
+version: your card book collects itself and your cash book doesn't, so a
+declined ride isn't a lost basket, it's a fee you have to chase a driver for.
+If that's anywhere on your radar, would Friday 11am your time work for a
+quick 15?
+```
+
+---
+
+### Phase 3 — Proof (Days 11–17)
+
+#### Touch 6 — Email 4 · Day 11 · Thu 22 Oct 2026 · NEW EMAIL
+
+**Subject:** How Livelo recovered half its declines
+
+```text
+Hey {{recipient.first_name}},
+
+On the read I shared last week, sharing a quick example of what solved looks
+like.
+
+Livelo is a Brazilian loyalty platform, so a different industry and region to
+you. I'm using it because the pattern is the same: transactions that declined
+on the first attempt got instantly routed to a secondary acquirer instead of
+being written off. The results came fast.
+
+- 50% of failed transactions recovered (you read that right, half)
+- 5% increase in payment approval rates
+- Millions of R$ saved
+
+Same orchestration layer above their existing stack, no rip-out.
+
+On the mobility side, inDrive runs on the same layer and used it to expand
+into 10 new countries in under eight months, which is closer to what you're
+doing with Throo and Colorado right now.
+
+Tuesday works well for me. Would 10am or 4pm your time suit for 15 minutes?
+
+Full case here if useful: https://y.uno/en/success-stories/livelo
+
+Looking forward to it,
+Prateek
+```
+
+#### Touch 7 — Email 5 · Day 13 → **Fri 23 Oct 2026** (Day 13 fell on a Saturday; Day 15 already holds Mon 26) · MANUAL
+
+*Placeholder — manual creative approach. Do not auto-write.*
+
+> **Suggested angle for this touch, strongest available:** a one-page teardown of the Cambodian rail picture. Four integrations they maintain (ABA Pay, Wing Pay, Pi Pay, Chip Mong Pay) set against the single national rail that reaches the same institutions, with their own Head of Product's line from the Stripe case study on top: *"Regional payment integration processes usually take a lot of time."* That quote is the whole argument in their words.
+
+#### Touch 8 — Email 6 · Day 15 · Mon 26 Oct 2026 · MANUAL
+
+*Placeholder — second manual approach, different format than E5.*
+
+> **Suggested angle:** a short recorded walkthrough of the TADA rider app's payment sheet in two markets side by side, Singapore against Cambodia, showing what a rider actually sees. Different format to E5's written teardown, and it demonstrates the research rather than asserting it.
+
+#### Touch 9 — LinkedIn message 3 · Day 17 · Wed 28 Oct 2026
+
+```text
+Hey {{recipient.first_name}}, inDrive used this layer to open 10 new countries
+in under eight months while keeping one integration. With Throo in New York
+and Colorado already live, worth 15 minutes to see if it maps to your setup?
+Monday 2pm your time is open.
+```
+
+---
+
+### Touch 10 — Email 7 · Day 19 · Fri 30 Oct 2026 · MANUAL
+
+*Placeholder — manual creative bridge. Anchor to something fresh.*
+
+> **Freshest unused anchors, in order:** (1) the **agentic payments API** Throo shipped in July 2026, where a machine-initiated ride has no cash fallback available at all because there is no human in the flow to hand over notes; (2) **NJ and CT already sitting in Throo's production region enum**, i.e. the next two markets before they are announced; (3) the **Hong Kong** launch, their newest APAC market and the one whose rider terms carry the collection-agent language this whole sequence is built on.
+
+---
+
+### Phase 4 — Breakup (Days 21–23)
+
+#### Touch 11 — LinkedIn message 4 · Day 21 → **Mon 2 Nov 2026** (Day 21 fell on a Sunday)
+
+```text
+Hey {{recipient.first_name}}, last LK ping from me on this. The API you
+shipped in July lets an agent pay for a ride with nobody in the flow, which is
+the one case where a cash fallback isn't available. If timing works, Thursday
+10:30am your time is open.
+```
+
+#### Touch 12 — Email 8 · Day 23 · Tue 3 Nov 2026 · REPLY IN THREAD to Touch 6
+
+```text
+Hey {{recipient.first_name}},
+
+Going to stop pinging unless you want to pick this back up.
+
+If the timing's just off, happy to circle back next quarter once Throo's had
+a couple more months in market. And if it ever comes back up, just reply here.
+
+All the best,
+Prateek
+```
+
+---
+
+### Source Notes
+
+**✅ Verified, safe to send**
+- *"payment collection agent"* and the **"unless paid in cash"** carve-out — TADA's own HK rider terms, fetched and read 2026-10-12: [tada_terms_en_HK.md](https://policy.tada.global/policies/tada_terms_en_HK.md)
+- The decline fallback, *"settle the Fares and Platform Fees in full"* in cash *"directly with the Driver"* — same document, same date
+- Four Cambodian wallet integrations, and **KHQR / Bakong absent** — TADA's own production payment catalogue in [index-BbiHo7SX.js](https://tada.global/assets/index-BbiHo7SX.js), extracted and checked in context 2026-10-12
+- **PromptPay named as planned alongside Apple Pay** — [stripe.com/customers/tada](https://stripe.com/customers/tada), verified verbatim 2026-10-12. Their exact wording is that TADA *"hopes to"* add it, which is why E1 says "named as what was coming next" rather than "committed to"
+- Apple Pay shipped — `payment_apple_pay` present in the current catalogue
+- Stripe as sole named PSP, and that it is this TADA — same page (names Kay Woo, MVLLABS, Kenneth Tay)
+- Flat per-ride driver fee ~US$0.78–0.92 — [Fortune](https://fortune.com/2025/12/25/the-worlds-leading-blockchain-based-taxi-app-is-setting-its-sights-on-new-york-city/), in Fortune's own prose
+- **Livelo: 50% recovery, 5% approval increase, millions of R$ saved**, and the secondary-acquirer mechanism — [y.uno/en/success-stories/livelo](https://y.uno/en/success-stories/livelo), fetched and verified verbatim 2026-10-12
+- **inDrive: 10 new countries in under eight months** — [y.uno/en/success-stories/indrive](https://y.uno/en/success-stories/indrive), verified verbatim 2026-10-12
+- Throo live in NYC and Colorado — PRNewswire 1 Jul 2026 and the Denver trial in Fortune
+
+**⚠️ Unverified or deliberately kept out of the copy**
+- **The cash-vs-digital split is unknown.** No touch asserts a cash share or a revenue figure attached to it. This is why E3 ends on the discovery question rather than a number
+- **Who acquires the four Cambodian wallets is unknown.** No touch claims TADA integrated them directly with each bank. E1 says "runs four separate wallet integrations", which is what the catalogue evidences
+- **KHQR participation of those four wallets rests on a search summary** (`ababank.com` returned 403). No touch claims KHQR would replace all four, only that KHQR is not among them
+- **Public holidays unchecked** — slots verified against weekends only
+- **NJ / CT in the region enum** is left in the E7 placeholder notes, not in any sent copy, because an unannounced market is a sensitive thing to raise cold
+
+**⛔ Deliberate exclusions**
+- **No approval-rate claim anywhere in the sequence.** TADA publishes 98%. Every touch attacks the denominator instead
+- **inDrive's 90% is never stated**, so it can never sit next to their 98%
+- No Yuno competitor named. No booking link. No calendar URL
+- Yuno's own ~8% routing-uplift figure excluded as marketing, not evidence
+- Payouts and driver disbursement never pitched. Yuno is a pay-in orchestration layer
+
+### Success Case Alternatives
+- **inDrive** — Tier 1 on industry (multi-country ride-hailing, direct competitor). Use for expansion velocity, never for approval rate. ⚠️ Naming a direct competitor also carries competitive urgency, which cuts both ways; drop it if the thread turns defensive
+- **Rappi** — Tier 2. Multi-country super app, provider breadth, zero implementation delays. The better swap if the conversation moves to method coverage rather than decline recovery
+- **Vibra** — Tier 2. First-time-buyer approval lifted 30+ points to 80%. Relevant if TADA says its problem is new-rider conversion rather than repeat riders
+- **NetEase Games / Garena** — nameable APAC logos with **no published numbers**. One-line relevance signalling only, never an E4
 
 </details>
 
