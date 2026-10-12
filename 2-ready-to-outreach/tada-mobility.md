@@ -4,6 +4,8 @@
 **ICP Score:** 19 / 29 → ⭐ **High Priority**
 **Industry:** Mobility & Ridesharing — zero-commission ride-hailing (MVL / Mass Vehicle Ledger group; brands TADA, Throo, COOP) · **HQ:** Singapore — **TADA Mobility (Singapore) Pte. Ltd.**, 63 Ubi Road 1 #01-48, Oxley Bizhub, Singapore 408728; group parent **MVL Foundation Pte. Ltd.** (Singapore) · **Researched:** 2026-10-12 · **First email sent:** —
 **Motion:** **GREENFIELD (qualified)** — Stripe confirmed as the sole named PSP via Stripe's own customer story; no orchestrator detected anywhere. But they already *buy* acceptance optimisation from Stripe (Adaptive Acceptance), so skip the "you need orchestration" education layer and lead on the markets and rails Stripe does not acquire in.
+**⭐ PITCH SPINE (build the sequence on this):** In a zero-commission model, **payment success IS revenue collection.** Their own HK rider terms put TADA in the money flow as the driver's *"payment collection agent"* — ***"unless paid in cash"*** — and send a declined rider to settle the fare **and TADA's platform fee** in cash **directly with the driver**. So a decline is not an abandoned cart; it is a receivable against their own driver. See **Insight #1** in Section 10.
+**⛔ DO NOT lead on approval rates.** TADA publishes a **98% authorisation rate** (+2.8% from Adaptive Acceptance, 0% disputes). Concede it and attack its denominator — cash rides and riders lost to a missing rail are not in that number. See the **Approval-Rate Dossier** in Section 10.
 
 ---
 
@@ -62,7 +64,7 @@
 > 1. **A direct contradiction, fixed.** `payment_momopay_p` was assigned to **Cambodia** in Section 4 and to **Vietnam** in Section 3A. Its market is **not evidenced either way**; it is now marked unresolved in both places.
 > 2. **"Five Cambodian integrations" cut to four.** The evidence line said five while every outreach-facing line said four. **Four is now the figure everywhere** — it is the defensible floor and every name in it is unambiguously Cambodian.
 > 3. **A caveat added on all per-market attribution.** The i18n block is a **single flat object with no market grouping** — I read it directly. The catalogue proves which methods exist, not which market each serves. Absences are unaffected and remain robust.
-> 4. **A rebuttal risk added to Insight #1.** The same Stripe page says TADA wanted *"credit card payments using **local currencies**"*, which a prospect can answer the SGD observation with. Ask, do not assert.
+> 4. **A rebuttal risk added to Insight #2 (the SGD/cross-border one).** The same Stripe page says TADA wanted *"credit card payments using **local currencies**"*, which a prospect can answer the SGD observation with. Ask, do not assert.
 > 5. **Revenue provenance downgraded.** Fortune **hyperlinks the $19.8M to `getlatka.com`**, a third-party aggregator — it is not a company disclosure. Volume Derivation B is weakened accordingly; **lead with Derivation A**.
 >
 > ### ❌ What I could NOT confirm
@@ -517,7 +519,45 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 
 ## Section 10: Strategic Insights & Outreach Angles
 
-> ### **Insight #1: One Singapore acquiring account, in Singapore dollars, for five countries**
+> ### **⭐ Insight #1 — THE PITCH SPINE: in a zero-commission model, payment success IS revenue collection**
+>
+> **This is the insight to build the whole sequence on. Everything below it is supporting evidence for this one.** Promoted to #1 by Prateek, 2026-10-12.
+>
+> **Evidence — TADA's own Hong Kong rider terms, verified verbatim against the live document ([tada_terms_en_HK.md](https://policy.tada.global/policies/tada_terms_en_HK.md)):**
+> 1. *"TADA facilitates the Rider's payment of the applicable Fares **(unless paid in cash)** on the Driver's behalf as a payment collection agent."*
+> 2. *"If your primary account payment method is determined to be expired, invalid or otherwise not able to be charged... you may choose to **settle the Fares and Platform Fees in full** in cash **directly with the Driver**."*
+>
+> **The mechanism — an asymmetry inside their own stack:**
+> - **Card ride:** TADA sits in the money flow as collection agent. Its fee nets automatically. Zero collection cost.
+> - **Cash ride, including every declined card:** TADA is **contractually outside the flow**. The rider hands the fare *and TADA's own Platform Fee* to the driver. TADA's revenue lands in the driver's pocket and must be recovered from them.
+>
+> **Pain Point:** A decline here does not produce an abandoned cart — the service is still delivered and the driver is still paid. It produces an **account receivable against one of their own drivers**. Acceptance is not a conversion-funnel concern at this merchant; it is the revenue-collection mechanism. At ~1.5–2.1M rides/month against a ~US$0.80 per-ride fee, **every 1 percentage point of rides that falls to cash is roughly US$150–200k/year** that self-collects on a card and has to be chased on cash. That arithmetic is theirs, from their own published figures — we supply no invented number.
+>
+> **⚠️ Why this beats the cross-border angle, and why it must lead:** TADA **publishes a 98% authorisation rate** (see the Approval-Rate Dossier below). Any pitch shaped like *"your approval rates are leaking"* is rebutted instantly from their own case study. This insight **concedes the 98% and attacks its denominator** — cash rides and riders who bounced off a missing rail are not in that number at all. It is the one angle their headline metric cannot answer.
+>
+> **How every other finding feeds this one:**
+> - **PromptPay absent 23 months** (Insight #4) → a Thai rider's default rail is missing → cash → fee to chase
+> - **Bakong/KHQR absent, four wallets wired separately** (Insight #3) → they already know this, which is why they built four integrations in their most cash-heavy market, and still lack the national rail
+> - **PayNow absent in Singapore** → the same gap in their home market
+> - **SGD cross-border, no local entity in KH/VN/HK** (Insight #2) → raises the decline rate that triggers the cash fallback
+> - **Agentic payments API** (Insight #6) → ⭐ a machine-initiated ride has **no cash fallback available**; there is no human in the flow to hand over notes. Their newest product is where this breaks hardest
+>
+> **Yuno Value Proposition:** Local acquiring and local rails per market behind one integration, so the rider's preferred method is present and the fare stays inside TADA's collection flow instead of falling out of it. Framed as protecting the collection mechanism, not as lifting an auth rate they already report as 98%.
+>
+> **Best Success Case:** **inDrive** — *~90% approval, 10 new countries in under 8 months.* Multi-country ride-hailing, same driver-economics positioning. ⚠️ Note inDrive's published approval figure (~90%) is **below** TADA's self-reported 98%, so **do not put the two numbers side by side** — use inDrive for the expansion-velocity half of the case, not as an approval-rate benchmark.
+>
+> **Embedded discovery question (use in E3 or E4):** *"Do you track cash-fallback rate separately by market?"* Easy to answer, not a yes/no on a meeting, flattering rather than accusatory — and it is the single unknown that sizes this entire business case.
+>
+> **Outreach Angle:** Your HK rider terms say TADA collects the fare as the driver's payment collection agent — *unless it's paid in cash*, and that if a card can't be charged the rider settles the fare and your platform fee directly with the driver. So a decline at TADA isn't a dropped basket, it's a fee you have to go and recover from your own driver. Curious whether cash-fallback rate is something you track per market.
+>
+> **Suggested Subject Line:** When a decline becomes a driver receivable
+>
+> **🚩 Three things to get right before sending:**
+> 1. **Those two quotes are from the HONG KONG terms.** I checked Singapore — the SG terms are far thinner (*"you may choose to pay for the transportation service by cash or credit card"*), with **no collection-agent language and no cash-fallback clause**. Say "your HK terms", never "your terms". HK is also their newest APAC market and the one missing from our TAL row.
+> 2. **Do not assert a cash share.** We do not have one; it is the largest open unknown in this account. The strength of this insight is structural, not quantified.
+> 3. **Do not frame it as "you're losing money."** Frame it as the asymmetry — their card book self-collects, their cash book does not — and add the diplomatic clause: this is the zero-commission model working as designed, not anyone doing anything badly.
+
+> ### **Insight #2: One Singapore acquiring account, in Singapore dollars, for five countries**
 > **Evidence:** **Section 3A** — Stripe's own case study: developers configured Payments so riders *"can pay for services with credit and debit cards **processed in Singapore dollars (SGD)**"*, and *"Riders can use **the card they store in their account profile across all the countries that TADA operates in**"* ([stripe.com/customers/tada](https://stripe.com/customers/tada)). **+ Section 2** — **no local entity found in Cambodia, Vietnam or Hong Kong**; the Vietnamese rider terms contract riders to a **Singapore** company, **TADA Technologies Pte. Ltd** ([tada_terms_vn_VN.md](https://policy.tada.global/policies/tada_terms_vn_VN.md)), and the HK privacy policy routes data *"within or outside of **Singapore**"* ([tada_privacy_en_HK.md](https://policy.tada.global/policies/tada_privacy_en_HK.md)).
 > **Pain Point:** Every Cambodian, Vietnamese, Thai and Hong Kong cardholder is being authorised cross-border against a Singapore account in a foreign currency. Per `apac-payments.md` §3, domestic issuers in this region decline foreign-acquired transactions at materially higher rates than local-acquired ones, and there is no IFR-style cap to blunt the scheme cost. An FX leg sits on every non-SGD rider. And for this merchant the cost of a decline is not a retry — the documented fallback is *"settle the Fares in cash directly with the Driver"*, which removes TADA's fee from the ride altogether.
 > ⚠️ **REBUTTAL RISK — found in the same case study during Prateek's audit, 2026-10-12. Read before sending.**
@@ -530,7 +570,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Outreach Angle:** Stripe's case study says a TADA rider's stored card works across all five markets and that cards are processed in Singapore dollars — which means a Phnom Penh rider's card is being authorised cross-border from Singapore. Curious whether the approval gap between your SGD-domestic traffic and your other four markets is something you measure separately.
 > **Suggested Subject Line:** Your Cambodian riders' cards, authorised from Singapore
 
-> ### **Insight #2: Four Cambodian wallet integrations where the country built one rail**
+> ### **Insight #3: Four Cambodian wallet integrations where the country built one rail**
 > **Evidence:** **Section 4** — TADA's own 18-key payment catalogue carries **ABA Pay, Wing Pay, Pi Pay and Chip Mong Pay** as four separate, unambiguously Cambodian integrations (a fifth key, MOMO Pay, is present but its market is unevidenced — see the Section 4 caveat), while **`bakong` and `khqr` return zero occurrences** ([index-BbiHo7SX.js](https://tada.global/assets/index-BbiHo7SX.js)). **+ Section 3A/7** — their own Head of Product, in Stripe's case study: *"**Regional payment integration processes usually take a lot of time**, but with Stripe, it's never a worry."* **+** third-party rail context: KHQR carried **601.3M transactions / US$75.8bn in 2023** across **3.3M+ merchants**, Cambodian digital payments ran at **2.4× GDP**, and KHQR exists so a merchant can accept *"a single QR code, regardless of which"* bank app the payer uses ([Kapron Asia](https://kapronasia.com/insight/blogs/payments-research/asia-payments-research/instant-payments-are-fueling-cambodias-e-commerce-boom)).
 > **Pain Point:** Not coverage — they have coverage. It is **unit cost of coverage**. Four bilateral integrations, four sets of credentials, reconciliation and failure modes, five vendor relationships, in one city-sized market — and the same pattern restarts in every new country. They have already told their PSP's marketing team that regional integration takes too long.
 > **Yuno Value Proposition:** One integration, local rails added as configuration rather than engineering. The argument lands on time-to-market and maintenance cost, not on acceptance breadth — because breadth is a problem they have already solved expensively.
@@ -538,7 +578,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Outreach Angle:** You have ABA Pay, Wing Pay, Pi Pay and Chip Mong Pay wired in separately, which is four integrations covering institutions that all sit behind one national rail. Your head of product told Stripe that regional payment integration takes a lot of time — that is the part I would want to fix before Denver and New Jersey.
 > **Suggested Subject Line:** Four Cambodian integrations, one national rail
 
-> ### **Insight #3: PromptPay — a published roadmap item, 23 months unshipped**
+> ### **Insight #4: PromptPay — a published roadmap item, 23 months unshipped**
 > **Evidence:** **Section 7** — Stripe's case study (November 2024) states TADA planned to add *"a Thailand-based payment method called **PromptPay**"* alongside Apple Pay ([stripe.com/customers/tada](https://stripe.com/customers/tada)). **+ Section 4** — in the October 2026 production catalogue, **Apple Pay is present and PromptPay returns zero occurrences** ([index-BbiHo7SX.js](https://tada.global/assets/index-BbiHo7SX.js)). **+ Section 2** — Thailand has a local entity (**TADA MOBILITY (THAILAND) CO., LTD.**, Bangkok), Thai-language rider terms, Thai emergency-service integration and a live **ThaID** national-identity flow, so this is a committed market, not a toe in the water.
 > **Pain Point:** Two years to not ship one QR rail in a market where they have incorporated a company, localised the product and integrated the national identity system. Half the stated roadmap shipped; the half that needed a local rail did not. That is the signature of rails being an engineering project rather than a configuration change.
 > **Yuno Value Proposition:** A rail that is a config toggle ships in days, not never. The proof point is sitting in their own backlog.
@@ -546,7 +586,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Outreach Angle:** Your Stripe case study from November 2024 lists Apple Pay and PromptPay as what was coming next. Apple Pay shipped. PromptPay still is not in the app two years on, and you have a Bangkok entity and ThaID live. Usually that gap is integration queue, not priority.
 > **Suggested Subject Line:** Apple Pay shipped. PromptPay didn't.
 
-> ### **Insight #4: Card cost is carved out of the zero-commission promise — so acceptance is a board-level number here**
+> ### **Insight #5: Card cost is carved out of the zero-commission promise — so acceptance is a board-level number here**
 > **Evidence:** **Section 12 / Quick Look** — TADA's own production copy: *"TADA takes zero commission. **Except for platform and transaction fees for debit/credit cards**, the full amount of the fare is for a driver"* ([index-BbiHo7SX.js](https://tada.global/assets/index-BbiHo7SX.js)). **+ Section 7** — the entire revenue line is a flat **~US$0.78–0.92** per-ride software fee, on **US$19.8M** of annual revenue ([Fortune](https://fortune.com/2025/12/25/the-worlds-leading-blockchain-based-taxi-app-is-setting-its-sights-on-new-york-city/)), against a **~US$13.3** average ride value derived from their own 150M-rides / ~US$2bn-GMV claims.
 > **Pain Point:** On a ~US$13 fare the platform keeps under a dollar. Card acceptance cost is therefore a **double-digit percentage of TADA's own take on every card-paid ride** — and they have put that carve-out in writing to drivers, which means every basis point of MDR is visible to their most vocal stakeholder group. No other merchant archetype has acceptance cost sitting this close to gross margin.
 > **Yuno Value Proposition:** MDR reduction through PSP diversification and local acquiring is not a cost-centre optimisation for this merchant — it moves the number they report as revenue. And unlike most cost pitches, this one has a constituency: drivers already know the fee exists.
@@ -554,7 +594,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Outreach Angle:** Your driver page says the full fare goes to the driver except platform and card transaction fees. On a ~$13 average ride where you keep under a dollar, card cost is a meaningful share of your own take — which makes acceptance economics unusually load-bearing for a zero-commission model.
 > **Suggested Subject Line:** The one fee you kept in the zero-commission promise
 
-> ### **Insight #5: Five markets, three US states, an agentic payments API — and the acquiring footprint has not moved**
+> ### **Insight #6: Five markets, three US states, an agentic payments API — and the acquiring footprint has not moved**
 > **Evidence:** **Section 6** — Throo launched in NYC on **29 Jun 2026** with a **live API that lets AI agents autonomously pay for rides** ([PRNewswire](https://aijourn.com/throo-launches-in-new-york-city-with-lower-fares-for-riders-and-zero-commission-for-drivers/)); Denver/Colorado live as **COOP**; **NJ** and **CT** already in the production region enum ([constants](https://go.tada.global/assets/constants-CAXCtKtj.js)); `AV (Coming soon)` and a driver-rentals beta in the nav. **+ Section 3B** — **no orchestration layer anywhere**, and the only confirmed acquiring arrangement is a single Singapore Stripe account. **+ Section 11C** — **Uber and inDrive**, their direct competitors in NYC and in emerging markets respectively, are both publicly named Yuno customers on y.uno's travel/mobility list.
 > **Pain Point:** The company is adding jurisdictions and payment *modalities* (machine-initiated, autonomous, no human at the checkout) faster than it is adding acquiring capability. Agent-initiated charges are the hardest category to get authorised — no cardholder present, stored credential, MIT flagging, and issuer models that have never seen the pattern. Attempting that on a single acquirer with no failover is where approval rates go to die, and it is going live in the most competitive ride-hailing market on earth against two incumbents who already run orchestration.
 > **Yuno Value Proposition:** Multi-acquirer reach and failover at the moment the transaction mix shifts to machine-initiated — plus one integration to carry NJ, CT and whatever follows, instead of a per-state payments project.
@@ -562,9 +602,35 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Outreach Angle:** You shipped an API in July that lets AI agents pay for rides without a human in the flow, and you are opening New Jersey and Connecticut next. Agent-initiated authorisations are the hardest thing to get approved on a single acquirer — it is the one part of the stack I would not want to be single-threaded on going into that.
 > **Suggested Subject Line:** Agent-paid rides on one acquirer
 
+
+### 📊 APPROVAL-RATE DOSSIER — read before any email that touches auth rates
+
+**TADA publishes an authorisation rate. Know it cold before you write a word about approvals.**
+
+> *"Over the last 12 months, we have maintained a **0% dispute rate** by using Radar,"* said Tay. *"By adding Adaptive Acceptance, we **increased authorization rates by 2.8%**, so we now process **98% of all transactions**."*
+> — Kenneth Tay, Head of Product, [stripe.com/customers/tada](https://stripe.com/customers/tada). Verified verbatim against the live page by Prateek, 2026-10-12.
+
+| Attribute | What it actually is |
+|---|---|
+| **Headline figure** | **98% authorisation rate** · **+2.8%** uplift from Adaptive Acceptance (so ~**95.2%** before it) · **0%** dispute rate |
+| **Provenance** | Self-reported by TADA's Head of Product, quoted in **Stripe's own marketing asset**. Never audited, no methodology published |
+| **Age** | **~November 2024 — roughly two years stale.** The page carries **no publication date metadata at all**; it is datable internally because it says Thailand launched in 2024 and Hong Kong starts *"over the next three months"*, i.e. it was written **before HK went live**. Corroborating trade press is dated 7 Nov 2024 |
+| **Footprint covered** | SG, KH, VN, plus a **brand-new** Thailand. **Hong Kong was not yet live. Throo/NYC and COOP did not exist.** The figure predates two of their seven current markets |
+| **Granularity** | 🚩 **Blended. No country split is published anywhere on the page** — I checked for per-market and per-country qualifiers and found none. A 98% blend can conceal a materially worse Cambodia or Vietnam |
+| **Denominator** | 🚩 **The critical point. *"98% of all transactions"* means card attempts that reached Stripe.** It excludes cash rides entirely, and excludes riders who never attempted a payment because the rail they wanted was not on the screen |
+
+**How to handle it in outreach — three rules:**
+
+1. **Never attack the 98%.** It is their published number, they are proud of it, and a merchant who reports a +2.8% improvement **measures auth rate and acts on it**. They know their numbers better than we do. An opener shaped like *"your approval rates are leaking"* gets dismissed in one line.
+2. **Concede it and go after the denominator.** 98% is **not** 98% of rides — it is 98% of the subset that got as far as a card attempt. The cash book and the bounced-off-a-missing-rail riders sit outside that number completely. **That is where Insight #1 lives, and it is the one place their headline metric cannot answer.**
+3. **Never put inDrive's ~90% next to TADA's 98%.** It invites the comparison we lose. Use inDrive for **expansion velocity** (10 new countries in under 8 months), not as an approval benchmark.
+
+**The one approval-rate question that is safe to ask**, because it is the gap in their own disclosure rather than a challenge to it: *"Is the 98% a blended number across all markets, or do you see a spread between your SGD-domestic traffic and the other four?"* They published a blend with no split; asking for the split is legitimate and, if they answer, it hands us the local-acquiring case in their own numbers.
+
 ### Quick Hits: Ready-to-Use Sales Ammunition
 
 **Email hooks (one sentence each):**
+0. ⭐ **THE SPINE —** Your HK rider terms say TADA collects the fare as the driver's payment collection agent *unless it's paid in cash*, and that when a card can't be charged the rider settles the fare and your platform fee directly with the driver — so a decline there isn't a dropped basket, it's a fee you have to recover from your own driver.
 1. Stripe's own case study says a TADA rider's stored card works across all five of your markets and that cards are processed in Singapore dollars — so a Phnom Penh rider's card is authorised cross-border from Singapore every time.
 2. You have ABA Pay, Wing Pay, Pi Pay and Chip Mong Pay wired in as four separate integrations, covering institutions that all sit behind one national rail.
 3. Your November 2024 Stripe case study named Apple Pay and PromptPay as next; Apple Pay shipped, PromptPay still is not in the app, and you have had a Bangkok entity and ThaID live the whole time.
@@ -736,7 +802,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Suggested manual action:** Walk the rider app checkout on a Cambodian and a Vietnamese SIM behind a proxy and watch the network calls for non-Stripe payment hosts. Alternatively ask directly — it is a benign question. Secondary route: decompile the Android APK (`io.mvlchain.tada`) and grep the native bundle; the web bundle is clean but the app binary was never inspected.
 
 > **Area:** **The KHQR participation claim for ABA / Wing / Chip Mong needs a fetchable source**
-> **Why it matters:** Insight #2 and the whole Cambodia framing depend on it. `ababank.com` returned **HTTP 403** on both relevant pages, so the claim currently rests on a search summary of ABA's own site. **If this goes into an email unsourced and TADA pushes back, the whole Cambodia argument collapses.**
+> **Why it matters:** Insight #3 and the whole Cambodia framing depend on it. `ababank.com` returned **HTTP 403** on both relevant pages, so the claim currently rests on a search summary of ABA's own site. **If this goes into an email unsourced and TADA pushes back, the whole Cambodia argument collapses.**
 > **Suggested manual action:** Get it from the **National Bank of Cambodia**'s Bakong member list, or a reachable ABA/Wing/Chip Mong page, before writing. Then also pull a 2025 or 2026 Bakong/KHQR statistic — the current figures are from 2023/H1-2024 and `apac-payments.md` warns explicitly against citing stale APAC data.
 
 > **Area:** **Registry filings and any listing**
@@ -744,7 +810,7 @@ Ride-hailing moves money **out** as well as in, and TADA's model makes the outbo
 > **Suggested manual action:** ACRA/BizFile for *MVL Foundation Pte. Ltd.*, *TADA Mobility (Singapore) Pte. Ltd.* and *TADA Technologies Pte. Ltd*; Thai DBD for *TADA Mobility (Thailand) Co., Ltd.*; NY Department of State for *Zero Commission LLC*. Separately, check Korea's **DART** and **KIND** directly for *easi6* and MVL — the group's Korean roots (founder Kay Woo, Korean-only `mvltaxi_driver_terms`, SV Investment and Shinhan Bank as investors) make a Korean filing plausible even though nothing surfaced.
 
 > **Area:** **Complaint coverage is thin and the clean record is under-tested**
-> **Why it matters:** "No payment complaints found" is doing real work in this report — it is why the Payment Issues row scores 0 and why Insight #1 is framed as a question rather than an accusation. But only English sources were searched, app-store review *bodies* were never mined, and Khmer/Vietnamese/Thai forums were not touched.
+> **Why it matters:** "No payment complaints found" is doing real work in this report — it is why the Payment Issues row scores 0 and why Insights #1 and #2 are both framed as questions rather than accusations. But only English sources were searched, app-store review *bodies* were never mined, and Khmer/Vietnamese/Thai forums were not touched.
 > **Suggested manual action:** Pull 1-star Play and App Store reviews filtered by the `km`, `vi` and `th` storefronts and search for decline/refund/charge terms. If a decline pattern exists in Cambodia or Vietnam, Insight #1 upgrades from a hypothesis to a documented pain point — and the Payment Issues row would legitimately earn +2.
 
 > **Area:** **The payment-methods asymmetry between the terms and the app**
