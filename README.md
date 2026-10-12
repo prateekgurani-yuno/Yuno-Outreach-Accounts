@@ -1,11 +1,11 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-11 22:04*
+*Last updated: 2026-10-12 00:08*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
 
-## 📋 To Outreach (72)
+## 📋 To Outreach (71)
 
 | Company | Industry | HQ | Priority | Added |
 |---------|----------|----|----------|-------|
@@ -58,7 +58,6 @@
 | [PhysicsWallah](1-to-outreach/physicswallah.md) | — | — | P1 | 2026-09-18 |
 | [QSR Brands](1-to-outreach/qsr-brands.md) | — | — | P1 | 2026-09-18 |
 | [Rakuten Kobo](1-to-outreach/rakuten-kobo.md) | — | — | P1 | 2026-09-18 |
-| [RedteaGO](1-to-outreach/redteago.md) | — | — | P1 | 2026-09-18 |
 | [Scaler](1-to-outreach/scaler.md) | — | — | P1 | 2026-09-18 |
 | [Sephora Singapore](1-to-outreach/sephora-singapore.md) | — | — | P1 | 2026-09-18 |
 | [Shiseido](1-to-outreach/shiseido.md) | — | — | P1 | 2026-09-18 |
@@ -82,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (69)
+## 🟢 Ready to Outreach (70)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -118,6 +117,7 @@
 | [Korean Air](2-ready-to-outreach/korean-air.md) | Airlines (long-haul passenger + major cargo) | 17/29 | In-house — direct-to-VAN, gatew… | 2026-09-19 |
 | [Kuaishou Technology (HKEX: 1024)](2-ready-to-outreach/kuaishou.md) | Short-video, live-streaming & live-commerce | 17/29 | In-house. Confirmed, not assume… | 2026-09-29 |
 | [Mandarin Oriental Hotel Group](2-ready-to-outreach/mandarin-oriental-hotel-group.md) | Ultra-luxury hotel management, branded residen | 17/29 | 🛠️ IN-HOUSE — Mandarin Oriental… | 2026-10-09 |
+| [RedteaGO](2-ready-to-outreach/redteago.md) | Telecommunications — consumer travel eSIM / pr | 17/29 | 🛑 IN-HOUSE — they built the mul… | 2026-10-11 |
 | [Ruangguru](2-ready-to-outreach/ruangguru.md) | E-Learning & EdTech — K-12 tutoring, exam prep | 17/29 | 🛑 IN-HOUSE — they built a multi… | 2026-10-06 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, c | 16/29 | Greenfield — none detected, on… | 2026-09-18 |
 | [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marke | 16/29 | ⚠️ COMPETITIVE — a global orche… | 2026-09-18 |

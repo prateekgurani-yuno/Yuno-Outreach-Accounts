@@ -14,6 +14,28 @@
 | 6 | 🇭🇰 **Hong Kong** (home) | 1.68% | ▲ 30.91% | 2.00% | **#31,529** | 03:04 | 4.69 | 25.32% |
 | 7 | 🇨🇦 Canada | 1.56% | ▲ 38.25% | 1.49% | #364,761 | 00:41 | 2.82 | 28.09% |
 
+## 🛑 UPDATE 2026-10-12 — THIS TABLE MEASURES A SITE THAT SELLS NOTHING
+
+**`redteago.com` is a WordPress marketing site. The shop is `esim.redteago.com`, and it is not in this dataset.** Verified first-hand:
+
+| | `redteago.com` (measured) | `esim.redteago.com` (the shop) |
+|---|---|---|
+| `wp-content` hits | **149** | — |
+| `stripe` · `checkout` · `cart` · `buy now` | **0 · 0 · 0 · 0** | stripe ✅ · paypal ✅ · checkout ✅ |
+| `supportCurrency` | 0 | ✅ present |
+
+🔑 **So every share in the table below describes brochure traffic, not buyers.** Same failure mode as the SpinX pull in the October batch. **Re-pull SimilarWeb on `esim.redteago.com`** — it is the single highest-value missing input on this account.
+
+### What this means for the 6-second China row
+
+The research run proposed a clean mechanical cause: a forced locale redirect. **It is real but it does not apply here.** `esim.redteago.com` does return **`302 → /zh-CN`** to a `zh-CN` browser while serving `200` to English. **But the measured property does not redirect at all** — I tested both: `redteago.com` returns **`200` to English and `200` to Chinese, with no `Location` header**.
+
+**The explanation that does survive is the app hand-off.** `redteago.com` carries an `apple-itunes-app` Smart App Banner plus App Store and Play links, and sells nothing. Land, tap into an app store, session over. **That produces ~1.5 pages and a 6-second visit exactly as observed.**
+
+⚠️ **Still not excluded:** crawler traffic, and a mainland block or interstitial — this session is not on a Chinese IP, so neither can be tested from here.
+
+---
+
 ## 🛑 The China row does not behave like the others. Read this before using it.
 
 **China is 74.32% of traffic on a 6-second visit, 1.53 pages and an 81.59% bounce rate.**
