@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-12 09:33*
+*Last updated: 2026-10-12 13:18*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (71)
+## 🟢 Ready to Outreach (72)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -123,6 +123,7 @@
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, c | 16/29 | Greenfield — none detected, on… | 2026-09-18 |
 | [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marke | 16/29 | ⚠️ COMPETITIVE — a global orche… | 2026-09-18 |
 | [Flexiroam](2-ready-to-outreach/flexiroam.md) | Telecommunications — travel eSIM / MVNO, brand | 16/29 | 🛑 IN-HOUSE — they hand-rolled t… | 2026-10-06 |
+| [InstaAstro](2-ready-to-outreach/instaastro.md) | Online astrology & spiritual-wellness consulta | 16/29 | Greenfield — single gateway, Ra… | 2026-10-12 |
 | [Jollibee Foods Corporation](2-ready-to-outreach/jollibee-foods-corp.md) | QSR / Food & Beverage — multi-brand restaurant | 16/29 | 🟡 GREENFIELD on orchestration… | 2026-10-06 |
 | [Rosewood Hotel Group](2-ready-to-outreach/rosewood-hotel-group.md) | Hospitality & Lodging (ultra-luxury hotels, re | 16/29 | Greenfield — but a qualified gr… | 2026-10-09 |
 | [Shaadi.com](2-ready-to-outreach/shaadi-com.md) | Matrimonial matchmaking — prepaid membership s | 16/29 | ⚠️ DISPLACEMENT — Juspay confir… | 2026-09-21 |
