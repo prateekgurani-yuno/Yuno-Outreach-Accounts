@@ -50,7 +50,22 @@ by card or direct debit in two markets is a very different (and smaller) orchest
 conversation than a consumer marketplace. Also check for any **consumer-side** payment
 (mortgage, booking fees, FinTech/home-loan products) which would change the picture.
 
-**6. ⚠️ 4 unnamed additional domains** — almost certainly `propertyguru.com.my`,
-`propertyguru.com.sg` plus Thai/Indonesian properties (DDproperty, Rumah123 and Batdongsan are
-group brands). **Resolve them, check redirects, and note that group brands may be separate
-properties with separate payment stacks.**
+**6. ⚠️ 4 unnamed additional domains — ⛔ MY ORIGINAL NOTE HERE WAS WRONG. CORRECTED 2026-10-13.**
+
+~~Originally I wrote that the "+4" were "almost certainly ... Thai/Indonesian properties
+(DDproperty, Rumah123 and Batdongsan are group brands)". **Two errors in one sentence.**~~
+
+- ⛔ **Rumah123 is NOT a PropertyGuru brand.** I verified this myself: `rumah123.com` returns a
+  live 470,356-byte site with **zero** `propertyguru` references against a working control of
+  784 `rumah` hits. PropertyGuru's Indonesian portal was **Rumah.com**, which **ceased operating
+  on 30 November 2023**; `rumah.com` is now a ~5,756-byte parked page.
+  **Consequence: Indonesia ↓43.58% is a DECOMMISSIONED BUSINESS, not a declining market.**
+  Do not read it as demand weakness.
+- ⛔ **DDproperty and Batdongsan are genuine group brands but are almost certainly NOT in this
+  dataset.** Vietnam does not appear in the top 11 at all and Thailand sits at 0.30% — if
+  Batdongsan (Vietnam's largest property portal) and DDproperty (Thailand's) were aggregated in,
+  both would be top-5. So the "+4" is the `propertyguru.com.*` family only.
+- ✅ **What this data actually covers:** the **PropertyGuru-branded Singapore + Malaysia business
+  only**, which is roughly **75.8% of group revenue**. Thailand, Vietnam and iProperty sit on
+  separate brands and plausibly separate payment stacks. **Do not generalise a stack finding from
+  this table to the group.**
