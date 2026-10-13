@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-13 14:03*
+*Last updated: 2026-10-13 21:22*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (74)
+## 🟢 Ready to Outreach (77)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -92,12 +92,14 @@
 | [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshi | 23/29 | In-house orchestration — they b… | 2026-09-20 |
 | [Kling AI](2-ready-to-outreach/kling-ai.md) | AI video generation — consumer subscription +  | 23/29 | Greenfield. Single-PSP Stripe o… | 2026-09-29 |
 | [Manus AI](2-ready-to-outreach/manus-ai.md) | AI agents — consumer/prosumer subscription + c | 23/29 | Greenfield — single card PSP (S… | 2026-10-13 |
+| [Wego](2-ready-to-outreach/wego.md) | Travel metasearch + own OTA (flights, hotels,  | 23/29 | ⚠️ DISPLACEMENT / EXPANSION — a… | 2026-10-13 |
 | [z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)](2-ready-to-outreach/z-ai.md) | AI / LLM model-as-a-service — prepaid API cred | 23/29 | 🛑 BLOCKED (compliance hold) · I… | 2026-09-24 |
 | [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activit | 22/29 | ⚠️ DISPLACEMENT — Juspay is con… | 2026-09-19 |
 | [Moonshot AI (月之暗面) / Kimi](2-ready-to-outreach/moonshot-ai.md) | Frontier LLM — consumer subscription + develop | 22/29 | In-house. Not inferred — I deco… | 2026-09-30 |
 | [Peach Aviation](2-ready-to-outreach/peach-aviation.md) | Low-cost carrier (direct-to-consumer, 95% of s | 22/29 | Greenfield — no orchestration l… | 2026-09-19 |
 | [SEA Gamer Mall (SEAGM)](2-ready-to-outreach/sea-gamer-mall.md) | Digital-goods marketplace — game top-ups, gift | 22/29 | Greenfield. Seven named PSPs, 3… | 2026-09-20 |
 | [Com2uS Corp](2-ready-to-outreach/com2us.md) | Mobile game publisher — Summoners War, Com2uS  | 21/29 | ⚠️ DISPLACEMENT — a regional or… | 2026-09-20 |
+| [Lovart](2-ready-to-outreach/lovart.md) | AI design agent — consumer/prosumer subscripti | 21/29 | In-house orchestration layer… | 2026-10-13 |
 | [Peatix](2-ready-to-outreach/peatix.md) | Event ticketing & registration platform (marke | 21/29 | Greenfield — no orchestration l… | 2026-09-19 |
 | [FWD](2-ready-to-outreach/fwd.md) | Insurance — life & health (pan-Asian) | 20/29 | Greenfield | 2026-10-09 |
 | [Little Hotelier](2-ready-to-outreach/little-hotelier.md) | Hospitality SaaS (channel manager, booking eng | 20/29 | Greenfield — SiteMinder Pay is… | 2026-09-17 |
@@ -121,6 +123,7 @@
 | [Mandarin Oriental Hotel Group](2-ready-to-outreach/mandarin-oriental-hotel-group.md) | Ultra-luxury hotel management, branded residen | 17/29 | 🛠️ IN-HOUSE — Mandarin Oriental… | 2026-10-09 |
 | [RedteaGO](2-ready-to-outreach/redteago.md) | Telecommunications — consumer travel eSIM / pr | 17/29 | 🛑 IN-HOUSE — they built the mul… | 2026-10-11 |
 | [Ruangguru](2-ready-to-outreach/ruangguru.md) | E-Learning & EdTech — K-12 tutoring, exam prep | 17/29 | 🛑 IN-HOUSE — they built a multi… | 2026-10-06 |
+| [Syfe](2-ready-to-outreach/syfe.md) | Digital wealth management / brokerage / cash m | 17/29 | Greenfield — no orchestrator an… | 2026-10-13 |
 | [eplus (イープラス)](2-ready-to-outreach/eplus-japan.md) | Event ticketing (live music, theatre, sport, c | 16/29 | Greenfield — none detected, on… | 2026-09-18 |
 | [Fever](2-ready-to-outreach/fever.md) | Live-entertainment discovery & ticketing marke | 16/29 | ⚠️ COMPETITIVE — a global orche… | 2026-09-18 |
 | [Flexiroam](2-ready-to-outreach/flexiroam.md) | Telecommunications — travel eSIM / MVNO, brand | 16/29 | 🛑 IN-HOUSE — they hand-rolled t… | 2026-10-06 |
@@ -177,6 +180,6 @@
 | [Envato](3-outreached/envato.md) | Digital-goods marketplace + creative subscript | 20/29 | 2026-09-21 |
 | [Air New Zealand](3-outreached/air-new-zealand.md) | Airlines | —/29 | 2026-09-15 |
 
-## 🔴 Not ICP (14)
+## 🔴 Not ICP (16)
 
 See [not-icp/](not-icp/) for rejection rationale.
