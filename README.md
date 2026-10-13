@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-13 09:36*
+*Last updated: 2026-10-13 14:03*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (73)
+## 🟢 Ready to Outreach (74)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -143,6 +143,7 @@
 | [Sociolla](2-ready-to-outreach/sociolla.md) | Beauty retail, omnichannel (e-commerce + 150 p | 13/29 | In-house layer — a dedicated fi… | 2026-09-18 |
 | [Stylevana](2-ready-to-outreach/stylevana.md) | Cross-border e-commerce (Korean & Japanese bea | 13/29 | Greenfield — three payment inte… | 2026-09-18 |
 | [Moshtix](2-ready-to-outreach/moshtix.md) | Live-music and festival ticketing (agent-of-pr | 12/29 | In-house — Moshtix has built it… | 2026-09-19 |
+| [StashAway](2-ready-to-outreach/stashaway.md) | Digital wealth management / robo-advisory (Inv | 12/29 | In-house — per-market bank-rail… | 2026-10-13 |
 | [Cebu Pacific](2-ready-to-outreach/cebu-pacific.md) | Airlines (low-cost carrier) | 11/29 | Competitive — CellPoint Digital… | 2026-09-18 |
 | [LivU (莱熙)](2-ready-to-outreach/livu.md) | Live random video chat / social discovery (con | 11/29 | In-house orchestration — a self… | 2026-09-17 |
 | [TRAC (Astra)](2-ready-to-outreach/trac.md) | Vehicle rental & mobility — corporate fleet le | 11/29 | ✅ GREENFIELD — a single PSP (Xe… | 2026-10-06 |
