@@ -41,13 +41,34 @@ volume. Do NOT derive a transaction count from them.**
 **Korea at 00:00:08 / 1.30 pages** and **Australia at 00:00:18 / 1.55** are too thin to treat as
 real markets despite their growth percentages.
 
-**4. The only markets with credible depth are Singapore, Hong Kong and the US.** HK is ↓25.88%
-and Malaysia ↓45.34% — both notable declines in markets Syfe actually operates in.
+**4. ⛔ MY ORIGINAL NOTE 4 WAS WRONG ON TWO COUNTS. CORRECTED 2026-10-13, both verified by me.**
 
-**5. Single domain.** Unlike StashAway's five-ccTLD structure (`.sg`/`.my`/`.hk`/`.ae`/`.co.th`),
-Syfe shows **one domain, `syfe.com`**. That is a genuine structural difference between two
-otherwise-identical competitors and is worth a line in the report: it may imply a single entity
-fronting multiple markets, or simply a different web strategy. **Verify; do not infer.**
+~~Originally: "The only markets with credible depth are Singapore, Hong Kong and the US. HK is
+↓25.88% and Malaysia ↓45.34% — both notable declines in markets Syfe actually operates in."~~
+
+- ⛔ **Malaysia is NOT a Syfe market at all.** `www.syfe.com/my` and `/en-my` each return exactly
+  **132,265 bytes — byte-identical to my nonsense-path control** (`/zzz-not-real-7781`). They are
+  soft-404s. Syfe's own About page lists **Singapore | Hong Kong | Australia**. So the
+  **↓45.34% is content traffic, not a business signal**, and must not be read as a market in
+  decline. *(Note `/sg` is also a soft-404 at the same byte count — Singapore content sits at the
+  root — so path probing cannot establish markets on this site.)*
+- ⛔ **Australia's 2.79% / 00:00:18 / 1.55 pages is a MEASUREMENT ARTEFACT, not a thin market.**
+  **`www.syfe.com/au` 301s to `https://www.selfwealth.com.au/`** (834,492 b), a **separate
+  registrable domain that is absent from this single-domain dataset**. Selfwealth is Syfe's
+  **second-largest client base (130,000+ AU investors, acquired May 2025)** and — critically —
+  **the only part of the group with a live card flow**. The supplied table therefore
+  **systematically understates Australia** and cannot see the commercially most relevant surface.
+
+**The corrected read:** the markets with credible depth are **Singapore, Hong Kong, Australia
+(via selfwealth.com.au, invisible here) and the US.**
+
+**5. Single domain — hypothesis DISCONFIRMED (2026-10-13).** `syfe.com` is indeed one domain with
+locale sub-paths, but **three entities and three regulators sit behind it**: SYFE PTE. LTD. (MAS
+CMS100837), Syfe Hong Kong Limited (SFC CE BRQ741) and Syfe Australia Pty Ltd (CAR of Sanlam,
+AFSL 337927). **Structurally this is the same per-market arrangement as StashAway's five ccTLDs,
+just presented differently** — so the "single domain implies a single entity" reading was wrong.
+And it is not even strictly single-domain: `selfwealth.com.au` is a second registrable domain
+outside this dataset (see note 4).
 
 **6. Billing unit, same as StashAway:** one **client deposit/top-up = one transaction**. The
 management fee is deducted from assets, not collected over a rail. Confirm whether Syfe runs
