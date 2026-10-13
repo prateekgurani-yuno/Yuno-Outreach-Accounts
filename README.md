@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-12 13:18*
+*Last updated: 2026-10-13 09:36*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (72)
+## 🟢 Ready to Outreach (73)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -91,6 +91,7 @@
 | [ZUS Coffee](2-ready-to-outreach/zus-coffee.md) | Food & Beverage — app-first coffee chain | 24/29 | ✅ GREENFIELD — single-gateway d… | 2026-10-06 |
 | [HoYoverse (miHoYo)](2-ready-to-outreach/hoyoverse-mihoyo.md) | Free-to-play game developer/publisher — Genshi | 23/29 | In-house orchestration — they b… | 2026-09-20 |
 | [Kling AI](2-ready-to-outreach/kling-ai.md) | AI video generation — consumer subscription +  | 23/29 | Greenfield. Single-PSP Stripe o… | 2026-09-29 |
+| [Manus AI](2-ready-to-outreach/manus-ai.md) | AI agents — consumer/prosumer subscription + c | 23/29 | Greenfield — single card PSP (S… | 2026-10-13 |
 | [z.ai (Zhipu AI / Z.AI Co., Ltd., HKEX: 2513)](2-ready-to-outreach/z-ai.md) | AI / LLM model-as-a-service — prepaid API cred | 23/29 | 🛑 BLOCKED (compliance hold) · I… | 2026-09-24 |
 | [KKday](2-ready-to-outreach/kkday.md) | Travel-experiences marketplace (tours, activit | 22/29 | ⚠️ DISPLACEMENT — Juspay is con… | 2026-09-19 |
 | [Moonshot AI (月之暗面) / Kimi](2-ready-to-outreach/moonshot-ai.md) | Frontier LLM — consumer subscription + develop | 22/29 | In-house. Not inferred — I deco… | 2026-09-30 |
