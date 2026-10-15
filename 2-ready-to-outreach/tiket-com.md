@@ -1,7 +1,7 @@
 # tiket.com
 
 **Status:** 🟡 Research complete — outreach not yet generated
-**ICP Score:** 19 / 29 → ⭐ **High Priority**
+**ICP Score:** 21 / 29 → ⭐ **High Priority**
 **Industry:** Online travel agency — flights, hotels, trains, attractions, events · **HQ:** **Jakarta, Indonesia** — `PT Global Tiket Network`, 99.99%-owned by **PT Global Digital Niaga Tbk (Blibli, IDX: BELI)** · **Researched:** 2026-10-15 · **First email sent:** —
 **Motion:** ⚠️ **DISPLACEMENT** — **Juspay is confirmed, current, and named in a Juspay case study quoting a tiket.com Senior Product Manager.** Read the two boxes below before writing a line.
 
@@ -119,7 +119,7 @@ which rests on absence. No evidence of Spreedly, Primer, Gr4vy, CellPoint, APEXX
 <details>
 <summary><h2>📚 Section 3 — Full Research</h2></summary>
 
-### ICP Score breakdown — 19 / 29
+### ICP Score breakdown — 21 / 29
 
 | Signal | Points | Status |
 |--------|--------|--------|
@@ -129,7 +129,7 @@ which rests on absence. No evidence of Spreedly, Primer, Gr4vy, CellPoint, APEXX
 | Multiple PSPs | **3** | ✅ **Midtrans** (domestic) + **Stripe APAC** (cross-border) + **Juspay** (orchestration) — three, independently sourced |
 | Local rail or licensing gap in a top-3 market | **0** | ⬜ **Rails are well covered and I will not manufacture a gap.** Indonesia has QRIS, GoPay, BCA VA and Indomaret OTC confirmed; SG/MY are served by Juspay. The unnamed wallets may be reached via QRIS interoperability — unresolvable without the checkout. |
 | Recent expansion | **2** | ✅ **Japan entity Nov 2025** (JETRO, government source) + a stated 10+ country roadmap on Juspay's own page |
-| Payment issues | **0** | ⬜ **NOT RESEARCHED** — the complaints agent had not returned at write time. A gap, **not** a finding of "no complaints". |
+| Payment issues | **2** | ✅ **HIGH frequency, thick and current.** I parsed the Apple review corpus myself: **245 reviews, 186×1★, and 111 (45%) payment/refund-relevant, 97 of those 1★** — against an 881-byte nonsense-ID control. Trustpilot **1.2 TrustScore, 90% 1★**. See Section 5. |
 | Funding >$10M | **0** | ❌ No round. tiket.com reportedly raised ~USD 1M from angels and nothing since 2017; the parent is listed, not raising. |
 | High traffic outside home | **0** | ❌ **Indonesia 86.8%**, far above the 60% threshold |
 | Competitor using orchestration | **2** | ✅ **Agoda is on Juspay** — verified by me (`juspay.io/customer-stories/agoda`, 25,891 B vs 20,113 B control, `Agoda` 35/0). **Wego** is a confirmed regional-orchestrator displacement in our own repo at 23/29. |
@@ -139,7 +139,7 @@ which rests on absence. No evidence of Spreedly, Primer, Gr4vy, CellPoint, APEXX
 orchestration status, multi-country and multi-PSP each rest on separate, independently sourced evidence, and I scored
 **0** on three rows where the evidence did not support a point.
 
-**Note: the score would rise, not fall, with the missing agent.** Payment issues (2) is unassessed, so **19 is a floor.**
+**Updated after the complaints agent returned:** payment issues moved 0 → 2, taking the score from 19 to **21**.
 
 ### Monthly transaction count — MANDATORY DISCLOSURE
 
@@ -185,7 +185,10 @@ completed bookings, not payment attempts. Actual payment *attempts* will be high
 - ⚠️ **Stripe multi-currency is a 2023 claim** — 2026 status unverified
 - ⚠️ **Malaysia entity unverified** — source 403s
 - ⚠️ **Traffic is third-party estimate**, web-only, app excluded
+- ✅ **Complaint corpus parsed by me** — 245 Apple reviews across 5 pages against an 881-byte control
 - ⚠️ **Checkout never walked** — tiket.com 403s on every path
+- ⚠️ **Job postings unverified** — the fetch returned a JS shell with unrelated jobs
+- ⚠️ **Xendit, POJK 32/2025, the BCA Rp 3tn figure and the Day6/Kemendag episode are all summary-only**
 
 ### Success Case Alternatives
 - **An OTA running split domestic/cross-border stacks** — exact profile match.
@@ -258,6 +261,7 @@ Building, Jl. Budi Kemuliaan I No.1, Gambir, Jakarta Pusat, DKI Jakarta 10110.*
 | **International, 16 currencies** | **Stripe (Asia-Pacific)** — "Tiket Multi-Currency" | `[Press Release]` **fetched**, 24 May 2023 ⚠️ 2026 status unverified | ttgasia.com |
 | **Indonesia** | **BCA** — tiket.com co-brand Mastercard (**issuing**) + Virtual Account (**acceptance**) | `[Provider page]` fetched | bca.co.id |
 | **Indonesia** | **Indodana** — white-label lender behind "Blibli Tiket PayLater" | `[Press]` `[UNVERIFIED]` | multiple outlets |
+| **Indonesia** | ⚠️ **Xendit** — possible 3rd gateway. tiket.com listed among Xendit's clients (2019); a Xendit case-study URL for tiket exists but returns **Cloudflare challenge / 403** on both curl and WebFetch | `[Third-Party Report]` `[UNVERIFIED]` | bisnis.com 2019; xendit.co case study unreadable |
 
 **Explicitly NOT found, searched:** Adyen, Checkout.com, Worldpay, Braintree, Cybersource, Xendit, Doku, Faspay, iPay88,
 Espay, Finpay, Winpay. **No named acquiring bank beyond BCA** — who acquires tiket.com's card volume is **unestablished**.
@@ -314,9 +318,57 @@ led with.**
 
 ## Section 5: Payment Issues & Customer Complaints
 
-**NOT RESEARCHED at write time** — the complaints agent had not returned. **This is an explicit gap, not a finding of
-"no complaints found."** For a high-volume consumer OTA, refund-delay and failed-payment complaints would be the
-expected categories and the app stores and **mediakonsumen.com** are the places to look.
+**Evidence is THICK and CURRENT across three independent corpora.** I verified the largest one personally.
+
+**My own parse of the Apple App Store (ID) review feed** — 5 pages at ~40 KB each, against an **881-byte nonsense-ID
+control**, so the corpus is real:
+
+| Metric | Value |
+|---|---|
+| Reviews parsed | **245** |
+| Rating split | **186×1★** · 7×2★ · 5×3★ · 3×4★ · 44×5★ |
+| Payment/refund-relevant | **111 (45%)** |
+| …of which 1★ | **97** |
+
+⚠️ **The context that makes this a finding rather than noise:** the app's **lifetime average is 4.79 across 137,046
+ratings**. The recent cohort is dramatically worse than the lifetime score — **that divergence is itself the signal.**
+
+**Trustpilot:** 125 reviews, **TrustScore 1.2, 90% 1★**, May 2025 → Sep 2026 — low absolute volume (international users
+only) but overwhelmingly payment- and refund-themed. **mediakonsumen.com** (the main Indonesian consumer-complaint
+platform): **50 unique dated items, Jul 2022 → Jul 2026**, roughly half carrying an official *"Tanggapan"* response —
+**tiket.com actively monitors and replies there**, which is itself useful for outreach timing.
+
+| Issue type | Platform | Frequency | Date range |
+|---|---|---|---|
+| **Refund delay (>30 days / indefinite)** | Apple | **HIGH — dominant category** | 2026-04 → 2026-10 |
+| **Paid and debited, order failed, money not returned** | Apple | Moderate, recurring | Jul–Sep 2026 |
+| **Payment succeeded, ticket never issued** | Apple + Trustpilot | Moderate | Dec 2025 → Sep 2026 |
+| **Refund forced to BlibliPay wallet, not the original card — admin fee to withdraw** | Apple + Trustpilot | Moderate | Jun 2025 → May 2026 |
+| **Undisclosed refund/admin fee ~IDR 300,000** | Trustpilot | Moderate | May 2025 → Sep 2026 |
+| **Payment step fails under peak load** (BTS concert on-sale) | Apple + mediakonsumen | **HIGH during the Jun 2026 spike** | 2026-06-11 → 06-19 |
+| **Paid via VA, wrong event ticket issued** | Apple + mediakonsumen | Corroborated across 2 platforms | Jun 2026 |
+| **Card limit deducted on a FAILED payment — auth not voided** | Apple | Isolated, high-signal | 2026-05-14 |
+| **VA paid, status stuck, order expired, funds hanging** | Google Play | Isolated, highly orchestration-relevant | Oct 2026 |
+| **FX / cross-border surprise charge** | Trustpilot | Isolated | Aug–Dec 2025 |
+| **Payment-method sync bug with `blu` (BCA Digital)** | Apple | Isolated, names a provider | 2026-06-27 |
+
+> **Pattern 1 — the dominant driver is dated and external.** A mass refund backlog from the **Anak Krakatau eruption**
+> flight cancellations: claims filed in early Sept 2026 still unresolved into mid-Oct 2026, against a promised *"30 hari
+> kerja"* window. **Performance is inconsistent rather than uniformly bad** — one 5★ review reports resolution two days
+> inside the deadline. ⚠️ **This is a natural-disaster backlog, so do not frame it as incompetence.** It is evidence of
+> how the refund path behaves under load, nothing more.
+
+> **Pattern 2 — the orchestration-relevant one.** *"Paid and debited, order failed, money not returned"*, *"card limit
+> deducted on a failed payment"* and *"VA paid, status stuck, order expired"* are all **the same underlying failure: the
+> money moves but the order does not, and the authorisation is not cleanly voided.** That is a settlement and
+> reconciliation problem, and it sits squarely in what an orchestration layer is supposed to prevent.
+
+> **Pattern 3 — refunds land in the wallet, not on the card.** Multiple complaints that refunds are pushed to
+> **BlibliPay balance** with an **admin fee to withdraw**. This is not merely a CX gripe — see the regulatory exposure
+> in Section 6, where a consumer body argued refunds should return to the original card.
+
+**Trap handling:** every `dana` hit was read in context and **all were Indonesian for "funds"** (*"dana tidak kembali"*,
+*"pengembalian dana"*). **No evidence the DANA wallet is a tiket.com method.** No `visa` hit was relied on.
 
 ## Section 6: Corporate & Payment Strategy Developments
 
@@ -326,10 +378,27 @@ expected categories and the app stores and **mediakonsumen.com** are the places 
 | 2 | **7 Mar 2025** | **Midtrans strategic partnership** for Indonesian domestic rails | Payment Infrastructure | **infobanknews (fetched)** |
 | 3 | **FY25 / 1H26** | **3P Retail TPV −2% then −4%** while group TPV +8%/+12%; growth attributed to *"monetization expansion of ancillary revenues in the Company's OTA business"* | Filing | **FY25 + 1H26 releases (fetched)** |
 | 4 | undated | **tiket.com *"plans to enter up to 10 new countries"*** | Market Expansion | **Juspay (fetched)** |
-| 5 | **24 May 2023** | **Stripe APAC multi-currency, 16 currencies** | Payment Infrastructure | **ttgasia (fetched)** |
+| 5 | **12 Sep 2026** | **BCA launches "Kartu Kredit BCA Blibli Tiket Mastercard"**, consolidating the two prior co-brands. **~360,000 cards issued across the ecosystem, annual transaction value approaching Rp 3 trillion.** Quoted: BCA Director Santoso; **Kusumo Martanto, CEO & Co-Founder, PT Global Digital Niaga Tbk** | Payment Infrastructure | kontan / investortrust / bisnis `[UNVERIFIED — summary only]` |
+| 6 | **24 May 2023** | **Stripe APAC multi-currency, 16 currencies** | Payment Infrastructure | **ttgasia (fetched)** |
+| 7 | **2025** | ⚠️ **Regulatory exposure on refund mechanics.** After the **Day6 concert** cancellation, Indonesia's **Ministry of Trade (Kemendag)** oversaw refunds and summoned PT Global Tiket Network. Refunds were offered as **cash, BlibliPay balance, Tiket Point or gift voucher** — and the consumer body **BPKN argued they should return to the original card**, not vouchers or points | Regulatory | tirto / fortuneidn `[UNVERIFIED — summary only]` |
 
 **No public payment RFP found.** **No funding round** — tiket.com reportedly raised ~USD 1M from angels and nothing
 since the 2017 acquisition `[UNVERIFIED]`.
+
+**A dedicated payment org exists, and its shape is informative.** Job listings describe a **"PROP" area — Payment,
+Refund, Order, Promo** — sitting on a **Post-Purchase Journey** team, with backend roles in Java and Go and a dedicated
+**Product Manager (Payment)**. ⚠️ **All `[UNVERIFIED — search summary only]`**: a fetch of the first posting returned a
+JavaScript shell serving unrelated jobs, so **titles and stacks must not be quoted to a prospect.** That *Refund* sits
+inside the payment org alongside *Payment* is the detail worth noting, given Section 5.
+
+⚠️ **No Bank Indonesia PJP licence or e-money permit found** for PT Global Tiket Network or PT Global Digital Niaga,
+searched from both the company and regulator sides. **BlibliPay behaves as a stored-balance wallet in practice** —
+refunds land in it and withdrawal incurs an admin fee — but **no licence record was found.** Reported as
+*No public information found*, not as a negative.
+
+⚠️ **A possible forced-restructure trigger, unverified: POJK 32/2025**, effective 15 Dec 2025, reportedly restricts BNPL
+provision to commercial banks and financing companies. If accurate, it could force a restructure of Blibli Tiket
+PayLater. **This needs a primary OJK source before it is used — I am not asserting it.**
 
 ## Section 7: Payment-Specific News
 
@@ -394,7 +463,21 @@ domicile or data residency was obtained. **Treat it as an open question, not a k
 > **Yuno value:** coverage depth per market is exactly where an incumbent built for three countries gets tested.
 > **Subject:** `Ten countries, three on the layer`
 
-> ### Insight #4 — A 2023 Stripe integration is carrying the entire 16-currency book.
+> ### Insight #4 — Money moves, the order doesn't, and the refund lands in a wallet.
+> **Evidence:** S5 (my own parse: **111 of 245 recent Apple reviews payment/refund-relevant, 97 of them 1★**, against a
+> lifetime 4.79 across 137,046 ratings; recurring *"paid and debited, order failed"*, *"card limit deducted on a failed
+> payment"*, *"VA paid, status stuck, order expired"*) + S6 (**Kemendag oversaw Day6 refunds** and **BPKN argued refunds
+> should return to the original card**, not BlibliPay balance or points) + S3A (**Refund sits inside the "PROP" payment
+> org**).
+> **Pain:** these are one failure, not three — the debit succeeds, the order doesn't complete, and the authorisation is
+> not cleanly voided. Pushing the remedy into a wallet balance then turns a payments problem into a **regulatory** one.
+> **Yuno value:** clean auth/void/refund handling to the original instrument, and reconciliation that catches the
+> orphaned debit before the customer does.
+> ⚠️ **Handle with care in outreach.** The volume spike is driven by an **Anak Krakatau eruption** cancellation backlog —
+> frame it as behaviour under load, never as incompetence.
+> **Subject:** `Debited, no booking`
+
+> ### Insight #5 — A 2023 Stripe integration is carrying the entire 16-currency book.
 > **Evidence:** S3A (Stripe APAC multi-currency, May 2023, 16 currencies set in profile) + S1 (US 1.17% with **no entity
 > and no local rails**) + S4 (no KRW, INR or TWD in the currency list).
 > **Pain:** one foreign PSP carrying all non-IDR flow is a single point of failure on the highest-value bookings, and
@@ -408,7 +491,8 @@ domicile or data residency was obtained. **Treat it as an open question, not a k
 **Email hooks:**
 1. Your orchestration layer covers Singapore, Malaysia and Thailand — about 3% of your web traffic. Indonesia is 87%.
 2. Your own filings show 3P Retail TPV down 2% in FY25 and 4% in 1H26 while group revenue rose 34% and 55%.
-3. Juspay's page says you plan to enter up to ten new countries; you have confirmed entities in two.
+3. Your app's lifetime rating is 4.79 across 137,000 ratings, and 186 of the 245 most recent reviews are one star — 45% of them about payments or refunds.
+4. Juspay's page says you plan to enter up to ten new countries; you have confirmed entities in two.
 
 **Cold call openers:**
 1. "You've got routing live across SG, MY and TH — what's handling Indonesia, which is 87% of your traffic?"
@@ -472,7 +556,8 @@ is a 1,000× error.
 - **MEDIUM — the method list.** Assembled from third-party press and vendor pages because the checkout is 403.
 - **LOW — traffic.** Third-party estimate, web-only, app excluded, no supplied data. **This is the weakest input and it
   drives the market ranking.**
-- **ABSENT — complaints.** The agent had not returned at write time.
+- **HIGH — complaints.** Three independent corpora, all dated and consistent; I parsed the largest myself against a
+  control. This is among the best-evidenced complaint sections in the repo.
 
 **Traffic data was NOT supplied and NOT API-sourced — it is a third-party estimate**, which is why the country profile
 and anything derived from it carry an explicit estimate tag.
@@ -496,7 +581,16 @@ and anything derived from it carry an explicit estimate tag.
 > may disclose merchant-of-record arrangements. **Action:** `asset-about.blibli.com` is **not** WAF-blocked even though
 > `www.blibli.com` is — the annual report PDF is very likely there under an unguessed path.
 
-> **Area: Complaints.** **Why:** an unassessed +2 row. **Action:** app-store reviews and mediakonsumen.com, searching
-> Indonesian terms. ⚠️ *"dana tidak kembali"* means "funds not returned" — **not** the DANA wallet.
+> **Area: The date of the Juspay contract.** **Why:** the case study is **undated**, so we cannot tell whether this is a
+> fresh build or an incumbent approaching renewal — which changes the entire timing of the approach. **Action:** check
+> Juspay's newsroom and an archive snapshot of the page.
+
+> **Area: The Xendit case study.** **Why:** it would confirm or kill a possible third gateway, and reportedly carries a
+> *"17× transaction surge"* figure that would be a strong hook. **Action:** it 403s on curl and WebFetch — try
+> archive.org. ⚠️ **Do not use the 17× figure until it is read.**
+
+> **Area: POJK 32/2025 and the BI licensed-PJP register.** **Why:** if the BNPL restriction is real it could force a
+> restructure of Blibli Tiket PayLater — a genuine buying trigger. **Action:** primary OJK text and `bi.go.id`'s
+> *Daftar PJP Berizin*. **Do not assert either until sourced.**
 
 </details>
