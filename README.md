@@ -1,6 +1,6 @@
 # APAC Outreach Pipeline
 
-*Last updated: 2026-10-13 21:22*
+*Last updated: 2026-10-22 03:55*
 
 > Internal target-account data. This repository must remain **private**.
 > Setup and usage: [SETUP.md](SETUP.md)
@@ -81,7 +81,7 @@
 | [Flight Centre Travel Group](1-to-outreach/flight-centre.md) | — | — | P2 | 2026-10-01 |
 | [VGW (Virtual Gaming Worlds)](1-to-outreach/vgw.md) | — | — | P2 | 2026-10-01 |
 
-## 🟢 Ready to Outreach (77)
+## 🟢 Ready to Outreach (78)
 
 *Sequences drafted. Copy from each company file and send via Gong / Chief.*
 
@@ -139,6 +139,7 @@
 | [Virgin Australia](2-ready-to-outreach/virgin-australia.md) | Aviation — domestic and short-haul internation | 15/29 | ⬜ UNCERTAIN — deliberately not… | 2026-10-06 |
 | [China Airlines](2-ready-to-outreach/china-airlines.md) | Airlines (passenger + unusually cargo-heavy) | 14/29 | Greenfield — none detected. ⚠️… | 2026-09-18 |
 | [Langham Hospitality Group](2-ready-to-outreach/langham-hospitality-group.md) | Hospitality & Lodging (luxury hotel operator) | 14/29 | Greenfield — direct, per-proper… | 2026-10-09 |
+| [OSL Group (HKEX: 863)](2-ready-to-outreach/osl.md) | Stablecoin payments and digital-asset trading  | 14/29 | Undetermined. No orchestrator or… | 2026-10-22 |
 | [SpinX Games](2-ready-to-outreach/spinx-games.md) | Gaming — social casino (free-to-play slots, vi | 14/29 | In-house (hand-routed) — splitt… | 2026-10-09 |
 | [The Peninsula Hotels](2-ready-to-outreach/the-peninsula-hotels.md) | Luxury Hotels & Lodging | 14/29 | Greenfield (vendor-embedded — n… | 2026-10-09 |
 | [OneDegree](2-ready-to-outreach/onedegree.md) | Insurance — Hong Kong virtual (digital) genera | 13/29 | ✅ GREENFIELD — three payment pr… | 2026-10-09 |
